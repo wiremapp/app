@@ -1,6 +1,6 @@
 ## This rule redirects to an external API, signing requests with a secret
 [[redirects]]
-  from = "https://<netlify-subdomain>.netlify.app/*"
+  from = "https://wiremap.netlify.app/*"
   to = "https://wirem.app/:splat"
   status = 301
   force = true # COMMENT: ensure that we always redirect
