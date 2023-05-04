@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { handleAddCell, handleAddElement, handleAddSubElement } from "@/utils";
 
+
 interface Element {
   id: string;
   content: string;
@@ -64,7 +65,8 @@ function calculateBoxWidth(numChildren: number) {
   return `${width}px`;
 }
 
-export default function Page() {
+
+export const Page = ({ posts ,router}) => {
   const [arr, setArr] = useState<Cell[]>(initArr);
 
   return (
@@ -128,4 +130,6 @@ export default function Page() {
       ))}
     </div>
   );
-}
+};
+
+export default Page;

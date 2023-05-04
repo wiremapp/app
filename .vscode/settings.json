@@ -3,6 +3,7 @@
     "diffEditor.codeLens": true,
     "cSpell.diagnosticLevel": "Hint",
     "cSpell.words": [
+        "tailwindcss",
         "wiremap"
     ]
 }
