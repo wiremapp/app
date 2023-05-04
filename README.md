@@ -1,6 +1,51 @@
-# Getting Started with Create React App
+# Wiremap [![Netlify Status](https://api.netlify.com/api/v1/badges/28019c7f-f0ff-4902-8f9c-8a908ebacd22/deploy-status)](https://app.netlify.com/sites/wiremap/deploys)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Technologies
+
+- [Next.js](http://next.js/)
+- [Tailwinds](http://tailwinds.com/)
+- [TypeScript](http://typejs.org/)
+- [Markdown](http://markdown.org/)
+- [MongoDB](http://mongodb.org/)
+
+## Sitemap
+
+```mermaid
+    flowchart TD
+    A(Home)-->B(About)
+    A-->G(Content)
+    G-->Z(Categories)
+    Z-->K(Category)
+    K-->V(Product)
+    K-->R(Article)
+    K-->I(Image)
+    K-->O(Video)
+    K-->N(URL)
+    Q(Additional Pages)
+    Q-->S(Authentication)
+    Q-->Y(404)
+    Q-->U(Privacy Policy)
+```
+
+## Getting Started
+
+1. Install the dependencies:
+
+    ```bash
+    npm i
+    # or
+    yarn
+    ```
+
+2. Run the development server:
+
+    ```bash
+    npm run dev
+    # or
+    yarn dev
+    ```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## Available Scripts
 
@@ -31,13 +76,13 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn’t customize it when you are ready for it.
 
 ## Learn More
 
