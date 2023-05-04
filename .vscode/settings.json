@@ -1,5 +1,8 @@
 {
     "editor.tabCompletion": "on",
     "diffEditor.codeLens": true,
-    "cSpell.diagnosticLevel": "Hint"
+    "cSpell.diagnosticLevel": "Hint",
+    "cSpell.words": [
+        "wiremap"
+    ]
 }
