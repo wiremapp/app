@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { handleAddCell, handleAddElement, handleAddSubElement } from "@/utils";
 
-
 interface Element {
   id: string;
   content: string;
@@ -65,15 +64,13 @@ function calculateBoxWidth(numChildren: number) {
   return `${width}px`;
 }
 
-
-export const Page = ({ posts ,router}) => {
+export const Page = ({ router }) => {
   const [arr, setArr] = useState<Cell[]>(initArr);
-
   return (
     <div>
       <button
         onClick={() => handleAddCell(arr, setArr)}
-        className="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700"
+        className="rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
       >
         Add Cell
       </button>
@@ -87,7 +84,7 @@ export const Page = ({ posts ,router}) => {
             width: calculateBoxWidth(cell.elements?.length || 0),
           }}
         >
-          <div className="p-4 bg-gray-200 box">
+          <div className="box bg-gray-200 p-4">
             <h2>{cell.content}</h2>
             <button
               onClick={() =>
