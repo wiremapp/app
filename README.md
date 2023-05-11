@@ -4,6 +4,27 @@ Quickly and easily visualise your application sitemap structure with a comprehen
 
 ![Thumbnail](/public/images/thumb-min.png)
 
+## Features
+
+- ✅ | User Authentication
+- ⬜️ | Create Sitemap
+    1. ✅ | Add Cell
+    2. ⬜️ | Edit Cell
+    3. ⬜️ | Remove Cell
+    4. ✅ | Add Element
+    5. ⬜️ | Edit Element
+    6. ⬜️ | Remove Element
+    7. ✅ | Add Sub Element
+    8. ⬜️ | Edit Sub Element
+    9. ⬜️ | Remove Sub Element
+- ⬜️ | Edit Sitemap
+- ⬜️ | Remove Sitemap
+- ⬜️ | User Settings
+    1. - ⬜️ | Edit User Settings
+    2. - ⬜️ | Create Organisation
+    3. - ⬜️ | Edit Organisations
+    4. - ⬜️ | Remove Organisations
+
 ## Technologies
 
 - [Next.js](http://next.js/)
