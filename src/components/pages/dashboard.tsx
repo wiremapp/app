@@ -64,17 +64,16 @@ function calculateBoxWidth(numChildren: number) {
   return `${width}px`;
 }
 
-export const Page = ({ router }) => {
-  const [arr, setArr] = useState<Cell[]>(initArr);
+const Editor = ({state }) => {
   return (
     <div>
       <button
-        onClick={() => handleAddCell(arr, setArr)}
+        onClick={() => handleAddCell(state.arr, state.setArr)}
         className="rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
       >
         Add Cell
       </button>
-      {arr.map((cell) => (
+      {state.arr.map((cell) => (
         <div
           key={cell.id}
           style={{
@@ -89,9 +88,9 @@ export const Page = ({ router }) => {
             <button
               onClick={() =>
                 handleAddElement({
-                  arr,
+                  arr: state.arr,
                   cellId: cell.id,
-                  cb: setArr,
+                  cb: state.setArr,
                 })
               }
             >
@@ -103,10 +102,10 @@ export const Page = ({ router }) => {
                 <button
                   onClick={() =>
                     handleAddSubElement({
-                      arr,
+                      arr: state.arr,
                       cellId: cell.id,
                       elementId: element.id,
-                      cb: setArr,
+                      cb: state.setArr,
                     })
                   }
                 >
@@ -125,6 +124,27 @@ export const Page = ({ router }) => {
           </div>
         </div>
       ))}
+    </div>
+  );
+};
+
+export const Page = ({ router }) => {
+  const [arr, setArr] = useState<Cell[]>(initArr);
+  return (
+    <div className="flex h-screen items-center justify-center">
+      <div className="mx-auto my-auto h-auto w-full max-w-6xl flex-col items-center justify-center p-8">
+        Logo
+        <div
+          style={{
+            background:
+              "linear-gradient(180deg, rgba(3, 3, 3, 0.24) 0%, rgba(2, 2, 2, 0.24) 100%)",
+          }}
+          className="card"
+        >
+          <Editor state={{arr, setArr}} />
+        </div>
+        Foot
+      </div>
     </div>
   );
 };
