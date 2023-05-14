@@ -102,3 +102,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 ## Learn More
 
 You can learn more in the [React documentation](https://reactjs.org/).
+
+## License
+
+This repository is open source. However, please note that no license file is included. As a result, the use of this repository or any of its material for any purpose beyond personal or educational use is not authorised.
