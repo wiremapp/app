@@ -1,1 +1,18 @@
 export * from "@/components/pages";
+export { default as CookieConsentComponent } from "./cookieConsent";
+export { default as LayoutComponent } from "./layout";
+export { default as ButtonComponent } from "./button";
+export { default as FooterComponent } from "./footer";
+export { default as MobileMenuComponent } from "./mobileMenu";
+export { default as NavbarComponent } from "./navbar";
+export { default as LogoComponent } from "./logo";
+export { default as RightSidebarComponent } from "./sideBaR";
+export { default as LeftSidebarComponent } from "./sideBaL";
+
+
+
+
+
+
+
+
