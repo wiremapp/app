@@ -3,6 +3,14 @@ body {
     @apply min-h-[100vh] text-[#0D4380] dark:text-white;
 }
 
+.sub-body {
+    @apply flex min-h-screen flex-col;
+}
+
+.sub-body .content {
+    @apply flex-grow;
+}
+
 h1,
 h2,
 h3,
@@ -10,8 +18,16 @@ h4,
 h5,
 h6 {
     font-family: 'Montserrat', sans-serif;
+    @apply uppercase
 }
 
 .card {
     @apply p-8
 }
+
+.drg {
+    -webkit-app-region: drag;
+    pointer-events: none;
+}
+
+

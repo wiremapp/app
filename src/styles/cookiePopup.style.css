@@ -1,0 +1,3 @@
+.cookie-consent {
+    @apply transition-all fixed bottom-[16px] left-[16px] z-[99] flex-1 justify-start rounded-md bg-white bg-opacity-95 p-4 pt-6 text-xs dark:bg-black sm:w-full md:w-[384px];
+}
