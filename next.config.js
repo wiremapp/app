@@ -3,6 +3,9 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  experimental: {
+    newNextLinkBehavior: false,
+  },
   images: {
     domains: ["flowbite.s3.amazonaws.com"],
   },
@@ -16,4 +19,8 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+const withPWA = require("next-pwa")({
+  dest: "public",
+});
+
+module.exports = withPWA(nextConfig);
