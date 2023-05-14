@@ -1,7 +1,7 @@
 import { MaintPage } from "@/components";
 import { useRouter } from "next/router";
 
-export default function Home({ postsData }) {
+export default function Page() {
   const router = useRouter();
-  return <MaintPage />;
+  return <MaintPage router={router} customTitle={"About"} />;
 }

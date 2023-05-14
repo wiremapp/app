@@ -3,5 +3,5 @@ import { useRouter } from "next/router";
 
 export default function Page() {
   const router = useRouter();
-  return <MaintPage router={router} customTitle={"Settings"} />;
+  return <MaintPage router={router} customTitle="Page not found" />;
 }
