@@ -12,6 +12,7 @@ type Props = {
   ariaLabel?: string;
   variant?: string;
   target?: string;
+  space?: string;
 };
 
 export const Component = (props: Props) => {
@@ -19,7 +20,19 @@ export const Component = (props: Props) => {
     <Link href={props.href ? props.href : null}>
       <a
         {...props}
-        className={`${props.className} button button-${props.type || "secondary"}`}
+        className={`${props.className} button button-${
+          props.type || "secondary"
+        } ${
+          props.space
+            ? props.space === "small"
+              ? "px-2"
+              : props.space === "medium"
+              ? "px-8"
+              : props.space === "wide"
+              ? "px-12"
+              : props.space
+            : "px-4"
+        }`}
       >
         {props.children || (props.icon ? null : "Dolor Sit")}
         {props.icon ? props.icon : ""}

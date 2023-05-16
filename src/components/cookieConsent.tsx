@@ -36,7 +36,7 @@ export function Component() {
   return (
     <div
       style={{
-        transform: `translateX(${intPos}%)`,
+        transform: `translateY(${intPos}%)`,
       }}
       className="cookie-consent"
     >

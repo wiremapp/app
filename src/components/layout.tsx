@@ -5,7 +5,7 @@ import {
   NavbarComponent as Navbar,
 } from "@/components";
 import { useTranslation } from "react-i18next";
-import { useScrollProgress } from "@/hooks";
+import { useIsElectron, useScrollProgress } from "@/hooks";
 import { NextRouter } from "next/router";
 import Head from "next/head";
 
@@ -34,7 +34,6 @@ const navData = [
     id: "about",
     href: "/about",
   },
-  { id: "docs", href: "/docs" },
 ];
 
 export const Component = ({
@@ -49,7 +48,7 @@ export const Component = ({
 }: Props) => {
   const { scrollY, progress } = useScrollProgress();
   const { t } = useTranslation();
-
+  const isElectron = useIsElectron();
   return (
     <div>
       <Head>
@@ -111,11 +110,12 @@ export const Component = ({
       </Head>
       {navbar ? (
         <>
-        <div className="fixed drg w-full"> </div>
-          <div className="scroll-prog">
-            <div>
-              <div style={{ width: `${progress}%` }}></div>
-            </div>
+          <div
+            className={`drg fixed h-[24px] w-full bg-${
+              !isElectron ? "transparent" : "[#0E0E0E]"
+            }`}
+          >
+            {" "}
           </div>
           <header>
             <Navbar menuData={navData} scrollY={scrollY} router={router} />

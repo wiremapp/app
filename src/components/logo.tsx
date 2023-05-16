@@ -7,8 +7,8 @@ const Component = ({ }) => {
 
   return (
     <Link href="/">
-      <div className="flex items-center">
-          <div className="relative h-[36px] w-[32px]">
+      <div className="logo-area">
+          <div className="relative h-[32px] w-[26px]">
             <Image
               src="/images/logo.png"
               alt="Wiremap Logo"
@@ -16,7 +16,7 @@ const Component = ({ }) => {
               objectFit="contain"
             />
           </div>
-          <h1 className="ml-4 text-xl font-black logo-text">
+          <h1 className="ml-4 text-md font-black logo-text hidden md:visible">
            <span className="space-x-2">
            {[...process.env.NEXT_PUBLIC_APP_TITLE].map((lex) =>{
               return <span key={uuidv4()}>{lex}</span>

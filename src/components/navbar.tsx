@@ -8,6 +8,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
 import { UrlObject } from "url";
+import { useIsPWA } from "@/hooks";
 
 type Props = {
   menuData: any[];
@@ -17,36 +18,24 @@ type Props = {
   transparentNav?: boolean;
 };
 
-export const Component = ({
-  scrollY,
-  router,
-  menuData,
-  transparentNav,
-  variant = "primary",
-}: Props) => {
+export const Component = ({ router, menuData }: Props) => {
   const [visible, setMobileMenu] = useState(false);
-  const [modal, setModal] = useState(false);
   const { t } = useTranslation();
   const currentPathname = router?.pathname;
-
+  const isPWA = useIsPWA(); 
   return (
-    <nav
-      aria-label="Site Navigation"
-      className={`absolute border-transparent border-0 text-white z-[98] h-[96px] w-full px-6 lg:px-32`}
-    >
-      <div
-        className={`mx-auto flex h-full w-full max-w-4xl items-center justify-between text-sm`}
-      >
+    <nav aria-label="Site Navigation" className={`navbar-default ${isPWA ? "pt-20": null}`}>
+      <div className={`container`}>
         <LogoComponent />
-        <div className="flex w-full items-center justify-end space-x-2">
-          <div className="mr-0 flex grow items-center md:justify-center lg:mr-4 lg:justify-end">
-            <nav className="hidden items-center space-x-6 px-2 uppercase drop-shadow-md md:flex ">
+        <div className="menu">
+          <div className="menu-container">
+            <nav>
               {menuData.map(
                 (e: { id: string; name: string; href: string | UrlObject }) => {
                   return (
                     <Link key={`${e.id}_nav`} href={e.href}>
                       <a
-                        className={`cursor-pointer text-white font-semibold hover:opacity-100 dark:text-white ${
+                        className={`${
                           e.href === currentPathname
                             ? "opacity-100"
                             : undefined === currentPathname && e.href === "/"
@@ -63,16 +52,14 @@ export const Component = ({
             </nav>
           </div>
 
-          <Button
-            href="/signin"
-            ariaLabel={"Sign In"}
-          >
+          <Button href="/signin" ariaLabel={"Sign In"}>
             SignIn
           </Button>
           <Button
             href="/app"
             type="primary"
             ariaLabel={"Open App"}
+            space={"medium"}
           >
             Open App
           </Button>
