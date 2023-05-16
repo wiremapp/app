@@ -4,9 +4,17 @@
 }
 
 .footer-section .top-foot{
-    @apply px-6 lg:px-0 m-auto max-w-4xl items-center justify-center py-6;
+    @apply p-8 lg:px-0;
 }
 
 .footer-section .bot-foot {
-    @apply mt-12 px-6 lg:px-0 w-full border-t border-gray-200 py-12 dark:border-white/10;
+    @apply p-6 lg:px-0 border-t border-gray-200 dark:border-white/10;
+}
+
+.footer-section .container {
+    @apply mx-auto flex max-w-7xl items-center justify-between
+}
+
+.footer-section a {
+    @apply text-xs text-white text-opacity-70 hover:text-opacity-100 underline
 }

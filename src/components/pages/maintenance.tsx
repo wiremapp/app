@@ -12,7 +12,7 @@ export const Page = ({
   return (
     <LayoutComponent title={customTitle} router={router}>
       <div className={"bg-red-200 w-full h-full mt-[95.99px]"}>
-        f
+        
       </div>
     </LayoutComponent>
   );
