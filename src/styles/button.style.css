@@ -1,15 +1,15 @@
 .button {
-    @apply uppercase inline-flex select-none items-center rounded-sm px-6 py-3 text-sm cursor-pointer focus:outline-none
+    @apply uppercase inline-flex select-none items-center rounded-sm py-3 text-sm cursor-pointer focus:outline-none
 }
 
 .button-primary {
-    @apply font-bold text-white bg-[#FF6838] hover:bg-blue-800 focus:ring-blue-300
+    @apply font-bold text-opacity-70 hover:text-opacity-95 text-white bg-[#FF6838] hover:bg-[#FF602E] focus:ring-blue-300
 }
 
 .button-secondary {
-    @apply font-bold text-white bg-[#33363A] hover:bg-[#FF3E00] focus:ring-blue-300
+    @apply font-bold text-opacity-70 hover:text-opacity-95 text-white bg-[#33363A] hover:bg-[#404448] focus:ring-blue-300
 }
 
 .button-transparent {
-    @apply font-bold text-white bg-transparent hover:bg-[#FF3E00] focus:ring-blue-300
+    @apply font-bold text-white bg-transparent focus:ring-blue-300
 }

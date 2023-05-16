@@ -3,6 +3,8 @@
 @import './body.style.css';
 @import './button.style.css';
 @import './cookiePopup.style.css';
+@import './navbar.style.css';
+@import './footer.style.css';
 
 @tailwind base;
 @tailwind components;
@@ -29,5 +31,9 @@ a {
     color-scheme: dark;
   }
 }
-
-.logo-text { letter-spacing: 0.025em!important }
+.logo-area {
+  @apply text-white text-opacity-90 hover:text-opacity-100 flex items-center space-x-6 select-none cursor-pointer
+}
+.logo-text {
+  letter-spacing: 0.025em!important;
+ }
