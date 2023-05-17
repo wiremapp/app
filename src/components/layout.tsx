@@ -15,7 +15,7 @@ type Props = {
   footer?: boolean;
   thumbSrc?: string;
   navbar?: boolean;
-  pageDesc?: string;
+  pageDesc?: string | null;
   cookieConsent?: boolean;
   router: NextRouter;
 };
