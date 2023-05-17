@@ -16,26 +16,32 @@ type Props = {
 };
 
 export const Component = (props: Props) => {
+  const Content = () => {
+    return (
+      <>
+        {props.children || (props.icon ? null : "Dolor Sit")}
+        {props.icon ? props.icon : ""}
+      </>
+    );
+  };
+  const className = `${props.className} button button-${
+    props.type || "secondary"
+  } ${
+    props.space
+      ? props.space === "small"
+        ? "px-2"
+        : props.space === "medium"
+        ? "px-8"
+        : props.space === "wide"
+        ? "px-12"
+        : props.space
+      : "px-4"
+  }`;
   return (
-    <Link
-      {...props}
-      href={props.href}
-      className={`${props.className} button button-${
-        props.type || "secondary"
-      } ${
-        props.space
-          ? props.space === "small"
-            ? "px-2"
-            : props.space === "medium"
-            ? "px-8"
-            : props.space === "wide"
-            ? "px-12"
-            : props.space
-          : "px-4"
-      }`}
-    >
-      {props.children || (props.icon ? null : "Dolor Sit")}
-      {props.icon ? props.icon : ""}
+    <Link {...props} href={props.href} passHref>
+      <a onClick={props.onClick ?? null} className={className}>
+        <Content />
+      </a>
     </Link>
   );
 };

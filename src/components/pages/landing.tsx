@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { LayoutComponent } from "@/components";
 import { NextRouter } from "next/router";
+import React from "react";
 
 export const Page = ({
   router,

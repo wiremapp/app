@@ -5,6 +5,7 @@ import {
   LeftSidebarComponent,
   RightSidebarComponent,
 } from "@/components";
+import React from "react";
 
 interface Element {
   id: string;
