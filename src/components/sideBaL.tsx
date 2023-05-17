@@ -5,10 +5,11 @@ export const Component = ({}) => {
   const { t } = useTranslation();
 
   return (
-    <nav aria-label="Site Navigation" className="bg-red-200 w-32 flex flex-col h-full">
-      <div className="flex-grow">
-        {/* Your sidebar content goes here */}asd
-      </div>
+    <nav
+      aria-label="Site Navigation"
+      className="flex flex-col"
+    >
+      <div className="flex-grow w-[307px] bg-red-200">Sidebal</div>
     </nav>
   );
 };
