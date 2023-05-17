@@ -59,11 +59,8 @@ const initArr: Cell[] = [
 ];
 
 function calculateBoxWidth(numChildren: number) {
-  // We want each box to have a minimum width of 64px
   const minWidth = 64;
-  // We'll add 16px of padding on each side of the box
   const padding = 32;
-  // We'll use a scaling factor of 32px per child
   const scaleFactor = 32;
   const width = minWidth + padding + scaleFactor * numChildren;
   return `${width}px`;
@@ -142,7 +139,7 @@ export const Page = ({ router }) => {
       footer={false}
       navbar={false}
     >
-      <div className={"flex min-h-screen"}>
+      <div className={"flex min-h-screen w-full"}>
         <LeftSidebarComponent />
         <div className={"flex-1 bg-red-500"}>
           <Editor state={{ arr, setArr }} />

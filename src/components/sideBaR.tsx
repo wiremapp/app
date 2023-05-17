@@ -7,9 +7,9 @@ export const Component = ({}) => {
   return (
     <nav
       aria-label="Site Navigation"
-      className="flex h-full w-32 flex-col bg-red-200"
+      className="flex flex-col"
     >
-      <div className="flex-grow">{/* Your sidebar content goes here */}asd</div>
+      <div className="flex-grow w-[307px] bg-red-200">Sidebar</div>
     </nav>
   );
 };
