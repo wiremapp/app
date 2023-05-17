@@ -34,6 +34,4 @@ a {
 .logo-area {
   @apply text-white text-opacity-90 hover:text-opacity-100 flex items-center space-x-6 select-none cursor-pointer
 }
-.logo-text {
-  letter-spacing: 0.025em!important;
- }
+ 
