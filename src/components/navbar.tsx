@@ -22,9 +22,12 @@ export const Component = ({ router, menuData }: Props) => {
   const [visible, setMobileMenu] = useState(false);
   const { t } = useTranslation();
   const currentPathname = router?.pathname;
-  const isPWA = useIsPWA(); 
+  const isPWA = useIsPWA();
   return (
-    <nav aria-label="Site Navigation" className={`navbar-default ${isPWA ? "pt-20": null}`}>
+    <nav
+      aria-label="Site Navigation"
+      className={`navbar-default ${isPWA ? "pt-20" : null}`}
+    >
       <div className={`container`}>
         <LogoComponent />
         <div className="menu">
@@ -33,18 +36,18 @@ export const Component = ({ router, menuData }: Props) => {
               {menuData.map(
                 (e: { id: string; name: string; href: string | UrlObject }) => {
                   return (
-                    <Link key={`${e.id}_nav`} href={e.href}>
-                      <a
-                        className={`${
-                          e.href === currentPathname
-                            ? "opacity-100"
-                            : undefined === currentPathname && e.href === "/"
-                            ? "opacity-100"
-                            : "opacity-70"
-                        }`}
-                      >
-                        {t(`${e.id}_label`)}
-                      </a>
+                    <Link
+                      key={`${e.id}_nav`}
+                      href={e.href}
+                      className={`${
+                        e.href === currentPathname
+                          ? "opacity-100"
+                          : undefined === currentPathname && e.href === "/"
+                          ? "opacity-100"
+                          : "opacity-70"
+                      }`}
+                    >
+                      {t(`${e.id}_label`)}
                     </Link>
                   );
                 }
