@@ -1,6 +1,5 @@
 .navbar-default {
     @apply  absolute z-[98] h-[96px] w-full border-0 border-transparent px-8 text-white
-}
 
 .navbar-default .container {
     @apply mx-auto flex h-full w-full max-w-7xl items-center justify-between text-sm
@@ -19,5 +18,5 @@
 }
 
 .navbar-default .menu .menu-container nav a{
-    @apply cursor-pointer font-semibold text-white hover:opacity-100 dark:text-white
+    @apply cursor-pointer font-semibold hover:opacity-100 dark:text-white
 }

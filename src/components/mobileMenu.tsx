@@ -38,13 +38,11 @@ export const Component = ({ data, state }) => {
                 <nav className="grid gap-y-8">
                   {data.map(
                     (item: { name: string; href: string; id: string }) => (
-                      <Link key={item.name} href={item.href}>
-                        <a className="-m-3 flex items-center rounded-sm border-[1px] border-gray-500/60  p-3 hover:bg-black/20">
+                      <Link key={item.name} href={item.href} className="-m-3 flex items-center rounded-sm border-[1px] border-gray-500/60  p-3 hover:bg-black/20" >
                           <h1 className="my-3 ml-3 font-bold ">
                             {" "}
                             {t(`${item.id}_label`)}
                           </h1>
-                        </a>
                       </Link>
                     )
                   )}

@@ -2,10 +2,11 @@ import { SessionProvider } from "next-auth/react";
 import { ThemeProvider } from "next-themes";
 import type { AppProps } from "next/app";
 import { Session } from "next-auth";
-import "@/styles/globals.css";
 import { I18nextProvider } from "react-i18next";
 import i18n from "@/i18n";
 import { useIsPWA,useIsElectron } from "@/hooks";
+import React from "react";
+import "@/styles/globals.css";
 
 function MyApp({
   Component,

@@ -43,10 +43,8 @@ export function Component() {
       <p className="mb-4">
         This website uses essential cookies to enhance user experience. No
         identifying information is collected. Please read the{" "}
-        <Link href="/privacy-policy" target="_blank">
-          <a className="font-bold underline">
+        <Link className="font-bold underline" href="/privacy-policy" target="_blank">
             Privacy Policy.
-          </a>
         </Link>{" "}
         for more details.
       </p>

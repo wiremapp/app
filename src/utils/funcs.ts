@@ -1,7 +1,14 @@
-
-export const handleAddCell = (arr: any[], cb : (arg0: any) => void) => {
+export const handleAddCell = (arr: any[], cb: (arg0: any) => void) => {
   const newCell: Cell = { id: Date.now().toString(), content: `New cell` };
   cb([...arr, newCell]);
+};
+
+export const calculateBoxWidth = (numChildren: number) => {
+  const minWidth = 64;
+  const padding = 32;
+  const scaleFactor = 32;
+  const width = minWidth + padding + scaleFactor * numChildren;
+  return `${width}px`;
 };
 
 export const handleAddElement = ({
@@ -51,7 +58,7 @@ export const handleAddSubElement = ({
   arr,
   cellId,
   elementId,
-  cb
+  cb,
 }: {
   arr: any[];
   cellId: string;

@@ -49,8 +49,9 @@ export const Component = ({
   const { scrollY, progress } = useScrollProgress();
   const { t } = useTranslation();
   const isElectron = useIsElectron();
-  return (
-    <div>
+
+  const HTMLHeadComponent = () => {
+    return (
       <Head>
         <title>
           {title
@@ -108,23 +109,40 @@ export const Component = ({
           href="/images/icons/167.png"
         />
       </Head>
-      {navbar ? (
+    );
+  };
+  const Navigation = ({ src }: { src?: string }) => {
+    const Top = () => {
+      return navbar ? (
         <>
           <div
             className={`drg fixed h-[24px] w-full bg-${
               !isElectron ? "transparent" : "[#0E0E0E]"
             }`}
-          >
-            {" "}
-          </div>
+          ></div>
           <header>
             <Navbar menuData={navData} scrollY={scrollY} router={router} />
           </header>
         </>
-      ) : null}
-      <div className="sub-body">
-        <div className="content">{children}</div>
-        {footer ? <Footer /> : null}
+      ) : null;
+    };
+    const Bot = () => {
+      return footer ? <Footer /> : null;
+    };
+    return src !== "bot" ? <Top /> : <Bot />;
+  };
+
+  return (
+    <div>
+      <HTMLHeadComponent />
+      <Navigation />
+      <div className="default-body">
+        <div id="content-container">
+          <div className={`flex w-full flex-col mt-[${navbar ? 95.99 : 0}px] `}>
+            {children}
+          </div>
+        </div>
+        <Navigation src="bot" />
       </div>
       {cookieConsent ? <CookieConsentComponent /> : null}
     </div>

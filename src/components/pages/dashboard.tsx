@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { LayoutComponent } from "@/components";
-
+import React from "react";
 
 export const Page = ({ router }) => {
   return (
