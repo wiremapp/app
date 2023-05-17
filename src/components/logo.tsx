@@ -15,7 +15,7 @@ const Component = ({}) => {
             objectFit="contain"
           />
         </div>
-        <h1 className="text-md ml-4 hidden font-black tracking-logo md:block">
+        <h1 className="text-md ml-4 hidden font-black tracking-logo sm:block">
           {process.env.NEXT_PUBLIC_APP_TITLE}
         </h1>
       </div>
