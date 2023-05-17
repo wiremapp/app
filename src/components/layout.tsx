@@ -138,7 +138,7 @@ export const Component = ({
       <Navigation />
       <div className="default-body">
         <div id="content-container">
-          <div className={`flex w-full flex-col mt-[${navbar ? 95.99 : 0}px] `}>
+          <div className={`flex w-full flex-col ${navbar ? 'mt-96px' : 'mt-0'} `}>
             {children}
           </div>
         </div>

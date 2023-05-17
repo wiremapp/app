@@ -4,9 +4,13 @@ module.exports = {
   darkMode: "class",
   content: ["./src/**/*.{html,js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
-    letterSpacing: {
-      logo: '0.65em'
+    extend: {
+      margin: {
+        '96px': '96px'
+      },
+      letterSpacing: {
+        logo: '0.65em'
+      },
     },
   },
   plugins: [require("@tailwindcss/typography")],
