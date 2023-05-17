@@ -8,6 +8,17 @@ export { default as NavbarComponent } from "./navbar";
 export { default as LogoComponent } from "./logo";
 export { default as RightSidebarComponent } from "./sideBaR";
 export { default as LeftSidebarComponent } from "./sideBaL";
+export { default as HeroComponent } from "./hero";
+export { default as FeaturesComponent } from "./features";
+export { default as PricingComponent } from "./pricing";
+export { default as ErrorComponent } from "./error";
+export { default as ModalWrapperComponent } from "./modalWrapper";
+export { default as AuthModalComponent } from "./authModal";
+
+
+
+
+
 
 
 

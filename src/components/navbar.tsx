@@ -1,7 +1,9 @@
 import {
+  AuthModalComponent,
   MobileMenuComponent as Burger,
   ButtonComponent as Button,
   LogoComponent,
+  ModalWrapperComponent,
 } from "@/components";
 import { NextRouter } from "next/router";
 import React, { useState } from "react";
@@ -20,9 +22,37 @@ type Props = {
 
 export const Component = ({ router, menuData }: Props) => {
   const [visible, setMobileMenu] = useState(false);
+  const [signInModal, setSignInModal] = useState(false);
+
   const { t } = useTranslation();
   const currentPathname = router?.pathname;
   const isPWA = useIsPWA();
+
+  const SignInModalButton = () => {
+    return (
+      <ModalWrapperComponent
+        state={{ modal: signInModal, setModal: setSignInModal }}
+        component={
+          <Button
+            href="/signin"
+            ariaLabel={"Sign In"}
+            onClick={(e) => {
+              e.preventDefault();
+              setSignInModal(!signInModal);
+            }}
+          >
+            SignIn
+          </Button>
+        }
+      >
+        <AuthModalComponent
+          state={{ modal: signInModal, setModal: setSignInModal }}
+          router={router}
+        />
+      </ModalWrapperComponent>
+    );
+  };
+
   return (
     <nav
       aria-label="Site Navigation"
@@ -36,28 +66,25 @@ export const Component = ({ router, menuData }: Props) => {
               {menuData.map(
                 (e: { id: string; name: string; href: string | UrlObject }) => {
                   return (
-                    <Link
-                      key={`${e.id}_nav`}
-                      href={e.href}
-                      className={`${
-                        e.href === currentPathname
-                          ? "opacity-100"
-                          : undefined === currentPathname && e.href === "/"
-                          ? "opacity-100"
-                          : "opacity-70"
-                      }`}
-                    >
-                      {t(`${e.id}_label`)}
+                    <Link key={`${e.id}_nav`} href={e.href} passHref>
+                      <a
+                        className={`${
+                          e.href === currentPathname
+                            ? "opacity-100"
+                            : undefined === currentPathname && e.href === "/"
+                            ? "opacity-100"
+                            : "opacity-70"
+                        }`}
+                      >
+                        {t(`${e.id}_label`)}
+                      </a>
                     </Link>
                   );
                 }
               )}
             </nav>
           </div>
-
-          <Button href="/signin" ariaLabel={"Sign In"}>
-            SignIn
-          </Button>
+          <SignInModalButton />
           <Button
             href="/app"
             type="primary"
