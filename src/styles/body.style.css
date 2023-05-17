@@ -3,12 +3,12 @@ body {
     @apply min-h-screen text-[#0D4380] dark:text-white;
 }
 
-.sub-body {
+.default-body {
     @apply flex min-h-screen flex-col;
 }
 
-.sub-body .content {
-    @apply flex flex-grow;
+.default-body #content-container {
+    @apply relative flex flex-grow;
 }
 
 h1,

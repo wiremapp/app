@@ -1,5 +1,5 @@
 .navbar-default {
-    @apply  absolute z-[98] h-[96px] w-full border-0 border-transparent px-6 text-white lg:px-32
+    @apply  absolute z-[98] h-[96px] w-full border-0 border-transparent px-8 text-white lg:px-32
 }
 
 .navbar-default .container {
@@ -19,5 +19,5 @@
 }
 
 .navbar-default .menu .menu-container nav a{
-    @apply cursor-pointer font-semibold text-white hover:opacity-100 dark:text-white
+    @apply cursor-pointer font-semibold hover:opacity-100 dark:text-white
 }
