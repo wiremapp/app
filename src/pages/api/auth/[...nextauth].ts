@@ -1,17 +1,16 @@
 import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
-import DiscordProvider from "next-auth/providers/discord";
+import GoogleProvider from "next-auth/providers/google";
 import NextAuth, { NextAuthOptions } from "next-auth";
 import jwt from "jsonwebtoken";
 
 const authOptions: NextAuthOptions = {
   providers: [
-    DiscordProvider({
-      clientId: process.env.DISCORD_CLIENT_ID || "",
-      clientSecret: process.env.DISCORD_CLIENT_SECRET || "",
-      authorization: { params: { scope: "identify guilds" } },
+    GoogleProvider({
+      clientId: process.env.GOOGLE_ID || "",
+      clientSecret: process.env.GOOGLE_SECRET || "",
     }),
   ],
-  secret: process.env.NEXTAUTH_SECRET,
+  secret: process.env.NEXTAUTH_SECRET || "",
   callbacks: {
     async session({ session, token, user }) {
       return {
