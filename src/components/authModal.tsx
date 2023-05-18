@@ -55,6 +55,16 @@ export const Component = ({ state, router }) => {
         >
           Sign in with Google
         </Button>
+        <Button
+          href="/signin"
+          aria-label={"Sign In"}
+          onClick={(e) => {
+            e.preventDefault();
+            signIn("github");
+          }}
+        >
+          Sign in with Github
+        </Button>
         </div>
       </div>
     </div>

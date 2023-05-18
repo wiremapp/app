@@ -11,6 +11,7 @@ import Link from "next/link";
 import { useTranslation } from "react-i18next";
 import { UrlObject } from "url";
 import { useIsPWA } from "@/hooks";
+import { signOut, useSession } from "next-auth/react";
 
 type Props = {
   menuData: any[];
@@ -23,6 +24,7 @@ type Props = {
 export const Component = ({ router, menuData }: Props) => {
   const [visible, setMobileMenu] = useState(false);
   const [signInModal, setSignInModal] = useState(false);
+  const { data: session } = useSession();
 
   const { t } = useTranslation();
   const currentPathname = router?.pathname;
@@ -84,7 +86,20 @@ export const Component = ({ router, menuData }: Props) => {
               )}
             </nav>
           </div>
-          <SignInModalButton />
+          {!session ? (
+            <SignInModalButton />
+          ) : (
+            <Button
+              href="/app"
+              type="secondary"
+              aria-label={"Open App"}
+              space={"medium"}
+              onClick={(e)=>{e.preventDefault(); signOut()}}
+
+            >
+              {session?.user.email}
+            </Button>
+          )}
           <Button
             href="/app"
             type="primary"
