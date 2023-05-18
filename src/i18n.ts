@@ -12,7 +12,7 @@ const resources = {
       features_label: "Features",
       pricing_label: "Pricing",
       about_label: "About",
-      docs_label: "Docs",
+      more_label: "More",
       signIn_label: "Sign in",
       openApp_label: "Open App",
       notFound_label: "Page not found",
