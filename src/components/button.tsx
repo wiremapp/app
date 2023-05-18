@@ -38,8 +38,8 @@ export const Component = (props: Props) => {
       : "px-4"
   }`;
   return (
-    <Link {...props} href={props.href} passHref>
-      <a onClick={props.onClick ?? null} className={className}>
+    <Link href={props.href} passHref>
+      <a {...props} className={className}>
         <Content />
       </a>
     </Link>
