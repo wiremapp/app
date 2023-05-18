@@ -15,6 +15,8 @@ const resources = {
       docs_label: "Docs",
       signIn_label: "Sign in",
       openApp_label: "Open App",
+      notFound_label: "Page not found",
+      genericError_title: "Something went wrong..."
     },
   },
 };

@@ -1,20 +1,19 @@
-import {
-  NotFoundComponent,
-  LayoutComponent,
-} from "@/components";
+import { LayoutComponent, ErrorComponent } from "@/components";
 import { NextRouter } from "next/router";
 import React from "react";
+import { useTranslation } from "react-i18next";
 
-export const Page = ({
-  router,
-  customTitle,
-}: {
-  router?: NextRouter;
-  customTitle?: string;
-}) => {
+export const Page = ({ router }: { router?: NextRouter }) => {
+  const { t } = useTranslation();
   return (
-    <LayoutComponent title={customTitle} router={router} footer={true}>
-      <NotFoundComponent />
+    <LayoutComponent
+      title={t("notFound_label")}
+      router={router}
+      navbar={false}
+      footer={false}
+      cookieConsent={false}
+    >
+      <ErrorComponent contentTitle={t("notFound_label")} />
     </LayoutComponent>
   );
 };
