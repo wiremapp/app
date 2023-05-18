@@ -32,7 +32,7 @@ h6 {
 .hero {
     background:
     linear-gradient(180deg, rgba(3, 3, 3, 0.24) 0%, rgba(2, 2, 2, 0.24) 100%);
-
+    @apply overflow-hidden
 }
 
 section {
@@ -41,6 +41,10 @@ section {
 
 section .section-container {
     @apply min-h-[384px] max-w-7xl
+}
+
+.hero .decoration-1 {
+    background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
 }
 
 
