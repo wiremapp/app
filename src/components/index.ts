@@ -12,6 +12,7 @@ export { default as HeroComponent } from "./hero";
 export { default as FeaturesComponent } from "./features";
 export { default as PricingComponent } from "./pricing";
 export { default as ErrorComponent } from "./error";
+export { default as NotFoundComponent } from "./notFound";
 export { default as ModalWrapperComponent } from "./modalWrapper";
 export { default as AuthModalComponent } from "./authModal";
 
