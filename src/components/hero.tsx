@@ -20,7 +20,7 @@ export const Component = (props: Props) => {
             <Button
               href="/app"
               type="primary"
-              ariaLabel={"Open App"}
+              aria-label={"Open App"}
               space={"medium"}
             >
               Start for free
@@ -28,7 +28,7 @@ export const Component = (props: Props) => {
             <Button
               href="/app"
               type="secondary"
-              ariaLabel={"Open App"}
+              aria-label={"Open App"}
               space={"medium"}
             >
               Learn More
