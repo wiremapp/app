@@ -27,7 +27,7 @@ export const Component = () => {
               className="hidden shrink-0 md:block"
               href=" "
               type="primary"
-              ariaLabel={"Email Sign Up"}
+              aria-label={"Email Sign Up"}
               space={"medium"}
             >
               Sign Up

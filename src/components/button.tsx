@@ -9,7 +9,6 @@ type Props = {
   onClick?: (e: any) => void;
   size?: string;
   type?: string;
-  ariaLabel?: string;
   variant?: string;
   target?: string;
   space?: string;

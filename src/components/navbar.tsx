@@ -35,7 +35,7 @@ export const Component = ({ router, menuData }: Props) => {
         component={
           <Button
             href="/signin"
-            ariaLabel={"Sign In"}
+            aria-label={"Sign In"}
             onClick={(e) => {
               e.preventDefault();
               setSignInModal(!signInModal);
@@ -88,7 +88,7 @@ export const Component = ({ router, menuData }: Props) => {
           <Button
             href="/app"
             type="primary"
-            ariaLabel={"Open App"}
+            aria-label={"Open App"}
             space={"medium"}
           >
             Open App

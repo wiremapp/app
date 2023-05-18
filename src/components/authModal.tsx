@@ -1,7 +1,6 @@
 import { useTranslation } from "react-i18next";
 import React from "react";
 import { useIsElectron } from "@/hooks";
-import { NavbarComponent as NavbarVariant } from "@/components";
 import {ButtonComponent as Button} from "@/components";
 import { signIn } from "next-auth/react";
 
@@ -38,7 +37,17 @@ export const Component = ({ state, router }) => {
         <div className="flex h-[400px]  w-[400px] items-center justify-center bg-gray-500">
         <Button
           href="/signin"
-          ariaLabel={"Sign In"}
+          aria-label={"Sign In"}
+          onClick={(e) => {
+            e.preventDefault();
+            signIn("email");
+          }}
+        >
+          Sign in with Email
+        </Button>
+        <Button
+          href="/signin"
+          aria-label={"Sign In"}
           onClick={(e) => {
             e.preventDefault();
             signIn("google");
