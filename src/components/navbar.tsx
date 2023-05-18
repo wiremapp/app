@@ -58,7 +58,7 @@ export const Component = ({ router, menuData }: Props) => {
   return (
     <nav
       aria-label="Site Navigation"
-      className={`navbar-default ${isPWA ? "pt-20" : null}`}
+      className={`navbar-default ${isPWA ? "pt-20" : null}` }
     >
       <div className={`container`}>
         <LogoComponent />
@@ -67,10 +67,13 @@ export const Component = ({ router, menuData }: Props) => {
             <nav>
               {menuData.map(
                 (e: { id: string; name: string; href: string | UrlObject }) => {
+                  const hiddenOnMobile = ()=> {if (e.id === ("about")){
+
+                  }}
                   return (
                     <Link key={`${e.id}_nav`} href={e.href} passHref>
                       <a
-                        className={`${
+                        className={`${e.id === ("about") ? "hidden lg:inline-block" : ""} ${
                           e.href === currentPathname
                             ? "opacity-100"
                             : undefined === currentPathname && e.href === "/"
