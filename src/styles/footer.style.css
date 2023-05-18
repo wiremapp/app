@@ -12,7 +12,7 @@
 }
 
 .footer-section .container {
-    @apply mx-auto flex-col sm:flex-row flex max-w-7xl items-center justify-between
+    @apply mx-auto flex-col sm:flex-row flex max-w-[82rem] items-center justify-between
 }
 
 .footer-section a {
