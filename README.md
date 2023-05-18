@@ -37,13 +37,10 @@ Quickly and easily visualise your application sitemap structure with a comprehen
 
 ```mermaid
     flowchart TD
-    35a89d93(Landing Page)-->46223490(App)
+    35a89d93(Landing Page)-->46223490(Dashboard)
+    46223490-->86r53891(Editor Page)
     35a89d93-->03dcc596(About)
-    35a89d93-->cdbd5d1b(Docs)
     35a89d93-->T(Pricing)
-    cdbd5d1b-->ef6fbafe(Categories)
-    ef6fbafe-->eac711a3(Category)
-    eac711a3-->f402d3c1(Article)
     eb8f8865(Additional Pages)
     eb8f8865-->f1fd7063(SignIn/SignUp)
     eb8f8865-->84c323c4L(User Settings)
@@ -67,7 +64,26 @@ Quickly and easily visualise your application sitemap structure with a comprehen
     yarn
     ```
 
-3. Run the development server:
+3. Copy the `env.example` to a new file `env.local`:
+
+    ```bash
+    cp .env.example .env
+    ```
+
+    env.example:
+
+    ```js
+    NODE_ENV=
+    NEXT_PUBLIC_STATIC_TITLE="An Open-Source Sitemap Visualiser"
+    NEXT_PUBLIC_APP_TITLE="Wiremap"
+    NEXT_PUBLIC_SITE_URL="https://wirem.app/"
+    NEXTAUTH_URL="http://localhost:3000/"
+    GOOGLE_OAUTH_CLIENT_ID=
+    GOOGLE_OAUTH_CLIENT_SECRET=
+    NEXTAUTH_SECRET=
+    ```
+
+4. Run the development server:
 
     ```bash
     npm run dev
