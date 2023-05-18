@@ -1,9 +1,9 @@
 .navbar-default {
-    @apply  absolute z-[98] h-[96px] w-full border-0 border-transparent text-white
+    @apply  absolute px-8 z-[98] h-[96px] w-full border-0 border-transparent text-white
 }
 
 .navbar-default .container {
-    @apply mx-auto flex h-full px-8 w-full max-w-[82rem] items-center justify-between text-sm
+    @apply mx-auto flex h-full w-full max-w-[82rem] items-center justify-between text-sm
 }
 
 .navbar-default .menu {
