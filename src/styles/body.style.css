@@ -29,5 +29,19 @@ h6 {
     -webkit-app-region: drag;
     pointer-events: none;
 }
+.hero {
+    background:
+    linear-gradient(180deg, rgba(3, 3, 3, 0.24) 0%, rgba(2, 2, 2, 0.24) 100%);
+
+}
+
+section {
+ @apply min-h-[384px] p-8
+}
+
+section .section-container {
+    @apply min-h-[384px] max-w-7xl
+}
+
 
 
