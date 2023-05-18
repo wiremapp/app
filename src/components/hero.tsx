@@ -9,21 +9,21 @@ type Props = {
 
 export const Component = (props: Props) => {
   return (
-    <section className="relative hero overflow-hidden">
-      <div className="flex max-w-7xl p-8 h-full">
-        <div className="h-full w-full">
-          <div className="flex-grow space-x-2">
-            <div className="flex-grow">
-              <h1>Title</h1>
-              <p>Description</p>
-            </div>
+    <section className="hero">
+      <div className="hero-container">
+        <div className="flex h-full w-full flex-col z-1">
+          <div>
+            <h1>Title2</h1>
+            <p>Description</p>
+          </div>
+          <div className="space-x-2">
             <Button
               href="/app"
               type="primary"
               ariaLabel={"Open App"}
               space={"medium"}
             >
-              Open App
+              Start for free
             </Button>
             <Button
               href="/app"
@@ -31,18 +31,15 @@ export const Component = (props: Props) => {
               ariaLabel={"Open App"}
               space={"medium"}
             >
-              Start for free
+              Learn More
             </Button>
           </div>
         </div>
 
-        <div className="flex h-full w-full justify-center items-center">
-      <div className="flex justify-center items-center h-1 w-1">
-      <div
-          className="decoration-1 absolute mt-[96px] flex h-[684px] w-[684px] content-center items-center justify-center rounded-[900px] transition"
-        >
-        </div>
-      </div>
+        <div className="flex h-full z-[-1] w-full items-center justify-center">
+          <div className="flex h-1 w-1 items-center justify-center">
+            <div className="absolute mt-[96px] flex h-[684px] w-[684px] content-center items-center justify-center rounded-[900px] decoration-1 transition"></div>
+          </div>
         </div>
       </div>
     </section>
