@@ -2,6 +2,8 @@ import { useTranslation } from "react-i18next";
 import React from "react";
 import { useIsElectron } from "@/hooks";
 import { NavbarComponent as NavbarVariant } from "@/components";
+import {ButtonComponent as Button} from "@/components";
+import { signIn } from "next-auth/react";
 
 export const Component = ({ state, router }) => {
   const { t } = useTranslation();
@@ -34,7 +36,16 @@ export const Component = ({ state, router }) => {
 
       <div className="bg-grey-lighter flex min-h-screen items-center justify-center">
         <div className="flex h-[400px]  w-[400px] items-center justify-center bg-gray-500">
-          Check back soon...
+        <Button
+          href="/signin"
+          ariaLabel={"Sign In"}
+          onClick={(e) => {
+            e.preventDefault();
+            signIn("google");
+          }}
+        >
+          Sign in with Google
+        </Button>
         </div>
       </div>
     </div>
