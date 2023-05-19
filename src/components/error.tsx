@@ -11,13 +11,13 @@ type Props = {
 export const Component = (props: Props) => {
   const { t } = useTranslation();
   return (
-    <div className="h-full bg-yellow-200">
-      <div className="mx-auto flex h-full w-full max-w-6xl flex-col items-center justify-center px-6 lg:px-32">
+    <section>
+      <div className="mx-auto flex h-full w-full flex-col items-center justify-center px-6 lg:px-32">
         <div className="flex w-full items-center justify-center bg-gray-500">
           {props.contentTitle || t("genericError_title")}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

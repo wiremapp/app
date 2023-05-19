@@ -10,10 +10,10 @@ type Props = {
 export const Component = (props: Props) => {
   return (
     <section className="hero">
-      <div className="hero-container">
+      <div className="section-container">
         <div className="flex h-full w-full flex-col z-1">
           <div>
-            <h1>Title2</h1>
+            <h1>Hero Title</h1>
             <p>Description</p>
           </div>
           <div className="space-x-2">

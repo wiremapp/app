@@ -7,7 +7,16 @@ type Props = {
 };
 
 export const Component = (props: Props) => {
-  return <div className="min-h-[384px] bg-blue-200"></div>;
+  return (
+    <section>
+      <div className="z-1 flex h-full w-full flex-col section-container">
+        <div>
+          <h1>FeaturesTitle</h1>
+          <p>Description</p>
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default Component;
