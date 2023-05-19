@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Montserrat:wght@400;600;900&display=swap');
 
 @import './body.style.css';
+@import './section.style.css';
 @import './button.style.css';
 @import './cookiePopup.style.css';
 @import './hero.style.css';

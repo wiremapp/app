@@ -4,7 +4,7 @@
 }
 
 .footer-section .top-foot{
-    @apply py-6 px-8;
+    @apply py-8 px-8;
 }
 
 .footer-section .bot-foot {

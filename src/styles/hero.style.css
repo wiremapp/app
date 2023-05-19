@@ -4,10 +4,6 @@
     @apply relative overflow-hidden h-[96px] w-full z-10
 }
 
-.hero .hero-container {
-    @apply mx-auto flex h-full w-full max-w-[82rem] items-center
-}
-
 .hero .decoration-1 {
     background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
 }

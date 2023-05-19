@@ -30,13 +30,6 @@ h6 {
     pointer-events: none;
 }
 
-section {
- @apply min-h-[384px] p-8
-}
-
-section .section-container {
-    @apply max-w-[82rem]
-}
 
 
 
