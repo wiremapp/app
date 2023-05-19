@@ -8,10 +8,11 @@ type Props = {
   icon?: React.ReactNode;
   onClick?: (e: any) => void;
   size?: string;
-  type?: string;
   variant?: string;
+  type?: string;
   target?: string;
   space?: string;
+  disabled?: boolean;
 };
 
 export const Component = (props: Props) => {
@@ -24,7 +25,7 @@ export const Component = (props: Props) => {
     );
   };
   const className = `${props.className} button button-${
-    props.type || "secondary"
+    props.variant || "secondary"
   } ${
     props.space
       ? props.space === "small"

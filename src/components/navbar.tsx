@@ -94,7 +94,7 @@ export const Component = ({ router, menuData }: Props) => {
           ) : (
             <Button
               href="/app"
-              type="secondary"
+              variant="secondary"
               aria-label={"Open App"}
               space={"medium"}
               onClick={(e)=>{e.preventDefault(); signOut()}}
@@ -105,7 +105,7 @@ export const Component = ({ router, menuData }: Props) => {
           )}
           <Button
             href="/app"
-            type="primary"
+            variant="primary"
             aria-label={"Open App"}
             space={"medium"}
           >

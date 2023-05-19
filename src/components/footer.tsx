@@ -1,15 +1,23 @@
 import { LogoComponent } from "@/components";
 import { ButtonComponent as Button } from "@/components";
+import useEmailSubscription from "@/pages/api/auth/newsletter";
 import React from "react";
 
 export const Component = () => {
+  const { email, setEmail, isLoading, error, success, subscribe } =
+    useEmailSubscription();
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    subscribe();
+  };
   return (
     <footer aria-label="Site Footer" className="footer-section">
       <div className="top-foot">
         <div className="container">
           <div className="flex items-center">
             <LogoComponent />
-            <p className="mr-1 shrink-0 ml-5 sm:ml-10 text-center md:mr-10">
+            <p className="ml-5 mr-1 shrink-0 text-center sm:ml-10 md:mr-10">
               Get the latest news!
             </p>
             <p className="mr-1 block shrink-0 md:hidden">Sign up to the</p>
@@ -19,18 +27,26 @@ export const Component = () => {
             <p className="block md:hidden">.</p>
           </div>
           <div className="flex justify-end space-x-2">
+            {success && <p>Subscription successful!</p>}
+            {error && <p>{error}</p>}
             <input
+              onChange={(e) => setEmail(e.target.value)}
               className="hidden rounded bg-white px-4 text-black text-opacity-70 opacity-70 md:block"
               placeholder="Enter your email..."
+              disabled={isLoading}
+
             ></input>
             <Button
               className="hidden shrink-0 md:block"
-              href=" "
-              type="primary"
+              href="/auth"
+              variant="primary"
               aria-label={"Email Sign Up"}
               space={"medium"}
+              onClick={handleSubmit}
+              disabled={isLoading}
+              type="submit"
             >
-              Sign Up
+              {isLoading ? "Sign Up..." : "Sign Up"}
             </Button>
           </div>
         </div>

@@ -19,7 +19,7 @@ export const Component = (props: Props) => {
           <div className="space-x-2">
             <Button
               href="/app"
-              type="primary"
+              variant="primary"
               aria-label={"Open App"}
               space={"medium"}
             >
@@ -27,7 +27,7 @@ export const Component = (props: Props) => {
             </Button>
             <Button
               href="/app"
-              type="secondary"
+              variant="secondary"
               aria-label={"Open App"}
               space={"medium"}
             >

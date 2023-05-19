@@ -1,8 +1,9 @@
 import React, { ReactNode } from "react";
 import {
   CookieConsentComponent,
-  FooterComponent as Footer,
-  NavbarComponent as Navbar,
+  EditorFooterComponent,
+  FooterComponent,
+  NavbarComponent,
 } from "@/components";
 import { useTranslation } from "react-i18next";
 import { useIsElectron, useScrollProgress } from "@/hooks";
@@ -18,6 +19,7 @@ type Props = {
   pageDesc?: string | null;
   cookieConsent?: boolean;
   router: NextRouter;
+  variant?: string | null;
 };
 
 const navData = [
@@ -45,6 +47,7 @@ export const Component = ({
   cookieConsent = true,
   footer = true,
   navbar = true,
+  variant = null,
 }: Props) => {
   const { scrollY, progress } = useScrollProgress();
   const { t } = useTranslation();
@@ -121,13 +124,23 @@ export const Component = ({
             }`}
           ></div>
           <header>
-            <Navbar menuData={navData} scrollY={scrollY} router={router} />
+            <NavbarComponent
+              menuData={navData}
+              scrollY={scrollY}
+              router={router}
+            />
           </header>
         </>
       ) : null;
     };
     const Bot = () => {
-      return footer ? <Footer /> : null;
+      return footer ? (
+        variant === "editor" ? (
+          <EditorFooterComponent />
+        ) : (
+          <FooterComponent />
+        )
+      ) : null;
     };
     return src !== "bot" ? <Top /> : <Bot />;
   };
@@ -138,7 +151,9 @@ export const Component = ({
       <Navigation />
       <div className="default-body">
         <div id="content-container">
-          <div className={`flex w-full flex-col ${navbar ? 'mt-96px' : 'mt-0'} `}>
+          <div
+            className={`flex w-full flex-col ${navbar ? "mt-[95.99px]" : "mt-0"} `}
+          >
             {children}
           </div>
         </div>
