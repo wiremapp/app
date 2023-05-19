@@ -11,6 +11,10 @@
     @apply px-8 py-4 border-t border-gray-200 dark:border-white/10;
 }
 
+.footer-section .editor-foot {
+    @apply px-8 py-2 border-t border-gray-200 dark:border-white/10;
+}
+
 .footer-section .container {
     @apply mx-auto min-h-[64px] flex-col sm:flex-row flex max-w-[82rem] items-center justify-between
 }
