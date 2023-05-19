@@ -130,10 +130,11 @@ export const Page = ({ router }) => {
     <LayoutComponent
       router={router}
       title={"{projectName}"}
+      variant={"editor"}
     >
       <div className={"h-full flex w-full"}>
         <LeftSidebarComponent />
-        <div className={"flex-1 bg-red-500"}>
+        <div className={"flex-1"}>
           <Editor state={{ arr, setArr }} />
         </div>
         <RightSidebarComponent />
