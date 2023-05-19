@@ -12,9 +12,12 @@ export const Component = (props: Props) => {
   const { t } = useTranslation();
   return (
     <section>
-      <div className="mx-auto flex h-full w-full flex-col items-center justify-center px-6 lg:px-32">
-        <div className="flex w-full items-center justify-center bg-gray-500">
-          {props.contentTitle || t("genericError_title")}
+      <div className="section-container">
+        <div className="section-container">
+          <div>
+            <h1> {props.contentTitle || t("genericError_title")}</h1>
+            <p>Description</p>
+          </div>
         </div>
       </div>
     </section>
