@@ -21,7 +21,7 @@ export const Component = (props: Props) => {
             </p>
             <p className="mb-6 text-sm text-white text-opacity-70">
               With agile project management features, advanced collaboration
-              tools and powerful real-time analytics; you can optimize your
+              tools and powerful real-time analytics, you can optimize your
               development workflows for maximum efficiency and productivity.
             </p>
           </div>
