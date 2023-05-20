@@ -11,15 +11,15 @@ export const Component = (props: Props) => {
   return (
     <section className="hero">
       <div>
-        <div className="z-1 flex-col justify-center">
+        <div className="z-1 flex-col justify-center text-center lg:text-left lg:mr-14">
           <div>
-            <h1 className="mb-6 text-4xl font-black uppercase">
+            <h1 className="mb-6 text-2xl sm:text-3xl lg:text-4xl font-black uppercase lg:mr-10">
               Visualize your website's structure
             </h1>
             <p className="mb-3 text-sm text-white text-opacity-70">
               Create visual sitemaps within minutes.
             </p>
-            <p className="mb-6 text-sm text-white text-opacity-70 w-5/6">
+            <p className="mb-6 text-sm text-white text-opacity-70 lg:w-9/12">
               By incorporating agile project management features, advanced collaboration
               tools and powerful real-time analytics, you can optimize your
               development workflows for maximum efficiency and productivity.
@@ -45,7 +45,7 @@ export const Component = (props: Props) => {
           </div>
         </div>
 
-        <div className="z-[-1] w-full items-center justify-center">
+        <div className="z-[-1] lg:w-full items-center justify-center">
           <div className="flex h-1 w-1 items-center justify-center">
             <div className="decoration-1"></div>
           </div>

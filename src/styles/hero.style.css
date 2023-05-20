@@ -5,7 +5,7 @@
 }
 
 .hero > div > div {
-    @apply flex h-full z-[-1] w-full
+    @apply flex h-full z-[-1] lg:w-full
 }
 
 .hero > div > div:first-of-type {
@@ -14,5 +14,5 @@
 
 .hero .decoration-1 {
     background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
-    @apply hidden absolute mt-[96px] md:flex h-[684px] w-[684px] content-center items-center justify-center rounded-[900px] transition
+    @apply hidden absolute mt-[96px] lg:flex h-[684px] w-[684px] ml-0 content-center items-center justify-center rounded-[900px] transition
 }
