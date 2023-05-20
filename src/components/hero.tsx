@@ -13,26 +13,28 @@ export const Component = (props: Props) => {
   return (
     <section className="hero">
       <div>
-        <div className="z-1 flex-col justify-center text-center lg:text-left lg:mr-14">
+        <div className="z-1 flex-col justify-center text-center lg:mr-14 lg:text-left">
           <div>
-            <h1 className="mb-6 text-2xl sm:text-3xl lg:text-4xl font-black uppercase lg:mr-8">
+            <h1 className="mb-8 text-2xl font-black uppercase sm:text-3xl lg:mr-8 lg:text-4xl">
               {t("hero_title0")}
             </h1>
-            <p className="mb-3 text-sm text-white text-opacity-70">
-              Create visual sitemaps within minutes.
-            </p>
-            <p className="mb-6 text-sm text-white text-opacity-70 sm:px-14 lg:px-0 lg:w-11/12">
-              {t("hero_desc0")}
-            </p>
+            <div className="flex flex-col space-y-[4px] mb-6">
+              <h2 className="text-md text-white text-opacity-80 tracking-wider">
+                {t("hero_subtitle0")}
+              </h2>
+              <p className="text-sm text-white text-opacity-[64%] sm:px-14 lg:w-11/12 lg:px-0">
+                {t("hero_desc0")}
+              </p>
+            </div>
           </div>
-          <div className="flex justify-center lg:justify-start flex-col space-y-2 space-x-0 xs:space-x-2 xs:space-y-0 xs:flex-row">
+          <div className="flex flex-col justify-center space-x-0 space-y-2 xs:flex-row xs:space-x-2 xs:space-y-0 lg:justify-start">
             <Button
               href="/app"
               variant="primary"
               aria-label={"Open App"}
               space={"medium"}
             >
-              Start for free
+              {t("start4Free_label")}
             </Button>
             <Button
               href="/app"
@@ -40,12 +42,12 @@ export const Component = (props: Props) => {
               aria-label={"Open App"}
               space={"medium"}
             >
-              Learn More
+              {t("learnMore_label")}
             </Button>
           </div>
         </div>
 
-        <div className="z-[-1] lg:w-full items-center justify-center">
+        <div className="z-[-1] items-center justify-center lg:w-full">
           <div className="flex h-1 w-1 items-center justify-center">
             <div className="decoration-1"></div>
           </div>
