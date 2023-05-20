@@ -27,8 +27,10 @@ export const Component = () => {
             <p className="block md:hidden">.</p>
           </div>
           <div className="flex justify-end space-x-2">
-            {success && <p>Subscription successful!</p>}
-            {error && <p>{error}</p>}
+            <div className="flex items-center mr-3">
+              {success && <p>Subscription successful!</p>}
+              {error && <p>{error}</p>}
+            </div>
             <input
               onChange={(e) => setEmail(e.target.value)}
               className="hidden rounded bg-white px-4 text-black text-opacity-70 opacity-70 md:block"

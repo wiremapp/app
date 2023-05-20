@@ -15,13 +15,13 @@ export const Component = (props: Props) => {
       <div>
         <div className="z-1 flex-col justify-center text-center lg:text-left lg:mr-14">
           <div>
-            <h1 className="mb-6 text-2xl sm:text-3xl lg:text-4xl font-black uppercase lg:mr-10">
+            <h1 className="mb-6 text-2xl sm:text-3xl lg:text-4xl font-black uppercase lg:mr-8">
               {t("hero_title0")}
             </h1>
             <p className="mb-3 text-sm text-white text-opacity-70">
               Create visual sitemaps within minutes.
             </p>
-            <p className="mb-6 text-sm text-white text-opacity-70 sm:px-14 lg:px-0 lg:w-9/12">
+            <p className="mb-6 text-sm text-white text-opacity-70 sm:px-14 lg:px-0 lg:w-11/12">
               {t("hero_desc0")}
             </p>
           </div>
