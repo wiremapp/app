@@ -3,7 +3,7 @@
 }
 
 .navbar-default .container {
-    @apply mx-auto flex h-full w-full max-w-[82rem] items-center justify-between text-sm
+    @apply mx-auto flex h-full w-full max-w-[72rem] items-center justify-between text-sm
 }
 
 .navbar-default .menu {

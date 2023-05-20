@@ -9,5 +9,5 @@ section {
 }
 
 section .section-container {
-    @apply mx-auto flex h-full w-full max-w-[82rem]
+    @apply mx-auto flex h-full w-full max-w-[72rem]
 }
