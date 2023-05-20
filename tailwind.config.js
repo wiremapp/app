@@ -11,6 +11,9 @@ module.exports = {
       letterSpacing: {
         logo: '0.65em'
       },
+      screens: {
+        'xs': '450px'
+      }
     },
   },
   plugins: [require("@tailwindcss/typography")],

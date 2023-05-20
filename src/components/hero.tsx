@@ -18,11 +18,14 @@ export const Component = (props: Props) => {
             <h1 className="mb-6 text-2xl sm:text-3xl lg:text-4xl font-black uppercase lg:mr-10">
               {t("hero_title0")}
             </h1>
-            <p className="mb-6 text-sm text-white text-opacity-70 lg:w-9/12">
+            <p className="mb-3 text-sm text-white text-opacity-70">
+              Create visual sitemaps within minutes.
+            </p>
+            <p className="mb-6 text-sm text-white text-opacity-70 sm:px-14 lg:px-0 lg:w-9/12">
               {t("hero_desc0")}
             </p>
           </div>
-          <div className="flex justify-center lg:justify-start flex-col space-y-2 space-x-0 md:space-x-2 md:space-y-0 md:flex-row">
+          <div className="flex justify-center lg:justify-start flex-col space-y-2 space-x-0 xs:space-x-2 xs:space-y-0 xs:flex-row">
             <Button
               href="/app"
               variant="primary"
