@@ -11,10 +11,19 @@ export const Component = (props: Props) => {
   return (
     <section className="hero">
       <div>
-        <div className="flex-col z-1">
+        <div className="z-1 flex-col justify-center">
           <div>
-            <h1>Hero Title</h1>
-            <p>Description</p>
+            <h1 className="mb-6 text-4xl font-black uppercase">
+              Visualize your website's structure
+            </h1>
+            <p className="mb-3 text-sm text-white text-opacity-70">
+              Create visual sitemaps within minutes.
+            </p>
+            <p className="mb-6 text-sm text-white text-opacity-70">
+              With agile project management features, advanced collaboration
+              tools and powerful real-time analytics; you can optimize your
+              development workflows for maximum efficiency and productivity.
+            </p>
           </div>
           <div className="space-x-2">
             <Button
