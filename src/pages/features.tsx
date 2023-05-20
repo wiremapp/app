@@ -4,5 +4,5 @@ import React from "react";
 
 export default function Page() {
   const router = useRouter();
-  return <FeatPage />;
+  return <FeatPage router={router} />;
 }

@@ -4,5 +4,5 @@ import React from "react";
 
 export default function Page() {
   const router = useRouter();
-  return <PricingPage/>;
+  return <PricingPage router={router}/>;
 }
