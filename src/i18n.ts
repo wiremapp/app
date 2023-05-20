@@ -21,7 +21,10 @@ const resources = {
       hero_desc0:"with a comprehensive & user-friendly interface, combined with a range of useful features, to help facilitate a rapid streamlined development process.",
       cookies_label: "Cookies",
       privacy_label: "Privacy Policy",
-      cookie_textContent:"We use cookies to enhance your browsing experience. By continuing to use our website, you agree to our use of cookies. Our cookies are safe and don't contain any personal or sensitive information. To learn more, please read our %{privacyPolicyLink}."
+      cookie_textContent:"We use cookies to enhance your browsing experience. By continuing to use our website, you agree to our use of cookies. Our cookies are safe and don't contain any personal or sensitive information.",
+      accept_label:"Accept",
+      reject_label:"Reject",
+      learnMore_label:"Learn More"
     },
   },
 };

@@ -2,9 +2,10 @@ import { setCookie, hasCookie } from "cookies-next";
 import React, { useEffect, useState } from "react";
 import { useEntryEffect } from "@/hooks";
 import { ButtonComponent as Button } from "@/components";
-import Link from "next/link";
+import { useTranslation } from "react-i18next";
 
 export function Component() {
+  const { t } = useTranslation();
   const [consent, setConsent] = useState(true);
   useEffect(() => {
     setConsent(hasCookie("localConsent"));
@@ -19,7 +20,7 @@ export function Component() {
   const acceptCookie = () => {
     setConsent(true);
     setCookie("localConsent", "true", { maxAge: 60 * 60 * 24 * 365 });
-    console.log("accepring cookies");
+    console.log("Accepted cookies");
   };
   const closePopup = () => {
     setConsent(true);
@@ -33,6 +34,10 @@ export function Component() {
   if (consent === true) {
     return null;
   }
+
+
+  const cookieTextContent = t("cookie_textContent");
+
   return (
     <div
       style={{
@@ -40,17 +45,10 @@ export function Component() {
       }}
       className="cookie-consent"
     >
-      <p className="mb-4">
-        This website uses essential cookies to enhance user experience. No
-        identifying information is collected. Please read the{" "}
-        <Link className="font-bold underline" href="/privacy-policy" target="_blank">
-            Privacy Policy.
-        </Link>{" "}
-        for more details.
-      </p>
+      <p className="mb-4">{cookieTextContent}</p>
       <div className="flex space-x-2">
+        <div className="w-full">
         <Button
-          variant="secondary"
           href="#"
           className="px-6 text-start"
           onClick={(e) => {
@@ -58,17 +56,31 @@ export function Component() {
             e.preventDefault();
           }}
         >
-          Close
+          {t("learnMore_label")}
+        </Button>
+        </div>
+        <Button
+          href="#"
+          size="sm"
+          className="px-6 text-start"
+          onClick={(e) => {
+            closePopup();
+            e.preventDefault();
+          }}
+        >
+          {t("reject_label")}
         </Button>
         <Button
+          variant="primary"
           className="px-6"
           href="#"
+          size="sm"
           onClick={(e) => {
             acceptCookie();
             e.preventDefault();
           }}
         >
-          Agree
+          {t("accept_label")}
         </Button>
       </div>
     </div>
