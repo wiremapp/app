@@ -10,8 +10,8 @@ type Props = {
 export const Component = (props: Props) => {
   return (
     <section className="hero">
-      <div className="section-container">
-        <div className="flex h-full w-full flex-col z-1">
+      <div>
+        <div className="flex-col z-1">
           <div>
             <h1>Hero Title</h1>
             <p>Description</p>
@@ -36,9 +36,9 @@ export const Component = (props: Props) => {
           </div>
         </div>
 
-        <div className="flex h-full z-[-1] w-full items-center justify-center">
+        <div className="z-[-1] w-full items-center justify-center">
           <div className="flex h-1 w-1 items-center justify-center">
-            <div className="absolute mt-[96px] flex h-[684px] w-[684px] content-center items-center justify-center rounded-[900px] decoration-1 transition"></div>
+            <div className="decoration-1"></div>
           </div>
         </div>
       </div>

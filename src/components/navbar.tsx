@@ -59,10 +59,10 @@ export const Component = ({ router, menuData }: Props) => {
       aria-label="Site Navigation"
       className={`navbar-default ${isPWA ? "pt-20" : null}` }
     >
-      <div className={`container`}>
+      <div>
         <LogoComponent />
-        <div className="menu">
-          <div className="menu-container">
+        <div>
+          <div>
             <nav>
               {menuData.map(
                 (e: { id: string; name: string; href: string | UrlObject }) => {

@@ -119,7 +119,7 @@ export const Component = ({
       return navbar ? (
         <>
           <div
-            className={`drg fixed h-[24px] w-full bg-${
+            className={`bg-${
               !isElectron ? "transparent" : "[#0E0E0E]"
             }`}
           ></div>
@@ -146,19 +146,19 @@ export const Component = ({
   };
 
   return (
-    <div>
+    <div id={"layout-container"}>
       <HTMLHeadComponent />
       <Navigation />
-      <div className="default-body">
-        <div id="content-container">
+      <main>
+        <div>
           <div
-            className={`flex w-full flex-col ${navbar ? "mt-[95.99px]" : "mt-0"} `}
+            className={` ${navbar ? "mt-[95.99px]" : "mt-0"} `}
           >
             {children}
           </div>
         </div>
         <Navigation src="bot" />
-      </div>
+      </main>
       {cookieConsent ? <CookieConsentComponent /> : null}
     </div>
   );

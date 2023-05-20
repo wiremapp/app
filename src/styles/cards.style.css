@@ -1,0 +1,11 @@
+
+.cards-container {
+@apply flex h-[768px] w-full space-x-4
+}
+
+.cards-container > div {
+    background: linear-gradient(0deg, #020202 -0.03%, #141414 99.97%);
+    @apply w-full
+}
+
+

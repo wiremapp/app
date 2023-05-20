@@ -5,9 +5,9 @@
 }
 
 section {
- @apply relative overflow-hidden h-[96px] w-full z-10 min-h-[384px] p-8
+ @apply relative overflow-hidden w-full z-10 min-h-[384px] p-8
 }
 
-section .section-container {
+section > div {
     @apply mx-auto flex h-full w-full max-w-[72rem]
 }

@@ -16,7 +16,7 @@ export const Page = ({ router }: { router?: NextRouter }) => {
     <LayoutComponent title={t("home_label")} router={router}>
       <HeroComponent />
       <FeaturesComponent />
-      <PricingComponent />
+      <PricingComponent variant={"secondary"} />
       <AboutComponent />
     </LayoutComponent>
   );

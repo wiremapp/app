@@ -9,7 +9,7 @@ type Props = {
 export const Component = (props: Props) => {
   return (
     <section>
-      <div className="section-container">
+      <div>
         <div>
           <h1>FeaturesTitle</h1>
           <p>Description</p>

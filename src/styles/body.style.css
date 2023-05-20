@@ -2,12 +2,18 @@ body {
     background: linear-gradient(180deg, #1B1B1B 0%, #141414 100%), #1E1E1E;
     @apply min-h-screen text-[#0D4380] dark:text-white;
 }
-
-.default-body {
+#layout-container > main {
     @apply flex min-h-screen flex-col;
 }
+#layout-container > main > div > div {
+    @apply flex w-full flex-col;
+}
 
-.default-body #content-container {
+#layout-container > div:first-of-type {
+    @apply drg fixed h-[24px] w-full
+}
+
+.default-body > div {
     @apply relative flex flex-grow;
 }
 

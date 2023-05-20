@@ -12,9 +12,9 @@ export const Component = () => {
     subscribe();
   };
   return (
-    <footer aria-label="Site Footer" className="footer-section">
-      <div className="top-foot">
-        <div className="container">
+    <footer aria-label="Site Footer">
+      <div>
+        <div>
           <div className="flex items-center">
             <LogoComponent />
             <p className="ml-5 mr-1 shrink-0 text-center sm:ml-10 md:mr-10">
@@ -50,8 +50,8 @@ export const Component = () => {
           </div>
         </div>
       </div>
-      <div className="bot-foot">
-        <div className="container">
+      <div>
+        <div>
           <div className="my-1 flex justify-start space-x-5 sm:my-0">
             <a href="">Privacy Policy</a>
             <a href="">Contact</a>

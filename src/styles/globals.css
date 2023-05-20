@@ -7,6 +7,7 @@
 @import './hero.style.css';
 @import './navbar.style.css';
 @import './footer.style.css';
+@import './cards.style.css';
 
 @tailwind base;
 @tailwind components;

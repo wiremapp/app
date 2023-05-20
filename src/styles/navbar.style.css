@@ -2,22 +2,22 @@
     @apply  absolute px-8 z-[98] h-[96px] w-full border-0 border-transparent text-white
 }
 
-.navbar-default .container {
+.navbar-default > div  {
     @apply mx-auto flex h-full w-full max-w-[72rem] items-center justify-between text-sm
 }
 
-.navbar-default .menu {
+.navbar-default > div > div:last-of-type {
     @apply flex w-full items-center justify-end space-x-2
 }
 
-.navbar-default .menu .menu-container {
+.navbar-default > div > div:last-of-type > div:first-of-type {
     @apply mr-0 flex grow items-center md:justify-center lg:mr-4 lg:justify-end
 }
 
-.navbar-default .menu .menu-container nav{
+.navbar-default > div > div:last-of-type > div:first-of-type nav{
     @apply hidden items-center space-x-6 px-2 uppercase drop-shadow-md md:flex
 }
 
-.navbar-default .menu .menu-container nav a{
+.navbar-default > div > div:last-of-type > div:first-of-type nav a{
     @apply cursor-pointer font-semibold hover:opacity-100 dark:text-white
 }
