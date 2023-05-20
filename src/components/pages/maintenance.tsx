@@ -8,6 +8,7 @@ import {
 } from "@/components";
 import { NextRouter } from "next/router";
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 export const Page = ({
   router,
@@ -16,9 +17,10 @@ export const Page = ({
   router?: NextRouter;
   customTitle?: string;
 }) => {
+  const { t } = useTranslation();
   return (
-    <LayoutComponent title={customTitle} router={router} footer={true}>
-      <ErrorComponent />
+    <LayoutComponent title={customTitle || t("genericError_title").slice(0,-3)} router={router} footer={true}>
+      <ErrorComponent contentTitle={customTitle} />
     </LayoutComponent>
   );
 };

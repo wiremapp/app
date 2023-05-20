@@ -5,5 +5,9 @@ export { default as NotFoundPage } from "./notFound";
 export { default as PricingPage } from "./pricing";
 export { default as LandingPage } from "./landing";
 export { default as FeatPage } from "./features";
+export { default as AboutPage } from "./about";
+export { default as StaticPage } from "./static";
+
+
 
 
