@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import { ButtonComponent as Button } from "@/components";
+import { useTranslation } from "react-i18next";
 
 type Props = {
   children?: any;
@@ -8,15 +9,16 @@ type Props = {
 };
 
 export const Component = (props: Props) => {
+  const { t } = useTranslation();
   return (
     <section className="hero">
       <div>
         <div className="flex-col z-1">
           <div>
-            <h1>Hero Title</h1>
+            <h1>{t("hero_title0")}</h1>
             <p>Description</p>
           </div>
-          <div className="space-x-2">
+          <div className="flex flex-col space-y-2 space-x-0 md:space-x-2 md:space-y-0 md:flex-row">
             <Button
               href="/app"
               variant="primary"

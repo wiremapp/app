@@ -16,7 +16,8 @@ const resources = {
       signIn_label: "Sign in",
       openApp_label: "Open App",
       notFound_label: "Page not found",
-      genericError_title: "Something went wrong..."
+      genericError_title: "Something went wrong...",
+      hero_title0:"Visualise your application sitemap structure."
     },
   },
 };
