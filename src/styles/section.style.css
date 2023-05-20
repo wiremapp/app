@@ -5,7 +5,7 @@
 }
 
 section {
- @apply relative overflow-hidden w-full z-10 min-h-[384px] px-12 py-8
+ @apply relative overflow-hidden w-full z-10 min-h-[384px] px-4 md:px-12 py-8
 }
 
 section > div {
