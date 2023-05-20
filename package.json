@@ -11,7 +11,14 @@
       "152": "public/images/icons/152.png",
       "180": "public/images/icons/180.png",
       "512": "public/images/icons/512.png"
-    }
+    },
+    "fileAssociations": [
+      {
+        "ext": "wmp",
+        "name": "Wiremap File",
+        "role": "Editor"
+      }
+    ]
   },
   "files": [
     "./build/**/*",
