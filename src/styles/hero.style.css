@@ -1,7 +1,7 @@
 .hero {
     background:
     linear-gradient(180deg, rgba(3, 3, 3, 0.24) 0%, rgba(2, 2, 2, 0.24) 100%);
-    @apply relative overflow-hidden h-[96px] w-full z-10
+    @apply relative overflow-hidden w-full z-10 
 }
 
 .hero > div > div {

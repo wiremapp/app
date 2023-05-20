@@ -16,7 +16,12 @@ const resources = {
       signIn_label: "Sign in",
       openApp_label: "Open App",
       notFound_label: "Page not found",
-      genericError_title: "Something went wrong..."
+      genericError_title: "Something went wrong...",
+      hero_title0:"Visualise your application sitemap structure",
+      hero_desc0:"with a comprehensive & user-friendly interface, combined with a range of useful features, to help facilitate a rapid streamlined development process.",
+      cookies_label: "Cookies",
+      privacy_label: "Privacy Policy",
+      cookie_textContent:"We use cookies to enhance your browsing experience. By continuing to use our website, you agree to our use of cookies. Our cookies are safe and don't contain any personal or sensitive information. To learn more, please read our %{privacyPolicyLink}."
     },
   },
 };
