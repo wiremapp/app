@@ -19,8 +19,8 @@ export const Component = (props: Props) => {
             <p className="mb-3 text-sm text-white text-opacity-70">
               Create visual sitemaps within minutes.
             </p>
-            <p className="mb-6 text-sm text-white text-opacity-70">
-              With agile project management features, advanced collaboration
+            <p className="mb-6 text-sm text-white text-opacity-70 w-5/6">
+              By incorporating agile project management features, advanced collaboration
               tools and powerful real-time analytics, you can optimize your
               development workflows for maximum efficiency and productivity.
             </p>
