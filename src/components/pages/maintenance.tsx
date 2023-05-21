@@ -19,7 +19,13 @@ export const Page = ({
 }) => {
   const { t } = useTranslation();
   return (
-    <LayoutComponent title={customTitle || t("genericError_title").slice(0,-3)} router={router} footer={true}>
+    <LayoutComponent
+      title={customTitle || t("genericError_title").slice(0, -3)}
+      router={router}
+      navbar={false}
+      footer={false}
+      cookieConsent={false}
+    >
       <ErrorComponent contentTitle={customTitle} />
     </LayoutComponent>
   );

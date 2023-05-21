@@ -16,7 +16,7 @@ const resources = {
       signIn_label: "Sign in",
       openApp_label: "Open App",
       notFound_label: "Page not found",
-      genericError_title: "Something went wrong...",
+      genericError_title: "Check back soon...",
       hero_title0:"Visualise your application sitemap structure",
       hero_desc0:"with a comprehensive & user-friendly interface, combined with a range of useful features, to help facilitate a rapid streamlined development process.",
       cookies_label: "Cookies",
