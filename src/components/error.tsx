@@ -29,7 +29,7 @@ export const Component = ({ contentTitle }: Props) => {
                 Whoops! Looks like the link you followed may be broken or this
                 page does not exist. <br></br> Try going back to the previous
                 page or{" "}
-                <a href="" className="text-primary text-opacity-70 hover:text-opacity-100">
+                <a href="/" className="text-primary text-opacity-70 hover:text-opacity-100">
                   Return to Wiremap.
                 </a>
               </p>
@@ -57,7 +57,7 @@ export const Component = ({ contentTitle }: Props) => {
                   placeholder="Enter your email..."
                 ></input>
                 <Button
-                  href="/app"
+                  href="/auth"
                   variant="primary"
                   aria-label={"Sign Up"}
                   space={"medium"}
