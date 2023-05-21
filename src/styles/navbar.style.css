@@ -1,5 +1,5 @@
 .navbar-default {
-    @apply  absolute px-4 md:px-12 z-[98] h-[96px] w-full border-0 border-transparent text-white
+    @apply  absolute px-4 md:px-12 z-[98] h-[96px] w-full border-0 border-transparent text-white transition-all
 }
 
 .navbar-default > div  {
@@ -7,15 +7,15 @@
 }
 
 .navbar-default > div > div:last-of-type {
-    @apply flex w-full items-center justify-end space-x-2
+    @apply flex w-full items-center justify-end space-x-2 
 }
 
 .navbar-default > div > div:last-of-type > div:first-of-type {
-    @apply mr-0 flex grow items-center md:justify-center lg:mr-4 lg:justify-end
+    @apply mr-0 flex grow items-center md:justify-center lg:mr-4 lg:justify-end 
 }
 
 .navbar-default > div > div:last-of-type > div:first-of-type nav{
-    @apply hidden items-center space-x-6 px-2 uppercase drop-shadow-md md:flex
+    @apply hidden items-center space-x-6 px-2 uppercase drop-shadow-md md:flex transition-all
 }
 
 .navbar-default > div > div:last-of-type > div:first-of-type nav a{

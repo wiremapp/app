@@ -13,7 +13,7 @@ body {
     @apply drg fixed h-[24px] w-full
 }
 
-.default-body > div {
+.default-body > main > div {
     @apply relative flex flex-grow;
 }
 

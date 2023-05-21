@@ -4,7 +4,7 @@ footer {
 }
 
 footer > div:first-of-type{
-    @apply py-8 px-4 md:px-12;
+    @apply py-8 px-4 md:px-12 transition-all;
 }
 
 footer > div:last-of-type {
