@@ -14,16 +14,16 @@ export const Component = () => {
   return (
     <footer aria-label="Site Footer">
       <div>
-        <div>
+        <div className="justify-center sm:justify-between">
           <div className="flex items-center">
             <LogoComponent />
             <p className="ml-5 mr-1 shrink-0 text-center sm:ml-10 md:mr-10">
               Get the latest news!
             </p>
             <p className="mr-1 block shrink-0 md:hidden">Sign up to the</p>
-            <p className="block shrink-0	text-orange-500 text-opacity-100 underline md:hidden">
+            <a href="" className="block shrink-0	text-orange-500 text-opacity-100 underline md:hidden">
               newsletter
-            </p>
+            </a>
             <p className="block md:hidden">.</p>
           </div>
           <div className="flex justify-end space-x-2">
@@ -55,9 +55,9 @@ export const Component = () => {
       <div>
         <div>
           <div className="my-1 flex justify-start space-x-5 sm:my-0">
-            <a href="">Privacy Policy</a>
-            <a href="">Contact</a>
-            <a href="">Terms of Service</a>
+            <a className="text-xs text-white text-opacity-70 hover:text-opacity-100 underline" href="">Privacy Policy</a>
+            <a className="text-xs text-white text-opacity-70 hover:text-opacity-100 underline" href="">Contact</a>
+            <a className="text-xs text-white text-opacity-70 hover:text-opacity-100 underline" href="">Terms of Service</a>
           </div>
           <div>
             <p className="text-center text-xs text-white text-opacity-70 sm:text-right">
