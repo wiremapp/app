@@ -4,5 +4,5 @@ import React from "react";
 
 export default function Page() {
   const router = useRouter();
-  return <MaintPage router={router} />;
+  return <MaintPage router={router} customTitle={"Privacy Policy"} />;
 }
