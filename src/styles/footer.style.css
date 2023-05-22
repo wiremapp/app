@@ -1,0 +1,20 @@
+footer {
+    background: linear-gradient(180deg, #0E0E0E 0%, #0B0B0B 100%);
+    @apply border-t backdrop-blur-xl dark:border-white/10 border-white/10;
+}
+
+footer > div:first-of-type{
+    @apply py-8 px-4 md:px-12 transition-all;
+}
+
+footer > div:last-of-type {
+    @apply px-4 md:px-12 py-4 border-t border-gray-200 dark:border-white/10;
+}
+
+footer .editor-foot {
+    @apply px-12 py-2 border-t border-gray-200 dark:border-white/10;
+}
+
+footer > div > div  {
+    @apply mx-auto min-h-[64px] flex-col sm:flex-row flex max-w-[84rem] items-center justify-between
+}

@@ -28,6 +28,16 @@ yarn-error.log*
 # local env files
 .env*.local
 
+# PWA files
+sw*.js
+sw*.js.map
+
+# Sitemap files
+robots.txt
+sitemap*.xml
+workbox-*.js
+workbox-*.js.map
+
 # vercel
 .vercel
 

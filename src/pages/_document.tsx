@@ -1,3 +1,4 @@
+import { useIsPWA } from "@/hooks";
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import React from "react";
 
@@ -6,7 +7,7 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head />
-        <body className="text-black bg-white dark:bg-black dark:text-white">
+        <body className="bg-white text-black dark:bg-black dark:text-white">
           <NextScript />
           <Main />
         </body>

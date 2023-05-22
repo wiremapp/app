@@ -1,9 +1,29 @@
+import {
+  ErrorComponent,
+  LayoutComponent,
+} from "@/components";
+import { NextRouter } from "next/router";
+import React from "react";
+import { useTranslation } from "react-i18next";
 
-export const Page = () => {
+export const Page = ({
+  router,
+  customTitle,
+}: {
+  router?: NextRouter;
+  customTitle?: string;
+}) => {
+  const { t } = useTranslation();
   return (
-    <div>
-     Under maintenance...
-    </div>
+    <LayoutComponent
+      title={customTitle || t("genericError_title").slice(0, -3)}
+      router={router}
+      navbar={false}
+      footer={false}
+      cookieConsent={false}
+    >
+      <ErrorComponent contentTitle={customTitle} />
+    </LayoutComponent>
   );
 };
 

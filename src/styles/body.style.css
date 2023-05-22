@@ -1,0 +1,46 @@
+body {
+    background: linear-gradient(180deg, #1B1B1B 0%, #141414 100%), #1E1E1E;
+    @apply min-h-screen text-[#0D4380] dark:text-white;
+}
+#layout-container > main {
+    @apply flex min-h-screen flex-col;
+}
+#layout-container > main > div > div {
+    @apply flex w-full flex-col;
+}
+
+#layout-container > div:first-of-type {
+    @apply drg fixed h-[24px] w-full
+}
+
+#layout-container > main > div {
+    @apply relative flex flex-grow;
+}
+
+h1,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Montserrat', sans-serif;
+    @apply uppercase
+}
+
+h2 {
+    font-family: 'Heebo', sans-serif;
+    @apply uppercase font-medium
+}
+
+.card {
+    @apply p-8
+}
+
+.drg {
+    -webkit-app-region: drag;
+    pointer-events: none;
+}
+
+
+
+
+

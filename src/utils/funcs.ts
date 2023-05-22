@@ -1,23 +1,14 @@
-export const getDefaultStaticTitle = (title?: string) => {
-  return title ? title : "Unnamed Page";
-};
-
-export const getStaticTitleEnd = () => {
-  return process.env.NEXT_PUBLIC_STATIC_TITLE
-    ? " — " + process.env.NEXT_PUBLIC_STATIC_TITLE
-    : "";
-};
-
-export const classesJoin = (...args: any) => {
-  return args
-    .flat()
-    .filter((x) => x !== null && x !== undefined && typeof x !== "boolean")
-    .join(" ");
-};
-
-export const handleAddCell = (arr: any[], cb : (arg0: any) => void) => {
+export const handleAddCell = (arr: any[], cb: (arg0: any) => void) => {
   const newCell: Cell = { id: Date.now().toString(), content: `New cell` };
   cb([...arr, newCell]);
+};
+
+export const calculateBoxWidth = (numChildren: number) => {
+  const minWidth = 64;
+  const padding = 32;
+  const scaleFactor = 32;
+  const width = minWidth + padding + scaleFactor * numChildren;
+  return `${width}px`;
 };
 
 export const handleAddElement = ({
@@ -67,7 +58,7 @@ export const handleAddSubElement = ({
   arr,
   cellId,
   elementId,
-  cb
+  cb,
 }: {
   arr: any[];
   cellId: string;

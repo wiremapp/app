@@ -1,17 +1,37 @@
 import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
-import DiscordProvider from "next-auth/providers/discord";
+import GitHubProvider from "next-auth/providers/github";
+import GoogleProvider from "next-auth/providers/google";
+
+import EmailProvider from "next-auth/providers/email";
+
 import NextAuth, { NextAuthOptions } from "next-auth";
+import clientPromise from "@/utils/db";
 import jwt from "jsonwebtoken";
 
 const authOptions: NextAuthOptions = {
   providers: [
-    DiscordProvider({
-      clientId: process.env.DISCORD_CLIENT_ID || "",
-      clientSecret: process.env.DISCORD_CLIENT_SECRET || "",
-      authorization: { params: { scope: "identify guilds" } },
+    GoogleProvider({
+      clientId: process.env.GOOGLE_ID || "",
+      clientSecret: process.env.GOOGLE_SECRET || "",
+    }),
+    GitHubProvider({
+      clientId: process.env.GITHUB_ID,
+      clientSecret: process.env.GITHUB_SECRET
+    }),
+    EmailProvider({
+      server: {
+        host: process.env.EMAIL_SERVER_HOST || "",
+        port: process.env.EMAIL_SERVER_PORT || "",
+        auth: {
+          user: process.env.EMAIL_SERVER_USER || "",
+          pass: process.env.EMAIL_SERVER_PASSWORD || "",
+        },
+      },
+      from: process.env.EMAIL_FROM || "",
     }),
   ],
   secret: process.env.NEXTAUTH_SECRET,
+  adapter: MongoDBAdapter(clientPromise),
   callbacks: {
     async session({ session, token, user }) {
       return {
@@ -38,3 +58,4 @@ const signToken = ({ token }) => {
 };
 
 export default NextAuth(authOptions);
+
