@@ -1,8 +1,8 @@
-import { PricingPage } from "@/components";
+import { MaintPage } from "@/components";
 import { useRouter } from "next/router";
 import React from "react";
 
 export default function Page() {
   const router = useRouter();
-  return <PricingPage router={router}/>;
+  return <MaintPage router={router} customTitle={"Pricing"} />;
 }
