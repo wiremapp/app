@@ -29,8 +29,10 @@ export const Component = ({ contentTitle }: Props) => {
                 Whoops! Looks like the link you followed may be broken or this
                 page does not exist. <br></br> Try going back to the previous
                 page or{" "}
-                <Link href="/">
-                  <a className="text-primary text-opacity-70 hover:text-opacity-100">
+                <Link href="/" passHref>
+                  <a
+                    className="text-primary text-opacity-70 hover:text-opacity-100"
+                  >
                     Return to Wiremap.
                   </a>
                 </Link>
@@ -67,12 +69,8 @@ export const Component = ({ contentTitle }: Props) => {
                   Sign Up
                 </Button>
               </div>
-              <p className="text-xs uppercase text-white text-opacity-70">
-                Copyright &copy; {new Date().getFullYear()}{" "}
-                {process.env.NEXT_PUBLIC_STATIC_TITLE
-                  ? process.env.NEXT_PUBLIC_APP_TITLE + "."
-                  : ""}{" "}
-                All rights reserved.
+              <p className="text-xs text-white text-opacity-70">
+                COPYRIGHT &copy; 2023 WIREMAP. ALL RIGHTS RESERVED.
               </p>
             </div>
           </div>
