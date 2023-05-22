@@ -1,10 +1,6 @@
-import Image from "next/image";
 import {
   ErrorComponent,
-  FeaturesComponent,
-  HeroComponent,
   LayoutComponent,
-  PricingComponent,
 } from "@/components";
 import { NextRouter } from "next/router";
 import React from "react";

@@ -6,6 +6,8 @@ export { default as PricingPage } from "./pricing";
 export { default as LandingPage } from "./landing";
 export { default as FeatPage } from "./features";
 export { default as AboutPage } from "./about";
+export { default as PrivacyPolicyPage } from "./privacyPolicy";
+export { default as TermsOfServicePage } from "./termsOfService";
 
 
 

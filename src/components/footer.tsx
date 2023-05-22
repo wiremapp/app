@@ -55,9 +55,9 @@ export const Component = () => {
       <div>
         <div>
           <div className="my-1 flex justify-start space-x-5 sm:my-0">
-            <a className="text-xs text-white text-opacity-70 hover:text-opacity-100 underline" href="">Privacy Policy</a>
-            <a className="text-xs text-white text-opacity-70 hover:text-opacity-100 underline" href="">Contact</a>
-            <a className="text-xs text-white text-opacity-70 hover:text-opacity-100 underline" href="">Terms of Service</a>
+            <a className="text-xs text-white text-opacity-70 hover:text-opacity-100 underline" href="/privacy-policy">Privacy Policy</a>
+            <a className="text-xs text-white text-opacity-70 hover:text-opacity-100 underline" href="/contact">Contact</a>
+            <a className="text-xs text-white text-opacity-70 hover:text-opacity-100 underline" href="/terms-of-service">Terms of Service</a>
           </div>
           <div>
             <p className="text-center text-xs text-white text-opacity-70 sm:text-right">
