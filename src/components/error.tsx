@@ -29,9 +29,13 @@ export const Component = ({ contentTitle }: Props) => {
                 Whoops! Looks like the link you followed may be broken or this
                 page does not exist. <br></br> Try going back to the previous
                 page or{" "}
-                <a href="/" className="text-primary text-opacity-70 hover:text-opacity-100">
-                  Return to Wiremap.
-                </a>
+                <Link href="/" passHref>
+                  <a
+                    className="text-primary text-opacity-70 hover:text-opacity-100"
+                  >
+                    Return to Wiremap.
+                  </a>
+                </Link>
               </p>
             </div>
           </div>
@@ -44,12 +48,12 @@ export const Component = ({ contentTitle }: Props) => {
               <p className="pb-9 text-white text-opacity-70">
                 Unfortuantely, Wiremap is currently down and undergoing some
                 maintenance. <br></br> We apologize for any inconvenience
-                caused. We'll be back up and running shortly!
+                caused. We&apos;ll be back up and running shortly!
               </p>
             </div>
             <div className="border-t border-white/10 pt-9">
               <p className="text-white">
-                Be the first to know when we're ready
+                Be the first to know when we&apos;re ready
               </p>
               <div className="my-3 flex w-6/12 flex-row space-x-2">
                 <input

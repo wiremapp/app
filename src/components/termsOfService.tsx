@@ -22,7 +22,7 @@ export const Component = (props: Props) => {
               information, and exercise your other legal rights as a user.
             </p>
           </div>
-          <hr class="my-12 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:opacity-50" />
+          <hr className="my-12 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:opacity-50" />
           <div>
             <h1 className="text-3xl font-medium">Information We Collect</h1>
             <p className="mt-10 text-white text-opacity-70">
@@ -34,7 +34,7 @@ export const Component = (props: Props) => {
               information, and exercise your other legal rights as a user.
             </p>
           </div>
-          <hr class="my-12 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:opacity-50" />
+          <hr className="my-12 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:opacity-50" />
           <div>
             <h1 className="text-3xl font-medium">What We Do With It</h1>
             <p className="mt-10 text-white text-opacity-70">
@@ -46,7 +46,7 @@ export const Component = (props: Props) => {
               information, and exercise your other legal rights as a user.
             </p>
           </div>
-          <hr class="my-12 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:opacity-50" />
+          <hr className="my-12 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:opacity-50" />
           <div>
             <h1 className="text-3xl font-medium">Your Rights</h1>
             <p className="mt-10 text-white text-opacity-70">
