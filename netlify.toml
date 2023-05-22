@@ -1,16 +1,18 @@
 [[redirects]]
-  from = "https://wiremap.netlify.app/*"
+  from = "http://wiremap.netlify.app/*"
   to = "https://wirem.app/:splat"
   status = 301
-  force = true 
+  force = true
+
 [[headers]]
-  for = "*.js" 
+  for = "*.js"
   [headers.values]
     Cache-Control = "public, max-age=604800"
 [[headers]]
   for = "*.css"
   [headers.values]
     Cache-Control = "public, max-age=604800"
+
 [[headers]]
   for = "/*"
     [headers.values]
