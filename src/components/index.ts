@@ -16,8 +16,7 @@ export { default as ErrorComponent } from "./error";
 export { default as ModalWrapperComponent } from "./modalWrapper";
 export { default as AuthModalComponent } from "./authModal";
 export { default as AboutComponent } from "./about";
-export { default as PrivacyPolicyComponent } from "./privacyPolicy";
-export { default as TermsOfServiceComponent } from "./termsOfService";
+export { default as StaticContentComponent } from "./MdContent";
 
 
 
