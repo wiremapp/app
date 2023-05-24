@@ -5,7 +5,7 @@ import GoogleProvider from "next-auth/providers/google";
 import EmailProvider from "next-auth/providers/email";
 
 import NextAuth, { NextAuthOptions } from "next-auth";
-import dbConnect, {dbAdapter} from "@/utils/db";
+import dbConnect from "@/utils/db";
 import jwt from "jsonwebtoken";
 
 const authOptions: NextAuthOptions = {
@@ -31,7 +31,7 @@ const authOptions: NextAuthOptions = {
     }),
   ],
   secret: process.env.NEXTAUTH_SECRET,
-  adapter: MongoDBAdapter(dbAdapter(dbConnect)),
+  adapter: MongoDBAdapter(dbConnect().then(mon => mon.connection.getClient())),
   callbacks: {
     async session({ session, token, user }) {
       return {

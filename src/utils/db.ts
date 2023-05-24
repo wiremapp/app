@@ -44,12 +44,4 @@ async function dbConnect() {
   return cached.conn;
 }
 
-export const dbAdapter = async (client): Promise<MongoClient> => {
-  if (!client || !client.isConnected()) {
-    client = new MongoClient(process.env.MONGODB_URI || "");
-    await client.connect();
-  }
-  return client;
-};
-
 export default dbConnect;
