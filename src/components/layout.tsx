@@ -13,6 +13,7 @@ import Head from "next/head";
 type Props = {
   children?: ReactNode;
   title?: string;
+  desc?: string;
   footer?: boolean;
   thumbSrc?: string;
   navbar?: boolean;
@@ -41,6 +42,7 @@ const navData = [
 export const Component = ({
   children,
   title,
+  desc,
   thumbSrc,
   router,
   pageDesc = null,
