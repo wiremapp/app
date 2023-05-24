@@ -9,9 +9,11 @@ import { useTranslation } from "react-i18next";
 export const Page = ({
   router,
   customTitle,
+  customDesc
 }: {
   router?: NextRouter;
   customTitle?: string;
+  customDesc?: string;
 }) => {
   const { t } = useTranslation();
   return (
@@ -19,6 +21,7 @@ export const Page = ({
       title={customTitle}
       router={router}
       navbar={false}
+      pageDesc={customDesc}
       footer={false}
       cookieConsent={false}
     >

@@ -1,13 +1,15 @@
 import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 import { getFiles, getPostBySlug } from "@/utils";
-import { StaticPage } from "@/components";
+import { MaintPage, StaticPage } from "@/components";
 import { useRouter } from "next/router";
 import React from "react";
-
+import { useTranslation } from "react-i18next";
 
 function Content({ frontMatter, markdownBody }) {
   const router = useRouter();
-  return <StaticPage source={{ frontMatter, markdownBody }} router={router} />;
+  const { t } = useTranslation();
+
+  return <MaintPage router={router} customTitle={"About"} />;
 }
 
 export default Content;
