@@ -2,6 +2,7 @@ import Image from "next/image";
 import { LayoutComponent, PricingComponent } from "@/components";
 import { NextRouter } from "next/router";
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 export const Page = ({
   router,
@@ -10,8 +11,9 @@ export const Page = ({
   router?: NextRouter;
   customTitle?: string;
 }) => {
+  const { t } = useTranslation();
   return (
-    <LayoutComponent title={customTitle} router={router}>
+    <LayoutComponent title={customTitle} router={router} pageDesc={t("pricing_desc")}>
       <PricingComponent />
     </LayoutComponent>
   );

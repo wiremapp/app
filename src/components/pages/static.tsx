@@ -6,7 +6,7 @@ export const Page = ({ source, router }) => {
   const [desc] = useState(source.frontMatter.description);
   const [content] = useState(source.markdownBody);
   return (
-    <LayoutComponent title={title} desc={desc} router={router}>
+    <LayoutComponent title={title} pageDesc={desc} router={router}>
       <StaticContentComponent source={content} />
     </LayoutComponent>
   );
