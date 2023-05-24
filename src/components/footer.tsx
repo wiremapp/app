@@ -1,6 +1,7 @@
 import { LogoComponent } from "@/components";
 import { ButtonComponent as Button } from "@/components";
-import useEmailSubscription from "@/pages/api/auth/newsletter";
+import { useEmailSubscription } from "@/hooks";
+import Link from "next/link";
 import React from "react";
 
 export const Component = () => {
@@ -21,13 +22,16 @@ export const Component = () => {
               Get the latest news!
             </p>
             <p className="mr-1 block shrink-0 md:hidden">Sign up to the</p>
-            <a href="" className="block shrink-0	text-orange-500 text-opacity-100 underline md:hidden">
+            <a
+              href=""
+              className="block shrink-0	text-orange-500 text-opacity-100 underline md:hidden"
+            >
               newsletter
             </a>
             <p className="block md:hidden">.</p>
           </div>
           <div className="flex justify-end space-x-2">
-            <div className="flex items-center mr-3">
+            <div className="mr-3 flex items-center">
               {success && <p>Subscription successful!</p>}
               {error && <p>{error}</p>}
             </div>
@@ -47,7 +51,7 @@ export const Component = () => {
               disabled={isLoading}
               type="submit"
             >
-              {isLoading ? "Sign Up..." : "Sign Up"}
+              {isLoading ? "Signing Up..." : "Sign Up"}
             </Button>
           </div>
         </div>
@@ -55,9 +59,23 @@ export const Component = () => {
       <div>
         <div>
           <div className="my-1 flex justify-start space-x-5 sm:my-0">
-            <a className="text-xs text-white text-opacity-70 hover:text-opacity-100 underline" href="/privacy-policy">Privacy Policy</a>
-            <a className="text-xs text-white text-opacity-70 hover:text-opacity-100 underline" href="/contact">Contact</a>
-            <a className="text-xs text-white text-opacity-70 hover:text-opacity-100 underline" href="/terms-of-service">Terms of Service</a>
+            <Link href="/privacy" passHref>
+              <a className="text-xs text-white text-opacity-70 underline hover:text-opacity-100">
+                Privacy Policy
+              </a>
+            </Link>
+            <Link href="/contact" passHref>
+              <a
+                className="text-xs text-white text-opacity-70 underline hover:text-opacity-100"
+              >
+                Contact
+              </a>
+            </Link>
+            <Link href="/terms" passHref>
+              <a className="text-xs text-white text-opacity-70 underline hover:text-opacity-100">
+                Terms of Service
+              </a>
+            </Link>
           </div>
           <div>
             <p className="text-center text-xs text-white text-opacity-70 sm:text-right">
