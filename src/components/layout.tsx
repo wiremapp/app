@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, useState } from "react";
 import {
   CookieConsentComponent,
   EditorFooterComponent,
@@ -52,7 +52,7 @@ export const Component = ({
   const { scrollY, progress } = useScrollProgress();
   const { t } = useTranslation();
   const isElectron = useIsElectron();
-
+  const [desc, setDesc] = useState(pageDesc || t("site_desc"));
   const HTMLHeadComponent = () => {
     return (
       <Head>
@@ -76,7 +76,7 @@ export const Component = ({
           content="black-translucent"
         />
         <meta name="theme-color" content="#FF6838" />
-        <meta name="description" content={pageDesc || t("site_desc")} />
+        <meta name="description" content={desc} />
         <meta
           property="og:title"
           content={
@@ -87,7 +87,7 @@ export const Component = ({
                 process.env.NEXT_PUBLIC_STATIC_TITLE
           }
         />
-        <meta property="og:description" content={pageDesc || t("site_desc")} />
+        <meta property="og:description" content={desc} />
         <meta
           property="og:image"
           content={
