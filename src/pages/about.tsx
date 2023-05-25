@@ -1,8 +1,17 @@
 import { MaintPage } from "@/components";
 import { useRouter } from "next/router";
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 export default function Page() {
   const router = useRouter();
-  return <MaintPage router={router} customTitle={"About"} />;
+  const { t } = useTranslation();
+
+  return (
+    <MaintPage
+      router={router}
+      customTitle={"About"}
+      customDesc={t("about_desc")}
+    />
+  );
 }

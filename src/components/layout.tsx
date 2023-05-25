@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, useState } from "react";
 import {
   CookieConsentComponent,
   EditorFooterComponent,
@@ -52,7 +52,7 @@ export const Component = ({
   const { scrollY, progress } = useScrollProgress();
   const { t } = useTranslation();
   const isElectron = useIsElectron();
-
+  const [desc, setDesc] = useState(pageDesc || t("site_desc"));
   const HTMLHeadComponent = () => {
     return (
       <Head>
@@ -76,7 +76,7 @@ export const Component = ({
           content="black-translucent"
         />
         <meta name="theme-color" content="#FF6838" />
-        <meta name="description" content={pageDesc} />
+        <meta name="description" content={desc} />
         <meta
           property="og:title"
           content={
@@ -87,12 +87,12 @@ export const Component = ({
                 process.env.NEXT_PUBLIC_STATIC_TITLE
           }
         />
-        <meta property="og:description" content={pageDesc} />
+        <meta property="og:description" content={desc} />
         <meta
           property="og:image"
           content={
             thumbSrc ||
-            `${process.env.NEXT_PUBLIC_SITE_URL}/images/thumb-unset.jpg`
+            `${process.env.NEXT_PUBLIC_SITE_URL}/images/thumb-min.png`
           }
         />
         <link
@@ -119,9 +119,7 @@ export const Component = ({
       return navbar ? (
         <>
           <div
-            className={`bg-${
-              !isElectron ? "transparent" : "[#0E0E0E]"
-            }`}
+            className={`bg-${!isElectron ? "transparent" : "[#0E0E0E]"}`}
           ></div>
           <header>
             <NavbarComponent
@@ -151,9 +149,7 @@ export const Component = ({
       <Navigation />
       <main>
         <div>
-          <div
-            className={` ${navbar ? "mt-[95.99px]" : "mt-0"} `}
-          >
+          <div className={` ${navbar ? "mt-[95.99px]" : "mt-0"} `}>
             {children}
           </div>
         </div>

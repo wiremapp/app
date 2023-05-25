@@ -1,29 +1,55 @@
-import { NextApiRequest, NextApiResponse } from 'next';
-import connectToDatabase, { clientPromise } from '@/utils/db';
+import { Dispatch, SetStateAction, useState } from 'react';
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
-  if (req.method === 'POST') {
-    const { email } = req.body;
+interface EmailSubscriptionState {
+  email: string;
+  isLoading: boolean;
+  error: string | null;
+  success: boolean;
+  setEmail: Dispatch<SetStateAction<string>>;
+  subscribe: () => Promise<void>;
+}
 
-    if (!email) {
-      return res.status(400).json({ error: 'Email is required' });
-    }
+const useEmailSubscription = (): EmailSubscriptionState => {
+  const [email, setEmail] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState(false);
+
+  const subscribe = async () => {
+    setIsLoading(true);
+    setError(null);
 
     try {
-      const client = await clientPromise;
-      const db = client.db('newsletterDB');
-      const collection = db.collection('subscribers');
+      const response = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
 
-      await collection.insertOne({ email });
-
-      return res.status(201).json({ message: 'Subscription successful' });
+      if (response.ok) {
+        setSuccess(true);
+      } else {
+        setSuccess(false);
+        setError("Something went wrong. Please try again.");
+      }
     } catch (error) {
-      return res.status(500).json({ error: 'Something went wrong' });
+      setSuccess(false);
+      setError("Something went wrong. Please try again.");
     }
-  }
 
-  return res.status(405).json({ error: 'Method Not Allowed' });
-}
+    setIsLoading(false);
+  };
+
+  return {
+    email,
+    isLoading,
+    error,
+    success,
+    setEmail,
+    subscribe,
+  };
+};
+
+export default useEmailSubscription;
