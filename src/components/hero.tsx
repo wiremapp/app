@@ -37,7 +37,7 @@ export const Component = (props: Props) => {
               {t("start4Free_label")}
             </Button>
             <Button
-              href="/app"
+              href="/about"
               variant="secondary"
               aria-label={"Open App"}
               space={"medium"}

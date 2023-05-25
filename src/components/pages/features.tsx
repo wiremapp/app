@@ -4,14 +4,14 @@ import { NextRouter } from "next/router";
 import React from "react";
 import { useTranslation } from "react-i18next";
 
-export const Page = ({
-  router,
-}: {
-  router?: NextRouter;
-}) => {
+export const Page = ({ router }: { router?: NextRouter }) => {
   const { t } = useTranslation();
   return (
-    <LayoutComponent title={t("features_label")} router={router}>
+    <LayoutComponent
+      title={t("features_label")}
+      pageDesc={t("features_desc")}
+      router={router}
+    >
       <FeaturesComponent />
     </LayoutComponent>
   );
