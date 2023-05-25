@@ -13,9 +13,11 @@ import Head from "next/head";
 type Props = {
   children?: ReactNode;
   title?: string;
+  author?: string;
   footer?: boolean;
   thumbSrc?: string;
   navbar?: boolean;
+  type?: string;
   pageDesc?: string | null;
   cookieConsent?: boolean;
   router: NextRouter;
@@ -41,8 +43,10 @@ const navData = [
 export const Component = ({
   children,
   title,
+  author,
   thumbSrc,
   router,
+  type,
   pageDesc = null,
   cookieConsent = true,
   footer = true,
@@ -54,15 +58,24 @@ export const Component = ({
   const isElectron = useIsElectron();
   const [desc, setDesc] = useState(pageDesc || t("site_desc"));
   const HTMLHeadComponent = () => {
+    const [desc, setDesc] = useState(pageDesc || t("site_desc"));
+    const canonicalUrl =
+      process.env.NEXT_PUBLIC_SITE_URL +
+      (router.query.static
+        ? router.query.static
+        : router.pathname.substring(1));
+    const pageTitle = title
+      ? title + " — " + process.env.NEXT_PUBLIC_APP_TITLE
+      : process.env.NEXT_PUBLIC_APP_TITLE +
+        " — " +
+        process.env.NEXT_PUBLIC_STATIC_TITLE;
+    const pageType = type || "website";
+    const pageAuthor = process.env.NEXT_PUBLIC_APP_TITLE || author;
+    const pageThumb =
+      thumbSrc || `${process.env.NEXT_PUBLIC_SITE_URL}images/thumb-min.png`;
     return (
       <Head>
-        <title>
-          {title
-            ? title + " — " + process.env.NEXT_PUBLIC_APP_TITLE
-            : process.env.NEXT_PUBLIC_APP_TITLE +
-              " — " +
-              process.env.NEXT_PUBLIC_STATIC_TITLE}
-        </title>
+        <title>{pageTitle}</title>
         <meta charSet="utf-8" />
         <meta
           name="viewport"
@@ -77,24 +90,21 @@ export const Component = ({
         />
         <meta name="theme-color" content="#FF6838" />
         <meta name="description" content={desc} />
-        <meta
-          property="og:title"
-          content={
-            title
-              ? title + " — " + process.env.NEXT_PUBLIC_APP_TITLE
-              : process.env.NEXT_PUBLIC_APP_TITLE +
-                " — " +
-                process.env.NEXT_PUBLIC_STATIC_TITLE
-          }
-        />
+
+        <meta property="og:title" content={pageTitle} />
         <meta property="og:description" content={desc} />
+        <meta property="author" content={pageAuthor} />
         <meta
-          property="og:image"
-          content={
-            thumbSrc ||
-            `${process.env.NEXT_PUBLIC_SITE_URL}/images/thumb-min.png`
-          }
+          property="og:site_name"
+          content={process.env.NEXT_PUBLIC_APP_TITLE}
         />
+        <meta property="og:type" content={pageType} />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:image" content={pageThumb} />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:site" content="@wiremap" />
+        <meta property="twitter:title" content={pageTitle}></meta>
+
         <link
           rel="apple-touch-icon"
           sizes="152x152"
@@ -114,6 +124,7 @@ export const Component = ({
       </Head>
     );
   };
+
   const Navigation = ({ src }: { src?: string }) => {
     const Top = () => {
       return navbar ? (
