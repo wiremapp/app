@@ -13,7 +13,11 @@ export const Page = ({
 }) => {
   const { t } = useTranslation();
   return (
-    <LayoutComponent title={customTitle} router={router} pageDesc={t("pricing_desc")}>
+    <LayoutComponent
+      title={t("pricing_label")}
+      router={router}
+      pageDesc={t("pricing_desc")}
+    >
       <PricingComponent />
     </LayoutComponent>
   );
