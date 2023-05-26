@@ -1,17 +1,10 @@
-import { LogoComponent } from "@/components";
+import { LogoComponent, NewsLetterFormComponent } from "@/components";
 import { ButtonComponent as Button } from "@/components";
 import { useEmailSubscription } from "@/hooks";
 import Link from "next/link";
 import React from "react";
 
 export const Component = () => {
-  const { email, setEmail, isLoading, error, success, subscribe } =
-    useEmailSubscription();
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    subscribe();
-  };
   return (
     <footer aria-label="Site Footer">
       <div>
@@ -30,30 +23,7 @@ export const Component = () => {
             </a>
             <p className="block md:hidden">.</p>
           </div>
-          <div className="flex justify-end space-x-2">
-            <div className="mr-3 flex items-center">
-              {success && <p>Subscription successful!</p>}
-              {error && <p>{error}</p>}
-            </div>
-            <input
-              onChange={(e) => setEmail(e.target.value)}
-              className="hidden rounded bg-white px-4 text-black text-opacity-70 opacity-70 md:block"
-              placeholder="Enter your email..."
-              disabled={isLoading}
-            ></input>
-            <Button
-              className="hidden shrink-0 md:block"
-              href="/auth"
-              variant="primary"
-              aria-label={"Email Sign Up"}
-              space={"medium"}
-              onClick={handleSubmit}
-              disabled={isLoading}
-              type="submit"
-            >
-              {isLoading ? "Signing Up..." : "Sign Up"}
-            </Button>
-          </div>
+            <NewsLetterFormComponent />
         </div>
       </div>
       <div>
@@ -65,9 +35,7 @@ export const Component = () => {
               </a>
             </Link>
             <Link href="/contact" passHref>
-              <a
-                className="text-xs text-white text-opacity-70 underline hover:text-opacity-100"
-              >
+              <a className="text-xs text-white text-opacity-70 underline hover:text-opacity-100">
                 Contact
               </a>
             </Link>

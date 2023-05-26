@@ -18,6 +18,7 @@ export { default as AuthModalComponent } from "./authModal";
 export { default as AboutComponent } from "./about";
 export { default as StaticContentComponent } from "./MdContent";
 export { default as CopyrightTextComponent } from "./copyrightText";
+export { default as NewsLetterFormComponent } from "./newsletterForm";
 
 
 

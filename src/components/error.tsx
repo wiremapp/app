@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import {
   CopyrightTextComponent,
   LogoComponent,
-  ButtonComponent as Button,
+  NewsLetterFormComponent,
 } from "@/components";
 
 type Props = {
@@ -32,7 +32,6 @@ const NotFoundErrorComponent = () => {
             <a>Return to Wiremap.</a>
           </Link>
         </p>
-        <br></br>
         <CopyrightTextComponent />
       </div>
     </div>
@@ -49,20 +48,7 @@ const MaintErrorComponent = () => {
       </div>
       <div className="border-t border-white/10 pt-9">
         <p className="text-white">Be the first to know when we&apos;re ready</p>
-        <div className="my-3 flex w-6/12 flex-row space-x-2">
-          <input
-            className="flex flex-grow rounded bg-white px-4 uppercase text-black text-opacity-70 opacity-70"
-            placeholder="Enter your email..."
-          ></input>
-          <Button
-            href="/auth"
-            variant="primary"
-            aria-label={"Sign Up"}
-            space={"medium"}
-          >
-            Sign Up
-          </Button>
-        </div>
+        <NewsLetterFormComponent />
         <CopyrightTextComponent />
       </div>
     </div>
@@ -93,20 +79,7 @@ export const Component = ({ contentTitle, variant }: Props) => {
               <p className="text-white">
                 Be the first to know when we&apos;re ready
               </p>
-              <div className="my-3 flex w-6/12 flex-row space-x-2">
-                <input
-                  className="flex flex-grow rounded bg-white px-4 uppercase text-black text-opacity-70 opacity-70"
-                  placeholder="Enter your email..."
-                ></input>
-                <Button
-                  href="/"
-                  variant="primary"
-                  aria-label={"Sign Up"}
-                  space={"medium"}
-                >
-                  Sign Up
-                </Button>
-              </div>
+              <NewsLetterFormComponent />
               <CopyrightTextComponent />
             </div>
           </div>
