@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React from "react";
+import React, { MutableRefObject } from "react";
 
 type Props = {
   children?: any;
@@ -13,6 +13,7 @@ type Props = {
   target?: string;
   space?: string;
   disabled?: boolean;
+  ref?: MutableRefObject<any>
 };
 
 export const Component = (props: Props) => {
