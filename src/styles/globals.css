@@ -23,6 +23,7 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+  @apply text-primary text-opacity-70 hover:text-opacity-100
 }
 
 * {
@@ -37,4 +38,6 @@ a {
 .logo-area {
   @apply text-white text-opacity-90 hover:text-opacity-100 flex items-center space-x-6 select-none cursor-pointer
 }
- 
+.cr {
+  @apply uppercase
+}

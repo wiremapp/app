@@ -13,7 +13,7 @@ export const Page = ({ router }: { router?: NextRouter }) => {
       footer={false}
       cookieConsent={false}
     >
-      <ErrorComponent contentTitle={t("notFound_label")} />
+      <ErrorComponent contentTitle={t("notFound_label")} variant={"404"} />
     </LayoutComponent>
   );
 };
