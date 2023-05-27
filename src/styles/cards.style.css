@@ -1,11 +1,17 @@
-
 .cards-container {
-@apply flex flex-col md:flex-row h-auto w-full space-x-0 md:space-x-4 space-y-4 md:space-y-0 pb-16
+    @apply flex flex-col justify-center items-center md:flex-row h-auto w-full space-x-0 md:space-x-4 space-y-4 md:space-y-0 pb-16
 }
 
 .cards-container > div {
-    background: linear-gradient(0deg, #020202 -0.03%, #141414 99.97%);
-    @apply w-full h-full border-0 shadow-2xl
+    @apply w-full h-full border-0
 }
 
+.cards-container > div.primary {
+    background:
+        linear-gradient(0deg, rgba(14, 14, 14, 0.24) 0%, rgba(10, 10, 10, 0.24) 100%) !important;
+}
 
+.cards-container > div.secondary {
+    background: transparent !important;
+
+}
