@@ -1,6 +1,6 @@
 footer {
-    background: linear-gradient(180deg, #0E0E0E 0%, #0B0B0B 100%);
-    @apply border-t backdrop-blur-xl dark:border-white/10 border-white/10;
+    background: linear-gradient(0deg, #0E0E0E 0%, #141414 125%);
+    @apply backdrop-blur-xl;
 }
 
 footer > div:first-of-type{

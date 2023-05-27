@@ -11,8 +11,7 @@ export const Component = (props: Props) => {
     <section>
       <div>
         <div>
-          <h1>FeaturesTitle</h1>
-          <p>Description</p>
+        <h1 className="pb-12 text-2xl font-black text-white text-opacity-70 text-center tracking-widest">Features</h1>
           <div className="cards-container">
             <div className="mx-auto flex max-w-lg flex-col rounded-lg border border-gray-100 bg-white p-6 text-center text-gray-900 shadow dark:border-gray-600 dark:bg-gray-800 dark:text-white xl:p-8">
               <h3 className="mb-4 text-2xl font-semibold">Basic</h3>

@@ -14,10 +14,9 @@ export const Component = (props: Props) => {
       <div>
         <div className="w-full flex-col">
           <div className="w-full">
-            <h1>PricingTitle</h1>
-            <p>Description</p>
+            <h1 className="pt-4 pb-12 text-2xl font-black text-white text-opacity-70 text-center tracking-widest">Pricing</h1>
           </div>
-          <div className="cards-container">
+          <div className="cards-container pb-24">
             <div className="mx-auto flex max-w-lg flex-col rounded-lg border border-gray-100 bg-white p-6 text-center text-gray-900 shadow dark:border-gray-600 dark:bg-gray-800 dark:text-white xl:p-8">
               <h3 className="mb-4 text-2xl font-semibold">Basic</h3>
               <p className="font-light text-gray-500 dark:text-gray-400 sm:text-lg">
