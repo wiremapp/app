@@ -7,15 +7,20 @@ export default async function handler(
   res: NextApiResponse
 ) {
   const { method, body } = req;
-  const { name } = body;
+  const { name, token } = body;
 
   switch (method) {
     case "POST":
+      if (!token)
+        return res
+          .status(400)
+          .json({ message: `Token is required` });
+
       dbConnect();
       const project = new Project.defaultSchema({
-        name : name || "Untitled",
+        name: name || "Untitled",
       });
-  
+
       await project.save();
       res.status(200).json({ message: `Created project successfully` });
 
