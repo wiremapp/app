@@ -12,7 +12,7 @@ export const Component = (props: Props) => {
       className={props.variant == "secondary" ? "section-secondary-bg" : ""}
     >
       <div>
-        <div>
+        <div className="row">
           <h3>Pricing</h3>
           <div className="cards-container">
             <div>

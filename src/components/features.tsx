@@ -10,10 +10,10 @@ type Props = {
 export const Component = (props: Props) => {
   return (
     <section
-      className={"min-s" + props.variant == "secondary" ? "section-secondary-bg" : ""}
+      className={props.variant == "secondary" ? "section-secondary-bg" : ""}
     >
       <div>
-        <div>
+        <div className="row">
           <h3>Features</h3>
           <div className="cards-container">
             <div className="dark:-gray-600 mx-auto flex max-w-lg flex-col p-6 text-center text-gray-900 dark:text-white xl:p-8">
