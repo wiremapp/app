@@ -1,13 +1,20 @@
-
 .section-secondary-bg {
     background:
         linear-gradient(180deg, rgba(3, 3, 3, 0.16) 0%, rgba(2, 2, 2, 0.16) 100%);
 }
 
 section {
- @apply relative overflow-hidden w-full z-10 min-h-[384px] px-4 md:px-12 py-8 mb-4 transition-all
+    @apply relative overflow-hidden w-full z-10 min-h-[384px] px-4 md:px-12 py-8 mb-4 transition-all
 }
-    
+
 section > div {
     @apply mx-auto flex h-full w-full max-w-[84rem]
+}
+
+section > div > div {
+    @apply w-full flex-col
+}
+
+section > div > div h3 {
+    @apply pb-12 text-2xl font-black text-white text-opacity-70 text-center tracking-widest
 }
