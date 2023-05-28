@@ -3,12 +3,17 @@
 }
 
 .cards-container > div {
-    @apply w-full h-full border-0 rounded-md
+    @apply w-full h-full border-0 rounded-md transition-all duration-[600ms]
 }
+
+.cards-container > div:hover {
+    @apply w-[106%]
+}
+
 .cards-container>div.primary {
     background:
         linear-gradient(0deg, rgba(14, 14, 14, 0.24) 0%, rgba(10, 10, 10, 0.24) 100%) !important;
-    @apply min-h-[612px] px-6 py-6
+    @apply min-h-[812px]
 }
 
 .cards-container> .primary > div:first-of-type {
@@ -16,11 +21,11 @@
    }
 
 .cards-container > div {
-    @apply min-h-[512px] flex max-w-lg flex-col px-2 py-6 text-center text-gray-900 dark:text-white xl:px-8 xl:py-20
+    @apply flex max-w-lg flex-col px-2 py-6 text-center text-gray-900 dark:text-white
 }
 
 .cards-container > div > div {
-    @apply flex grow flex-col
+    @apply flex grow flex-col px-6 py-6
 }
 
 .cards-container h3 {
