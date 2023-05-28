@@ -10,10 +10,10 @@ import { NextRouter } from "next/router";
 import React from "react";
 import { useTranslation } from "react-i18next";
 
-export const Page = ({ router }: { router?: NextRouter }) => {
+export const Page = ({ router ,appState }: { appState: any, router?: NextRouter }) => {
   const { t } = useTranslation();
   return (
-    <LayoutComponent router={router}>
+    <LayoutComponent router={router} appState={appState}>
       <HeroComponent />
       <FeaturesComponent />
       <PricingComponent variant={"secondary"} />

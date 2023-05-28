@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from "react";
+import React, { Dispatch, ReactNode, SetStateAction, useState } from "react";
 import {
   CookieConsentComponent,
   EditorFooterComponent,
@@ -22,6 +22,10 @@ type Props = {
   cookieConsent?: boolean;
   router: NextRouter;
   variant?: string | null;
+  appState?: {
+    appOpen: boolean;
+    setAppOpen: Dispatch<SetStateAction<boolean>>;
+  };
 };
 
 const navData = [
@@ -47,11 +51,14 @@ export const Component = ({
   thumbSrc,
   router,
   type,
+  appState,
   pageDesc = null,
   cookieConsent = true,
   footer = true,
   navbar = true,
   variant = null,
+ 
+  
 }: Props) => {
   const { scrollY, progress } = useScrollProgress();
   const { t } = useTranslation();
@@ -61,9 +68,9 @@ export const Component = ({
     const [desc, setDesc] = useState(pageDesc || t("site_desc"));
     const canonicalUrl =
       process.env.NEXT_PUBLIC_SITE_URL +
-      (router.query.static
+      (router?.query?.static
         ? router.query.static
-        : router.pathname.substring(1));
+        : router?.pathname?.substring(1));
     const pageTitle = title
       ? title + " — " + process.env.NEXT_PUBLIC_APP_TITLE
       : process.env.NEXT_PUBLIC_APP_TITLE +
@@ -137,6 +144,7 @@ export const Component = ({
               menuData={navData}
               scrollY={scrollY}
               router={router}
+              appState={appState}
             />
           </header>
         </>

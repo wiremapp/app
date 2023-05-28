@@ -12,7 +12,7 @@ export const Page = ({ router }: { router?: NextRouter }) => {
       pageDesc={t("features_desc")}
       router={router}
     >
-      <FeaturesComponent />
+      <FeaturesComponent variant={"secondary"} />
     </LayoutComponent>
   );
 };

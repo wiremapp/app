@@ -6,7 +6,7 @@ import {
   ModalWrapperComponent,
 } from "@/components";
 import { NextRouter } from "next/router";
-import React, { useState } from "react";
+import React, { Dispatch, SetStateAction, useState } from "react";
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
 import { UrlObject } from "url";
@@ -19,12 +19,20 @@ type Props = {
   router: NextRouter;
   scrollY: number;
   transparentNav?: boolean;
+  appState: {
+    appOpen: boolean;
+    setAppOpen: Dispatch<SetStateAction<boolean>>;
+  };
 };
 
-export const Component = ({ router, menuData }: Props) => {
+export const Component = ({ router, menuData, appState }: Props) => {
   const [visible, setMobileMenu] = useState(false);
   const [signInModal, setSignInModal] = useState(false);
   const { data: session } = useSession();
+
+  const handleOpenApp = () => {
+    appState.setAppOpen(true);
+  };
 
   const { t } = useTranslation();
   const isPWA = useIsPWA();
@@ -57,7 +65,7 @@ export const Component = ({ router, menuData }: Props) => {
   return (
     <nav
       aria-label="Site Navigation"
-      className={`navbar-default ${isPWA ? "pt-20" : null}` }
+      className={`navbar-default ${isPWA ? "pt-20" : null}`}
     >
       <div>
         <LogoComponent />
@@ -69,8 +77,12 @@ export const Component = ({ router, menuData }: Props) => {
                   return (
                     <Link key={`${e.id}_nav`} href={e.href} passHref>
                       <a
-                        className={`${e.id === ("about") ? "hidden lg:inline-block" : ""} ${
-                          router.pathname === e.href ? "opacity-100" : "opacity-70"
+                        className={`${
+                          e.id === "about" ? "hidden lg:inline-block" : ""
+                        } ${
+                          router.pathname === e.href
+                            ? "opacity-100"
+                            : "opacity-70"
                         }`}
                       >
                         {t(`${e.id}_label`)}
@@ -89,14 +101,20 @@ export const Component = ({ router, menuData }: Props) => {
               variant="secondary"
               aria-label={"Open App"}
               space={"medium"}
-              onClick={(e)=>{e.preventDefault(); signOut()}}
-
+              onClick={(e) => {
+                e.preventDefault();
+                signOut();
+              }}
             >
               {session?.user.email}
             </Button>
           )}
           <Button
-            href="/app"
+            href="/"
+            onClick={(e) => {
+              handleOpenApp();
+              e.preventDefault();
+            }}
             variant="primary"
             aria-label={"Open App"}
             space={"medium"}

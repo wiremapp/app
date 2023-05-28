@@ -5,7 +5,7 @@ export const Component = () => {
     <section>
       <div>
         <div>
-          <h1>AboutTitle</h1>
+          <h3>About Us</h3>
           <p>Description</p>
         </div>
       </div>

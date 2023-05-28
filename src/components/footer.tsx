@@ -3,8 +3,10 @@ import { ButtonComponent as Button } from "@/components";
 import { useEmailSubscription } from "@/hooks";
 import Link from "next/link";
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 export const Component = () => {
+  const { t } = useTranslation();
   return (
     <footer aria-label="Site Footer">
       <div>
@@ -17,7 +19,7 @@ export const Component = () => {
             <p className="mr-1 block shrink-0 md:hidden">Sign up to the</p>
             <a
               href=""
-              className="block shrink-0	text-orange-500 text-opacity-100 underline md:hidden"
+              className="block shrink-0 underline md:hidden"
             >
               newsletter
             </a>
@@ -49,7 +51,7 @@ export const Component = () => {
             <p className="text-center text-xs text-white text-opacity-70 sm:text-right">
               Copyright &copy; {new Date().getFullYear()}{" "}
               {process.env.NEXT_PUBLIC_STATIC_TITLE
-                ? process.env.NEXT_PUBLIC_APP_TITLE + "."
+                ? process.env.NEXT_PUBLIC_APP_TITLE + " " +t("jurisdiction_code") + "."
                 : ""}{" "}
               All rights reserved.
             </p>

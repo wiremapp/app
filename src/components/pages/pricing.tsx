@@ -18,7 +18,7 @@ export const Page = ({
       router={router}
       pageDesc={t("pricing_desc")}
     >
-      <PricingComponent />
+      <PricingComponent variant={"secondary"} />
     </LayoutComponent>
   );
 };
