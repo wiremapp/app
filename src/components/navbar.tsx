@@ -96,18 +96,20 @@ export const Component = ({ router, menuData, appState }: Props) => {
           {!session ? (
             <SignInModalButton />
           ) : (
-            <Button
-              href="/app"
-              variant="secondary"
-              aria-label={"Open App"}
-              space={"medium"}
-              onClick={(e) => {
-                e.preventDefault();
-                signOut();
-              }}
-            >
-              {session?.user.email}
-            </Button>
+            <div className="hidden">
+              <Button
+                href="/"
+                variant="secondary"
+                aria-label={"Sign In"}
+                space={"medium"}
+                onClick={(e) => {
+                  e.preventDefault();
+                  signOut();
+                }}
+              >
+                {session?.user.email}
+              </Button>
+            </div>
           )}
           <Button
             href="/"
