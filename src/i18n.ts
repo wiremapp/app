@@ -27,7 +27,7 @@ const resources = {
       openApp_label: "Open App",
       notFound_label: "Page not found",
       genericError_title: "Something went wrong...",
-      genericError_desc: "W",
+      genericError_desc: "Whoops, something went wrong. please try again later.",
       checkSoon_label: "Check back soon...",
       maint_desc: "Unfortunately, Wiremap is currently down and undergoing some maintenance.We apologize for any inconvenience caused. We'll be back up and running shortly!",
       hero_title0: "Visualise your application sitemap structure",
@@ -43,7 +43,9 @@ const resources = {
       learnMore_label: "Learn More",
       start4Free_label: "Start for free",
       copyRight_label: "Copyrights",
-      rightsRes_label: "All rights reserved."
+      rightsRes_label: "All rights reserved.",
+      jurisdiction:"United Kingdom",
+      jurisdiction_code:"UK"
     },
   },
 };
