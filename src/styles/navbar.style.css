@@ -19,5 +19,5 @@
 }
 
 .navbar-default > div > div:last-of-type > div:first-of-type nav a{
-    @apply cursor-pointer font-semibold hover:opacity-100 dark:text-white
+    @apply cursor-pointer font-semibold hover:opacity-100 text-white
 }

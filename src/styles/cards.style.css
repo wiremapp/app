@@ -18,10 +18,10 @@
 
 .cards-container> .primary > div:first-of-type {
     @apply flex flex-grow
-   }
+}
 
 .cards-container > div {
-    @apply flex max-w-lg flex-col px-2 py-6 text-center text-gray-900 dark:text-white
+    @apply flex max-w-lg flex-col px-2 py-6 text-center
 }
 
 .cards-container > div > div {
