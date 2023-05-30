@@ -18,25 +18,25 @@ export const Component = (props: Props) => {
           <div className="cards-container">
             <div className="flex flex-col p-6 text-center">
               <h3>Basic</h3>
-              <p className="font-light text-gray-500 dark:text-gray-400 sm:text-lg">
+              <p className="font-light text-gray-400 sm:text-lg">
                 Best option for personal use & for your next project.
               </p>
             </div>{" "}
             <div className="flex flex-col p-6 text-center">
               <h3>Basic</h3>
-              <p className="font-light text-gray-500 dark:text-gray-400 sm:text-lg">
+              <p className="font-light text-gray-400 sm:text-lg">
                 Best option for personal use & for your next project.
               </p>
             </div>{" "}
             <div className="flex flex-col p-6 text-center">
               <h3>Basic</h3>
-              <p className="font-light text-gray-500 dark:text-gray-400 sm:text-lg">
+              <p className="font-light text-gray-400 sm:text-lg">
                 Best option for personal use & for your next project.
               </p>
             </div>{" "}
             <div className="flex flex-col p-6 text-center">
               <h3>Basic</h3>
-              <p className="font-light text-gray-500 dark:text-gray-400 sm:text-lg">
+              <p className="font-light text-gray-400 sm:text-lg">
                 Best option for personal use & for your next project.
               </p>
             </div>{" "}

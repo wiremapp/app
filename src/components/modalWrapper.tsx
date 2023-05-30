@@ -7,7 +7,7 @@ export const Component = ({ state, children, component }) => {
     <div>
       {state.modal ? (
         <div
-          className="fixed right-[-1px] top-0 z-[100] h-[100vh] w-[100vw] translate-x-[-1px] bg-black bg-opacity-75 text-black transition dark:text-white"
+          className="fixed right-[-1px] top-0 z-[100] h-[100vh] w-[100vw] translate-x-[-1px] bg-black bg-opacity-75 transition text-white"
         >
           {children}
         </div>

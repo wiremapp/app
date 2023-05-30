@@ -6,7 +6,7 @@ import {
   ModalWrapperComponent,
 } from "@/components";
 import { NextRouter } from "next/router";
-import React, { Dispatch, SetStateAction, useState } from "react";
+import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
 import { UrlObject } from "url";

@@ -7,7 +7,7 @@ export const Component = () => {
     <p className="cr">
       {t("copyRight_label")} &copy; {new Date().getFullYear()}{" "}
       {process.env.NEXT_PUBLIC_STATIC_TITLE
-        ? process.env.NEXT_PUBLIC_APP_TITLE + "."
+        ? process.env.NEXT_PUBLIC_APP_TITLE + " " + t("jurisdiction_code") + "."
         : ""}{" "}
       {t("rightsRes_label")}
     </p>
