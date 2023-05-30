@@ -34,8 +34,8 @@
   "scripts": {
     "dev": "next",
     "build": "next build && npm run generate-sitemap",
-    "electron-start": "electron main.ts",
-    "electron-build": "electron-packager . my-electron-app --platform=darwin --arch=x64 --out=dist",
+    "electron": "electron main.ts",
+    "electron:build": "electron-packager . my-electron-app --platform=darwin --arch=x64 --out=dist",
     "start": "next start",
     "lint": "next lint",
     "export": "next export",
@@ -104,6 +104,11 @@
     "tailwindcss": "^3.2.7",
     "tsconfig-paths-webpack-plugin": "^4.0.1",
     "typescript": "^5.0.2"
+  },
+  "browser": {
+    "fs": false,
+    "os": false,
+    "path": false
   },
   "resolutions": {
     "webpack": "^5"
