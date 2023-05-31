@@ -7,9 +7,11 @@ import { useTranslation } from "react-i18next";
 export const Page = ({
   router,
   customTitle,
+  data
 }: {
   router?: NextRouter;
   customTitle?: string;
+  data?: any;
 }) => {
   const { t } = useTranslation();
   return (
@@ -18,7 +20,7 @@ export const Page = ({
       router={router}
       pageDesc={t("pricing_desc")}
     >
-      <PricingComponent variant={"secondary"} />
+      <PricingComponent data={data} variant={"secondary"} />
     </LayoutComponent>
   );
 };

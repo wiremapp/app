@@ -1,8 +1,8 @@
 ---
-title: "Terms of Service"
+title: "Open Source"
 description: "The terms, conditions & guidelines for using our services. Read the Terms of Service for more details."
-page: true
-date: "Mar 23, 2023"
+createdAt: "Mar 23, 2023"
+LastEdit: "Mar 23, 2023"
 ---
 
 These Terms of Service ("Terms") govern your access to and use of the wiremap website and services (collectively referred to as the "Platform"). Please read these Terms carefully before accessing or using the Platform. By accessing or using the Platform, you agree to be bound by these Terms and our Privacy Policy.

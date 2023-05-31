@@ -4,7 +4,7 @@ import { NextRouter } from "next/router";
 import React from "react";
 import { useTranslation } from "react-i18next";
 
-export const Page = ({ router }: { router?: NextRouter }) => {
+export const Page = ({ data, router }: { data: any , router?: NextRouter }) => {
   const { t } = useTranslation();
   return (
     <LayoutComponent
@@ -12,7 +12,7 @@ export const Page = ({ router }: { router?: NextRouter }) => {
       pageDesc={t("features_desc")}
       router={router}
     >
-      <FeaturesComponent variant={"secondary"} />
+      <FeaturesComponent data={data} variant={"secondary"} />
     </LayoutComponent>
   );
 };

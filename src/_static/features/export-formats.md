@@ -1,8 +1,8 @@
 ---
-title: "Privacy Policy"
+title: "Multiple Exports"
 description: "Learn how cookies are used & how information is handled. Read the Privacy Policy for more details."
-page: true
-date: "Mar 26, 2023"
+createdAt: "Mar 23, 2023"
+LastEdit: "Mar 23, 2023"
 ---
 
 Throughout this Privacy Policy, the pronouns "we," "us," and "our" refer to the operators of the wirem.app website and services.

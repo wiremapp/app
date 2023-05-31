@@ -5,6 +5,7 @@ type Props = {
   children?: any;
   className?: string;
   variant?: string;
+  data?: any;
 };
 
 export const Component = (props: Props) => {
@@ -15,6 +16,9 @@ export const Component = (props: Props) => {
       <div>
         <div className="row">
           <h3>Pricing</h3>
+          {props.data.pricingData.map(tier =>{
+            return JSON.stringify(tier);
+          })}
           <div className="cards-container">
             <div>
               <div>
@@ -119,7 +123,7 @@ export const Component = (props: Props) => {
                     Best option for personal use & for your next project.
                   </p>
                   <div className="my-8 flex items-baseline justify-center">
-                    <span className="mr-2 text-5xl font-extrabold">9.99</span>
+                    <span className="mr-2 text-5xl font-extrabold">$9.99</span>
                     <span className="text-gray-400">/month</span>
                   </div>
                   <ul role="list" className="mb-8 space-y-4 text-left">
@@ -214,7 +218,7 @@ export const Component = (props: Props) => {
                     Best option for personal use & for your next project.
                   </p>
                   <div className="my-8 flex items-baseline justify-center">
-                    <span className="mr-2 text-5xl font-extrabold">24.99</span>
+                    <span className="mr-2 text-5xl font-extrabold">$24.99</span>
                     <span className="text-gray-400">/month</span>
                   </div>
                   <ul role="list" className="mb-8 space-y-4 text-left">

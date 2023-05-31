@@ -1,19 +1,22 @@
 import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 import { getFiles, getPostBySlug } from "@/utils";
-import { StaticPage } from "@/components";
+import { EditorPage, StaticPage } from "@/components";
 import { useRouter } from "next/router";
 import React from "react";
 
-
-function Content({ frontMatter, markdownBody }) {
+function Content({ frontMatter, markdownBody, appState }) {
   const router = useRouter();
-  return <StaticPage source={{ frontMatter, markdownBody }} router={router} />;
+  return !appState ? (
+    <StaticPage source={{ frontMatter, markdownBody }} router={router} />
+  ) : (
+    <EditorPage router={router}  />
+  );
 }
 
 export default Content;
 
 export async function getStaticProps({ params }: Params) {
-  const { frontMatter, markdownBody } = await getPostBySlug(params.static);
+  const { frontMatter, markdownBody } = await getPostBySlug(params.static, "pages");
 
   return {
     props: {
@@ -24,7 +27,7 @@ export async function getStaticProps({ params }: Params) {
 }
 
 export async function getStaticPaths() {
-  const pages = await getFiles();
+  const pages = await getFiles("pages");
   const paths = pages.map((filename: string) => ({
     params: {
       static: filename.replace(/\.md/, ""),
