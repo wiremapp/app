@@ -12,6 +12,7 @@ export interface IElement {
 
 export interface IType {
   name?: string;
+  initiationId: string;
   type: "individual" | "organisation";
   pages: IPage[];
   elements: IElement[];
@@ -19,6 +20,7 @@ export interface IType {
 
 const ISchema = new mongoose.Schema({
   name: String,
+  initiationId: { type: String, required: true },
   pages: Array,
   elements: Array,
 });

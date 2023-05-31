@@ -7,6 +7,7 @@ interface IType {
   success: boolean;
   setName: Dispatch<SetStateAction<string>>;
   add: () => Promise<void>;
+  getAll: () => Promise<void>;
 }
 
 const Hook = (): IType => {
@@ -36,6 +37,32 @@ const Hook = (): IType => {
       }
     } catch (error) {
       setSuccess(false);
+      setError(error);
+    }
+
+    setIsLoading(false);
+  };
+
+  const getAll = async () => {
+    setIsLoading(true);
+    setError(null);
+
+    try {
+      const response = await fetch("/api/projects", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (response.ok) {
+        setSuccess(true);
+      } else {
+        setSuccess(false);
+        setError("Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      setSuccess(false);
       setError("Something went wrong. Please try again.");
     }
 
@@ -48,6 +75,7 @@ const Hook = (): IType => {
     error,
     success,
     setName,
+    getAll,
     add,
   };
 };
