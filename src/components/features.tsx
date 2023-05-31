@@ -16,16 +16,20 @@ export const Component = (props: Props) => {
       <div>
         <div className="row">
           <h3>Features</h3>
-        
           <div className="cards-container">
-          {props.data.featuresData.map(feature =>{
-            return   <div key={feature.slug} className="flex flex-col p-6 text-center">
-            <h3>{feature.frontMatter.title}</h3>
-            <p className="font-light text-gray-400 sm:text-lg">
-              Best option for personal use & for your next project.
-            </p>
-          </div>;
-          })}
+            {props.data.featuresData.map((feature) => {
+              return (
+                <div
+                  key={feature.slug}
+                  className="section-secondary-bg flex flex-col p-6 text-center"
+                >
+                  <h3>{feature.frontMatter.title}</h3>
+                  <p className="font-light text-gray-400 sm:text-lg">
+                    Best option for personal use & for your next project.
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

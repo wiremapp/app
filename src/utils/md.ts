@@ -62,12 +62,11 @@ async function getMdFiles(
     })
   );
   const flattenedFiles = files.filter((file) => file !== null).flat();
-  if ( flattenedFiles.length === 0) {
-    return [{ path: '', slug: '' }];
+  if (flattenedFiles.length === 0) {
+    return [{ path: "", slug: "" }];
   }
   return flattenedFiles;
 }
-
 
 async function collateCategories(dataType: string) {
   const files = fs.readdirSync(path.join(root, dataType));
@@ -93,4 +92,9 @@ export async function getCategories(dataType: string) {
     // books: await collateTags('books'),
   };
   return categories[dataType];
+}
+
+export function sortByOrder(data) {
+  data.sort((a, b) => a.frontMatter.order - b.frontMatter.order);
+  return data;
 }
