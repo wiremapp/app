@@ -6,8 +6,9 @@ Quickly and easily visualise your application sitemap structure with a comprehen
 
 ## Features
 
+- ✅ | Database Models
 - ✅ | User Authentication
-- ⬜️ | Create Sitemap
+- ✅ | Create Sitemap
     1. ✅ | Add Cell
     2. ⬜️ | Edit Cell
     3. ⬜️ | Remove Cell
@@ -39,13 +40,12 @@ Quickly and easily visualise your application sitemap structure with a comprehen
     flowchart TD
     35a89d93(Landing Page)-->46223490(Dashboard)
     46223490-->86r53891(Editor Page)
-    35a89d93-->03dcc596(About)
+    35a89d93-->03dcc596(Static Page)
+    03dcc596-->03dmm596(Privacy/Terms/Features)
     35a89d93-->T(Pricing)
     eb8f8865(Additional Pages)
-    eb8f8865-->f1fd7063(SignIn/SignUp)
     eb8f8865-->84c323c4L(User Settings)
     eb8f8865-->f88d271e(404)
-    eb8f8865-->8c43e165(Privacy Policy)
 ```
 
 ## Getting Started
