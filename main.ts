@@ -39,7 +39,7 @@ function createMainWindow() {
 
   mainWindow.loadURL(
     process.env.NODE_ENV !== "production"
-      ? "http://localhost:3000/"
+      ? "http://localhost:3000/?appSt=true"
       : process.env.NEXT_PUBLIC_SITE_URL
   );
   //   drag(mainWindow, {
