@@ -96,7 +96,7 @@ export const Component = ({ router, menuData, appState }: Props) => {
           {!session ? (
             <SignInModalButton />
           ) : (
-            <div className="hidden">
+            <div className="hidden sm:block">
               <Button
                 href="/"
                 variant="secondary"
