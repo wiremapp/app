@@ -19,6 +19,7 @@ const resources = {
       about_desc:
         "Our aim at wiremap is to facilitate a user-friendly & streamlined development process. View the About Page for more details.",
       home_label: "Home",
+      dash_label: "Dashboard",
       features_label: "Features",
       pricing_label: "Pricing",
       about_label: "About",
