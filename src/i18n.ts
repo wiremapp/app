@@ -46,7 +46,10 @@ const resources = {
       copyRight_label: "Copyrights",
       rightsRes_label: "All rights reserved.",
       jurisdiction:"United Kingdom",
-      jurisdiction_code:"UK"
+      jurisdiction_code:"UK",
+      month_label: "Month",
+      free_label: "Free",
+      forever_label: "Forever"
     },
   },
 };

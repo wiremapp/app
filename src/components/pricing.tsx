@@ -1,6 +1,7 @@
 import React from "react";
 import { ButtonComponent as Button } from "@/components";
 import { sortByOrder } from "@/utils";
+import { useTranslation } from "react-i18next";
 
 type Props = {
   children?: any;
@@ -11,6 +12,7 @@ type Props = {
 
 export const Component = (props: Props) => {
   const sortedData = sortByOrder(props.data.pricingData);
+  const { t } = useTranslation();
   return (
     <section
       className={props.variant == "secondary" ? "section-secondary-bg" : ""}
@@ -37,9 +39,15 @@ export const Component = (props: Props) => {
                       </p>
                       <div className="my-8 flex items-baseline justify-center">
                         <span className="mr-2 text-5xl font-extrabold">
-                          {tierPrice}
+                          {tierPrice !== 0 ? "$" : ""}
+                          {tierPrice !== 0 ? tierPrice : t("free_label")}
                         </span>
-                        <span className="text-gray-400">/month</span>
+                        <span className="text-gray-400">
+                          /{" "}
+                          {tierPrice !== 0
+                            ? t("month_label").toLowerCase()
+                            : t("forever_label").toLowerCase()}
+                        </span>
                       </div>
                       <ul role="list" className="mb-8 space-y-4 text-left">
                         {tierFeatures.map((feature, index) => {
@@ -60,9 +68,7 @@ export const Component = (props: Props) => {
                                   clip-rule="evenodd"
                                 ></path>
                               </svg>
-                              <span>
-                              {feature.title}
-                              </span>
+                              <span>{feature.title}</span>
                             </li>
                           );
                         })}
