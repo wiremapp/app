@@ -31,7 +31,7 @@ export const Component = () => {
       </div>
       <div>
         <div>
-          <div className="my-1 flex justify-start space-x-5 sm:my-0">
+          <div className="my-1 flex justify-start space-x-5 sm:my-0 uppercase">
             <Link href="/privacy" passHref>
               <a className="text-xs text-white text-opacity-70 underline hover:text-opacity-100">
                 Privacy Policy
