@@ -1,15 +1,15 @@
 import { FAQPage } from "@/components";
-import { getAllPostsWithFrontMatter } from "@/utils";
+import { getAllStaticEntriesWithFrontMatter } from "@/utils";
 import { useRouter } from "next/router";
 import React from "react";
 
-export default function Page() {
+export default function Page({faqData}) {
   const router = useRouter();
-  return <FAQPage router={router} />;
+  return <FAQPage data={{faqData}} router={router} />;
 }
 
 export async function getStaticProps() {
-  const faqData = await getAllPostsWithFrontMatter("faq");
+  const faqData = await getAllStaticEntriesWithFrontMatter("faq");
   return {
     props: {
       faqData,

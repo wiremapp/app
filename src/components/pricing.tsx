@@ -1,6 +1,5 @@
 import React from "react";
 import { ButtonComponent as Button } from "@/components";
-import { sortByOrder } from "@/utils";
 import { useTranslation } from "react-i18next";
 
 type Props = {
@@ -11,7 +10,7 @@ type Props = {
 };
 
 export const Component = (props: Props) => {
-  const sortedData = sortByOrder(props.data.pricingData);
+  const sortedData =  props.data.pricingData.sort((a, b) => a.frontMatter.order - b.frontMatter.order);
   const { t } = useTranslation();
   return (
     <section

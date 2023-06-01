@@ -1,5 +1,5 @@
 import { FeatPage } from "@/components";
-import { getAllPostsWithFrontMatter } from "@/utils";
+import { getAllStaticEntriesWithFrontMatter } from "@/utils";
 import { useRouter } from "next/router";
 import React from "react";
 
@@ -9,7 +9,7 @@ export default function Page({ featuresData }) {
 }
 
 export async function getStaticProps() {
-  const featuresData = await getAllPostsWithFrontMatter("features");
+  const featuresData = await getAllStaticEntriesWithFrontMatter("features");
   return {
     props: {
       featuresData,

@@ -23,7 +23,7 @@ export const Page = ({
   return (
     <LayoutComponent router={router} appState={appState}>
       <HeroComponent />
-      <FeaturesComponent data={data} />
+      <FeaturesComponent data={data} src="landing" />
       <PricingComponent data={data} variant={"secondary"} />
       <FAQComponent data={data}/>
     </LayoutComponent>

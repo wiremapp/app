@@ -1,5 +1,5 @@
 import { PricingPage } from "@/components";
-import { getAllPostsWithFrontMatter } from "@/utils";
+import { getAllStaticEntriesWithFrontMatter } from "@/utils";
 import { useRouter } from "next/router";
 import React from "react";
 
@@ -9,7 +9,7 @@ export default function Page({ pricingData }) {
 }
 
 export async function getStaticProps() {
-  const pricingData = await getAllPostsWithFrontMatter("pricing");
+  const pricingData = await getAllStaticEntriesWithFrontMatter("pricing");
   return {
     props: {
       pricingData,

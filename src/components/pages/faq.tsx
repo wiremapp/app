@@ -7,7 +7,7 @@ import { NextRouter } from "next/router";
 import React from "react";
 import { useTranslation } from "react-i18next";
 
-export const Page = ({ router }: { router?: NextRouter }) => {
+export const Page = ({ router,data }: { data?: any, router?: NextRouter }) => {
   const { t } = useTranslation();
   return (
     <LayoutComponent
@@ -15,7 +15,7 @@ export const Page = ({ router }: { router?: NextRouter }) => {
       pageDesc={t("about_desc")}
       router={router}
     >
-      <FAQComponent />
+      <FAQComponent data={data} />
     </LayoutComponent>
   );
 };

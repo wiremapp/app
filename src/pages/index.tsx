@@ -1,5 +1,5 @@
 import { DashPage, LandingPage, MaintPage } from "@/components";
-import { getAllPostsWithFrontMatter } from "@/utils";
+import { getAllStaticEntriesWithFrontMatter } from "@/utils";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 
@@ -17,9 +17,9 @@ export default function Page({featuresData,pricingData,faqData}) {
 export async function getStaticProps() {
   // TODO: Merge into const {featuresData, pricingData, faqData} = await getAllPostsWithFrontMatter(["features","pricing","faq"]);
 
-  const featuresData = await getAllPostsWithFrontMatter("features");
-  const pricingData = await getAllPostsWithFrontMatter("pricing");
-  const faqData = await getAllPostsWithFrontMatter("faq");
+  const featuresData = await getAllStaticEntriesWithFrontMatter("features");
+  const pricingData = await getAllStaticEntriesWithFrontMatter("pricing");
+  const faqData = await getAllStaticEntriesWithFrontMatter("faq");
 
   return {
     props: {
