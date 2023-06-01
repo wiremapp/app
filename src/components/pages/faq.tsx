@@ -1,5 +1,5 @@
 import {
-  AboutComponent,
+  FAQComponent,
   FeaturesComponent,
   LayoutComponent,
 } from "@/components";
@@ -11,11 +11,11 @@ export const Page = ({ router }: { router?: NextRouter }) => {
   const { t } = useTranslation();
   return (
     <LayoutComponent
-      title={t("about_label")}
+      title={t("faqFull_label")}
       pageDesc={t("about_desc")}
       router={router}
     >
-      <AboutComponent />
+      <FAQComponent />
     </LayoutComponent>
   );
 };

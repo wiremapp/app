@@ -39,7 +39,7 @@ a {
   @apply text-white text-opacity-90 hover:text-opacity-100 flex items-center space-x-6 select-none cursor-pointer
 }
 .cr {
-  @apply uppercase
+  @apply uppercase text-xs text-white text-opacity-70
 }
 
 #tooltip {

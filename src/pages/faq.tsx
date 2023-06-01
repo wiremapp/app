@@ -1,8 +1,8 @@
-import { AboutPage } from "@/components";
+import { FAQPage } from "@/components";
 import { useRouter } from "next/router";
 import React from "react";
 
 export default function Page() {
   const router = useRouter();
-  return <AboutPage router={router} />;
+  return <FAQPage router={router} />;
 }

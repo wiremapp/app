@@ -1,6 +1,6 @@
 import Image from "next/image";
 import {
-  AboutComponent,
+  FAQComponent,
   FeaturesComponent,
   HeroComponent,
   LayoutComponent,
@@ -25,7 +25,7 @@ export const Page = ({
       <HeroComponent />
       <FeaturesComponent data={data} />
       <PricingComponent data={data} variant={"secondary"} />
-      <AboutComponent />
+      <FAQComponent />
     </LayoutComponent>
   );
 };

@@ -1,4 +1,8 @@
-import { LogoComponent, NewsLetterFormComponent } from "@/components";
+import {
+  CopyrightTextComponent,
+  LogoComponent,
+  NewsLetterFormComponent,
+} from "@/components";
 import { ButtonComponent as Button } from "@/components";
 import { useEmailSubscription } from "@/hooks";
 import Link from "next/link";
@@ -17,15 +21,12 @@ export const Component = () => {
               Get the latest news!
             </p>
             <p className="mr-1 block shrink-0 md:hidden">Sign up to the</p>
-            <a
-              href=""
-              className="block shrink-0 underline md:hidden"
-            >
+            <a href="" className="block shrink-0 underline md:hidden">
               newsletter
             </a>
             <p className="block md:hidden">.</p>
           </div>
-            <NewsLetterFormComponent />
+          <NewsLetterFormComponent />
         </div>
       </div>
       <div>
@@ -48,13 +49,7 @@ export const Component = () => {
             </Link>
           </div>
           <div>
-            <p className="text-center text-xs text-white text-opacity-70 sm:text-right">
-              Copyright &copy; {new Date().getFullYear()}{" "}
-              {process.env.NEXT_PUBLIC_STATIC_TITLE
-                ? process.env.NEXT_PUBLIC_APP_TITLE + " " +t("jurisdiction_code") + "."
-                : ""}{" "}
-              All rights reserved.
-            </p>
+            <CopyrightTextComponent />
           </div>
         </div>
       </div>

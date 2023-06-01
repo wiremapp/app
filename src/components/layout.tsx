@@ -39,8 +39,8 @@ const navData = [
   },
   { id: "pricing", href: "/pricing" },
   {
-    id: "about",
-    href: "/about",
+    id: "faq",
+    href: "/faq",
   },
 ];
 
