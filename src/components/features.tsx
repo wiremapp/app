@@ -1,3 +1,4 @@
+import { sortByOrder } from "@/utils";
 import Link from "next/link";
 import React from "react";
 import { useTranslation } from "react-i18next";
@@ -7,10 +8,16 @@ type Props = {
   data?: any;
   className?: string;
   variant?: string;
+  src?: string;
 };
 
 export const Component = (props: Props) => {
   const { t } = useTranslation();
+  const sortedData = sortByOrder(props.data.featuresData).slice(
+    0,
+    props.src === "landing" ? props.data.featuresDat : 3
+  );
+  
   return (
     <section
       className={props.variant == "secondary" ? "section-secondary-bg" : ""}
@@ -19,7 +26,7 @@ export const Component = (props: Props) => {
         <div className="row">
           <h3>{t("features_label")}</h3>
           <div className="cards-container">
-            {props.data.featuresData.map((feature) => {
+            {sortedData.map((feature) => {
               const featureTitle = feature.frontMatter.title;
               const featureDesc = feature.frontMatter.description;
               return (

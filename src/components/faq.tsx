@@ -32,7 +32,7 @@ export const Component = (props: Props) => {
                     aria-expanded="true"
                     aria-controls="accordion-flush-body-1"
                   >
-                    <span>{question.frontMatter.title}</span>
+                    <span>{faqTitle}</span>
                     <svg
                       data-accordion-icon
                       className="h-6 w-6 shrink-0 rotate-180"
