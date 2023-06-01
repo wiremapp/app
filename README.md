@@ -67,7 +67,7 @@ Quickly and easily visualise your application sitemap structure with a comprehen
 3. Copy the `env.example` to a new file `env.local`:
 
     ```bash
-    cp .env.example .env
+    cp .env.example .env.local
     ```
 
     env.example:
