@@ -1,6 +1,6 @@
 ---
 title: "Easy-to-use"
-description: "Learn how cookies are used & how information is handled. Read the Privacy Policy for more details."
+description: "Duis laoreet feugiat convallis. Proin semper lobortis interdum. In nec nunc mollis, suscipit arcu vitae."
 createdAt: "Mar 23, 2023"
 LastEdit: "Mar 23, 2023"
 ---

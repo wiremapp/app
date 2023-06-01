@@ -1,7 +1,7 @@
 ---
 order: 0
 title: "Basic"
-description: "Learn how cookies are used & how information is handled. Read the Privacy Policy for more details."
+description: "Donec sodales accumsan consectetur. Aenean interdum faucibus ante sed fermentum. Proin at malesuada massa."
 features:   [{ title: "feature1", included: true },
             { title: "feature2",  included: true },
             {  title: "feature3", included: true }, 

@@ -1,6 +1,6 @@
 ---
 title: "Open Source"
-description: "The terms, conditions & guidelines for using our services. Read the Terms of Service for more details."
+description: "Mauris non accumsan felis. Class aptent taciti sociosqu ad litora torquent per conubia nostra."
 createdAt: "Mar 23, 2023"
 LastEdit: "Mar 23, 2023"
 ---

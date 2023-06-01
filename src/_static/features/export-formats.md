@@ -1,6 +1,6 @@
 ---
 title: "Multiple Exports"
-description: "Learn how cookies are used & how information is handled. Read the Privacy Policy for more details."
+description: "Proin et nisi nisi. Aliquam quis vehicula est. In vehicula felis eget elit lacinia, id porttitor mi."
 createdAt: "Mar 23, 2023"
 LastEdit: "Mar 23, 2023"
 ---

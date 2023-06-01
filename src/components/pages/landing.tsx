@@ -25,7 +25,7 @@ export const Page = ({
       <HeroComponent />
       <FeaturesComponent data={data} />
       <PricingComponent data={data} variant={"secondary"} />
-      <FAQComponent />
+      <FAQComponent data={data}/>
     </LayoutComponent>
   );
 };

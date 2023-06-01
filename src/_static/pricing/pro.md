@@ -2,7 +2,7 @@
 order: 1
 primary: true
 title: "Pro"
-description: "Learn how cookies are used & how information is handled. Read the Privacy Policy for more details."
+description: "Cras et dolor gravida, viverra dui ac, ullamcorper elit. Vestibulum rutrum, purus hendrerit."
 features:   [{ title: "feature1", included: true },
             { title: "feature2",  included: true },
             {  title: "feature3", included: true }, 
