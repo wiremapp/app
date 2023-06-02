@@ -8,6 +8,7 @@
 @import './navbar.style.css';
 @import './footer.style.css';
 @import './cards.style.css';
+@import './auth.style.css';
 
 @tailwind base;
 @tailwind components;
