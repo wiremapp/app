@@ -1,9 +1,9 @@
-/* Cards Container */
-.cards-container {
+/* Pricing Cards Container */
+.pricing-cards-container {
     @apply flex justify-center items-center md:flex-row h-auto w-full md:space-x-4 space-y-4 md:space-y-0
 }
 
-/* Card */
-.cards-container > div {
+/* Pricing Card */
+.pricing-cards-container > div {
     @apply  h-full border-0 rounded transition-all duration-[600ms]
 }

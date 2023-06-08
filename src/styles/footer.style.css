@@ -3,18 +3,17 @@ footer {
     @apply backdrop-blur-xl;
 }
 
+/* Top Footer */
 footer > div:first-of-type{
     @apply py-4 px-4 md:px-12 transition-all;
 }
 
+/* Bottom Footer Container */
 footer > div:last-of-type {
     @apply p-4 md:px-12 border-t border-white/10;
 }
 
-footer .editor-foot {
-    @apply px-12 py-2 border-t border-white/10;
-}
-
+/* Bottom Footer */
 footer > div > div  {
     @apply mx-auto min-h-[64px] flex-col sm:flex-row flex max-w-[84rem] items-center justify-between
 }
