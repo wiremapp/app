@@ -1,7 +1,7 @@
 ---
 order: 2
 title: "Enterprise"
-description: "In dignissim, mauris ut congue gravida, sem lectus bibendum erat, vitae tempor est arcu nec diam."
+description: "Best suited for large teams."
 features:   [{ title: "feature1", included: true },
             { title: "feature2",  included: true },
             {  title: "feature3", included: true }, 

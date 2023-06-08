@@ -2,7 +2,7 @@
 order: 1
 primary: true
 title: "Pro"
-description: "Cras et dolor gravida, viverra dui ac, ullamcorper elit. Vestibulum rutrum, purus hendrerit."
+description: "Best suited for power users or small teams."
 features:   [{ title: "feature1", included: true },
             { title: "feature2",  included: true },
             {  title: "feature3", included: true }, 

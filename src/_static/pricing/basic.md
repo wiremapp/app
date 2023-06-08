@@ -1,7 +1,7 @@
 ---
 order: 0
 title: "Basic"
-description: "Donec sodales accumsan consectetur. Aenean interdum faucibus ante sed fermentum. Proin at malesuada massa."
+description: "Best suited for individuals."
 features:   [{ title: "feature1", included: true },
             { title: "feature2",  included: true },
             {  title: "feature3", included: true }, 
