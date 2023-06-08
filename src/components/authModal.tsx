@@ -1,17 +1,18 @@
-import { useTranslation } from "react-i18next";
-import React from "react";
-import { useIsElectron } from "@/hooks";
 import { ButtonComponent as Button, LogoComponent } from "@/components";
-import { signIn } from "next-auth/react";
+import { useTranslation } from "react-i18next";
 import { HiXMark } from "react-icons/hi2";
+import { signIn } from "next-auth/react";
+import { useIsElectron } from "@/hooks";
+import Link from "next/link";
+import React from "react";
 
 export const Component = ({ state, router }) => {
   const { t } = useTranslation();
   const isElectron = useIsElectron();
 
   return (
-    <div className="auth">
-      <div className="flex justify-between items-center px-10 pt-8">
+    <div className="authModal">
+      <div className="flex items-center justify-between px-10 pt-8">
         <HiXMark
           size={40}
           className="opacity-70 hover:opacity-100"
@@ -76,23 +77,23 @@ export const Component = ({ state, router }) => {
           </div>
           <p className="text-xs text-white text-opacity-30">
             By signing in to Wiremap, you agree to our{" "}
-            <a
-              href="/terms"
+            <Link
               className="font-bold text-white text-opacity-40 hover:text-opacity-70"
+              href="/terms"
             >
               Terms of Service
-            </a>
+            </Link>
             .
           </p>
         </div>
       </div>
-      <div className="flex justify-between items-center px-10 pt-8">
+      <div className="flex items-center justify-between px-10 pt-8">
         <HiXMark
           size={40}
           className="opacity-0 hover:opacity-100"
           onClick={() => state.setModal(!state.modal)}
         />
-                <HiXMark
+        <HiXMark
           size={40}
           className="opacity-0 hover:opacity-100"
           onClick={() => state.setModal(!state.modal)}

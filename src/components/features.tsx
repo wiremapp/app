@@ -1,6 +1,5 @@
-import Link from "next/link";
-import React from "react";
 import { useTranslation } from "react-i18next";
+import React from "react";
 
 type Props = {
   children?: any;
@@ -28,16 +27,17 @@ export const Component = (props: Props) => {
               const featureTitle = feature.frontMatter.title;
               const featureDesc = feature.frontMatter.description;
               return (
+                <div key={feature.slug}>
                 <div
-                  key={feature.slug}
-                  className="section-secondary-bg flex flex-col p-6 text-center"
-                >
-                  <h3>{featureTitle}</h3>
-                  <p className="font-light text-gray-400 sm:text-lg">
-                    {featureDesc}
-                  </p>
+                className="section-secondary-bg flex flex-col p-6 text-center"
+              >
+                <h3>{featureTitle}</h3>
+                <p className="font-light text-gray-400 sm:text-lg">
+                  {featureDesc}
+                </p>
+              </div>
                 </div>
-              );
+              ) ;
             })}
           </div>
         </div>
