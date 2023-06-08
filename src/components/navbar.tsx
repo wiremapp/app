@@ -25,14 +25,12 @@ type Props = {
   };
 };
 
-export const Component = ({ router, menuData, appState }: Props) => {
+export const Component = ({ router, menuData }: Props) => {
   const [visible, setMobileMenu] = useState(false);
   const [signInModal, setSignInModal] = useState(false);
   const { data: session } = useSession();
 
-  const handleOpenApp = () => {
-    appState.setAppOpen(true);
-  };
+
 
   const { t } = useTranslation();
   const isPWA = useIsPWA();
@@ -112,11 +110,7 @@ export const Component = ({ router, menuData, appState }: Props) => {
             </div>
           )}
           <Button
-            href="/"
-            onClick={(e) => {
-              handleOpenApp();
-              e.preventDefault();
-            }}
+            href="/dashboard"
             variant="primary"
             aria-label={"Open App"}
             space={"medium"}
