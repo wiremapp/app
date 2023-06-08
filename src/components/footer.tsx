@@ -31,19 +31,19 @@ export const Component = () => {
       </div>
       <div>
         <div>
-          <div className="my-1 flex justify-start space-x-5 sm:my-0 uppercase">
+          <div className="my-1 flex justify-start space-x-8 sm:my-0 uppercase">
             <Link href="/privacy" passHref>
-              <a className="text-xs text-white text-opacity-70 underline hover:text-opacity-100">
+              <a className="text-xs text-white text-opacity-70 transition-all font-medium hover:text-opacity-100">
                 Privacy Policy
               </a>
             </Link>
             <Link href="/contact" passHref>
-              <a className="text-xs text-white text-opacity-70 underline hover:text-opacity-100">
+              <a className="text-xs text-white text-opacity-70 transition-all font-medium hover:text-opacity-100">
                 Contact
               </a>
             </Link>
             <Link href="/terms" passHref>
-              <a className="text-xs text-white text-opacity-70 underline hover:text-opacity-100">
+              <a className="text-xs text-white text-opacity-70 transition-all font-medium hover:text-opacity-100">
                 Terms of Service
               </a>
             </Link>
