@@ -7,15 +7,20 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
+  
   const { method, body } = req;
-  const { name } = body;
+  const { name, projId } = body;
+
   const token = await getToken({ req });
   if (token) {
     switch (method) {
       case "GET":
         if (!token)
           return res.status(400).json({ message: `Token is required` });
-        res.status(200).json({ results:[{id: 1},{id: 2},{id: 3},{id: 4}] });
+        if (!projId) return res.status(200).json({ id: 1 });
+        res
+          .status(200)
+          .json({ results: [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }] });
         break;
       case "POST":
         dbConnect();
