@@ -18,8 +18,8 @@ Quickly and easily visualise your application sitemap structure with a comprehen
     7. ✅ | Add Sub Element
     8. ⬜️ | Edit Sub Element
     9. ⬜️ | Remove Sub Element
-- ⬜️ | Edit Sitemap
-- ⬜️ | Remove Sitemap
+- ✅ | Edit Sitemap
+- ✅ | Remove Sitemap
 - ⬜️ | User Settings
     1. - ⬜️ | Edit User Settings
     2. - ⬜️ | Create Organisation
