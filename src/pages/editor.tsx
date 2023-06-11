@@ -1,4 +1,4 @@
-import { EditorPage } from "@/components";
+import {EditorPage} from "@/components/pages/editor";
 import { useRouter } from "next/router";
 import React from "react";
 

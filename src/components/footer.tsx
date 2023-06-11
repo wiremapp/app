@@ -1,15 +1,12 @@
-import {
-  CopyrightTextComponent,
-  LogoComponent,
-  NewsLetterFormComponent,
-} from "@/components";
-import { ButtonComponent as Button } from "@/components";
-import { useEmailSubscription } from "@/hooks";
+
 import Link from "next/link";
 import React from "react";
 import { useTranslation } from "react-i18next";
+import { LogoComponent } from "@/components/logo";
+import { NewsLetterFormComponent } from "@/components/newsletterForm";
+import { CopyrightTextComponent } from "@/components/copyrightText";
 
-export const Component = () => {
+export const FooterComponent = () => {
   const { t } = useTranslation();
   return (
     <footer aria-label="Site Footer">
@@ -37,11 +34,6 @@ export const Component = () => {
                 Privacy Policy
               </a>
             </Link>
-            <Link href="/contact" passHref>
-              <a className="text-xs text-white text-opacity-70 transition-all font-medium hover:text-opacity-100">
-                Contact
-              </a>
-            </Link>
             <Link href="/terms" passHref>
               <a className="text-xs text-white text-opacity-70 transition-all font-medium hover:text-opacity-100">
                 Terms of Service
@@ -57,4 +49,4 @@ export const Component = () => {
   );
 };
 
-export default Component;
+export default FooterComponent;

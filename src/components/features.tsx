@@ -9,7 +9,7 @@ type Props = {
   src?: string;
 };
 
-export const Component = (props: Props) => {
+export const FeaturesComponent = (props: Props) => {
   const { t } = useTranslation();
   const sortedData = props.data.featuresData.sort((a, b) => a.frontMatter.oder - b.frontMatter.oder).slice(
     0,
@@ -46,4 +46,4 @@ export const Component = (props: Props) => {
   );
 };
 
-export default Component;
+export default FeaturesComponent;

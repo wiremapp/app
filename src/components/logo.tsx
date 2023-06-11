@@ -1,10 +1,8 @@
-import { useScrollProgress } from "@/hooks";
 import Link from "next/link";
 import Image from "next/image";
-import { v4 as uuidv4 } from "uuid";
 import React from "react";
 
-const Component = ({}) => {
+export const LogoComponent = ({}) => {
   return (
     <Link href="/">
       <div className="logo-area">
@@ -24,4 +22,4 @@ const Component = ({}) => {
   );
 };
 
-export default Component;
+export default LogoComponent;

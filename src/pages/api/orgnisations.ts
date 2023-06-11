@@ -1,4 +1,4 @@
-import { Orgnisation } from "@/models";
+import Orgnisation from "@/models/orgnisations";
 import dbConnect from "@/utils/db";
 import { NextApiRequest, NextApiResponse } from "next";
 import { getToken } from "next-auth/jwt";
@@ -24,7 +24,7 @@ export default async function handler(
       case "POST":
         dbConnect();
         const userId = token?.sub;
-        const project = new Orgnisation.defaultSchema({
+        const project = new Orgnisation({
           name: name || "Untitled",
           initiationId: userId,
         });

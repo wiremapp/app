@@ -7,7 +7,7 @@ type Props = {
   data?: any;
 };
 
-export const Component = (props: Props) => {
+export const FAQComponent = (props: Props) => {
   return (
     <section>
       <div>
@@ -68,4 +68,4 @@ export const Component = (props: Props) => {
   );
 };
 
-export default Component;
+export default FAQComponent;

@@ -1,8 +1,7 @@
-import { LogoComponent } from "@/components";
-import { ButtonComponent as Button } from "@/components";
+
 import React from "react";
 
-export const Component = () => {
+export const EditorFooterComponent = () => {
   return (
     <footer aria-label="Site Footer" className="footer-section">
       <div className="editor-foot">
@@ -27,4 +26,4 @@ export const Component = () => {
   );
 };
 
-export default Component;
+export default EditorFooterComponent;

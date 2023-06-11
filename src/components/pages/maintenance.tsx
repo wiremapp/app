@@ -1,9 +1,10 @@
-import { ErrorComponent, LayoutComponent } from "@/components";
+import { LayoutComponent } from "@/components/layout";
 import { NextRouter } from "next/router";
 import React from "react";
 import { useTranslation } from "react-i18next";
+import ErrorComponent from "../error";
 
-export const Page = ({
+export const MaintPage = ({
   router,
   customTitle,
 }: {
@@ -24,4 +25,4 @@ export const Page = ({
   );
 };
 
-export default Page;
+export default MaintPage;

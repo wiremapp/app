@@ -1,11 +1,13 @@
 import { LayoutComponent } from "@/components/layout";
 import React, { useState } from "react";
-import {StaticContentComponent} from "@/components/MdContent";
+import {OrderComponent} from "@/components/order";
 
-export const StaticPage = ({ source, router }) => {
+export const OrderPage = ({ source, router }) => {
   const [title] = useState(source.frontMatter.title);
   const [desc] = useState(source.frontMatter.description);
   const [content] = useState(source.markdownBody);
+  const [price] = useState(source.frontMatter.monthly_price_usd);
+
   return (
     <LayoutComponent
       title={title}
@@ -13,9 +15,9 @@ export const StaticPage = ({ source, router }) => {
       type={"article"}
       router={router}
     >
-      <StaticContentComponent source={content} />
+      <OrderComponent source={content} price={price} />
     </LayoutComponent>
   );
 };
 
-export default StaticPage;
+export default OrderPage;

@@ -1,10 +1,10 @@
 import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
-import { getFiles, getStaticEntryBySlug } from "@/utils";
-import { EditorPage, StaticPage } from "@/components";
 import { useRouter } from "next/router";
 import React from "react";
+import {StaticPage} from "@/components/pages/static";
+import { getFiles, getStaticEntryBySlug } from "@/utils/md";
 
-function Content({ frontMatter, markdownBody, appState }) {
+function Content({ frontMatter, markdownBody }) {
   const router = useRouter();
   return <StaticPage source={{ frontMatter, markdownBody }} router={router} />;
 }

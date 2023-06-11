@@ -1,17 +1,15 @@
-import {
-  AuthModalComponent,
-  MobileMenuComponent as Burger,
-  ButtonComponent as Button,
-  LogoComponent,
-  ModalWrapperComponent,
-} from "@/components";
 import { NextRouter } from "next/router";
 import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
 import { UrlObject } from "url";
-import { useIsPWA } from "@/hooks";
+import { useIsPWA } from "@/hooks/isPWA";
 import { signOut, useSession } from "next-auth/react";
+import { ModalWrapperComponent } from "@/components/modalWrapper";
+import { Button } from "@/components/button";
+import AuthModalComponent from "@/components/authModal";
+import { LogoComponent } from "@/components/logo";
+import { MobileMenuComponent } from "@/components/mobileMenu";
 
 type Props = {
   menuData: any[];
@@ -25,12 +23,10 @@ type Props = {
   };
 };
 
-export const Component = ({ router, menuData }: Props) => {
+export const NavbarComponent = ({ router, menuData }: Props) => {
   const [visible, setMobileMenu] = useState(false);
   const [signInModal, setSignInModal] = useState(false);
   const { data: session } = useSession();
-
-
 
   const { t } = useTranslation();
   const isPWA = useIsPWA();
@@ -117,11 +113,14 @@ export const Component = ({ router, menuData }: Props) => {
           >
             Open App
           </Button>
-          <Burger data={menuData} state={{ visible, setMobileMenu }} />
+          <MobileMenuComponent
+            data={menuData}
+            state={{ visible, setMobileMenu }}
+          />
         </div>
       </div>
     </nav>
   );
 };
 
-export default Component;
+export default NavbarComponent;

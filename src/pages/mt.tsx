@@ -1,4 +1,4 @@
-import { MaintPage } from "@/components";
+import { MaintPage } from "@/components/pages/maintenance";
 import { useRouter } from "next/router";
 import React from "react";
 

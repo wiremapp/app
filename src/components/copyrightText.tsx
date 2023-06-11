@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 
-export const Component = () => {
+export const CopyrightTextComponent = () => {
   const { t } = useTranslation();
   return (
     <p className="cr">
@@ -14,4 +14,4 @@ export const Component = () => {
   );
 };
 
-export default Component;
+export default CopyrightTextComponent;

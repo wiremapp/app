@@ -7,7 +7,7 @@ features:   [{ title: "Free forever", included: true },
             {  title:  "Create unlimited sitemaps", included: true },
             {  title: "Unlimited Exports", included: true }, 
             {  title: "Use templates", included: true},
-            {  title: "Shared workspaces", included: false},
+            {  title: "Shared workspaces", included: true},
             {  title: "Up to 10 organization spaces", included: true},
             {  title: "API access", included: true}]
 monthly_price_usd: 9.99

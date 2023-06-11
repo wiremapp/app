@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import React from "react";
 import Link from "next/link";
 
-export const Component = ({ data, state }) => {
+export const MobileMenuComponent = ({ data, state }) => {
   const { t } = useTranslation();
   return (
     <div className="md:hidden">
@@ -76,4 +76,4 @@ export const Component = ({ data, state }) => {
   );
 };
 
-export default Component;
+export default MobileMenuComponent;

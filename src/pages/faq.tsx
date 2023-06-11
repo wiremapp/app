@@ -1,5 +1,5 @@
-import { FAQPage } from "@/components";
-import { getAllStaticEntriesWithFrontMatter } from "@/utils";
+import {FAQPage} from "@/components/pages/faq";
+import { getAllStaticEntriesWithFrontMatter } from "@/utils/md";
 import { useRouter } from "next/router";
 import React from "react";
 

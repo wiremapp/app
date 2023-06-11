@@ -10,7 +10,7 @@ interface IType {
   getAll: () => Promise<void>;
 }
 
-const Hook = (): IType => {
+const useOrganisations = (): IType => {
   const [name, setName] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -80,4 +80,4 @@ const Hook = (): IType => {
   };
 };
 
-export default Hook;
+export default useOrganisations;

@@ -1,14 +1,14 @@
 import React, { Dispatch, ReactNode, SetStateAction, useState } from "react";
-import {
-  CookieConsentComponent,
-  EditorFooterComponent,
-  FooterComponent,
-  NavbarComponent,
-} from "@/components";
+
 import { useTranslation } from "react-i18next";
-import { useIsElectron, useScrollProgress } from "@/hooks";
 import { NextRouter } from "next/router";
 import Head from "next/head";
+import { NavbarComponent } from "@/components/navbar";
+import { CookieConsentComponent } from "@/components/cookieConsent";
+import { EditorFooterComponent } from "@/components/footer-editor";
+import { FooterComponent } from "@/components/footer";
+import useScrollProgress from "@/hooks/scrollY";
+import useIsElectron from "@/hooks/isElectron";
 
 type Props = {
   children?: ReactNode;
@@ -44,7 +44,7 @@ const navData = [
   },
 ];
 
-export const Component = ({
+export const LayoutComponent = ({
   children,
   title,
   author,
@@ -57,8 +57,6 @@ export const Component = ({
   footer = true,
   navbar = true,
   variant = null,
- 
-  
 }: Props) => {
   const { scrollY, progress } = useScrollProgress();
   const { t } = useTranslation();
@@ -179,4 +177,4 @@ export const Component = ({
   );
 };
 
-export default Component;
+export default LayoutComponent;

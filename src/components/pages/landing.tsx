@@ -1,16 +1,15 @@
 import Image from "next/image";
-import {
-  FAQComponent,
-  FeaturesComponent,
-  HeroComponent,
-  LayoutComponent,
-  PricingComponent,
-} from "@/components";
+import { LayoutComponent } from "@/components/layout";
+
 import { NextRouter } from "next/router";
 import React from "react";
 import { useTranslation } from "react-i18next";
+import { HeroComponent } from "@/components/hero";
+import { FeaturesComponent } from "@/components/features";
+import { FAQComponent } from "@/components/faq";
+import {PricingComponent} from "@/components/pricing";
 
-export const Page = ({
+export const LandingPage = ({
   data,
   router,
   appState,
@@ -25,9 +24,9 @@ export const Page = ({
       <HeroComponent />
       <FeaturesComponent data={data} src="landing" />
       <PricingComponent data={data} variant={"secondary"} />
-      <FAQComponent data={data}/>
+      <FAQComponent data={data} />
     </LayoutComponent>
   );
 };
 
-export default Page;
+export default LandingPage;

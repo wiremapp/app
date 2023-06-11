@@ -1,9 +1,10 @@
-import { LayoutComponent, ErrorComponent } from "@/components";
+import { LayoutComponent } from "@/components/layout";
 import { NextRouter } from "next/router";
 import React from "react";
 import { useTranslation } from "react-i18next";
+import {ErrorComponent} from "@/components/error";
 
-export const Page = ({ router }: { router?: NextRouter }) => {
+export const NotFoundPage = ({ router }: { router?: NextRouter }) => {
   const { t } = useTranslation();
   return (
     <LayoutComponent
@@ -18,4 +19,4 @@ export const Page = ({ router }: { router?: NextRouter }) => {
   );
 };
 
-export default Page;
+export default NotFoundPage;

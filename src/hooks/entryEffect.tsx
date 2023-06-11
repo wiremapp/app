@@ -6,7 +6,7 @@ interface UseEntryEffectProps {
   finalPosition: number;
 }
 
-function useEntryEffect({
+export function useEntryEffect({
   delay = 1000,
   initialPosition = -100,
   finalPosition = 0,

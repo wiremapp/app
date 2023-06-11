@@ -1,4 +1,4 @@
-import { DashPage, FAQPage } from "@/components";
+import {DashPage} from "@/components/pages/dashboard";
 import { useRouter } from "next/router";
 import React from "react";
 

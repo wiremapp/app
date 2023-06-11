@@ -1,5 +1,5 @@
-import { FeatPage } from "@/components";
-import { getAllStaticEntriesWithFrontMatter } from "@/utils";
+import FeatPage from "@/components/pages/features";
+import { getAllStaticEntriesWithFrontMatter } from "@/utils/md";
 import { useRouter } from "next/router";
 import React from "react";
 

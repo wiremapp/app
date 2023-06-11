@@ -1,10 +1,10 @@
 import { setCookie, hasCookie } from "cookies-next";
 import React, { useEffect, useState } from "react";
-import { useEntryEffect } from "@/hooks";
-import { ButtonComponent as Button } from "@/components";
+import { useEntryEffect } from "@/hooks/entryEffect";
+import {  Button } from "@/components/button";
 import { useTranslation } from "react-i18next";
 
-export function Component() {
+export function CookieConsentComponent() {
   const { t } = useTranslation();
   const [consent, setConsent] = useState(true);
   useEffect(() => {
@@ -87,4 +87,4 @@ export function Component() {
   );
 }
 
-export default Component;
+export default CookieConsentComponent;

@@ -1,11 +1,10 @@
 import Link from "next/link";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import {
-  CopyrightTextComponent,
-  LogoComponent,
-  NewsLetterFormComponent,
-} from "@/components";
+import { CopyrightTextComponent } from "@/components/copyrightText";
+import { NewsLetterFormComponent } from "@/components/newsletterForm";
+import { LogoComponent } from "@/components/logo";
+
 
 type Props = {
   children?: any;
@@ -14,7 +13,7 @@ type Props = {
   variant?: "404" | "mt" | null;
 };
 
-const NotFoundErrorComponent = () => {
+export const NotFoundErrorComponent = () => {
   const { t } = useTranslation();
   return (
     <div className="my-16 flex flex-col">
@@ -55,7 +54,7 @@ const MaintErrorComponent = () => {
   );
 };
 
-export const Component = ({ contentTitle, variant }: Props) => {
+export const ErrorComponent = ({ contentTitle, variant }: Props) => {
   const { t } = useTranslation();
   return (
     <section className="bg-blue-850 h-full">
@@ -89,4 +88,4 @@ export const Component = ({ contentTitle, variant }: Props) => {
   );
 };
 
-export default Component;
+export default ErrorComponent;

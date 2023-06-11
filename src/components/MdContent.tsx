@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useRemark } from "react-remark";
 
-export const Component = ({ source }) => {
+export const StaticContentComponent = ({ source }) => {
   const [content, setSource] = useRemark();
   useEffect(() => {
     setSource(source);
@@ -14,4 +14,4 @@ export const Component = ({ source }) => {
   );
 };
 
-export default Component;
+export default StaticContentComponent;

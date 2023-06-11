@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import React from "react";
 
-export const Component = ({ state, children, component }) => {
+export const ModalWrapperComponent = ({ state, children, component }) => {
   const { t } = useTranslation();
   return (
     <div>
@@ -18,4 +18,4 @@ export const Component = ({ state, children, component }) => {
   );
 };
 
-export default Component;
+export default ModalWrapperComponent;

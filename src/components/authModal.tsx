@@ -1,12 +1,13 @@
-import { ButtonComponent as Button, LogoComponent } from "@/components";
 import { useTranslation } from "react-i18next";
 import { HiXMark } from "react-icons/hi2";
 import { signIn } from "next-auth/react";
-import { useIsElectron } from "@/hooks";
+import { useIsElectron } from "@/hooks/isElectron";
+import { LogoComponent } from "@/components/logo";
+import { Button } from "@/components/button";
 import Link from "next/link";
 import React from "react";
 
-export const Component = ({ state, router }) => {
+export const AuthModalComponent = ({ state, router }) => {
   const { t } = useTranslation();
   const isElectron = useIsElectron();
 
@@ -108,4 +109,4 @@ export const Component = ({ state, router }) => {
   );
 };
 
-export default Component;
+export default AuthModalComponent;

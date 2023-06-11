@@ -1,4 +1,4 @@
-import { Subscriber } from "@/models";
+import Subscriber from "@/models/subscribers";
 import dbConnect from "@/utils/db";
 import { NextApiRequest, NextApiResponse } from "next";
 
@@ -14,7 +14,7 @@ export default async function handler(
     case "POST":
       if (!email) return res.status(400).json({ message: `Email is required` });
       dbConnect();
-      const subscriber = new Subscriber.defaultSchema({
+      const subscriber = new Subscriber({
         email,
         name,
       });

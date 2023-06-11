@@ -1,5 +1,6 @@
-import { DashPage, LandingPage, MaintPage } from "@/components";
-import { getAllStaticEntriesWithFrontMatter } from "@/utils";
+import DashPage from "@/components/pages/dashboard";
+import LandingPage from "@/components/pages/landing";
+import { getAllStaticEntriesWithFrontMatter } from "@/utils/md";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 

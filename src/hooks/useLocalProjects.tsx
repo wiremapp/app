@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 interface LocalItem {
   id: string;
@@ -7,7 +8,6 @@ interface LocalItem {
 
 type ProjectsHook = {
   projects: LocalItem[];
-  isLoading: boolean;
   addProject: (name: string) => void;
   removeProject: (id: string) => void;
   editProject: (id: string, newName: string) => void;
@@ -15,26 +15,34 @@ type ProjectsHook = {
 
 const useLocalProjects = (): ProjectsHook => {
   const [projects, setProjects] = useState<LocalItem[]>([]);
-  const [isLoading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const storedProjects = localStorage.getItem('projects');
+    if (storedProjects) {
+      setProjects(JSON.parse(storedProjects));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('projects', JSON.stringify(projects));
+  }, [projects]);
 
   const addProject = (name: string) => {
-    setLoading(true);
     const newProject: LocalItem = {
-      id: Math.random().toString(), // Generate a unique ID
+      id: uuidv4(),
       name,
     };
 
     setProjects([...projects, newProject]);
-    setLoading(false);
   };
 
   const removeProject = (id: string) => {
-    const updatedProjects = projects.filter((project) => project.id !== id);
+    const updatedProjects = projects.filter(project => project.id !== id);
     setProjects(updatedProjects);
   };
 
   const editProject = (id: string, newName: string) => {
-    const updatedProjects = projects.map((project) => {
+    const updatedProjects = projects.map(project => {
       if (project.id === id) {
         return { ...project, name: newName };
       }
@@ -44,7 +52,6 @@ const useLocalProjects = (): ProjectsHook => {
   };
 
   return {
-    isLoading,
     projects,
     addProject,
     removeProject,

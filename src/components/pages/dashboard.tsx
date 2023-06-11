@@ -1,15 +1,12 @@
-import { useEffect, useState } from "react";
-import { LayoutComponent } from "@/components";
+import { LayoutComponent } from "@/components/layout";
 import React from "react";
-import { useProjects } from "@/hooks";
 import { useTranslation } from "react-i18next";
-import { ButtonComponent as Button } from "@/components";
+import { Button } from "@/components/button";
 import useLocalProjects from "@/hooks/useLocalProjects";
 
-export const Page = ({ router, appState = null }) => {
+export const DashPage = ({ router }) => {
   const { t } = useTranslation();
   const {
-    isLoading: isLoadingLocal,
     projects: LocalProjects,
     addProject,
     removeProject,
@@ -38,10 +35,9 @@ export const Page = ({ router, appState = null }) => {
         aria-label={"Email Sign Up"}
         space={"medium"}
         onClick={handleAddProject}
-        disabled={isLoadingLocal}
         type="submit"
       >
-        {isLoadingLocal ? "Adding..." : "Add"}
+        Add
       </Button>
 
       <ul>
@@ -61,4 +57,4 @@ export const Page = ({ router, appState = null }) => {
   );
 };
 
-export default Page;
+export default DashPage;

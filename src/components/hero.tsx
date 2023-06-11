@@ -1,14 +1,14 @@
 import Link from "next/link";
 import React from "react";
-import { ButtonComponent as Button } from "@/components";
 import { useTranslation } from "react-i18next";
+import { Button } from "@/components/button";
 
 type Props = {
   children?: any;
   className?: string;
 };
 
-export const Component = (props: Props) => {
+export const HeroComponent = (props: Props) => {
   const { t } = useTranslation();
   return (
     <section className="hero">
@@ -57,4 +57,4 @@ export const Component = (props: Props) => {
   );
 };
 
-export default Component;
+export default HeroComponent;

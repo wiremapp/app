@@ -16,7 +16,7 @@ type Props = {
   ref?: MutableRefObject<any>
 };
 
-export const Component = (props: Props) => {
+export const Button = (props: Props) => {
   const Content = () => {
     return (
       <>
@@ -47,4 +47,4 @@ export const Component = (props: Props) => {
   );
 };
 
-export default Component;
+export default Button;

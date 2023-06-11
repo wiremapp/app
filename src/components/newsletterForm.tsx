@@ -1,9 +1,9 @@
-import { useEmailSubscription } from "@/hooks";
+import { useEmailSubscription } from "@/hooks/newsletter";
 import React from "react";
-import { ButtonComponent as Button } from "@/components";
 import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/tooltip";
+import { Button } from "@/components/button";
 
-const Component = () => {
+export const NewsLetterFormComponent = () => {
   const { email, setEmail, isLoading, error, success, subscribe } =
     useEmailSubscription();
 
@@ -37,9 +37,11 @@ const Component = () => {
           </Button>
         </div>
       </TooltipTrigger>
-      <TooltipContent>{error|| !success ? error : "Subscription successful."}</TooltipContent>
+      <TooltipContent>
+        {error || !success ? error : "Subscription successful."}
+      </TooltipContent>
     </Tooltip>
   );
 };
 
-export default Component;
+export default NewsLetterFormComponent;
