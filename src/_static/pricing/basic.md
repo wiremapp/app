@@ -2,10 +2,13 @@
 order: 0
 title: "Basic"
 description: "Best suited for individuals."
-features:   [{ title: "feature1", included: true },
-            { title: "feature2",  included: true },
-            {  title: "feature3", included: true }, 
-            {  title: "feature4", included: false}]
+features:   [{ title: "Free forever", included: true },
+            {  title:  "Create unlimited sitemaps", included: true },
+            {  title: "Unlimited Exports", included: true }, 
+            {  title: "Use templates", included: true},
+            {  title: "Shared workspaces", included: false},
+            {  title: "Organization spaces", included: false},
+            {  title: "API access", included: false}]
 monthly_price_usd: 0
 monthly_price_gbp: 0
 createdAt: "Mar 23, 2023"

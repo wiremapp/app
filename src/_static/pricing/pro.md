@@ -3,10 +3,13 @@ order: 1
 primary: true
 title: "Pro"
 description: "Best suited for power users or small teams."
-features:   [{ title: "feature1", included: true },
-            { title: "feature2",  included: true },
-            {  title: "feature3", included: true }, 
-            {  title: "feature4", included: false}]
+features:   [{ title: "Free forever", included: true },
+            {  title:  "Create unlimited sitemaps", included: true },
+            {  title: "Unlimited Exports", included: true }, 
+            {  title: "Use templates", included: true},
+            {  title: "Shared workspaces", included: false},
+            {  title: "Up to 10 organization spaces", included: true},
+            {  title: "API access", included: true}]
 monthly_price_usd: 9.99
 monthly_price_gbp: 7.99
 createdAt: "Mar 23, 2023"
