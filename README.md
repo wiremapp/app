@@ -25,6 +25,8 @@ Quickly and easily visualise your application sitemap structure with a comprehen
     2. - ⬜️ | Create Organisation
     3. - ⬜️ | Edit Organisations
     4. - ⬜️ | Remove Organisations
+    5. - ⬜️ | Add API key
+    6. - ⬜️ | Remove API Key
 
 ## Technologies
 
