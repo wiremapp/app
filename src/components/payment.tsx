@@ -77,11 +77,10 @@ export const PaymentComponent = ({price}:{price: number}) => {
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
-    // Abort if form isn't valid
+
     if (!e.currentTarget.reportValidity()) return;
     setPayment({ status: "processing" });
 
-    // Create a PaymentIntent with the specified amount.
     const response = await fetchPostJSON("/api/payment_intents", {
       amount: input.customDonation,
     });
@@ -93,12 +92,8 @@ export const PaymentComponent = ({price}:{price: number}) => {
       return;
     }
 
-    // Get a reference to a mounted CardElement. Elements knows how
-    // to find your CardElement because there can only ever be one of
-    // each type of element.
     const cardElement = elements!.getElement(CardElement);
 
-    // Use your card Element with other Stripe.js APIs
     const { error, paymentIntent } = await stripe!.confirmCardPayment(
       response.client_secret,
       {

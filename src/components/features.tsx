@@ -27,17 +27,15 @@ export const FeaturesComponent = (props: Props) => {
               const featureTitle = feature.frontMatter.title;
               const featureDesc = feature.frontMatter.description;
               return (
-                <div key={feature.slug}>
-                <div
-                className="section-secondary-bg flex flex-col p-6 text-center"
-              >
-                <h3>{featureTitle}</h3>
-                <p className="font-light text-gray-400 sm:text-lg">
-                  {featureDesc}
-                </p>
-              </div>
+                <div key={feature.slug} className="section-secondary-bg ">
+                  <div className="flex flex-col p-6 text-center space-y-2">
+                    <h4>{featureTitle}</h4>
+                    <p className="font-light text-gray-400 sm:text-lg">
+                      {featureDesc}
+                    </p>
+                  </div>
                 </div>
-              ) ;
+              );
             })}
           </div>
         </div>

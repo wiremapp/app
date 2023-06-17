@@ -5,7 +5,6 @@ import { NextRouter } from "next/router";
 import Head from "next/head";
 import { NavbarComponent } from "@/components/navbar";
 import { CookieConsentComponent } from "@/components/cookieConsent";
-import { EditorFooterComponent } from "@/components/footer-editor";
 import { FooterComponent } from "@/components/footer";
 import useScrollProgress from "@/hooks/scrollY";
 import useIsElectron from "@/hooks/isElectron";
@@ -142,22 +141,13 @@ export const LayoutComponent = ({
               menuData={navData}
               scrollY={scrollY}
               router={router}
-              appState={appState}
             />
           </header>
         </>
       ) : null;
     };
-    const Bot = () => {
-      return footer ? (
-        variant === "editor" ? (
-          <EditorFooterComponent />
-        ) : (
-          <FooterComponent />
-        )
-      ) : null;
-    };
-    return src !== "bot" ? <Top /> : <Bot />;
+
+    return src !== "bot" ? <Top /> :  <FooterComponent />;
   };
 
   return (

@@ -13,13 +13,10 @@ import { MobileMenuComponent } from "@/components/mobileMenu";
 
 type Props = {
   menuData: any[];
-  variant?: string;
   router: NextRouter;
-  scrollY: number;
-  transparentNav?: boolean;
 };
 
-export const NavbarComponent = ({ router, menuData }: Props) => {
+export const EditorNavbarComponent = ({ router, menuData }: Props) => {
   const [visible, setMobileMenu] = useState(false);
   const [signInModal, setSignInModal] = useState(false);
   const { data: session } = useSession();
@@ -55,10 +52,10 @@ export const NavbarComponent = ({ router, menuData }: Props) => {
   return (
     <nav
       aria-label="Site Navigation"
-      className={`navbar-default ${isPWA ? "pt-20" : null}`}
+      className={`navbar-editor ${isPWA ? "pt-20" : null}`}
     >
       <div>
-        <LogoComponent />
+        <LogoComponent src={"editor"}/>
         <div>
           <div>
             <nav>
@@ -101,14 +98,6 @@ export const NavbarComponent = ({ router, menuData }: Props) => {
               </Button>
             </div>
           )}
-          <Button
-            href="/dashboard"
-            variant="primary"
-            aria-label={"Open App"}
-            space={"medium"}
-          >
-            Open App
-          </Button>
           <MobileMenuComponent
             data={menuData}
             state={{ visible, setMobileMenu }}
@@ -119,4 +108,4 @@ export const NavbarComponent = ({ router, menuData }: Props) => {
   );
 };
 
-export default NavbarComponent;
+export default EditorNavbarComponent;

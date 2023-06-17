@@ -1,10 +1,10 @@
 import Link from "next/link";
 import React from "react";
+
 import { useTranslation } from "react-i18next";
 import { CopyrightTextComponent } from "@/components/copyrightText";
 import { NewsLetterFormComponent } from "@/components/newsletterForm";
 import { LogoComponent } from "@/components/logo";
-
 
 type Props = {
   children?: any;
@@ -67,13 +67,17 @@ export const ErrorComponent = ({ contentTitle, variant }: Props) => {
         ) : (
           <div className="my-20 flex flex-col">
             <div>
+
               <h1 className="mb-6 text-3xl font-black">
                 {contentTitle || t("genericError_title")}
               </h1>
+
               <p className="pb-9 text-white text-opacity-70">
                 {t("maint_desc")}
               </p>
+
             </div>
+
             <div className="border-t border-white/10 pt-9">
               <p className="text-white">
                 Be the first to know when we&apos;re ready

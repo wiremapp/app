@@ -49,12 +49,8 @@ export function CookieConsentComponent() {
       <div className="flex space-x-2">
         <div className="w-full">
         <Button
-          href="#"
+          href="/privacy/"
           className="px-6 text-start"
-          onClick={(e) => {
-            closePopup();
-            e.preventDefault();
-          }}
         >
           {t("learnMore_label")}
         </Button>
