@@ -2,7 +2,7 @@
 order: 2
 title: "Enterprise"
 description: "Best suited for large teams."
-features:   [{ title: "Free forever", included: true },
+features:   [
             {  title:  "Create unlimited sitemaps", included: true },
             {  title: "Unlimited Exports", included: true }, 
             {  title: "Use templates", included: true},
