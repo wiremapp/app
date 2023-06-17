@@ -53,7 +53,7 @@ export const PricingComponent = (props: Props) => {
                 >
                   <div>
                     <div className="flex grow flex-col">
-                      <h3>{tierTitle}</h3>
+                      <h4>{tierTitle}</h4>
                       <p className="font-light text-gray-400 sm:text-lg">
                         {tierDesc}
                       </p>
