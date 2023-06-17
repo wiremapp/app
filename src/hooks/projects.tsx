@@ -1,66 +1,93 @@
-import { Dispatch, SetStateAction, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 
 interface IType {
   name?: string;
   isLoading: boolean;
   error: string | null;
   success: boolean;
+  projects: string[];
   setName: Dispatch<SetStateAction<string>>;
   add: () => Promise<void>;
-  getAll: () => Promise<void>;
+  remove: (projectName: string) => Promise<void>;
+  edit: (oldName: string, newName: string) => Promise<void>;
 }
 
-const useProjects = (): IType => {
+const useLocalProjects = (): IType => {
   const [name, setName] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
+  const [projects, setProjects] = useState<string[]>([]);
+
+  useEffect(() => {
+    const savedProjects = localStorage.getItem("projects");
+    if (savedProjects) {
+      setProjects(JSON.parse(savedProjects));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("projects", JSON.stringify(projects));
+  }, [projects]);
 
   const add = async () => {
     setIsLoading(true);
     setError(null);
 
     try {
-      const response = await fetch("/api/projects", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ name }),
-      });
+      // Simulate an asynchronous API call
+      await new Promise((resolve) => setTimeout(resolve, 1000));
 
-      if (response.ok) {
-        setSuccess(true);
-      } else {
+      if (projects.includes(name)) {
         setSuccess(false);
-        setError("Something went wrong. Please try again.");
+        setError("Project already exists.");
+      } else {
+        setProjects([...projects, name]);
+        setSuccess(true);
+        setName("");
       }
     } catch (error) {
       setSuccess(false);
-      setError(error);
+      setError("Something went wrong. Please try again.");
     }
 
     setIsLoading(false);
   };
 
-  const getAll = async () => {
+  const remove = async (projectName: string) => {
     setIsLoading(true);
     setError(null);
 
     try {
-      const response = await fetch("/api/projects", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      // Simulate an asynchronous API call
+      await new Promise((resolve) => setTimeout(resolve, 1000));
 
-      if (response.ok) {
-        setSuccess(true);
-      } else {
-        setSuccess(false);
-        setError("Something went wrong. Please try again.");
-      }
+      const updatedProjects = projects.filter(
+        (project) => project !== projectName
+      );
+      setProjects(updatedProjects);
+      setSuccess(true);
+    } catch (error) {
+      setSuccess(false);
+      setError("Something went wrong. Please try again.");
+    }
+
+    setIsLoading(false);
+  };
+
+  const edit = async (oldName: string, newName: string) => {
+    setIsLoading(true);
+    setError(null);
+
+    try {
+      // Simulate an asynchronous API call
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
+      const updatedProjects = projects.map((project) =>
+        project === oldName ? newName : project
+      );
+      setProjects(updatedProjects);
+      setSuccess(true);
     } catch (error) {
       setSuccess(false);
       setError("Something went wrong. Please try again.");
@@ -74,10 +101,12 @@ const useProjects = (): IType => {
     isLoading,
     error,
     success,
+    projects,
     setName,
-    getAll,
     add,
+    remove,
+    edit,
   };
 };
 
-export default useProjects;
+export default useLocalProjects;

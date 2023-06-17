@@ -1,62 +1,119 @@
-import { useState, useEffect } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 
-interface LocalItem {
+interface IProject {
   id: string;
   name: string;
 }
 
-type ProjectsHook = {
-  projects: LocalItem[];
-  addProject: (name: string) => void;
-  removeProject: (id: string) => void;
-  editProject: (id: string, newName: string) => void;
-};
+interface IType {
+  name?: string;
+  isLoading: boolean;
+  error: string | null;
+  success: boolean;
+  projects: IProject[];
+  setName: Dispatch<SetStateAction<string>>;
+  add: () => Promise<void>;
+  remove: (projectId: string) => Promise<void>;
+  edit: (projectId: string, newName: string) => Promise<void>;
+}
 
-const useLocalProjects = (): ProjectsHook => {
-  const [projects, setProjects] = useState<LocalItem[]>([]);
+const useLocalProjects = (): IType => {
+  const [name, setName] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState(false);
+  const [projects, setProjects] = useState<IProject[]>([]);
 
   useEffect(() => {
-    const storedProjects = localStorage.getItem('projects');
-    if (storedProjects) {
-      setProjects(JSON.parse(storedProjects));
+    if (typeof window !== "undefined") {
+      const storedProjects = JSON.parse(localStorage.getItem("projects"));
+      if(storedProjects !== null) {
+        setProjects([...projects, ...storedProjects]);
+      }
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  useEffect(() => {
-    localStorage.setItem('projects', JSON.stringify(projects));
-  }, [projects]);
 
-  const addProject = (name: string) => {
-    const newProject: LocalItem = {
-      id: uuidv4(),
-      name,
-    };
+  const add = async () => {
+    setIsLoading(true);
+    setError(null);
 
-    setProjects([...projects, newProject]);
-  };
+    try {
+      // Simulate an asynchronous API call
+      await new Promise((resolve) => setTimeout(resolve, 200));
 
-  const removeProject = (id: string) => {
-    const updatedProjects = projects.filter(project => project.id !== id);
-    setProjects(updatedProjects);
-  };
+      const projectId = Math.random().toString(36).slice(2, 9);
+      const newProject: IProject = { id: projectId, name };
 
-  const editProject = (id: string, newName: string) => {
-    const updatedProjects = projects.map(project => {
-      if (project.id === id) {
-        return { ...project, name: newName };
+      if (projects.some((project) => project.name === name)) {
+        setSuccess(false);
+        setError("Project already exists.");
+      } else {
+        setProjects([...projects, newProject]);
+        setSuccess(true);
+        setName("");
       }
-      return project;
-    });
-    setProjects(updatedProjects);
+    } catch (error) {
+      setSuccess(false);
+      setError("Something went wrong. Please try again.");
+    }
+
+    setIsLoading(false);
+  };
+
+  const remove = async (projectId: string) => {
+    setIsLoading(true);
+    setError(null);
+
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 200));
+
+      const updatedProjects = projects.filter(
+        (project) => project.id !== projectId
+      );
+      setProjects(updatedProjects);
+      setSuccess(true);
+    } catch (error) {
+      setSuccess(false);
+      setError("Something went wrong. Please try again.");
+    }
+
+    setIsLoading(false);
+  };
+
+  const edit = async (projectId: string, newName: string) => {
+    setIsLoading(true);
+    setError(null);
+
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 400));
+
+      const updatedProjects = projects.map((project) =>
+        project.id === projectId ? { ...project, name: newName } : project
+      );
+      setProjects(updatedProjects);
+      setSuccess(true);
+    } catch (error) {
+      setSuccess(false);
+      setError("Something went wrong. Please try again.");
+    }
+
+    setIsLoading(false);
   };
 
   return {
+    name,
+    isLoading,
+    error,
+    success,
     projects,
-    addProject,
-    removeProject,
-    editProject,
+    setName,
+    add,
+    remove,
+    edit,
   };
 };
+
 
 export default useLocalProjects;
