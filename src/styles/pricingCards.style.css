@@ -1,6 +1,6 @@
 /* Pricing Cards Container */
 .pricing-cards-container {
-    @apply flex justify-center items-center md:flex-row h-auto w-full md:space-x-4 space-y-4 md:space-y-0
+    @apply  flex justify-center items-center md:flex-row h-auto w-full md:space-x-4 space-y-4 md:space-y-0
 }
 
 /* Pricing Card */

@@ -1,9 +1,14 @@
 /* Cards Container */
 .cards-container {
-    @apply flex justify-center items-center md:flex-row h-auto w-full md:space-x-4 space-y-4 md:space-y-0
+    @apply flex flex-wrap w-full justify-center items-center md:flex-row h-full
+}
+
+/* Card titles */
+section > div > div h4 {
+    @apply pb-2 text-xl font-black text-white text-opacity-70 text-center tracking-widest
 }
 
 /* Card */
 .cards-container > div {
-    @apply  h-full border-0 rounded transition-all duration-[600ms]
+    @apply  w-1/5 min-h-[248px] border-0 rounded transition-all duration-[600ms]
 }
