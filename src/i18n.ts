@@ -49,6 +49,7 @@ const resources = {
       jurisdiction:"United Kingdom",
       jurisdiction_code:"UK",
       month_label: "Month",
+      year_label: "Year",
       free_label: "Free",
       forever_label: "Forever"
     },
