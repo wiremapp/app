@@ -12,6 +12,8 @@ features:   [{ title: "Free forever", included: true },
             {  title: "API access", included: true}]
 monthly_price_usd: 9.99
 monthly_price_gbp: 7.99
+annual_price_usd: 99.99
+annual_price_gbp: 79.99
 createdAt: "Mar 23, 2023"
 LastEdit: "Mar 23, 2023"
 ---

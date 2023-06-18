@@ -1,6 +1,7 @@
 import { Button } from "@/components/button";
 import { useTranslation } from "react-i18next";
-import React from "react";
+import React, { useState } from "react";
+import { formatAmountForDisplay } from "@/utils/stripe-helpers";
 
 type Props = {
   children?: any;
@@ -13,6 +14,8 @@ export const PricingComponent = (props: Props) => {
   const sortedData = props.data.pricingData.sort(
     (a, b) => a.frontMatter.order - b.frontMatter.order
   );
+
+  const [annual, setAnnual] = useState(true);
 
   const { t } = useTranslation();
   return (
@@ -29,7 +32,10 @@ export const PricingComponent = (props: Props) => {
               type="checkbox"
               role="switch"
               id="billing_type_checkbox"
-              checked={true}
+              checked={annual}
+              onChange={() => {
+                setAnnual(!annual);
+              }}
               disabled={false}
             />
             <label
@@ -43,7 +49,10 @@ export const PricingComponent = (props: Props) => {
           <div className="pricing-cards-container">
             {sortedData.map((tier) => {
               const tierTitle = tier.frontMatter.title;
-              const tierPrice = tier.frontMatter.monthly_price_usd;
+              const tierPrice = !annual
+                ? tier.frontMatter.monthly_price_usd
+                : tier.frontMatter.annual_price_usd;
+
               const tierDesc = tier.frontMatter.description;
               const tierFeatures = tier.frontMatter.features;
               return (
@@ -59,13 +68,17 @@ export const PricingComponent = (props: Props) => {
                       </p>
                       <div className="my-8 flex items-baseline justify-center">
                         <span className="mr-2 text-5xl font-extrabold">
-                          {tierPrice !== 0 ? "$" : ""}
-                          {tierPrice !== 0 ? tierPrice : t("free_label")}
+                         {tierPrice !== 0 ? "$": ""}
+                          {tierPrice !== 0
+                            ? tierPrice
+                            : t("free_label")}
                         </span>
                         <span className="text-gray-400">
                           /{" "}
                           {tierPrice !== 0
-                            ? t("month_label").toLowerCase()
+                            ? annual
+                              ? t("month_label").toLowerCase()
+                              : t("year_label").toLowerCase()
                             : t("forever_label").toLowerCase()}
                         </span>
                       </div>
@@ -77,7 +90,11 @@ export const PricingComponent = (props: Props) => {
                               key={index}
                             >
                               <svg
-                                className={` ${ feature.included ? "opacity-100": "opacity-20" } h-5 w-5 flex-shrink-0 text-green-400`}
+                                className={` ${
+                                  feature.included
+                                    ? "opacity-100"
+                                    : "opacity-20"
+                                } h-5 w-5 flex-shrink-0 text-green-400`}
                                 fill="currentColor"
                                 viewBox="0 0 20 20"
                                 xmlns="http://www.w3.org/2000/svg"

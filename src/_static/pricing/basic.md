@@ -11,6 +11,8 @@ features:   [{ title: "Free forever", included: true },
             {  title: "API access", included: false}]
 monthly_price_usd: 0
 monthly_price_gbp: 0
+annual_price_usd: 0
+annual_price_gbp: 0
 createdAt: "Mar 23, 2023"
 LastEdit: "Mar 23, 2023"
 ---
