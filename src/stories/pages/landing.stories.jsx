@@ -1,4 +1,4 @@
-import { LandingPage } from "@/components";
+import { LandingPage } from "@/components/pages/landing";
 
 export default {
     title: "Pages/Home",

@@ -8,6 +8,8 @@
 @import './navbar.style.css';
 @import './footer.style.css';
 @import './cards.style.css';
+@import './authModal.style.css';
+@import './pricingCards.style.css';
 
 @tailwind base;
 @tailwind components;
@@ -23,6 +25,7 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+  @apply text-primary text-opacity-70 hover:text-opacity-100
 }
 
 * {
@@ -37,4 +40,19 @@ a {
 .logo-area {
   @apply text-white text-opacity-90 hover:text-opacity-100 flex items-center space-x-6 select-none cursor-pointer
 }
- 
+.cr {
+  @apply uppercase text-xs text-white text-opacity-70
+}
+
+#tooltip {
+  width: max-content;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #222;
+  color: white;
+  font-weight: bold;
+  padding: 5px;
+  border-radius: 4px;
+  font-size: 90%;
+}

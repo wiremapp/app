@@ -1,13 +1,16 @@
+/*Hero container*/
 .hero {
     background:
     linear-gradient(180deg, rgba(3, 3, 3, 0.24) 0%, rgba(2, 2, 2, 0.24) 100%);
     @apply relative overflow-hidden w-full z-10 flex items-center
 }
 
+/*Hero*/
 .hero > div > div {
     @apply flex h-full z-[-1] lg:w-full
 }
 
+/*Hero CTA */
 .hero > div > div:first-of-type {
     @apply z-[1]
 }

@@ -1,74 +1,112 @@
 import { useTranslation } from "react-i18next";
-import React from "react";
-import { useIsElectron } from "@/hooks";
-import {ButtonComponent as Button} from "@/components";
+import { HiXMark } from "react-icons/hi2";
 import { signIn } from "next-auth/react";
+import { useIsElectron } from "@/hooks/isElectron";
+import { LogoComponent } from "@/components/logo";
+import { Button } from "@/components/button";
+import Link from "next/link";
+import React from "react";
 
-export const Component = ({ state, router }) => {
+export const AuthModalComponent = ({ state, router }) => {
   const { t } = useTranslation();
   const isElectron = useIsElectron();
 
   return (
-    <div
-      className="fixed right-[-1px] top-0 h-[100vh] w-[100vw] bg-gradient-to-t from-[#020202]/25 to-[#141414]/70 translate-x-[-1px] backdrop-blur-lg transition"
-    >
-      <button
-        onClick={() => state.setModal(!state.modal)}
-        className="absolute float-left mb-3 ml-4 mt-4"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          stroke="currentColor"
-          aria-hidden="true"
-          className="h-6 w-6"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M6 18L18 6M6 6l12 12"
-          ></path>
-        </svg>
-      </button>
-
-      <div className="bg-grey-lighter flex min-h-screen items-center justify-center">
-        <div className="flex h-[400px]  w-[400px] items-center justify-center bg-gray-500">
+    <div className="authModal">
+      <div className="flex items-center justify-between px-10 pt-8">
+        <HiXMark
+          size={40}
+          className="opacity-70 hover:opacity-100"
+          onClick={() => state.setModal(!state.modal)}
+        />
+        <LogoComponent />
         <Button
           href="/signin"
           aria-label={"Sign In"}
-          onClick={(e) => {
-            e.preventDefault();
-            signIn("email");
-          }}
+          className="flex h-[45px] justify-center rounded-xl"
         >
-          Sign in with Email
+          Sign Up
         </Button>
-        <Button
-          href="/signin"
-          aria-label={"Sign In"}
-          onClick={(e) => {
-            e.preventDefault();
-            signIn("google");
-          }}
-        >
-          Sign in with Google
-        </Button>
-        <Button
-          href="/signin"
-          aria-label={"Sign In"}
-          onClick={(e) => {
-            e.preventDefault();
-            signIn("github");
-          }}
-        >
-          Sign in with Github
-        </Button>
+      </div>
+      <div className="flex items-center justify-center">
+        <div className="flex h-[500px] w-[450px] flex-col items-center justify-center space-y-5">
+          <h1 className="text-3xl font-semibold normal-case tracking-wider">
+            Sign In
+          </h1>
+          <div className="w-3/4 space-y-3">
+            <Button
+              href="/signin"
+              aria-label={"Sign In"}
+              className="flex h-[45px] justify-center rounded-xl"
+              onClick={(e) => {
+                e.preventDefault();
+                signIn("google");
+              }}
+            >
+              Sign in with Google
+            </Button>
+            <Button
+              href="/signin"
+              aria-label={"Sign In"}
+              className="flex h-[45px] justify-center rounded-xl"
+              onClick={(e) => {
+                e.preventDefault();
+                signIn("github");
+              }}
+            >
+              Sign in with Github
+            </Button>
+          </div>
+          <hr className="my-20 w-3/4 rounded-3xl border bg-white opacity-25" />
+          <div className="w-3/4 space-y-5">
+            <input
+              className="mr-2 h-[45px] w-full rounded-xl bg-white px-4 text-black text-opacity-70 opacity-70 "
+              placeholder="Email"
+            />
+            <Button
+              href="/signin"
+              aria-label={"Sign In"}
+              className="flex h-[45px] justify-center rounded-xl"
+              variant="primary"
+              onClick={(e) => {
+                e.preventDefault();
+                signIn("email");
+              }}
+            >
+              Sign In
+            </Button>
+          </div>
+          <p className="text-xs text-white text-opacity-30">
+            By signing in to Wiremap, you agree to our{" "}
+            <Link
+              className="font-bold text-white text-opacity-40 hover:text-opacity-70"
+              href="/terms"
+            >
+              Terms of Service
+            </Link>
+            .
+          </p>
         </div>
+      </div>
+      <div className="flex items-center justify-between px-10 pt-8">
+        <HiXMark
+          size={40}
+          className="opacity-0 hover:opacity-100"
+          onClick={() => state.setModal(!state.modal)}
+        />
+        <HiXMark
+          size={40}
+          className="opacity-0 hover:opacity-100"
+          onClick={() => state.setModal(!state.modal)}
+        />
+        <HiXMark
+          size={45}
+          className="opacity-0 hover:opacity-100"
+          onClick={() => state.setModal(!state.modal)}
+        />
       </div>
     </div>
   );
 };
 
-export default Component;
+export default AuthModalComponent;

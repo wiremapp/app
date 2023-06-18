@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 
-export const Component = ({}) => {
+export const RightSidebarComponent = ({}) => {
   const { t } = useTranslation();
 
   return (
@@ -11,4 +11,4 @@ export const Component = ({}) => {
   );
 };
 
-export default Component;
+export default RightSidebarComponent;

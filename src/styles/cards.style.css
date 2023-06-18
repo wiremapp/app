@@ -1,11 +1,14 @@
-
+/* Cards Container */
 .cards-container {
-@apply flex flex-col md:flex-row h-[768px] w-full space-x-0 md:space-x-4 space-y-4 md:space-y-0
+    @apply flex flex-wrap w-full justify-center items-center md:flex-row h-full
 }
 
+/* Card titles */
+section > div > div h4 {
+    @apply pb-2 text-xl font-black text-white text-opacity-70 text-center tracking-widest
+}
+
+/* Card */
 .cards-container > div {
-    background: linear-gradient(0deg, #020202 -0.03%, #141414 99.97%);
-    @apply w-full h-full
+    @apply  w-1/5 min-h-[248px] border-0 rounded transition-all duration-[600ms]
 }
-
-

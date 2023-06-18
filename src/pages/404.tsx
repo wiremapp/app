@@ -1,4 +1,4 @@
-import { NotFoundPage } from "@/components";
+import {NotFoundPage} from "@/components/pages/notFound";
 import { useRouter } from "next/router";
 import React from "react";
 

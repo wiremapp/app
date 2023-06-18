@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { calculateBoxWidth, handleAddCell, handleAddElement, handleAddSubElement } from "@/utils";
-import {
-  LayoutComponent,
-  LeftSidebarComponent,
-  RightSidebarComponent,
-} from "@/components";
+import { LeftSidebarComponent } from "@/components/sideBaL";
+import { RightSidebarComponent } from "@/components/sideBaR";
+import { LayoutComponent } from "@/components/layout";
+
 import React from "react";
+import { calculateBoxWidth, handleAddCell, handleAddElement, handleAddSubElement } from "@/utils/funcs";
+
 
 interface Element {
   id: string;
@@ -60,7 +60,7 @@ const initArr: Cell[] = [
 ];
 
 
-export const Page = ({ router }) => {
+export const EditorPage = ({ router }) => {
   const [arr, setArr] = useState<Cell[]>(initArr);
   const Editor = ({ state }) => {
     return (
@@ -143,4 +143,4 @@ export const Page = ({ router }) => {
   );
 };
 
-export default Page;
+export default EditorPage;

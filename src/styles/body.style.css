@@ -1,10 +1,13 @@
 body {
     background: linear-gradient(180deg, #1B1B1B 0%, #141414 100%), #1E1E1E;
-    @apply min-h-screen text-[#0D4380] dark:text-white;
+    @apply min-h-screen text-white;
 }
+
+/* Main Element */
 #layout-container > main {
     @apply flex min-h-screen flex-col;
 }
+
 #layout-container > main > div > div {
     @apply flex w-full flex-col;
 }
@@ -31,9 +34,6 @@ h2 {
     @apply uppercase font-medium
 }
 
-.card {
-    @apply p-8
-}
 
 .drg {
     -webkit-app-region: drag;

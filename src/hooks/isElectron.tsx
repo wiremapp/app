@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const useIsElectron = () => {
+export const useIsElectron = () => {
   const [isElectron, setIsElectron] = useState(false);
 
   useEffect(() => {

@@ -1,4 +1,4 @@
-import { useIsPWA } from "@/hooks";
+import { GoogleAnalyticsComponent } from "@/components/gtag";
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import React from "react";
 
@@ -7,7 +7,8 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head />
-        <body className="bg-white text-black dark:bg-black dark:text-white">
+        <GoogleAnalyticsComponent />
+        <body>
           <NextScript />
           <Main />
         </body>

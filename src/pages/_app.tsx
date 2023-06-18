@@ -4,9 +4,10 @@ import type { AppProps } from "next/app";
 import { Session } from "next-auth";
 import { I18nextProvider } from "react-i18next";
 import i18n from "@/i18n";
-import { useIsPWA,useIsElectron } from "@/hooks";
 import React from "react";
 import "@/styles/globals.css";
+import useIsPWA from "@/hooks/isPWA";
+import useIsElectron from "@/hooks/isElectron";
 
 function MyApp({
   Component,

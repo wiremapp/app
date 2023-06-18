@@ -1,10 +1,11 @@
 import Image from "next/image";
-import { FeaturesComponent, LayoutComponent } from "@/components";
+import { LayoutComponent } from "@/components/layout";
 import { NextRouter } from "next/router";
 import React from "react";
 import { useTranslation } from "react-i18next";
+import FeaturesComponent from "../features";
 
-export const Page = ({ router }: { router?: NextRouter }) => {
+export const FeatPage = ({ data, router }: { data: any , router?: NextRouter }) => {
   const { t } = useTranslation();
   return (
     <LayoutComponent
@@ -12,9 +13,9 @@ export const Page = ({ router }: { router?: NextRouter }) => {
       pageDesc={t("features_desc")}
       router={router}
     >
-      <FeaturesComponent />
+      <FeaturesComponent data={data} variant={"secondary"} />
     </LayoutComponent>
   );
 };
 
-export default Page;
+export default FeatPage;

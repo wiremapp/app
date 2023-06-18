@@ -1,20 +1,19 @@
 footer {
-    background: linear-gradient(180deg, #0E0E0E 0%, #0B0B0B 100%);
-    @apply border-t backdrop-blur-xl dark:border-white/10 border-white/10;
+    background: linear-gradient(0deg, #0E0E0E 0%, #141414 125%);
+    @apply backdrop-blur-xl;
 }
 
+/* Top Footer */
 footer > div:first-of-type{
-    @apply py-8 px-4 md:px-12 transition-all;
+    @apply py-4 px-4 md:px-12 transition-all;
 }
 
+/* Bottom Footer Container */
 footer > div:last-of-type {
-    @apply px-4 md:px-12 py-4 border-t border-gray-200 dark:border-white/10;
+    @apply p-4 md:px-12 border-t border-white/10;
 }
 
-footer .editor-foot {
-    @apply px-12 py-2 border-t border-gray-200 dark:border-white/10;
-}
-
+/* Bottom Footer */
 footer > div > div  {
     @apply mx-auto min-h-[64px] flex-col sm:flex-row flex max-w-[84rem] items-center justify-between
 }

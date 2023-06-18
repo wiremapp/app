@@ -11,7 +11,7 @@ export async function getFiles(dataType?: string) {
   );
 }
 
-export async function getPostBySlug(slug: string, dataType?: string) {
+export async function getStaticEntryBySlug(slug: string, dataType?: string) {
   const source = fs.readFileSync(
     dataType
       ? path.join(root, dataType, `${slug}.md`)
@@ -27,8 +27,8 @@ export async function getPostBySlug(slug: string, dataType?: string) {
   };
 }
 
-export async function getAllPostsWithFrontMatter(dataType?: string) {
-  const files = await getMdFiles(dataType ? path.join(root, dataType) : root);
+export async function getAllStaticEntriesWithFrontMatter(subdirectory?: string) {
+  const files = await getMdFiles(subdirectory ? path.join(root, subdirectory) : root);
 
   // @ts-ignore
   return files.map((file) => {
@@ -62,12 +62,11 @@ async function getMdFiles(
     })
   );
   const flattenedFiles = files.filter((file) => file !== null).flat();
-  if ( flattenedFiles.length === 0) {
-    return [{ path: '', slug: '' }];
+  if (flattenedFiles.length === 0) {
+    return [{ path: "", slug: "" }];
   }
   return flattenedFiles;
 }
-
 
 async function collateCategories(dataType: string) {
   const files = fs.readdirSync(path.join(root, dataType));

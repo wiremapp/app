@@ -9,7 +9,7 @@ interface EmailSubscriptionState {
   subscribe: () => Promise<void>;
 }
 
-const useEmailSubscription = (): EmailSubscriptionState => {
+export const useEmailSubscription = (): EmailSubscriptionState => {
   const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);

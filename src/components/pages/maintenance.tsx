@@ -1,12 +1,10 @@
-import {
-  ErrorComponent,
-  LayoutComponent,
-} from "@/components";
+import { LayoutComponent } from "@/components/layout";
 import { NextRouter } from "next/router";
 import React from "react";
 import { useTranslation } from "react-i18next";
+import ErrorComponent from "../error";
 
-export const Page = ({
+export const MaintPage = ({
   router,
   customTitle,
   customDesc
@@ -18,16 +16,16 @@ export const Page = ({
   const { t } = useTranslation();
   return (
     <LayoutComponent
-      title={customTitle}
+      title={customTitle || t("checkSoon_label").slice(0, -3)}
       router={router}
       navbar={false}
       pageDesc={customDesc}
       footer={false}
       cookieConsent={false}
     >
-      <ErrorComponent contentTitle={t("genericError_title")} />
+      <ErrorComponent contentTitle={customTitle} variant={"mt"} />
     </LayoutComponent>
   );
 };
 
-export default Page;
+export default MaintPage;

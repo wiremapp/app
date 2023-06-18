@@ -11,6 +11,6 @@ const ISchema = new mongoose.Schema({
 });
 
 export const defaultSchema =
-  mongoose.models.Subscriber || mongoose.model<IType>("Subscriber", ISchema);
+  mongoose.models.Subscribers || mongoose.model<IType>("Subscribers", ISchema);
 
 export default defaultSchema;

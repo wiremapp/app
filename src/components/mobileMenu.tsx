@@ -2,16 +2,16 @@ import { useTranslation } from "react-i18next";
 import React from "react";
 import Link from "next/link";
 
-export const Component = ({ data, state }) => {
+export const MobileMenuComponent = ({ data, state }) => {
   const { t } = useTranslation();
   return (
     <div className="md:hidden">
       {state.visible ? (
         <div
           onClick={() => state.setMobileMenu(!state.visible)}
-          className="fixed right-[-1px] top-0 z-[100] h-[100vh] w-[100vw] translate-x-[-1px] bg-black bg-opacity-75 text-black transition dark:text-white"
+          className="fixed right-[-1px] top-0 z-[100] h-[100vh] w-[100vw] translate-x-[-1px] bg-black bg-opacity-75 transitiontext-white"
         >
-          <div className="fixed right-[-1px] top-0 h-[100vh] w-[24rem] translate-x-[-1px] bg-white transition  dark:bg-gray-900">
+          <div className="fixed right-[-1px] top-0 h-[100vh] w-[24rem] translate-x-[-1px] transition  bg-gray-900">
             <div className="px-8 pb-6 pt-8">
               <button
                 onClick={() => state.setMobileMenu(!state.visible)}
@@ -76,4 +76,4 @@ export const Component = ({ data, state }) => {
   );
 };
 
-export default Component;
+export default MobileMenuComponent;

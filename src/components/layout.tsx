@@ -1,14 +1,13 @@
-import React, { ReactNode, useState } from "react";
-import {
-  CookieConsentComponent,
-  EditorFooterComponent,
-  FooterComponent,
-  NavbarComponent,
-} from "@/components";
+import React, { Dispatch, ReactNode, SetStateAction, useState } from "react";
+
 import { useTranslation } from "react-i18next";
-import { useIsElectron, useScrollProgress } from "@/hooks";
 import { NextRouter } from "next/router";
 import Head from "next/head";
+import { NavbarComponent } from "@/components/navbar";
+import { CookieConsentComponent } from "@/components/cookieConsent";
+import { FooterComponent } from "@/components/footer";
+import useScrollProgress from "@/hooks/scrollY";
+import useIsElectron from "@/hooks/isElectron";
 
 type Props = {
   children?: ReactNode;
@@ -22,6 +21,10 @@ type Props = {
   cookieConsent?: boolean;
   router: NextRouter;
   variant?: string | null;
+  appState?: {
+    appOpen: boolean;
+    setAppOpen: Dispatch<SetStateAction<boolean>>;
+  };
 };
 
 const navData = [
@@ -35,18 +38,19 @@ const navData = [
   },
   { id: "pricing", href: "/pricing" },
   {
-    id: "about",
-    href: "/about",
+    id: "faq",
+    href: "/faq",
   },
 ];
 
-export const Component = ({
+export const LayoutComponent = ({
   children,
   title,
   author,
   thumbSrc,
   router,
   type,
+  appState,
   pageDesc = null,
   cookieConsent = true,
   footer = true,
@@ -61,9 +65,9 @@ export const Component = ({
     const [desc, setDesc] = useState(pageDesc || t("site_desc"));
     const canonicalUrl =
       process.env.NEXT_PUBLIC_SITE_URL +
-      (router.query.static
+      (router?.query?.static
         ? router.query.static
-        : router.pathname.substring(1));
+        : router?.pathname?.substring(1));
     const pageTitle = title
       ? title + " — " + process.env.NEXT_PUBLIC_APP_TITLE
       : process.env.NEXT_PUBLIC_APP_TITLE +
@@ -142,16 +146,8 @@ export const Component = ({
         </>
       ) : null;
     };
-    const Bot = () => {
-      return footer ? (
-        variant === "editor" ? (
-          <EditorFooterComponent />
-        ) : (
-          <FooterComponent />
-        )
-      ) : null;
-    };
-    return src !== "bot" ? <Top /> : <Bot />;
+
+    return src !== "bot" ? <Top /> :  <FooterComponent />;
   };
 
   return (
@@ -171,4 +167,4 @@ export const Component = ({
   );
 };
 
-export default Component;
+export default LayoutComponent;

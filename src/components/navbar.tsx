@@ -1,17 +1,15 @@
-import {
-  AuthModalComponent,
-  MobileMenuComponent as Burger,
-  ButtonComponent as Button,
-  LogoComponent,
-  ModalWrapperComponent,
-} from "@/components";
 import { NextRouter } from "next/router";
-import React, { useState } from "react";
+import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
 import { UrlObject } from "url";
-import { useIsPWA } from "@/hooks";
+import { useIsPWA } from "@/hooks/isPWA";
 import { signOut, useSession } from "next-auth/react";
+import { ModalWrapperComponent } from "@/components/modalWrapper";
+import { Button } from "@/components/button";
+import AuthModalComponent from "@/components/authModal";
+import { LogoComponent } from "@/components/logo";
+import { MobileMenuComponent } from "@/components/mobileMenu";
 
 type Props = {
   menuData: any[];
@@ -21,7 +19,7 @@ type Props = {
   transparentNav?: boolean;
 };
 
-export const Component = ({ router, menuData }: Props) => {
+export const NavbarComponent = ({ router, menuData }: Props) => {
   const [visible, setMobileMenu] = useState(false);
   const [signInModal, setSignInModal] = useState(false);
   const { data: session } = useSession();
@@ -57,7 +55,7 @@ export const Component = ({ router, menuData }: Props) => {
   return (
     <nav
       aria-label="Site Navigation"
-      className={`navbar-default ${isPWA ? "pt-20" : null}` }
+      className={`navbar-default ${isPWA ? "pt-20" : null}`}
     >
       <div>
         <LogoComponent />
@@ -69,8 +67,12 @@ export const Component = ({ router, menuData }: Props) => {
                   return (
                     <Link key={`${e.id}_nav`} href={e.href} passHref>
                       <a
-                        className={`${e.id === ("about") ? "hidden lg:inline-block" : ""} ${
-                          router.pathname === e.href ? "opacity-100" : "opacity-70"
+                        className={`${
+                          e.id === "about" ? "hidden lg:inline-block" : ""
+                        } ${
+                          router.pathname === e.href
+                            ? "opacity-100"
+                            : "opacity-70"
                         }`}
                       >
                         {t(`${e.id}_label`)}
@@ -84,30 +86,37 @@ export const Component = ({ router, menuData }: Props) => {
           {!session ? (
             <SignInModalButton />
           ) : (
-            <Button
-              href="/app"
-              variant="secondary"
-              aria-label={"Open App"}
-              space={"medium"}
-              onClick={(e)=>{e.preventDefault(); signOut()}}
-
-            >
-              {session?.user.email}
-            </Button>
+            <div className="hidden sm:block">
+              <Button
+                href="/"
+                variant="secondary"
+                aria-label={"Sign In"}
+                space={"medium"}
+                onClick={(e) => {
+                  e.preventDefault();
+                  signOut();
+                }}
+              >
+                {session?.user.email}
+              </Button>
+            </div>
           )}
           <Button
-            href="/app"
+            href="/dashboard"
             variant="primary"
             aria-label={"Open App"}
             space={"medium"}
           >
             Open App
           </Button>
-          <Burger data={menuData} state={{ visible, setMobileMenu }} />
+          <MobileMenuComponent
+            data={menuData}
+            state={{ visible, setMobileMenu }}
+          />
         </div>
       </div>
     </nav>
   );
 };
 
-export default Component;
+export default NavbarComponent;

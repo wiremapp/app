@@ -1,7 +1,8 @@
-import { LayoutComponent, StaticContentComponent } from "@/components";
+import { LayoutComponent } from "@/components/layout";
 import React, { useState } from "react";
+import {StaticContentComponent} from "@/components/MdContent";
 
-export const Page = ({ source, router }) => {
+export const StaticPage = ({ source, router }) => {
   const [title] = useState(source.frontMatter.title);
   const [desc] = useState(source.frontMatter.description);
   const [content] = useState(source.markdownBody);
@@ -17,4 +18,4 @@ export const Page = ({ source, router }) => {
   );
 };
 
-export default Page;
+export default StaticPage;

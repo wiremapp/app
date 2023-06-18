@@ -16,6 +16,9 @@ module.exports = {
       },
       colors: {
         'primary': '#FF6838'
+      },
+      boxShadow: {
+        'card': '0 0 50px -4px rgb(0 0 0 / 0.25);'
       }
     },
   },

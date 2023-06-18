@@ -1,14 +1,14 @@
 import Link from "next/link";
 import React from "react";
-import { ButtonComponent as Button } from "@/components";
 import { useTranslation } from "react-i18next";
+import { Button } from "@/components/button";
 
 type Props = {
   children?: any;
   className?: string;
 };
 
-export const Component = (props: Props) => {
+export const HeroComponent = (props: Props) => {
   const { t } = useTranslation();
   return (
     <section className="hero">
@@ -29,7 +29,7 @@ export const Component = (props: Props) => {
           </div>
           <div className="flex flex-col justify-center space-x-0 space-y-2 xs:flex-row xs:space-x-2 xs:space-y-0 lg:justify-start">
             <Button
-              href="/app"
+              href="/dashboard"
               variant="primary"
               aria-label={"Open App"}
               space={"medium"}
@@ -37,7 +37,7 @@ export const Component = (props: Props) => {
               {t("start4Free_label")}
             </Button>
             <Button
-              href="/about"
+              href="/faq"
               variant="secondary"
               aria-label={"Open App"}
               space={"medium"}
@@ -57,4 +57,4 @@ export const Component = (props: Props) => {
   );
 };
 
-export default Component;
+export default HeroComponent;
