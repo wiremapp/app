@@ -3,17 +3,12 @@ import LandingPage from "@/components/pages/landing";
 import { getAllStaticEntriesWithFrontMatter } from "@/utils/md";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
+import { MaintPage } from "@/components/pages/maintenance";
 
-export default function Page({featuresData,pricingData,faqData}) {
+export default function Page({ featuresData, pricingData, faqData }) {
   const router = useRouter();
-  const [appOpen, setAppOpen] = useState(false);
-  return !appOpen ? (
-    <LandingPage data={{featuresData,pricingData,faqData}} router={router} appState={{ appOpen, setAppOpen }} />
-  ) : (
-    <DashPage router={router} />
-  );
+  return <MaintPage router={router} />;
 }
-
 
 export async function getStaticProps() {
   // TODO: Merge into const {featuresData, pricingData, faqData} = await getAllPostsWithFrontMatter(["features","pricing","faq"]);
@@ -26,7 +21,7 @@ export async function getStaticProps() {
     props: {
       featuresData,
       pricingData,
-      faqData
+      faqData,
     },
   };
 }
