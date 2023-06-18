@@ -1,3 +1,4 @@
+import { GoogleAnalyticsComponent } from "@/components/gtag";
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import React from "react";
 
@@ -6,6 +7,7 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head />
+        <GoogleAnalyticsComponent />
         <body>
           <NextScript />
           <Main />
