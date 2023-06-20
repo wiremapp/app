@@ -8,7 +8,7 @@ export default function Page({featuresData,pricingData,faqData}) {
   const router = useRouter();
   const [appOpen, setAppOpen] = useState(false);
   return !appOpen ? (
-    <LandingPage data={{featuresData,pricingData,faqData}} router={router} appState={{ appOpen, setAppOpen }} />
+    <LandingPage data={{featuresData,pricingData,faqData}} router={router} />
   ) : (
     <DashPage router={router} />
   );

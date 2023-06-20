@@ -12,15 +12,13 @@ import {PricingComponent} from "@/components/pricing";
 export const LandingPage = ({
   data,
   router,
-  appState,
 }: {
   data?: any;
-  appState: any;
   router?: NextRouter;
 }) => {
   const { t } = useTranslation();
   return (
-    <LayoutComponent router={router} appState={appState}>
+    <LayoutComponent router={router}>
       <HeroComponent />
       <FeaturesComponent data={data} src="landing" />
       <PricingComponent data={data} variant={"secondary"} />
