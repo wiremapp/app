@@ -1,7 +1,7 @@
 import { Button } from "@/components/button";
 import { useTranslation } from "react-i18next";
 import React, { useState } from "react";
-import { formatAmountForDisplay } from "@/utils/stripe-helpers";
+import useLocale from "@/hooks/useLocale";
 
 type Props = {
   children?: any;
@@ -14,7 +14,7 @@ export const PricingComponent = (props: Props) => {
   const sortedData = props.data.pricingData.sort(
     (a, b) => a.frontMatter.order - b.frontMatter.order
   );
-
+ const { locale } = useLocale();
   const [annual, setAnnual] = useState(true);
 
   const { t } = useTranslation();
@@ -25,7 +25,6 @@ export const PricingComponent = (props: Props) => {
       <div>
         <div className="row">
           <h3>Pricing</h3>
-
           <div className="mb-12 flex items-center justify-center">
             <input
               className="mr-2 mt-[0.3rem] h-3.5 w-8 appearance-none rounded-[0.4375rem] bg-neutral-300 before:pointer-events-none before:absolute before:h-3.5 before:w-3.5 before:rounded-full before:bg-transparent before:content-[''] after:absolute after:z-[2] after:-mt-[0.1875rem] after:h-5 after:w-5 after:rounded-full after:border-none after:bg-neutral-100 after:shadow-[0_0px_3px_0_rgb(0_0_0_/_7%),_0_2px_2px_0_rgb(0_0_0_/_4%)] after:transition-[background-color_0.2s,transform_0.2s] after:content-[''] checked:bg-primary checked:after:absolute checked:after:z-[2] checked:after:-mt-[3px] checked:after:ml-[1.0625rem] checked:after:h-5 checked:after:w-5 checked:after:rounded-full checked:after:border-none checked:after:bg-primary checked:after:shadow-[0_3px_1px_-2px_rgba(0,0,0,0.2),_0_2px_2px_0_rgba(0,0,0,0.14),_0_1px_5px_0_rgba(0,0,0,0.12)] checked:after:transition-[background-color_0.2s,transform_0.2s] checked:after:content-[''] hover:cursor-pointer focus:outline-none focus:ring-0 focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-[3px_-1px_0px_13px_rgba(0,0,0,0.6)] focus:before:transition-[box-shadow_0.2s,transform_0.2s] focus:after:absolute focus:after:z-[1] focus:after:block focus:after:h-5 focus:after:w-5 focus:after:rounded-full focus:after:content-[''] checked:focus:border-primary checked:focus:bg-primary checked:focus:before:ml-[1.0625rem] checked:focus:before:scale-100 checked:focus:before:shadow-[3px_-1px_0px_13px_#3b71ca] checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s] dark:bg-neutral-600 dark:after:bg-neutral-400 dark:checked:bg-primary dark:checked:after:bg-primary dark:focus:before:shadow-[3px_-1px_0px_13px_rgba(255,255,255,0.4)] dark:checked:focus:before:shadow-[3px_-1px_0px_13px_#3b71ca]"
@@ -49,9 +48,12 @@ export const PricingComponent = (props: Props) => {
           <div className="flex w-full space-x-2">
             {sortedData.map((tier) => {
               const tierTitle = tier.frontMatter.title;
-              const tierPrice = !annual
-                ? tier.frontMatter.monthly_price_usd
-                : tier.frontMatter.annual_price_usd;
+              const monthlyPrice = locale === "GB" ? tier.frontMatter.monthly_price_gbp :  tier.frontMatter.monthly_price_usd
+              const annualPrice = locale === "GB" ? tier.frontMatter.annual_price_gbp :  tier.frontMatter.annual_price_usd
+
+              const displayPrice = !annual
+                ? monthlyPrice
+                : annualPrice;
 
               const tierDesc = tier.frontMatter.description;
               const tierFeatures = tier.frontMatter.features;
@@ -65,12 +67,12 @@ export const PricingComponent = (props: Props) => {
                       </p>
                       <div className="my-8 flex items-baseline justify-center">
                         <span className="mr-2 text-5xl font-extrabold">
-                          {tierPrice !== 0 ? "$" : ""}
-                          {tierPrice !== 0 ? tierPrice : t("free_label")}
+                          {displayPrice !== 0 ? locale === "GB" ? "£": "$" : ""}
+                          {displayPrice !== 0 ? displayPrice : t("free_label")}
                         </span>
                         <span className="text-gray-400">
                           /{" "}
-                          {tierPrice !== 0
+                          {displayPrice !== 0
                             ? !annual
                               ? t("month_label").toLowerCase()
                               : t("year_label").toLowerCase()
