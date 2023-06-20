@@ -22,13 +22,13 @@ export const FeaturesComponent = (props: Props) => {
       <div>
         <div className="row">
           <h3>{t("features_label")}</h3>
-          <div className="cards-container">
-            {sortedData.map((feature) => {
+          <div className="grid-cols-4 grid gap-4 mb-6">
+          {sortedData.map((feature) => {
               const featureTitle = feature.frontMatter.title;
               const featureDesc = feature.frontMatter.description;
               return (
-                <div key={feature.slug} className="section-secondary-bg ">
-                  <div className="flex flex-col p-6 text-center space-y-2">
+                <div key={feature.slug} className="shadow rounded p-4 section-secondary-bg">
+                  <div className="flex flex-col p-6 text-center space-y-1">
                     <h4>{featureTitle}</h4>
                     <p className="font-light text-gray-400 sm:text-lg">
                       {featureDesc}
@@ -37,7 +37,8 @@ export const FeaturesComponent = (props: Props) => {
                 </div>
               );
             })}
-          </div>
+       
+    </div>
         </div>
       </div>
     </section>
