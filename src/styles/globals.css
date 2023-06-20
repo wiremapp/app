@@ -7,9 +7,7 @@
 @import './components/hero.style.css';
 @import './components/navbar.style.css';
 @import './components/footer.style.css';
-@import './components/cards.style.css';
 @import './components/authModal.style.css';
-@import './components/pricingCards.style.css';
 
 @tailwind base;
 @tailwind components;
