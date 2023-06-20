@@ -1,15 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Heebo:wght@600&family=Montserrat:wght@400;600;900&display=swap');
 
-@import './body.style.css';
-@import './section.style.css';
-@import './button.style.css';
-@import './cookiePopup.style.css';
-@import './hero.style.css';
-@import './navbar.style.css';
-@import './footer.style.css';
-@import './cards.style.css';
-@import './authModal.style.css';
-@import './pricingCards.style.css';
+@import './components/body.style.css';
+@import './components/section.style.css';
+@import './components/button.style.css';
+@import './components/cookiePopup.style.css';
+@import './components/hero.style.css';
+@import './components/navbar.style.css';
+@import './components/footer.style.css';
+@import './components/cards.style.css';
+@import './components/authModal.style.css';
+@import './components/pricingCards.style.css';
 
 @tailwind base;
 @tailwind components;
