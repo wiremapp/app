@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 type Props = {
   children?: any;
@@ -8,14 +8,22 @@ type Props = {
 };
 
 export const FAQComponent = (props: Props) => {
+  const [expand, setExpand] = useState(null);
+
+  const handleExpand = (index) => {
+    setExpand(index === expand ? null : index);
+  };
+
   return (
     <section>
       <div>
         <div className="row">
           <h3>Frequently Asked Questions</h3>
-          {props.data.faqData.map((question) => {
+          {props.data.faqData.map((question, index) => {
             const faqTitle = question.frontMatter.title;
-            const faqDesc = question.frontMatter.title;
+            const faqDesc = question.frontMatter.description;
+            const isExpanded = index === expand;
+
             return (
               <div
                 key={question.slug}
@@ -24,13 +32,14 @@ export const FAQComponent = (props: Props) => {
                 data-active-classes="bg-white dark:bg-gray-900 text-gray-900 dark:text-white"
                 data-inactive-classes="text-gray-500 dark:text-gray-400"
               >
-                <h2 id="accordion-flush-heading-1">
+                <h2 id={`accordion-flush-heading-${index + 1}`}>
                   <button
                     type="button"
                     className="flex w-full items-center justify-between border-b border-gray-200 py-5 text-left font-medium text-gray-500 dark:border-gray-700 dark:text-gray-400"
-                    data-accordion-target="#accordion-flush-body-1"
-                    aria-expanded="true"
-                    aria-controls="accordion-flush-body-1"
+                    data-accordion-target={`#accordion-flush-body-$${index + 1}`}
+                    aria-expanded={isExpanded ? 'true' : 'false'}
+                    aria-controls={`accordion-flush-body-${index + 1}`}
+                    onClick={() => handleExpand(index)}
                   >
                     <span>{faqTitle}</span>
                     <svg
@@ -50,8 +59,10 @@ export const FAQComponent = (props: Props) => {
                 </h2>
                 <div
                   id="accordion-flush-body-1"
-                  className="hidden"
-                  aria-labelledby="accordion-flush-heading-1"
+                  className={`${
+                    isExpanded ? '' : 'hidden'
+                  }`}
+                  aria-labelledby={`accordion-flush-heading-${index + 1}`}
                 >
                   <div className="border-b border-gray-200 py-5 dark:border-gray-700">
                     <p className="mb-2 text-gray-500 dark:text-gray-400">
