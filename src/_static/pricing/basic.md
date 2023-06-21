@@ -6,7 +6,7 @@ features:   [{ title: "Free forever", included: true },
             {  title:  "Create unlimited sitemaps", included: true },
             {  title: "Unlimited Exports", included: true }, 
             {  title: "Use templates", included: true},
-            {  title: "Shared workspaces", included: true},
+            {  title: "Shared workspaces", included: false},
             {  title: "Organization spaces", included: false},
             {  title: "API access", included: false}]
 monthly_price_usd: 0
