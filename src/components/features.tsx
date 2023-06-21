@@ -22,7 +22,7 @@ export const FeaturesComponent = (props: Props) => {
       <div>
         <div className="row">
           <h3>{t("features_label")}</h3>
-          <div className="grid-cols-4 grid gap-4 mb-6">
+          <div className="grid-cols-1 md:grid-cols-3 lg:grid-cols-4 grid gap-4 mb-6">
           {sortedData.map((feature) => {
               const featureTitle = feature.frontMatter.title;
               const featureDesc = feature.frontMatter.description;

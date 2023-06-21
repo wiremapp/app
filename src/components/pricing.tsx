@@ -45,7 +45,7 @@ export const PricingComponent = (props: Props) => {
             </label>
           </div>
 
-          <div className="flex w-full space-x-2">
+          <div className="grid-cols-1 lg:grid-cols-3 grid gap-4 mb-6  w-full space-x-2">
             {sortedData.map((tier) => {
               const tierTitle = tier.frontMatter.title;
               const monthlyPrice = locale === "GB" ? tier.frontMatter.monthly_price_gbp :  tier.frontMatter.monthly_price_usd
@@ -58,7 +58,7 @@ export const PricingComponent = (props: Props) => {
               const tierDesc = tier.frontMatter.description;
               const tierFeatures = tier.frontMatter.features;
               return (
-                <div key={tier.slug} className={`w-1/3 rounded p-4 ${tier.frontMatter.primary ? "section-secondary-bg shadow" : ""}`}>
+                <div key={tier.slug} className={`rounded p-4 ${tier.frontMatter.primary ? "section-secondary-bg shadow" : ""}`}>
                   <div>
                     <div className="flex grow flex-col">
                       <h4>{tierTitle}</h4>
