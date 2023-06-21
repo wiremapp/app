@@ -142,7 +142,7 @@ export const LayoutComponent = ({
       ) : null;
     };
 
-    return src !== "bot" ? <Top /> :  <FooterComponent />;
+    return src !== "bot" ? <Top /> :  footer ? <FooterComponent /> : null;
   };
 
   return (
