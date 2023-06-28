@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 
-export const LeftSidebarComponent = ({}) => {
+export const LeftSidebarComponent = (props: any) => {
   const { t } = useTranslation();
 
   return (
@@ -13,7 +13,19 @@ export const LeftSidebarComponent = ({}) => {
         }}
         className="w-[307px] flex-grow bg-red-200"
       >
-        Sidebar
+          <div>
+        <input
+          type="text"
+          value={props.name}
+          onChange={(e) => props.setNameLocal(e.target.value)}
+        />
+        <button onClick={props.handleAddLocal}>Add Project</button>
+
+        {props.isLoadingLocal && <p>Loading...</p>}
+        {props.errorLocal && <p>Error: {props.errorLocal}</p>}
+        {props.successLocal && <p>Success!</p>}
+
+      </div>
       </div>{" "}
     </nav>
   );
