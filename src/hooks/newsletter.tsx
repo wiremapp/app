@@ -1,3 +1,4 @@
+import { validateEmail } from '@/utils/funcs';
 import { Dispatch, SetStateAction, useState } from 'react';
 
 interface EmailSubscriptionState {
@@ -18,27 +19,31 @@ export const useEmailSubscription = (): EmailSubscriptionState => {
   const subscribe = async () => {
     setIsLoading(true);
     setError(null);
-
-    try {
-      const response = await fetch("/api/newsletter", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email }),
-      });
-
-      if (response.ok) {
-        setSuccess(true);
-      } else {
+    const validEmail: boolean = validateEmail(email);
+    if(!validEmail) {
+      setSuccess(false);
+      setError("Invalid email");
+    }else{
+      try {
+        const response = await fetch("/api/newsletter", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email }),
+        });
+  
+        if (response.ok) {
+          setSuccess(true);
+        } else {
+          setSuccess(false);
+          setError("Something went wrong. Please try again.");
+        }
+      } catch (error) {
         setSuccess(false);
         setError("Something went wrong. Please try again.");
       }
-    } catch (error) {
-      setSuccess(false);
-      setError("Something went wrong. Please try again.");
     }
-
     setIsLoading(false);
   };
 

@@ -1,5 +1,6 @@
 import Subscriber from "@/models/subscribers";
 import dbConnect from "@/utils/db";
+import { validateEmail } from "@/utils/funcs";
 import { NextApiRequest, NextApiResponse } from "next";
 
 
@@ -13,6 +14,8 @@ export default async function handler(
   switch (method) {
     case "POST":
       if (!email) return res.status(400).json({ message: `Email is required` });
+      const validEmail: boolean = validateEmail(email);
+      if(!validEmail) return res.status(400).json({ message: `Invalid Email` });
       dbConnect();
       const subscriber = new Subscriber({
         email,
