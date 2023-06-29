@@ -17,11 +17,6 @@ export const FooterComponent = () => {
             <p className="ml-5 mr-1 shrink-0 text-center sm:ml-10 md:mr-10">
               Get the latest news!
             </p>
-            <p className="mr-1 block shrink-0 md:hidden">Sign up to the</p>
-            <a href="" className="block shrink-0 underline md:hidden">
-              newsletter
-            </a>
-            <p className="block md:hidden">.</p>
           </div>
           <NewsLetterFormComponent />
         </div>

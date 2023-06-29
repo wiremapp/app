@@ -8,7 +8,7 @@ section {
 }
 
 section > div:last-child {
-    @apply mb-32;
+    @apply mb-8;
 }
 
 section > div {
@@ -18,7 +18,12 @@ section > div {
 section > div > div.row {
     @apply w-full flex-col
 }
-
+/* Section titles */
 section > div > div h3 {
     @apply pb-8 text-2xl font-black text-white text-opacity-70 text-center tracking-widest
+}
+
+/* Card titles */
+section > div > div h4 {
+    @apply pb-2 text-xl font-black text-white text-opacity-70 text-center tracking-widest
 }

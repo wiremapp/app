@@ -34,7 +34,6 @@ h2 {
     @apply uppercase font-medium
 }
 
-
 .drg {
     -webkit-app-region: drag;
     pointer-events: none;

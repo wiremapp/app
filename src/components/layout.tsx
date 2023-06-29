@@ -21,10 +21,6 @@ type Props = {
   cookieConsent?: boolean;
   router: NextRouter;
   variant?: string | null;
-  appState?: {
-    appOpen: boolean;
-    setAppOpen: Dispatch<SetStateAction<boolean>>;
-  };
 };
 
 const navData = [
@@ -50,7 +46,6 @@ export const LayoutComponent = ({
   thumbSrc,
   router,
   type,
-  appState,
   pageDesc = null,
   cookieConsent = true,
   footer = true,
@@ -147,7 +142,7 @@ export const LayoutComponent = ({
       ) : null;
     };
 
-    return src !== "bot" ? <Top /> :  <FooterComponent />;
+    return src !== "bot" ? <Top /> :  footer ? <FooterComponent /> : null;
   };
 
   return (

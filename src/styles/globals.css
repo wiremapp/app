@@ -1,15 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Heebo:wght@600&family=Montserrat:wght@400;600;900&display=swap');
 
-@import './body.style.css';
-@import './section.style.css';
-@import './button.style.css';
-@import './cookiePopup.style.css';
-@import './hero.style.css';
-@import './navbar.style.css';
-@import './footer.style.css';
-@import './cards.style.css';
-@import './authModal.style.css';
-@import './pricingCards.style.css';
+@import './components/body.style.css';
+@import './components/section.style.css';
+@import './components/button.style.css';
+@import './components/cookiePopup.style.css';
+@import './components/hero.style.css';
+@import './components/navbar.style.css';
+@import './components/footer.style.css';
+@import './components/authModal.style.css';
 
 @tailwind base;
 @tailwind components;
@@ -20,12 +18,13 @@ body {
   padding: 0;
   margin: 0;
   font-family: 'DM Sans', 'DM Sans Regular', 'DM Sans Medium', 'DM Sans Bold', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+@apply scroll-smooth;
 }
 
 a {
   color: inherit;
   text-decoration: none;
-  @apply text-primary text-opacity-70 hover:text-opacity-100
+  @apply text-primary text-opacity-70 hover:text-opacity-100 transition-all cursor-pointer
 }
 
 * {
