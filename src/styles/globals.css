@@ -18,12 +18,13 @@ body {
   padding: 0;
   margin: 0;
   font-family: 'DM Sans', 'DM Sans Regular', 'DM Sans Medium', 'DM Sans Bold', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+@apply scroll-smooth;
 }
 
 a {
   color: inherit;
   text-decoration: none;
-  @apply text-primary text-opacity-70 hover:text-opacity-100 transition-all
+  @apply text-primary text-opacity-70 hover:text-opacity-100 transition-all cursor-pointer
 }
 
 * {
