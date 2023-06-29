@@ -43,12 +43,24 @@ export const DashPage = ({ router }) => {
       cookieConsent={false}
       navbar={false}
     >
-      <div className="h-full flex">
-        <div className="h-full w-[64px] bg-green-200"></div>
-        <div className="h-full w-64 bg-orange-200"></div>
+      <div className="flex h-full">
+        <div className="h-full w-[64px] bg-green-200">
+          {["back", "projects", "org", "addons"].map((e) => {
+            return (
+              <div className="aspect-square hover:bg-red-200" key={e}>
+                {e}
+              </div>
+            );
+          })}
+        </div>
+        <div className="h-full w-64 bg-orange-200">
+          <div className="h-[64px] flex hover:bg-blue-200">
+            <div className=" w-[64px] hover:bg-red-200">e</div>
+            <div className="h-full w-[64px] hover:bg-red-200">e</div>
+          </div>
+        </div>
         <div className="h-full flex-1 bg-purple-200"></div>
         <div className="h-full w-80 bg-orange-200"></div>
-
       </div>
       {/* <EditorNavbarComponent menuData={[]} router={router} />
       <Button
