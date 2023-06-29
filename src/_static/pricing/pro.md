@@ -3,7 +3,7 @@ order: 1
 primary: true
 title: "Pro"
 description: "Best suited for power users or small teams."
-features:   [{ title: "Free forever", included: true },
+features:   [
             {  title:  "Create unlimited sitemaps", included: true },
             {  title: "Unlimited Exports", included: true }, 
             {  title: "Use templates", included: true},
