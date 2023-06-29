@@ -58,9 +58,9 @@ export const PricingComponent = (props: Props) => {
               const tierDesc = tier.frontMatter.description;
               const tierFeatures = tier.frontMatter.features;
               return (
-                <div key={tier.slug} className={`rounded p-4 ${tier.frontMatter.primary ? "section-secondary-bg shadow" : ""}`}>
+                <div key={tier.slug} className={`rounded p-8 hover:bg-[#03030328] hover:shadow-lg transition-all ${tier.frontMatter.primary ? "section-secondary-bg  shadow py-4" : "my-[48px]"}`}>
                   <div>
-                    <div className="flex grow flex-col">
+                    <div className="flex-grow flex-col">
                       <h4>{tierTitle}</h4>
                       <p className="font-light text-gray-400 sm:text-lg">
                         {tierDesc}
@@ -79,11 +79,11 @@ export const PricingComponent = (props: Props) => {
                             : t("forever_label").toLowerCase()}
                         </span>
                       </div>
-                      <ul role="list" className="mb-8 space-y-4 text-left">
+                      <ul role="list" className="mb-8 space-y-4 h-80">
                         {tierFeatures.map((feature, index) => {
                           return (
                             <li
-                              className="flex items-center space-x-3"
+                              className={`flex items-center space-x-4`}
                               key={index}
                             >
                               <svg
@@ -108,6 +108,9 @@ export const PricingComponent = (props: Props) => {
                         })}
                       </ul>
                     </div>
+                    {tier.frontMatter.primary ? <>
+                      <hr className="lg:pb-[120px] border-0"/>
+                      </> : null }
                     <div className="flex flex-col">
                       <Button
                         href={

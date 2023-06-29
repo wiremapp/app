@@ -29,7 +29,7 @@ export const FeaturesComponent = (props: Props) => {
               return (
                 <div
                   key={feature.slug}
-                  className="section-secondary-bg rounded p-4 shadow"
+                  className="section-secondary-bg hover:bg-[#03030328] rounded p-4 shadow hover:shadow-lg transition-all"
                 >
                   <div className="flex flex-col space-y-1 p-6 text-center">
                     <h4>{featureTitle}</h4>
