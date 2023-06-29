@@ -40,14 +40,23 @@ export const NotFoundErrorComponent = () => {
 const MaintErrorComponent = () => {
   const { t } = useTranslation();
   return (
-    <div className="my-20 flex flex-col">
-      <div>
-        <h1 className="mb-6 text-3xl font-black">{t("checkSoon_label")}</h1>
-        <p className="pb-9 text-white text-opacity-70">{t("maint_desc")}</p>
+    <div className="my-20 flex flex-col space-y-4">
+      <div className="md:w-[50%] space-y-4">
+        <h1 className="text-3xl font-black">{t("checkSoon_label")}</h1>
+        <p className="text-white text-opacity-70">{t("maint_desc")}</p>
       </div>
-      <div className="border-t border-white/10 pt-9">
-        <p className="text-white">Be the first to know when we&apos;re ready</p>
-        <NewsLetterFormComponent />
+      <div className="space-y-4 pt-4 border-t border-white/10">
+        <div className="justify-center sm:justify-between space-y-2">
+          <div className="flex items-center">
+            <p className="text-white">
+              Be the first to know when we&apos;re ready.{" "}
+              <span className="md:hidden">
+                <a onClick={() => {}}>Sign Up</a> to the newsletter.
+              </span>
+            </p>
+          </div>
+          <NewsLetterFormComponent />
+        </div>
         <CopyrightTextComponent />
       </div>
     </div>
