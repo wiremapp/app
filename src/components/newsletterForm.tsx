@@ -19,7 +19,7 @@ export const NewsLetterFormComponent = () => {
   };
 
   return (
-    <div className="flex">
+    <div className="hidden md:flex relative">
       {tooltip
         ? (success || error) && (
             <span className="tooltip absolute bottom-full  mb-2 transform whitespace-nowrap rounded-sm bg-black px-4 py-1 text-xs text-white">
@@ -27,14 +27,15 @@ export const NewsLetterFormComponent = () => {
             </span>
           )
         : null}
+       
       <input
         onChange={(e) => setEmail(e.target.value)}
-        className="mr-2 hidden rounded bg-white px-4 text-black text-opacity-70 opacity-70 md:block"
+        className="mr-2 rounded bg-white px-4 text-black text-opacity-70 opacity-70 md:block"
         placeholder="Enter your email..."
         disabled={isLoading}
       />
       <Button
-        className="hidden shrink-0 md:block"
+        className="shrink-0 md:block"
         href="/"
         variant="primary"
         aria-label={"Email Sign Up"}
