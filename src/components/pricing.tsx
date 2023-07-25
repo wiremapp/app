@@ -1,5 +1,6 @@
 import { Button } from "@/components/button";
 import { useTranslation } from "react-i18next";
+import { useMediaQuery } from "react-responsive";
 import React, { useState } from "react";
 import useLocale from "@/hooks/useLocale";
 
@@ -17,6 +18,7 @@ export const PricingComponent = (props: Props) => {
  const { locale } = useLocale();
   const [annual, setAnnual] = useState(true);
 
+  const isLg = useMediaQuery({ query: '(min-width: 1024px)' })
   const { t } = useTranslation();
   return (
     <section
@@ -58,7 +60,7 @@ export const PricingComponent = (props: Props) => {
               const tierDesc = tier.frontMatter.description;
               const tierFeatures = tier.frontMatter.features;
               return (
-                <div key={tier.slug} className={`rounded p-8 hover:bg-[#03030328] hover:shadow-lg transition-all ${tier.frontMatter.primary ? "section-secondary-bg  shadow py-4" : "my-[48px]"}`}>
+                <div key={tier.slug} className={`rounded p-8 hover:bg-[#03030328] ${!isLg && "section-secondary-bg"} transition-all ${tier.frontMatter.primary ? "section-secondary-bg shadow py-4" : "my-[48px]"}`}>
                   <div>
                     <div className="flex flex-grow flex-col items-center lg:items-stretch">
                       <h4>{tierTitle}</h4>
