@@ -40,7 +40,7 @@ export const NavbarComponent = ({ router, menuData }: Props) => {
               setSignInModal(!signInModal);
             }}
           >
-            SignIn
+            Sign In
           </Button>
         }
       >
