@@ -1,19 +1,17 @@
-import Image from "next/image";
 import { LayoutComponent } from "@/components/layout";
-import { NextRouter } from "next/router";
-import React from "react";
 import { useTranslation } from "react-i18next";
-import FeaturesComponent from "../features";
+import React from "react";
 
-export const FeatPage = ({ data, router }: { data: any , router?: NextRouter }) => {
-  const { t } = useTranslation();
+import { FeaturesComponent } from "../features";
+
+export const FeatPage = (props) => {
   return (
     <LayoutComponent
-      title={t("features_label")}
-      pageDesc={t("features_desc")}
-      router={router}
+      {...props}
+      title={props.locale.t("features_label")}
+      pageDesc={props.locale.t("features_desc")}
     >
-      <FeaturesComponent data={data} variant={"secondary"} />
+      <FeaturesComponent {...props} variant={"secondary"} />
     </LayoutComponent>
   );
 };

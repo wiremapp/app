@@ -1,27 +1,18 @@
-import Image from "next/image";
-import { LayoutComponent } from "@/components/layout";
-import { NextRouter } from "next/router";
-import React from "react";
-import { useTranslation } from "react-i18next";
 import { PricingComponent } from "@/components/pricing";
+import { LayoutComponent } from "@/components/layout";
+import { useTranslation } from "react-i18next";
+import { NextRouter } from "next/router";
+import Image from "next/image";
+import React from "react";
 
-export const PricingPage = ({
-  router,
-  customTitle,
-  data
-}: {
-  router?: NextRouter;
-  customTitle?: string;
-  data?: any;
-}) => {
-  const { t } = useTranslation();
+export const PricingPage = (props) => {
   return (
     <LayoutComponent
-      title={t("pricing_label")}
-      router={router}
-      pageDesc={t("pricing_desc")}
+      {...props}
+      title={props.locale.t("pricing_label")}
+      pageDesc={props.locale.t("pricing_desc")}
     >
-      <PricingComponent data={data} variant={"secondary"} />
+      <PricingComponent {...props} variant={"secondary"} />
     </LayoutComponent>
   );
 };

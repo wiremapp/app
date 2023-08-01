@@ -1,28 +1,20 @@
-import Image from "next/image";
-import { LayoutComponent } from "@/components/layout";
-
-import { NextRouter } from "next/router";
-import React from "react";
-import { useTranslation } from "react-i18next";
-import { HeroComponent } from "@/components/hero";
 import { FeaturesComponent } from "@/components/features";
-import { FAQComponent } from "@/components/faq";
+import { LayoutComponent } from "@/components/layout";
 import {PricingComponent} from "@/components/pricing";
+import { HeroComponent } from "@/components/hero";
+import { FAQComponent } from "@/components/faq";
+import { useTranslation } from "react-i18next";
+import { NextRouter } from "next/router";
+import Image from "next/image";
+import React from "react";
 
-export const LandingPage = ({
-  data,
-  router,
-}: {
-  data?: any;
-  router?: NextRouter;
-}) => {
-  const { t } = useTranslation();
+export const LandingPage = (props) => {
   return (
-    <LayoutComponent router={router}>
+    <LayoutComponent {...props}>
       <HeroComponent />
-      <FeaturesComponent data={data} src="landing" />
-      <PricingComponent data={data} variant={"secondary"} />
-      <FAQComponent data={data} />
+      <FeaturesComponent {...props} src="landing" />
+      <PricingComponent {...props} variant={"secondary"} />
+      <FAQComponent {...props} />
     </LayoutComponent>
   );
 };
