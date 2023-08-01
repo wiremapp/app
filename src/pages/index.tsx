@@ -1,19 +1,27 @@
-import DashPage from "@/components/pages/dashboard";
-import LandingPage from "@/components/pages/landing";
 import { getAllStaticEntriesWithFrontMatter } from "@/utils/md";
+import { LandingPage } from "@/components/pages/landing";
+import { useSession } from "next-auth/react";
+import React, { useContext } from "react";
+import { UIStates } from "@/context/UI";
 import { useRouter } from "next/router";
-import React, { useState } from "react";
 
-export default function Page({featuresData,pricingData,faqData}) {
+export default function Page({ locale, featuresData, pricingData, faqData }) {
   const router = useRouter();
-  const [appOpen, setAppOpen] = useState(false);
-  return !appOpen ? (
-    <LandingPage data={{featuresData,pricingData,faqData}} router={router} />
-  ) : (
-    <DashPage router={router} />
-  );
-}
+  const { status } = useSession();
+  const UI = useContext(UIStates);
 
+  const props = {
+    router,
+    status,
+    locale,
+    featuresData,
+    pricingData,
+    faqData,
+    ...UI,
+  };
+
+  return <LandingPage {...props} />;
+}
 
 export async function getStaticProps() {
   // TODO: Merge into const {featuresData, pricingData, faqData} = await getAllPostsWithFrontMatter(["features","pricing","faq"]);
@@ -26,7 +34,7 @@ export async function getStaticProps() {
     props: {
       featuresData,
       pricingData,
-      faqData
+      faqData,
     },
   };
 }

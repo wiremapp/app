@@ -1,8 +1,20 @@
-import {DashPage} from "@/components/pages/dashboard";
+import { DashPage } from "@/components/pages/dashboard";
+import { useSession } from "next-auth/react";
+import React, { useContext } from "react";
 import { useRouter } from "next/router";
-import React from "react";
+import { UIStates } from "@/context/UI";
 
-export default function Page() {
+export default function Page({locale}) {
   const router = useRouter();
-  return <DashPage router={router} />;
+  const { status } = useSession();
+  const UI = useContext(UIStates);
+
+  const props = {
+    router,
+    status,
+    locale,
+    ...UI,
+  };
+
+  return <DashPage {...props} />;
 }

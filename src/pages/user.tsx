@@ -1,10 +1,20 @@
 import { MaintPage } from "@/components/pages/maintenance";
+import { useSession } from "next-auth/react";
+import React, { useContext } from "react";
+import { UIStates } from "@/context/UI";
 import { useRouter } from "next/router";
-import React from "react";
-import { useTranslation } from "react-i18next";
 
-export default function Page() {
+export default function Page({ locale }) {
   const router = useRouter();
-  const { t } = useTranslation();
-  return <MaintPage router={router} customTitle={t("userSettings_desc")} />;
+  const { status } = useSession();
+  const UI = useContext(UIStates);
+
+  const props = {
+    router,
+    status,
+    locale,
+    ...UI,
+  };
+
+  return <MaintPage {...props} customTitle={locale.t("userSettings_desc")} />;
 }
