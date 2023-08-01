@@ -1,12 +1,13 @@
+import { CookieConsentComponent } from "@/components/cookieConsent";
+import { NavbarComponent } from "@/components/navbar";
+import { FooterComponent } from "@/components/footer";
 import React, { ReactNode, useState } from "react";
-
 import { useTranslation } from "react-i18next";
+import useIsElectron from "@/hooks/isElectron";
 import { NextRouter } from "next/router";
 import Head from "next/head";
-import { NavbarComponent } from "@/components/navbar";
-import { CookieConsentComponent } from "@/components/cookieConsent";
-import { FooterComponent } from "@/components/footer";
-import useIsElectron from "@/hooks/isElectron";
+
+import LogoComponent from "./logo";
 
 type Props = {
   children?: ReactNode;
@@ -19,6 +20,7 @@ type Props = {
   pageDesc?: string | null;
   cookieConsent?: boolean;
   router: NextRouter;
+  intLoad?: boolean;
   variant?: string | null;
 };
 
@@ -51,6 +53,7 @@ export const LayoutComponent = (props: Props) => {
     footer = true,
     navbar = true,
     variant = null,
+    intLoad,
   } = props;
 
   const { t } = useTranslation();
@@ -143,6 +146,25 @@ export const LayoutComponent = (props: Props) => {
 
     return src !== "bot" ? <Top /> :  footer ? <FooterComponent /> : null;
   };
+
+  if (intLoad) {
+    return (
+      <div>
+        <HTMLHeadComponent />
+        <div className="flex h-screen w-screen items-center justify-center">
+          <div className="flex flex-col justify-center">
+          <div className="flex justify-center">
+          <LogoComponent />
+          </div>
+          <div className="flex justify-center">
+          <p>Loading...</p>
+          </div>
+
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div id={"layout-container"}>
