@@ -3,7 +3,7 @@ import React from "react";
 
 type Props = {
   children?: any;
-  data?: any;
+  featuresData?: any;
   className?: string;
   variant?: string;
   src?: string;
@@ -11,9 +11,9 @@ type Props = {
 
 export const FeaturesComponent = (props: Props) => {
   const { t } = useTranslation();
-  const sortedData = props.data.featuresData.sort((a, b) => a.frontMatter.oder - b.frontMatter.oder).slice(
+  const sortedData = props.featuresData.sort((a, b) => a.frontMatter.oder - b.frontMatter.oder).slice(
     0,
-    props.src === "landing" ? 4 : props.data.featuresData.length
+    props.src === "landing" ? 4 : props.featuresData.length
   );
   return (
     <section

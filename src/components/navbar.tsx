@@ -11,15 +11,7 @@ import AuthModalComponent from "@/components/authModal";
 import { LogoComponent } from "@/components/logo";
 import { MobileMenuComponent } from "@/components/mobileMenu";
 
-type Props = {
-  menuData: any[];
-  variant?: string;
-  router: NextRouter;
-  scrollY: number;
-  transparentNav?: boolean;
-};
-
-export const NavbarComponent = ({ router, menuData }: Props) => {
+export const NavbarComponent = ({ router, menuData }) => {
   const [visible, setMobileMenu] = useState(false);
   const [signInModal, setSignInModal] = useState(false);
   const { data: session } = useSession();

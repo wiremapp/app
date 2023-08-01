@@ -4,7 +4,7 @@ type Props = {
   children?: any;
   className?: string;
   variant?: string;
-  data?: any;
+  faqData?: any;
 };
 
 export const FAQComponent = (props: Props) => {
@@ -19,7 +19,7 @@ export const FAQComponent = (props: Props) => {
       <div>
         <div className="row">
           <h3>Frequently Asked Questions</h3>
-          {props.data.faqData.map((question, index) => {
+          {props.faqData.map((question, index) => {
             const faqTitle = question.frontMatter.title;
             const faqDesc = question.frontMatter.description;
             const isExpanded = index === expand;

@@ -1,4 +1,4 @@
-import React, { Dispatch, ReactNode, SetStateAction, useState } from "react";
+import React, { ReactNode, useState } from "react";
 
 import { useTranslation } from "react-i18next";
 import { NextRouter } from "next/router";
@@ -6,7 +6,6 @@ import Head from "next/head";
 import { NavbarComponent } from "@/components/navbar";
 import { CookieConsentComponent } from "@/components/cookieConsent";
 import { FooterComponent } from "@/components/footer";
-import useScrollProgress from "@/hooks/scrollY";
 import useIsElectron from "@/hooks/isElectron";
 
 type Props = {
@@ -39,20 +38,21 @@ const navData = [
   },
 ];
 
-export const LayoutComponent = ({
-  children,
-  title,
-  author,
-  thumbSrc,
-  router,
-  type,
-  pageDesc = null,
-  cookieConsent = true,
-  footer = true,
-  navbar = true,
-  variant = null,
-}: Props) => {
-  const { scrollY, progress } = useScrollProgress();
+export const LayoutComponent = (props: Props) => {
+  const {
+    children,
+    title,
+    author,
+    thumbSrc,
+    router,
+    type,
+    pageDesc = null,
+    cookieConsent = true,
+    footer = true,
+    navbar = true,
+    variant = null,
+  } = props;
+
   const { t } = useTranslation();
   const isElectron = useIsElectron();
 
@@ -134,8 +134,7 @@ export const LayoutComponent = ({
           <header>
             <NavbarComponent
               menuData={navData}
-              scrollY={scrollY}
-              router={router}
+              {...props}
             />
           </header>
         </>

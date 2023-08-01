@@ -8,11 +8,11 @@ type Props = {
   children?: any;
   className?: string;
   variant?: string;
-  data?: any;
+  pricingData?: any;
 };
 
 export const PricingComponent = (props: Props) => {
-  const sortedData = props.data.pricingData.sort(
+  const sortedData = props.pricingData.sort(
     (a, b) => a.frontMatter.order - b.frontMatter.order
   );
  const { locale } = useLocale();
