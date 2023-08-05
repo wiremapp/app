@@ -1,18 +1,16 @@
 import { getAllStaticEntriesWithFrontMatter } from "@/utils/md";
 import FeatPage from "@/components/pages/features";
-import { useSession } from "next-auth/react";
 import React, { useContext } from "react";
 import { UIStates } from "@/context/UI";
 import { useRouter } from "next/router";
 
-export default function Page({ locale, featuresData }) {
+export default function Page({ locale, featuresData, auth }) {
   const router = useRouter();
-  const { status } = useSession();
   const UI = useContext(UIStates);
 
   const props = {
     router,
-    status,
+    auth,
     locale,
     featuresData,
     ...UI,

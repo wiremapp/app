@@ -4,16 +4,14 @@ import React, { useContext } from "react";
 import { StaticPage } from "@/components/pages/static";
 import { getFiles, getStaticEntryBySlug } from "@/utils/md";
 import { UIStates } from "@/context/UI";
-import { useSession } from "next-auth/react";
 
-function Content({ locale, frontMatter, markdownBody }) {
+function Content({ locale, frontMatter, markdownBody, auth }) {
   const router = useRouter();
-  const { status } = useSession();
   const UI = useContext(UIStates);
 
   const props = {
     router,
-    status,
+    auth,
     locale,
     ...UI,
   };

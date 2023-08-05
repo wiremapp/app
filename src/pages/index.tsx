@@ -1,18 +1,22 @@
 import { getAllStaticEntriesWithFrontMatter } from "@/utils/md";
 import { LandingPage } from "@/components/pages/landing";
-import { useSession } from "next-auth/react";
 import React, { useContext } from "react";
 import { UIStates } from "@/context/UI";
 import { useRouter } from "next/router";
 
-export default function Page({ locale, featuresData, pricingData, faqData }) {
+export default function Page({
+  locale,
+  featuresData,
+  pricingData,
+  faqData,
+  auth,
+}) {
   const router = useRouter();
-  const { status } = useSession();
   const UI = useContext(UIStates);
 
   const props = {
     router,
-    status,
+    auth,
     locale,
     featuresData,
     pricingData,
