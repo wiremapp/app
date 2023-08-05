@@ -1,15 +1,15 @@
 import { I18nextProvider, useTranslation } from "react-i18next";
-import { Provider as UIStatesProvider } from "@/context/UI";
+import { UIStates, Provider as UIStatesProvider } from "@/context/UI";
 import { useScrollProgress } from "@/hooks/scrollY";
 import { useIsElectron } from "@/hooks/isElectron";
-import { SessionProvider } from "next-auth/react";
+import { SessionProvider, useSession } from "next-auth/react";
 import { ThemeProvider } from "next-themes";
 import type { AppProps } from "next/app";
 import { useIsPWA } from "@/hooks/isPWA";
 import { Session } from "next-auth";
 import localeManager from "@/i18n";
 import "@/styles/globals.css";
-import React from "react";
+import React, { useContext } from "react";
 
 function MyApp({
   Component,
@@ -21,6 +21,7 @@ function MyApp({
   const isElectron = useIsElectron();
   const { t } = useTranslation();
   const { scrollY, progress } = useScrollProgress();
+  const { auth } = useContext(UIStates);
 
   return (
     <SessionProvider session={pageProps.session} refetchInterval={0}>
@@ -33,6 +34,7 @@ function MyApp({
                 ...pageProps,
                 isElectron,
                 isPWA,
+                auth,
                 scroll: { y: scrollY, progress },
                 locale: { t, manager: localeManager },
               }}
