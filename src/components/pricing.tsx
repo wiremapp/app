@@ -11,7 +11,7 @@ type Props = {
   pricingData?: any;
 };
 
-export const PricingComponent = (props: Props) => {
+export const PricingComponent = (props) => {
   const sortedData = props.pricingData.sort(
     (a, b) => a.frontMatter.order - b.frontMatter.order
   );
@@ -19,7 +19,6 @@ export const PricingComponent = (props: Props) => {
   const [annual, setAnnual] = useState(true);
 
   const isLg = useMediaQuery({ query: '(min-width: 1024px)' })
-  const { t } = useTranslation();
   return (
     <section
       className={props.variant == "secondary" ? "section-secondary-bg" : ""}
@@ -70,15 +69,15 @@ export const PricingComponent = (props: Props) => {
                       <div className="my-8 flex items-baseline justify-center">
                         <span className="mr-2 text-5xl font-extrabold">
                           {displayPrice !== 0 ? locale === "GB" ? "£": "$" : ""}
-                          {displayPrice !== 0 ? displayPrice : t("free_label")}
+                          {displayPrice !== 0 ? displayPrice : props.locale.t("free_label")}
                         </span>
                         <span className="text-gray-400">
                           /{" "}
                           {displayPrice !== 0
                             ? !annual
-                              ? t("month_label").toLowerCase()
-                              : t("year_label").toLowerCase()
-                            : t("forever_label").toLowerCase()}
+                              ? props.locale.t("month_label").toLowerCase()
+                              : props.locale.t("year_label").toLowerCase()
+                            : props.locale.t("forever_label").toLowerCase()}
                         </span>
                       </div>
                       <ul role="list" className="mb-8 flex justify-center flex-col lg:justify-normal space-y-4 h-80">

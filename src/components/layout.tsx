@@ -2,27 +2,11 @@ import { CookieConsentComponent } from "@/components/cookieConsent";
 import { NavbarComponent } from "@/components/navbar";
 import { FooterComponent } from "@/components/footer";
 import React, { ReactNode, useState } from "react";
-import { useTranslation } from "react-i18next";
 import useIsElectron from "@/hooks/isElectron";
 import { NextRouter } from "next/router";
 import Head from "next/head";
 
 import LogoComponent from "./logo";
-
-type Props = {
-  children?: ReactNode;
-  title?: string;
-  author?: string;
-  footer?: boolean;
-  thumbSrc?: string;
-  navbar?: boolean;
-  type?: string;
-  pageDesc?: string | null;
-  cookieConsent?: boolean;
-  router: NextRouter;
-  intLoad?: boolean;
-  variant?: string | null;
-};
 
 const navData = [
   {
@@ -40,7 +24,7 @@ const navData = [
   },
 ];
 
-export const LayoutComponent = (props: Props) => {
+export const LayoutComponent = (props) => {
   const {
     children,
     title,
@@ -56,11 +40,10 @@ export const LayoutComponent = (props: Props) => {
     intLoad,
   } = props;
 
-  const { t } = useTranslation();
   const isElectron = useIsElectron();
 
   const HTMLHeadComponent = () => {
-    const [desc, setDesc] = useState(pageDesc || t("site_desc"));
+    const [desc, setDesc] = useState(pageDesc || props.locale.t("site_desc"));
     const canonicalUrl =
       process.env.NEXT_PUBLIC_SITE_URL +
       (router?.query?.static

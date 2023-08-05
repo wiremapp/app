@@ -5,6 +5,7 @@ import { fetchPostJSON } from "@/utils/api-helpers";
 import { formatAmountForDisplay } from "@/utils/stripe-helpers";
 
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
+import Link from "next/link";
 
 const CARD_OPTIONS = {
   iconStyle: "solid" as const,
@@ -118,13 +119,13 @@ export const PaymentComponent = ({price}:{price: number}) => {
       {formatAmountForDisplay(price,"usd")}
         <div className="test-card-notice">
           Use any of the{" "}
-          <a
+          <Link
             href="https://stripe.com/docs/testing#cards"
             target="_blank"
             rel="noopener noreferrer"
           >
             Stripe test cards
-          </a><br/>
+          </Link><br/>
           Test CardNum:{" "}
           <div className="card-number">
             4242<span></span>4242<span></span>4242<span></span>4242

@@ -13,7 +13,11 @@ export const MaintPage = (props) => {
       footer={false}
       cookieConsent={false}
     >
-      <ErrorComponent contentTitle={props.customTitle} variant={"mt"} />
+      <ErrorComponent
+        {...props}
+        contentTitle={props.customTitle}
+        variant={"mt"}
+      />
     </LayoutComponent>
   );
 };
