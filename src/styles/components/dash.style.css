@@ -1,0 +1,4 @@
+.dash-area {
+    background: linear-gradient(0deg, #0E0E0E 0%, #141414 125%);
+    @apply backdrop-blur-xl;
+}
