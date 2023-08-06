@@ -15,19 +15,25 @@ export const AuthModalComponent = ({ state, router }) => {
   return (
     <div className="authModal">
       <div className="flex items-center justify-between px-10 pt-8">
-        <HiXMark
-          size={40}
-          className="opacity-70 hover:opacity-100"
-          onClick={() => state.setModal(!state.modal)}
-        />
-        <LogoComponent />
-        <Button
-          href="/signin"
-          aria-label={"Sign In"}
-          className="flex h-[45px] justify-center rounded-xl tracking-wide"
-        >
-          Sign Up
-        </Button>
+        <div className="flex w-1/3 justify-start">
+          <HiXMark
+            size={40}
+            className="opacity-70 transition-all hover:scale-110 hover:opacity-100"
+            onClick={() => state.setModal(!state.modal)}
+          />
+        </div>
+        <div className="flex w-1/3 justify-center">
+          <LogoComponent />
+        </div>
+        <div className="flex w-1/3 justify-end">
+          <Button
+            href="/signin"
+            aria-label={"Sign In"}
+            className="flex h-[45px] w-[100px] justify-center rounded-xl tracking-wide"
+          >
+            Sign Up
+          </Button>
+        </div>
       </div>
       <div className="flex items-center justify-center">
         <div className="flex h-[500px] w-[450px] flex-col items-center justify-center space-y-5">
@@ -36,7 +42,7 @@ export const AuthModalComponent = ({ state, router }) => {
           </h1>
           <div className="w-3/4 space-y-4">
             <input
-              className="mr-2 h-[45px] w-full rounded-xl bg-white px-4 tracking-wide text-base text-black/70 opacity-70 "
+              className="mr-2 h-[45px] w-full rounded-xl bg-white px-4 text-base tracking-wide text-black/70 opacity-70 "
               placeholder="Email"
             />
             <Button
@@ -52,12 +58,12 @@ export const AuthModalComponent = ({ state, router }) => {
               Sign In
             </Button>
           </div>
-          <div className="w-3/4 flex items-center">
-          <hr className=" w-3/4 rounded-3xl border-white/25" />
-          <p className="text-white/50 uppercase mx-2 select-none"> Or </p>
-          <hr className=" w-3/4 rounded-3xl border-white/25" />
+          <div className="flex w-3/4 items-center">
+            <hr className=" w-3/4 rounded-3xl border-white/25" />
+            <p className="mx-2 select-none uppercase text-white/50"> Or </p>
+            <hr className=" w-3/4 rounded-3xl border-white/25" />
           </div>
-          <div className="space-x-4 w-3/4 flex tracking-wide">
+          <div className="flex w-3/4 space-x-4 tracking-wide">
             <Button
               href="/signin"
               aria-label={"Google Sign In"}
@@ -85,7 +91,7 @@ export const AuthModalComponent = ({ state, router }) => {
                 signIn("github");
               }}
             >
-                            <Image
+              <Image
                 src="/images/icons/github.png"
                 alt="GitHub"
                 className="mr-6"
@@ -95,8 +101,8 @@ export const AuthModalComponent = ({ state, router }) => {
               GitHub
             </Button>
           </div>
-          
-          <p className="text-xs text-white text-opacity-30">
+
+          <p className="pb-20 text-xs text-white text-opacity-30">
             By signing in to Wiremap, you agree to our{" "}
             <Link
               className="font-bold text-white text-opacity-40 hover:text-opacity-70"
@@ -108,23 +114,7 @@ export const AuthModalComponent = ({ state, router }) => {
           </p>
         </div>
       </div>
-      <div className="flex items-center justify-between px-10 pt-8">
-        <HiXMark
-          size={40}
-          className="opacity-0 hover:opacity-100"
-          onClick={() => state.setModal(!state.modal)}
-        />
-        <HiXMark
-          size={40}
-          className="opacity-0 hover:opacity-100"
-          onClick={() => state.setModal(!state.modal)}
-        />
-        <HiXMark
-          size={45}
-          className="opacity-0 hover:opacity-100"
-          onClick={() => state.setModal(!state.modal)}
-        />
-      </div>
+      <div></div>
     </div>
   );
 };
