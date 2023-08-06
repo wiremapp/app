@@ -1,11 +1,22 @@
-import FeatPage from "@/components/pages/features";
 import { getAllStaticEntriesWithFrontMatter } from "@/utils/md";
+import FeatPage from "@/components/pages/features";
+import React, { useContext } from "react";
+import { UIStates } from "@/context/UI";
 import { useRouter } from "next/router";
-import React from "react";
 
-export default function Page({ featuresData }) {
+export default function Page({ locale, featuresData, auth }) {
   const router = useRouter();
-  return <FeatPage data={{featuresData}} router={router} />;
+  const UI = useContext(UIStates);
+
+  const props = {
+    router,
+    auth,
+    locale,
+    featuresData,
+    ...UI,
+  };
+
+  return <FeatPage {...props} />;
 }
 
 export async function getStaticProps() {
@@ -16,4 +27,3 @@ export async function getStaticProps() {
     },
   };
 }
-

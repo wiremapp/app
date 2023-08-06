@@ -1,8 +1,8 @@
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
-export const LogoComponent = ({ src }: {src?: string}) => {
+export const LogoComponent = ({ text = true }: {text?: boolean}) => {
   return (
     <Link href="/">
       <div className="logo-area">
@@ -14,7 +14,7 @@ export const LogoComponent = ({ src }: {src?: string}) => {
             objectFit="contain"
           />
         </div>
-        {src === "editor" ? null : (
+        {text ? null : (
           <h1 className="text-md ml-4 hidden font-black tracking-logo sm:block">
             {process.env.NEXT_PUBLIC_APP_TITLE}
           </h1>

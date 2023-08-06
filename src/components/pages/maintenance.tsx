@@ -1,26 +1,23 @@
 import { LayoutComponent } from "@/components/layout";
-import { NextRouter } from "next/router";
+import { ErrorComponent } from "@/components/error";
 import React from "react";
-import { useTranslation } from "react-i18next";
-import ErrorComponent from "../error";
 
-export const MaintPage = ({
-  router,
-  customTitle,
-}: {
-  router?: NextRouter;
-  customTitle?: string;
-}) => {
-  const { t } = useTranslation();
+export const MaintPage = (props) => {
   return (
     <LayoutComponent
-      title={customTitle || t("checkSoon_label").slice(0, -3)}
-      router={router}
+      {...props}
+      title={
+        props.customTitle || props.locale.t("checkSoon_label").slice(0, -3)
+      }
       navbar={false}
       footer={false}
       cookieConsent={false}
     >
-      <ErrorComponent contentTitle={customTitle} variant={"mt"} />
+      <ErrorComponent
+        {...props}
+        contentTitle={props.customTitle}
+        variant={"mt"}
+      />
     </LayoutComponent>
   );
 };

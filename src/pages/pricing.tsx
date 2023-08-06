@@ -1,11 +1,22 @@
-import { PricingPage } from "@/components/pages/pricing";
 import { getAllStaticEntriesWithFrontMatter } from "@/utils/md";
+import { PricingPage } from "@/components/pages/pricing";
+import React, { useContext } from "react";
+import { UIStates } from "@/context/UI";
 import { useRouter } from "next/router";
-import React from "react";
 
-export default function Page({ pricingData }) {
+export default function Page({ locale, pricingData,auth }) {
   const router = useRouter();
-  return <PricingPage data={{ pricingData }} router={router} />;
+  const UI = useContext(UIStates);
+
+  const props = {
+    router,
+    auth,
+    locale,
+    pricingData,
+    ...UI,
+  };
+
+  return <PricingPage {...props} />;
 }
 
 export async function getStaticProps() {

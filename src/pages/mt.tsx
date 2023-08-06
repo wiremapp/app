@@ -1,8 +1,18 @@
 import { MaintPage } from "@/components/pages/maintenance";
+import React, { useContext } from "react";
+import { UIStates } from "@/context/UI";
 import { useRouter } from "next/router";
-import React from "react";
 
-export default function Page() {
+export default function Page({ locale, auth }) {
   const router = useRouter();
-  return <MaintPage router={router} />;
+  const UI = useContext(UIStates);
+
+  const props = {
+    router,
+    auth,
+    locale,
+    ...UI,
+  };
+
+  return <MaintPage {...props} />;
 }

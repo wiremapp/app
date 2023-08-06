@@ -1,19 +1,17 @@
 import { LayoutComponent } from "@/components/layout";
-
+import { FAQComponent } from "@/components/faq";
+import { useTranslation } from "react-i18next";
 import { NextRouter } from "next/router";
 import React from "react";
-import { useTranslation } from "react-i18next";
-import {FAQComponent} from "@/components/faq";
 
-export const FAQPage = ({ router,data }: { data?: any, router?: NextRouter }) => {
-  const { t } = useTranslation();
+export const FAQPage = (props) => {
   return (
     <LayoutComponent
-      title={t("faqFull_label")}
-      pageDesc={t("about_desc")}
-      router={router}
+      {...props}
+      title={props.locale.t("faqFull_label")}
+      pageDesc={props.locale.t("about_desc")}
     >
-      <FAQComponent data={data} />
+      <FAQComponent {...props} />
     </LayoutComponent>
   );
 };

@@ -8,22 +8,21 @@ type Props = {
   className?: string;
 };
 
-export const HeroComponent = (props: Props) => {
-  const { t } = useTranslation();
+export const HeroComponent = (props) => {
   return (
     <section className="hero">
       <div>
         <div className="z-1 flex-col justify-center text-center lg:mr-14 lg:text-left">
           <div>
             <h1 className="mb-8 text-2xl font-black uppercase sm:text-3xl lg:mr-8 lg:text-4xl">
-              {t("hero_title0")}
+              {props.locale.t("hero_title0")}
             </h1>
             <div className="flex flex-col space-y-[4px] mb-6">
               <h2 className="text-md text-white text-opacity-80 tracking-wider">
-                {t("hero_subtitle0")}
+                {props.locale.t("hero_subtitle0")}
               </h2>
               <p className="text-sm text-white text-opacity-[64%] sm:px-14 lg:w-11/12 lg:px-0">
-                {t("hero_desc0")}
+                {props.locale.t("hero_desc0")}
               </p>
             </div>
           </div>
@@ -34,7 +33,7 @@ export const HeroComponent = (props: Props) => {
               aria-label={"Open App"}
               space={"medium"}
             >
-              {t("start4Free_label")}
+              {props.locale.t("start4Free_label")}
             </Button>
             <Button
               href="/faq"
@@ -42,7 +41,7 @@ export const HeroComponent = (props: Props) => {
               aria-label={"Open App"}
               space={"medium"}
             >
-              {t("learnMore_label")}
+              {props.locale.t("learnMore_label")}
             </Button>
           </div>
         </div>

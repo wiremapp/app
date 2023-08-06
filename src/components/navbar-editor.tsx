@@ -16,10 +16,9 @@ type Props = {
   router: NextRouter;
 };
 
-export const EditorNavbarComponent = ({ router, menuData }: Props) => {
+export const EditorNavbarComponent = (props) => {
   const [visible, setMobileMenu] = useState(false);
   const [signInModal, setSignInModal] = useState(false);
-  const { data: session } = useSession();
 
   const { t } = useTranslation();
   const isPWA = useIsPWA();
@@ -43,7 +42,7 @@ export const EditorNavbarComponent = ({ router, menuData }: Props) => {
       >
         <AuthModalComponent
           state={{ modal: signInModal, setModal: setSignInModal }}
-          router={router}
+          {...props}
         />
       </ModalWrapperComponent>
     );
@@ -55,11 +54,11 @@ export const EditorNavbarComponent = ({ router, menuData }: Props) => {
       className={`navbar-editor ${isPWA ? "pt-20" : null}`}
     >
       <div>
-        <LogoComponent src={"editor"}/>
+        <LogoComponent />
         <div>
           <div>
             <nav>
-              {menuData.map(
+              {props.menuData.map(
                 (e: { id: string; name: string; href: string | UrlObject }) => {
                   return (
                     <Link key={`${e.id}_nav`} href={e.href} passHref>
@@ -67,7 +66,7 @@ export const EditorNavbarComponent = ({ router, menuData }: Props) => {
                         className={`${
                           e.id === "about" ? "hidden lg:inline-block" : ""
                         } ${
-                          router.pathname === e.href
+                          props.router.pathname === e.href
                             ? "opacity-100"
                             : "opacity-70"
                         }`}
@@ -80,7 +79,7 @@ export const EditorNavbarComponent = ({ router, menuData }: Props) => {
               )}
             </nav>
           </div>
-          {!session ? (
+          {!props.auth.session ? (
             <SignInModalButton />
           ) : (
             <div className="hidden sm:block">
@@ -94,12 +93,12 @@ export const EditorNavbarComponent = ({ router, menuData }: Props) => {
                   signOut();
                 }}
               >
-                {session?.user.email}
+                {props.auth.session?.user.email}
               </Button>
             </div>
           )}
           <MobileMenuComponent
-            data={menuData}
+            data={props.menuData}
             state={{ visible, setMobileMenu }}
           />
         </div>

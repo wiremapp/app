@@ -1,12 +1,22 @@
 import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useContext } from "react";
 import OrderPage from "@/components/pages/order";
 import { getFiles, getStaticEntryBySlug } from "@/utils/md";
+import { UIStates } from "@/context/UI";
 
-function Content({ frontMatter, markdownBody }) {
+function Content({ locale, frontMatter, markdownBody, auth }) {
   const router = useRouter();
-  return <OrderPage source={{ frontMatter, markdownBody }} router={router} />;
+  const UI = useContext(UIStates);
+
+  const props = {
+    router,
+    auth,
+    locale,
+    ...UI,
+  };
+
+  return <OrderPage {...{ ...props, source: { frontMatter, markdownBody } }} />;
 }
 
 export default Content;
@@ -17,8 +27,11 @@ export async function getStaticProps({ params }: Params) {
       notFound: true,
     };
   }
-  const { frontMatter, markdownBody } = await getStaticEntryBySlug(params.static, "pricing");
-  
+  const { frontMatter, markdownBody } = await getStaticEntryBySlug(
+    params.static,
+    "pricing"
+  );
+
   return {
     props: {
       frontMatter,

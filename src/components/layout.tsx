@@ -1,27 +1,12 @@
-import React, { Dispatch, ReactNode, SetStateAction, useState } from "react";
-
-import { useTranslation } from "react-i18next";
+import { CookieConsentComponent } from "@/components/cookieConsent";
+import { NavbarComponent } from "@/components/navbar";
+import { FooterComponent } from "@/components/footer";
+import React, { ReactNode, useState } from "react";
+import useIsElectron from "@/hooks/isElectron";
 import { NextRouter } from "next/router";
 import Head from "next/head";
-import { NavbarComponent } from "@/components/navbar";
-import { CookieConsentComponent } from "@/components/cookieConsent";
-import { FooterComponent } from "@/components/footer";
-import useScrollProgress from "@/hooks/scrollY";
-import useIsElectron from "@/hooks/isElectron";
 
-type Props = {
-  children?: ReactNode;
-  title?: string;
-  author?: string;
-  footer?: boolean;
-  thumbSrc?: string;
-  navbar?: boolean;
-  type?: string;
-  pageDesc?: string | null;
-  cookieConsent?: boolean;
-  router: NextRouter;
-  variant?: string | null;
-};
+import LogoComponent from "./logo";
 
 const navData = [
   {
@@ -39,25 +24,26 @@ const navData = [
   },
 ];
 
-export const LayoutComponent = ({
-  children,
-  title,
-  author,
-  thumbSrc,
-  router,
-  type,
-  pageDesc = null,
-  cookieConsent = true,
-  footer = true,
-  navbar = true,
-  variant = null,
-}: Props) => {
-  const { scrollY, progress } = useScrollProgress();
-  const { t } = useTranslation();
+export const LayoutComponent = (props) => {
+  const {
+    children,
+    title,
+    author,
+    thumbSrc,
+    router,
+    type,
+    pageDesc = null,
+    cookieConsent = true,
+    footer = true,
+    navbar = true,
+    variant = null,
+    intLoad,
+  } = props;
+
   const isElectron = useIsElectron();
 
   const HTMLHeadComponent = () => {
-    const [desc, setDesc] = useState(pageDesc || t("site_desc"));
+    const [desc, setDesc] = useState(pageDesc || props.locale.t("site_desc"));
     const canonicalUrl =
       process.env.NEXT_PUBLIC_SITE_URL +
       (router?.query?.static
@@ -134,8 +120,7 @@ export const LayoutComponent = ({
           <header>
             <NavbarComponent
               menuData={navData}
-              scrollY={scrollY}
-              router={router}
+              {...props}
             />
           </header>
         </>
@@ -144,6 +129,25 @@ export const LayoutComponent = ({
 
     return src !== "bot" ? <Top /> :  footer ? <FooterComponent /> : null;
   };
+
+  if (intLoad) {
+    return (
+      <div>
+        <HTMLHeadComponent />
+        <div className="flex h-screen w-screen items-center justify-center">
+          <div className="flex flex-col justify-center">
+          <div className="flex justify-center">
+          <LogoComponent />
+          </div>
+          <div className="flex justify-center">
+          <p>Loading...</p>
+          </div>
+
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div id={"layout-container"}>

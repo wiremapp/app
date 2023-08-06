@@ -13,7 +13,7 @@ type Props = {
   variant?: "404" | "mt" | null;
 };
 
-export const NotFoundErrorComponent = () => {
+export const NotFoundErrorComponent = (props) => {
   const { t } = useTranslation();
   return (
     <div className="my-16 flex flex-col">
@@ -27,8 +27,8 @@ export const NotFoundErrorComponent = () => {
         <p className="text-white text-opacity-70">
           Whoops! Looks like the link you followed may be broken or this page
           does not exist. <br></br> Try going back to the previous page or{" "}
-          <Link href="/" passHref>
-            <a>Return to Wiremap.</a>
+          <Link href="/">
+            Return to Wiremap.
           </Link>
         </p>
         <CopyrightTextComponent />
@@ -63,26 +63,25 @@ const MaintErrorComponent = () => {
   );
 };
 
-export const ErrorComponent = ({ contentTitle, variant }: Props) => {
-  const { t } = useTranslation();
+export const ErrorComponent = (props) => {
   return (
     <section className="bg-blue-850 h-full">
       <div className="flex flex-col justify-center">
         <LogoComponent />
-        {variant === "mt" ? (
+        {props.variant === "mt" ? (
           <MaintErrorComponent />
-        ) : variant === "404" ? (
+        ) : props.variant === "404" ? (
           <NotFoundErrorComponent />
         ) : (
           <div className="my-20 flex flex-col">
             <div>
 
               <h1 className="mb-6 text-3xl font-black">
-                {contentTitle || t("genericError_title")}
+                {props.contentTitle || props.locale.t("genericError_title")}
               </h1>
 
               <p className="pb-9 text-white text-opacity-70">
-                {t("maint_desc")}
+                {props.locale.t("maint_desc")}
               </p>
 
             </div>

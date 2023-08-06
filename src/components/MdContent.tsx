@@ -16,7 +16,7 @@ export const StaticContentComponent = ({ source }) => {
       <div>
         <div className="row">
           <div className="mb-12 flex items-center justify-center">
-            <div className="lg:prose-md prose prose-slate flex flex-col border-b prose-headings:text-gray-200 prose-p:text-slate-400 prose-img:rounded-sm">
+            <div className="flex flex-col border-b prose-headings:text-gray-200 prose-p:text-gray-400 prose-img:rounded-sm">
               {content}
             </div>
           </div>

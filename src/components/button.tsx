@@ -39,11 +39,9 @@ export const Button = (props: Props) => {
       : "px-4"
   }`;
   return (
-    <Link href={props.href} passHref>
-      <a {...props} className={className}>
+      <a {...props} href={null} className={className}>
         <Content />
       </a>
-    </Link>
   );
 };
 

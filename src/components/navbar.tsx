@@ -4,25 +4,16 @@ import Link from "next/link";
 import { useTranslation } from "react-i18next";
 import { UrlObject } from "url";
 import { useIsPWA } from "@/hooks/isPWA";
-import { signOut, useSession } from "next-auth/react";
+import { signOut } from "next-auth/react";
 import { ModalWrapperComponent } from "@/components/modalWrapper";
 import { Button } from "@/components/button";
 import AuthModalComponent from "@/components/authModal";
 import { LogoComponent } from "@/components/logo";
 import { MobileMenuComponent } from "@/components/mobileMenu";
 
-type Props = {
-  menuData: any[];
-  variant?: string;
-  router: NextRouter;
-  scrollY: number;
-  transparentNav?: boolean;
-};
-
-export const NavbarComponent = ({ router, menuData }: Props) => {
+export const NavbarComponent = (props) => {
   const [visible, setMobileMenu] = useState(false);
   const [signInModal, setSignInModal] = useState(false);
-  const { data: session } = useSession();
 
   const { t } = useTranslation();
   const isPWA = useIsPWA();
@@ -40,13 +31,13 @@ export const NavbarComponent = ({ router, menuData }: Props) => {
               setSignInModal(!signInModal);
             }}
           >
-            Sign In
+            {props.locale.t("signIn_label")}
           </Button>
         }
       >
         <AuthModalComponent
           state={{ modal: signInModal, setModal: setSignInModal }}
-          router={router}
+          {...props}
         />
       </ModalWrapperComponent>
     );
@@ -62,28 +53,26 @@ export const NavbarComponent = ({ router, menuData }: Props) => {
         <div>
           <div>
             <nav>
-              {menuData.map(
+              {props.menuData.map(
                 (e: { id: string; name: string; href: string | UrlObject }) => {
                   return (
-                    <Link key={`${e.id}_nav`} href={e.href} passHref>
-                      <a
+                    <Link key={`${e.id}_nav`} href={e.href}
                         className={`${
                           e.id === "about" ? "hidden lg:inline-block" : ""
                         } ${
-                          router.pathname === e.href
+                          props.router.pathname === e.href
                             ? "opacity-100"
                             : "opacity-70"
                         }`}
                       >
                         {t(`${e.id}_label`)}
-                      </a>
                     </Link>
                   );
                 }
               )}
             </nav>
           </div>
-          {!session ? (
+          {!props.auth.session ? (
             <SignInModalButton />
           ) : (
             <div className="hidden sm:block">
@@ -97,7 +86,7 @@ export const NavbarComponent = ({ router, menuData }: Props) => {
                   signOut();
                 }}
               >
-                {session?.user.email}
+                {props.auth.session?.user.email}
               </Button>
             </div>
           )}
@@ -110,7 +99,7 @@ export const NavbarComponent = ({ router, menuData }: Props) => {
             Open App
           </Button>
           <MobileMenuComponent
-            data={menuData}
+            data={props.menuData}
             state={{ visible, setMobileMenu }}
           />
         </div>
