@@ -8,7 +8,8 @@ export function Provider({ children }: { children: React.ReactNode }) {
   const [rtl, setRTL] = useState(false);
   const [intLoad, setIntLoad] = useState(true);
   const { data: session, status } = useSession();
-
+  const [userProjects, setUserProjects] = useState([]);
+  
   useEffect(() => {
     setTimeout(() => setIntLoad(false), 3000);
   }, []);
