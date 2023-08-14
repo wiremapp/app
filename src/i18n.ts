@@ -25,6 +25,8 @@ const resources = {
       faq_label: "FAQ",
       faqFull_label: "Frequently Asked Questions",
       more_label: "More",
+      scan_label: "Scan",
+      sitemapScanner_label: "Sitemap Scanner",
       signIn_label: "Sign in",
       openApp_label: "Open App",
       notFound_label: "Page not found",
