@@ -132,7 +132,7 @@ export const LayoutComponent = (props) => {
 
   if (intLoad) {
     return (
-      <div>
+      <div >
         <HTMLHeadComponent />
         <div className="flex h-screen w-screen items-center justify-center">
           <div className="flex flex-col justify-center">
@@ -161,7 +161,7 @@ export const LayoutComponent = (props) => {
         </div>
         <Navigation src="bot" />
       </main>
-      {cookieConsent ? <CookieConsentComponent /> : null}
+      {cookieConsent ? <CookieConsentComponent {...props} /> : null}
     </div>
   );
 };

@@ -15,7 +15,6 @@ export const NavbarComponent = (props) => {
   const [visible, setMobileMenu] = useState(false);
   const [signInModal, setSignInModal] = useState(false);
 
-  const { t } = useTranslation();
   const isPWA = useIsPWA();
 
   const SignInModalButton = () => {
@@ -65,7 +64,7 @@ export const NavbarComponent = (props) => {
                             : "opacity-70"
                         }`}
                       >
-                        {t(`${e.id}_label`)}
+                        {props.locale.t(`${e.id}_label`)}
                     </Link>
                   );
                 }
@@ -96,7 +95,7 @@ export const NavbarComponent = (props) => {
             aria-label={"Open App"}
             space={"medium"}
           >
-            Open App
+            {props.locale.t("openApp_label")}
           </Button>
           <MobileMenuComponent
             data={props.menuData}

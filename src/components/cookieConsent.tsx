@@ -4,8 +4,7 @@ import { useEntryEffect } from "@/hooks/entryEffect";
 import {  Button } from "@/components/button";
 import { useTranslation } from "react-i18next";
 
-export function CookieConsentComponent() {
-  const { t } = useTranslation();
+export const CookieConsentComponent = (props) => {
   const [consent, setConsent] = useState(true);
   useEffect(() => {
     setConsent(hasCookie("localConsent"));
@@ -36,7 +35,7 @@ export function CookieConsentComponent() {
   }
 
 
-  const cookieTextContent = t("cookie_textContent");
+  const cookieTextContent = props.locale.t("cookie_textContent");
 
   return (
     <div
@@ -52,7 +51,7 @@ export function CookieConsentComponent() {
           href="/privacy/"
           className="px-6 text-start"
         >
-          {t("learnMore_label")}
+          {props.locale.t("learnMore_label")}
         </Button>
         </div>
         <Button
@@ -64,7 +63,7 @@ export function CookieConsentComponent() {
             e.preventDefault();
           }}
         >
-          {t("reject_label")}
+          {props.locale.t("reject_label")}
         </Button>
         <Button
           variant="primary"
@@ -76,7 +75,7 @@ export function CookieConsentComponent() {
             e.preventDefault();
           }}
         >
-          {t("accept_label")}
+          {props.locale.t("accept_label")}
         </Button>
       </div>
     </div>
