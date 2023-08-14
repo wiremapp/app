@@ -1,4 +1,4 @@
-body {
+#layout-container {
     background: linear-gradient(180deg, #1B1B1B 0%, #141414 100%), #1E1E1E;
     @apply min-h-screen text-white;
 }
