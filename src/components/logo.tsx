@@ -14,7 +14,7 @@ export const LogoComponent = ({ text = true }: {text?: boolean}) => {
             objectFit="contain"
           />
         </div>
-        {text ? null : (
+        {!text ? null : (
           <h1 className="text-md ml-4 hidden font-black tracking-logo sm:block">
             {process.env.NEXT_PUBLIC_APP_TITLE}
           </h1>

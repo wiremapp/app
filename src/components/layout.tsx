@@ -151,7 +151,7 @@ export const LayoutComponent = (props) => {
 
   return (
     <div id={"layout-container"}>
-      <HTMLHeadComponent />
+      <HTMLHeadComponent {...props} />
       <Navigation />
       <main>
         <div>

@@ -55,7 +55,8 @@ export const NavbarComponent = (props) => {
               {props.menuData.map(
                 (e: { id: string; name: string; href: string | UrlObject }) => {
                   return (
-                    <Link key={`${e.id}_nav`} href={e.href}
+                    <Link key={`${e.id}_nav`} href={e.href}>
+                      <a
                         className={`${
                           e.id === "about" ? "hidden lg:inline-block" : ""
                         } ${
@@ -64,7 +65,9 @@ export const NavbarComponent = (props) => {
                             : "opacity-70"
                         }`}
                       >
+                        {" "}
                         {props.locale.t(`${e.id}_label`)}
+                      </a>
                     </Link>
                   );
                 }
