@@ -1,18 +1,18 @@
 import { LayoutComponent } from "@/components/layout";
-import { NextRouter } from "next/router";
-import React from "react";
+import { ErrorComponent } from "@/components/error";
 import { useTranslation } from "react-i18next";
-import {ErrorComponent} from "@/components/error";
+import React from "react";
 
-export const NotFoundPage = ({ router }: { router?: NextRouter }) => {
+export const NotFoundPage = (props) => {
   const { t } = useTranslation();
   return (
     <LayoutComponent
       title={t("notFound_label")}
-      router={router}
+      router={props.router}
       navbar={false}
       footer={false}
       cookieConsent={false}
+      locale={props.locale}
     >
       <ErrorComponent contentTitle={t("notFound_label")} variant={"404"} />
     </LayoutComponent>
