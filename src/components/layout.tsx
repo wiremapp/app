@@ -137,7 +137,7 @@ export const LayoutComponent = (props) => {
         <div className="flex h-screen w-screen items-center justify-center">
           <div className="flex flex-col justify-center">
           <div className="flex justify-center">
-          <LogoComponent />
+          <LogoComponent text={false}/>
           </div>
           <div className="flex justify-center">
           <p>Loading...</p>
