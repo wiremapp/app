@@ -48,11 +48,11 @@ export const NavbarComponent = (props) => {
       className={`navbar-default ${isPWA ? "pt-20" : null}`}
     >
       <div>
-        <LogoComponent />
+        <LogoComponent text={props.variant === "editor" ? false : true} />
         <div>
           <div>
             <nav>
-              {props.menuData.map(
+              {props.variant !== "editor"  && props.menuData.map(
                 (e: { id: string; name: string; href: string | UrlObject }) => {
                   return (
                     <Link key={`${e.id}_nav`} href={e.href}>
