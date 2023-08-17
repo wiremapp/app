@@ -2,7 +2,7 @@ import { setCookie, hasCookie } from "cookies-next";
 import React, { useEffect, useState } from "react";
 import { useEntryEffect } from "@/hooks/entryEffect";
 import {  Button } from "@/components/button";
-import { useTranslation } from "react-i18next";
+import styles from "./style.module.css";
 
 export const CookieConsentComponent = (props) => {
   const [consent, setConsent] = useState(true);
@@ -42,7 +42,7 @@ export const CookieConsentComponent = (props) => {
       style={{
         transform: `translateY(${intPos}%)`,
       }}
-      className="cookie-consent"
+      className={styles["cookie-consent"]}
     >
       <p className="mb-4">{cookieTextContent}</p>
       <div className="flex space-x-2">

@@ -1,19 +1,19 @@
-footer {
+.container {
     background: linear-gradient(0deg, #0E0E0E 0%, #141414 125%);
     @apply backdrop-blur-xl;
 }
 
 /* Top Footer */
-footer > div:first-of-type{
+.container > div:first-of-type{
     @apply py-4 px-4 md:px-12 transition-all;
 }
 
 /* Bottom Footer Container */
-footer > div:last-of-type {
+.container > div:last-of-type {
     @apply p-4 md:px-12 border-t border-white/10;
 }
 
 /* Bottom Footer */
-footer > div > div  {
+.container > div > div  {
     @apply mx-auto min-h-[64px] flex-col sm:flex-row flex max-w-[84rem] items-center justify-between
 }

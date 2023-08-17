@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React, { MutableRefObject } from "react";
+import styles from "./style.module.css";
 
 type Props = {
   children?: any;
@@ -25,9 +26,11 @@ export const Button = (props: Props) => {
       </>
     );
   };
-  const className = `${props.className} button button-${
-    props.variant || "secondary"
-  } ${
+  const className = `${props.className} ${styles["button"]}  ${
+    props.variant
+      ? styles[`button-${props.variant}`]
+      : styles["button-secondary"]
+  }  ${
     props.space
       ? props.space === "small"
         ? "px-2"

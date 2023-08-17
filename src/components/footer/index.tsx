@@ -1,15 +1,16 @@
 
-import Link from "next/link";
-import React from "react";
-import { useTranslation } from "react-i18next";
-import { LogoComponent } from "@/components/logo";
 import { NewsLetterFormComponent } from "@/components/newsletterForm";
 import { CopyrightTextComponent } from "@/components/copyrightText";
+import { useTranslation } from "react-i18next";
+import { LogoComponent } from "@/components/logo";
+import Link from "next/link";
+import React from "react";
+import styles from "./style.module.css";
 
 export const FooterComponent = () => {
   const { t } = useTranslation();
   return (
-    <footer aria-label="Site Footer">
+    <footer className={styles.container} aria-label="Site Footer">
       <div>
         <div className="justify-center sm:justify-between">
           <div className="flex items-center">

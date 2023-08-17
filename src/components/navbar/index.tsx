@@ -1,26 +1,19 @@
-import { NextRouter } from "next/router";
-import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
-import { useTranslation } from "react-i18next";
 import { UrlObject } from "url";
 import { useIsPWA } from "@/hooks/isPWA";
-import { signOut, useSession } from "next-auth/react";
+import { signOut } from "next-auth/react";
 import { ModalWrapperComponent } from "@/components/modalWrapper";
 import { Button } from "@/components/button";
 import AuthModalComponent from "@/components/authModal";
 import { LogoComponent } from "@/components/logo";
 import { MobileMenuComponent } from "@/components/mobileMenu";
+import styles from "./style.module.css";
 
-type Props = {
-  menuData: any[];
-  router: NextRouter;
-};
-
-export const EditorNavbarComponent = (props) => {
+export const NavbarComponent = (props) => {
   const [visible, setMobileMenu] = useState(false);
   const [signInModal, setSignInModal] = useState(false);
 
-  const { t } = useTranslation();
   const isPWA = useIsPWA();
 
   const SignInModalButton = () => {
@@ -36,7 +29,7 @@ export const EditorNavbarComponent = (props) => {
               setSignInModal(!signInModal);
             }}
           >
-            SignIn
+            {props.locale.t("signIn_label")}
           </Button>
         }
       >
@@ -51,32 +44,39 @@ export const EditorNavbarComponent = (props) => {
   return (
     <nav
       aria-label="Site Navigation"
-      className={`navbar-editor ${isPWA ? "pt-20" : null}`}
+      className={styles["navbar-default"]}
+      style={{ paddingTop: isPWA ? "5rem" : "0" }}
     >
       <div>
-        <LogoComponent />
+        <LogoComponent text={props.variant === "editor" ? false : true} />
         <div>
           <div>
             <nav>
-              {props.menuData.map(
-                (e: { id: string; name: string; href: string | UrlObject }) => {
-                  return (
-                    <Link key={`${e.id}_nav`} href={e.href} passHref>
-                      <a
-                        className={`${
-                          e.id === "about" ? "hidden lg:inline-block" : ""
-                        } ${
-                          props.router.pathname === e.href
-                            ? "opacity-100"
-                            : "opacity-70"
-                        }`}
-                      >
-                        {t(`${e.id}_label`)}
-                      </a>
-                    </Link>
-                  );
-                }
-              )}
+              {props.variant !== "editor" &&
+                props.menuData.map(
+                  (e: {
+                    id: string;
+                    name: string;
+                    href: string | UrlObject;
+                  }) => {
+                    return (
+                      <Link key={`${e.id}_nav`} href={e.href}>
+                        <a
+                          className={`${
+                            e.id === "about" ? "hidden lg:inline-block" : ""
+                          } ${
+                            props.router.pathname === e.href
+                              ? "opacity-100"
+                              : "opacity-70"
+                          }`}
+                        >
+                          {" "}
+                          {props.locale.t(`${e.id}_label`)}
+                        </a>
+                      </Link>
+                    );
+                  }
+                )}
             </nav>
           </div>
           {!props.auth.session ? (
@@ -97,6 +97,14 @@ export const EditorNavbarComponent = (props) => {
               </Button>
             </div>
           )}
+          <Button
+            href="/dashboard"
+            variant="primary"
+            aria-label={"Open App"}
+            space={"medium"}
+          >
+            {props.locale.t("openApp_label")}
+          </Button>
           <MobileMenuComponent
             data={props.menuData}
             state={{ visible, setMobileMenu }}
@@ -107,4 +115,4 @@ export const EditorNavbarComponent = (props) => {
   );
 };
 
-export default EditorNavbarComponent;
+export default NavbarComponent;

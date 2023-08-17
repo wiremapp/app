@@ -1,9 +1,5 @@
-import { EditorNavbarComponent } from "@/components/navbar-editor";
 import useLocalProjects from "@/hooks/useLocalProjects";
 import { LayoutComponent } from "@/components/layout";
-import { useTranslation } from "react-i18next";
-import { Button } from "@/components/button";
-import { v4 as uuidv4 } from "uuid";
 import React from "react";
 
 import RightSidebarComponent from "../sideBaR";
@@ -45,7 +41,7 @@ export const DashPage = (props) => {
     >
       <div className="flex flex-grow bg-red-200"> 
       <div className="w-[309px] bg-green-200">
-        
+
       </div>
       <div className="flex-grow bg-red-200"></div>
       </div>

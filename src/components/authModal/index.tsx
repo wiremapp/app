@@ -4,6 +4,7 @@ import { signIn } from "next-auth/react";
 import { useIsElectron } from "@/hooks/isElectron";
 import { LogoComponent } from "@/components/logo";
 import { Button } from "@/components/button";
+import styles from "./style.module.css";
 import Link from "next/link";
 import React from "react";
 import Image from "next/image";
@@ -13,7 +14,7 @@ export const AuthModalComponent = ({ state, router }) => {
   const isElectron = useIsElectron();
 
   return (
-    <div className="authModal">
+    <div className={styles.authModal}>
       <div className="flex items-center justify-between px-10 pt-8">
         <div className="flex w-1/3 justify-start">
           <HiXMark

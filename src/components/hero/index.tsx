@@ -1,7 +1,6 @@
-import Link from "next/link";
-import React from "react";
-import { useTranslation } from "react-i18next";
 import { Button } from "@/components/button";
+import React from "react";
+import styles from "./style.module.css";
 
 type Props = {
   children?: any;
@@ -10,7 +9,7 @@ type Props = {
 
 export const HeroComponent = (props) => {
   return (
-    <section className="hero">
+    <section className={styles.hero}>
       <div>
         <div className="z-1 flex-col justify-center text-center lg:mr-14 lg:text-left">
           <div>

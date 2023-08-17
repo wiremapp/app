@@ -2,12 +2,6 @@
 
 @import './components/body.style.css';
 @import './components/section.style.css';
-@import './components/button.style.css';
-@import './components/cookiePopup.style.css';
-@import './components/hero.style.css';
-@import './components/navbar.style.css';
-@import './components/footer.style.css';
-@import './components/authModal.style.css';
 @import './components/dash.style.css';
 
 @tailwind base;
