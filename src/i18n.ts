@@ -33,7 +33,7 @@ const resources = {
       genericError_title: "Something went wrong...",
       genericError_desc: "Whoops, something went wrong. please try again later.",
       checkSoon_label: "Check back soon...",
-      maint_desc: "Unfortunately, Wiremap is currently down and undergoing some maintenance.We apologize for any inconvenience caused. We'll be back up and running shortly!",
+      maint_desc: "Unfortunately, Wiremap is currently down and undergoing some maintenance. We apologize for any inconvenience caused. We'll be back up and running shortly!",
       hero_title0: "Visualise your application sitemap structure",
       hero_desc0:
         "With a comprehensive & user-friendly interface, combined with a range of useful features, to help facilitate a rapid streamlined development process.",
