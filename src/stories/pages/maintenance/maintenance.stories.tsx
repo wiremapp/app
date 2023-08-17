@@ -1,4 +1,4 @@
-import { MaintPage } from "@/components/pages/maintenance";
+import { MaintPage } from "@/stories/pages/maintenance";
 
 export default {
   title: "Pages/Maintenance",
