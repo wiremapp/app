@@ -1,22 +1,8 @@
 import React, { MutableRefObject } from "react";
 import styles from "./style.module.css";
+import Link from "next/link";
 
-type Props = {
-  children?: any;
-  className?: string;
-  href?: string;
-  icon?: React.ReactNode;
-  onClick?: (e: any) => void;
-  size?: string;
-  variant?: string;
-  type?: string;
-  target?: string;
-  space?: string;
-  disabled?: boolean;
-  ref?: MutableRefObject<any>;
-};
-
-export const Button = (props: Props) => {
+export const Button = (props) => {
   const Content = () => {
     return (
       <>
@@ -25,6 +11,7 @@ export const Button = (props: Props) => {
       </>
     );
   };
+
   const className = `${props.className} ${styles["button"]}  ${
     props.variant
       ? styles[`button-${props.variant}`]
@@ -40,8 +27,9 @@ export const Button = (props: Props) => {
         : props.space
       : "px-4"
   }`;
+
   return (
-    <a {...props} href={null} className={className}>
+    <a {...props} className={className}>
       <Content />
     </a>
   );

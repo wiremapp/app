@@ -3,22 +3,6 @@
     @apply  absolute px-4 md:px-12 z-[98] h-[96px] w-full border-0 border-transparent text-white transition-all
 }
 
-/* Editor Navbar Container */
-.navbar-editor {
-    @apply  relative pl-4 pr-2 p-2.5  z-[98] h-[96px] w-full border-0 border-transparent text-white transition-all
-}
-
-/* Editor Navbar  */
-.navbar-editor > div  {
-    @apply mx-auto flex h-full w-full items-center justify-between text-sm
-}
-
-/* CTA Buttons Container */
-.navbar-editor > div > div:last-of-type {
-    @apply flex w-full items-center justify-end space-x-2 
-}
-
-
 /* Navbar  */
 .navbar-default > div  {
     @apply mx-auto flex h-full w-full max-w-[84rem] items-center justify-between text-sm

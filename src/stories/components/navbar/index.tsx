@@ -57,11 +57,10 @@ export const NavbarComponent = (props) => {
                   (e: {
                     id: string;
                     name: string;
-                    href: string | UrlObject;
+                    href: string ;
                   }) => {
                     return (
-                      <Link key={`${e.id}_nav`} href={e.href}>
-                        <a
+                      <a key={`${e.id}_nav`} href={e.href}
                           className={`${
                             e.id === "about" ? "hidden lg:inline-block" : ""
                           } ${
@@ -70,10 +69,8 @@ export const NavbarComponent = (props) => {
                               : "opacity-70"
                           }`}
                         >
-                          {" "}
                           {props.locale.t(`${e.id}_label`)}
-                        </a>
-                      </Link>
+                      </a>
                     );
                   }
                 )}

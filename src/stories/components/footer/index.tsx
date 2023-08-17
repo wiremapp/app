@@ -23,15 +23,11 @@ export const FooterComponent = () => {
       <div>
         <div>
           <div className="my-1 flex justify-start space-x-8 uppercase sm:my-0">
-            <Link href="/privacy">
-              <a className="text-xs font-medium text-white/70 transition-all hover:text-white hover:text-opacity-100">
+            <Link href="/privacy" className="text-xs font-medium text-white/70 transition-all hover:text-white hover:text-opacity-100">
                 Privacy Policy
-              </a>
             </Link>
-            <Link href="/terms">
-              <a className="text-xs font-medium text-white/70 transition-all hover:text-white hover:text-opacity-100">
+            <Link href="/terms" className="text-xs font-medium text-white/70 transition-all hover:text-white hover:text-opacity-100">
                 Terms of Service
-              </a>
             </Link>
           </div>
           <div>
