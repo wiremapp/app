@@ -1,8 +1,6 @@
 import { LayoutComponent } from "@/stories/units/layout";
-import { useTranslation } from "react-i18next";
+import { FeaturesComponent } from "@/stories/units/features";
 import React from "react";
-
-import { FeaturesComponent } from "../features";
 
 export const FeatPage = (props) => {
   return (

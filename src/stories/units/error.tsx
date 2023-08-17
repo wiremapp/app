@@ -3,8 +3,8 @@ import React from "react";
 
 import { useTranslation } from "react-i18next";
 import { CopyrightTextComponent } from "@/stories/units/copyrightText";
-import { NewsLetterFormComponent } from "@/components/newsletterForm";
-import { LogoComponent } from "@/components/logo";
+import { NewsLetterFormComponent } from "@/stories/units/newsletterForm";
+import { LogoComponent } from "@/stories/units/logo";
 
 type Props = {
   children?: any;

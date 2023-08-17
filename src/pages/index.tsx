@@ -1,5 +1,5 @@
 import { getAllStaticEntriesWithFrontMatter } from "@/utils/md";
-import { LandingPage } from "@/components/pages/landing";
+import { LandingPage } from "@//stories/pages/landing";
 import React, { useContext } from "react";
 import { UIStates } from "@/context/UI";
 import { useRouter } from "next/router";

@@ -1,4 +1,4 @@
-import { NotFoundPage } from "@/components/pages/notFound";
+import { NotFoundPage } from "@/stories/pages/notFound";
 
 export default {
   title: "Pages/NotFound",

@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import { HiXMark } from "react-icons/hi2";
 import { signIn } from "next-auth/react";
 import { useIsElectron } from "@/hooks/isElectron";
-import { LogoComponent } from "@/components/logo";
+import { LogoComponent } from "@/stories/units/logo";
 import { Button } from "@/stories/components/button";
 import styles from "./style.module.css";
 import Link from "next/link";

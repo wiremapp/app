@@ -1,4 +1,4 @@
-import { PricingComponent } from "@/components/pricing";
+import { PricingComponent } from "@/stories/units/pricing";
 import { LayoutComponent } from "@/stories/units/layout";
 import { useTranslation } from "react-i18next";
 import { NextRouter } from "next/router";
