@@ -1,4 +1,4 @@
-import { DashPage } from "@/components/pages/dashboard";
+import { DashPage } from "@/stories/pages/dashboard";
 import React, { useContext } from "react";
 import { useRouter } from "next/router";
 import { UIStates } from "@/context/UI";
