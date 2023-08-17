@@ -41,33 +41,14 @@ export const DashPage = (props) => {
       title={props.locale.t("dash_label")}
       footer={false}
       cookieConsent={false}
-      navbar={false}
+      variant="editor"
     >
-      <div className="flex h-full">
-        <div className="h-full w-[64px]">
-          {["back", "projects", "org", "addons"].map((e) => {
-            return (
-              <div className="aspect-square hover:bg-red-200" key={e}>
-                {e}
-              </div>
-            );
-          })}
-        </div>
-        <div className="flex flex-grow">
-          <div className="dash-area h-full w-64 rounded border-r-2">
-            <div className="flex h-[64px] hover:bg-blue-200">
-              <div className=" w-[64px] hover:bg-red-200">e</div>
-              <div className="h-full w-[64px] hover:bg-red-200">t</div>
-            </div>
-          </div>
-
-          <div className="h-full flex-grow overflow-y-auto bg-purple-200">
-            <div>{JSON.stringify(props)}</div>
-          </div>
-          <div className="h-full w-80 border-l-2">r5</div>
-        </div>
+      <div className="flex flex-grow bg-red-200"> 
+      <div className="w-[309px] bg-green-200">
+        
       </div>
-
+      <div className="flex-grow bg-red-200"></div>
+      </div>
     </LayoutComponent>
   );
 };

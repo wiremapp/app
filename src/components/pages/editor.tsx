@@ -4,8 +4,12 @@ import { RightSidebarComponent } from "@/components/sideBaR";
 import { LayoutComponent } from "@/components/layout";
 
 import React from "react";
-import { calculateBoxWidth, handleAddCell, handleAddElement, handleAddSubElement } from "@/utils/funcs";
-
+import {
+  calculateBoxWidth,
+  handleAddCell,
+  handleAddElement,
+  handleAddSubElement,
+} from "@/utils/funcs";
 
 interface Element {
   id: string;
@@ -59,12 +63,11 @@ const initArr: Cell[] = [
   },
 ];
 
-
-export const EditorPage = ({ router }) => {
+export const EditorPage = (props) => {
   const [arr, setArr] = useState<Cell[]>(initArr);
   const Editor = ({ state }) => {
     return (
-      <div className="w-full h-full">
+      <div className="h-full w-full">
         <button
           onClick={() => handleAddCell(state.arr, state.setArr)}
           className="rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
@@ -124,15 +127,11 @@ export const EditorPage = ({ router }) => {
         ))}
       </div>
     );
-  }  
+  };
 
   return (
-    <LayoutComponent
-      router={router}
-      title={"{projectName}"}
-      variant={"editor"}
-    >
-      <div className={"h-full flex w-full"}>
+    <LayoutComponent {...props} title={"{projectName}"} variant={"editor"}>
+      <div className={"flex h-full w-full"}>
         <LeftSidebarComponent />
         <div className={"flex-1"}>
           <Editor state={{ arr, setArr }} />
