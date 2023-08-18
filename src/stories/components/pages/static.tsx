@@ -1,6 +1,6 @@
-import { LayoutComponent } from "@/stories/units/layout";
+import { LayoutComponent } from "@/stories/components/units/layout";
 import React, { useState } from "react";
-import { StaticContentComponent } from "@/stories/units/MdContent";
+import { StaticContentComponent } from "@/stories/components/units/MdContent";
 
 export const StaticPage = (props) => {
   const [title] = useState(props.source.frontMatter.title);

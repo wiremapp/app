@@ -1,5 +1,5 @@
 import useLocalProjects from "@/hooks/useLocalProjects";
-import { LayoutComponent } from "@/stories/units/layout";
+import { LayoutComponent } from "@/stories/components/units/layout";
 import React from "react";
 
 export const DashPage = (props) => {

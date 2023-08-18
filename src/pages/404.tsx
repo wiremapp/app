@@ -1,4 +1,4 @@
-import { NotFoundPage } from "@/stories/pages/notFound";
+import { NotFoundPage } from "@/stories/components/pages/notFound";
 import React, { useContext } from "react";
 import { UIStates } from "@/context/UI";
 import { useRouter } from "next/router";

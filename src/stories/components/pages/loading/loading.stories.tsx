@@ -1,4 +1,4 @@
-import { LoadingPage } from "@/stories/pages/loading";
+import { LoadingPage } from "@/stories/components/pages/loading";
 
 export default {
   title: "Pages/Loading",

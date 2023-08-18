@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { LeftSidebarComponent } from "@/stories/units/sideBaL";
-import { RightSidebarComponent } from "@/stories/units/sideBaR";
-import { LayoutComponent } from "@/stories/units/layout";
+import { LeftSidebarComponent } from "@/stories/components/units/sideBaL";
+import { RightSidebarComponent } from "@/stories/components/units/sideBaR";
+import { LayoutComponent } from "@/stories/components/units/layout";
 
 import React from "react";
 import {

@@ -1,4 +1,4 @@
-import { LayoutComponent } from "@/stories/units/layout";
+import { LayoutComponent } from "@/stories/components/units/layout";
 import { HeroComponent } from "@/stories/components/hero";
 import React, { useState } from "react";
 import SeoAnalyzer from "seo-analyzer"

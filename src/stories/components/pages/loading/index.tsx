@@ -1,4 +1,4 @@
-import { LogoComponent } from "@/stories//units/logo";
+import { LogoComponent } from "@/stories/components/units/logo";
 import React from "react";
 
 export const LoadingPage = (props) => {

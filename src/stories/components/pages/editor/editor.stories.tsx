@@ -1,17 +1,17 @@
-import { SEOScanPage } from "@/stories/pages/seo";
+import { DashPage } from "@/stories/components/pages/dashboard";
 
 export default {
-  title: "Pages/Scanner/SEO",
-  component: SEOScanPage,
+  title: "Pages/Editor",
+  component: DashPage,
 };
 
-export const SEO = (props) => (
+export const Editor = (props) => (
   <div className="overflow-hidden rounded bg-[#FF6838] p-4">
-    <SEOScanPage {...props} />
+    <DashPage {...props} />
   </div>
 );
 
-SEO.args = {
+Editor.args = {
   locale: {
     t: (e) => {
       return e;

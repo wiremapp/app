@@ -1,4 +1,4 @@
-import { EditorPage } from "@/stories/pages/editor";
+import { EditorPage } from "@/stories/components/pages/editor";
 import React, { useContext } from "react";
 import { UIStates } from "@/context/UI";
 import { useRouter } from "next/router";

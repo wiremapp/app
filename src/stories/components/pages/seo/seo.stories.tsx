@@ -1,19 +1,17 @@
-import DashPage from "@/stories/pages/dashboard";
+import { SEOScanPage } from "@/stories/components/pages/seo";
 
 export default {
-  title: "Pages/Dashboard",
-  component: DashPage,
+  title: "Pages/Scanner/SEO",
+  component: SEOScanPage,
 };
 
-export const Dashboard = (props) => (
+export const SEO = (props) => (
   <div className="overflow-hidden rounded bg-[#FF6838] p-4">
-    <DashPage
-      {...props}
-    />
+    <SEOScanPage {...props} />
   </div>
 );
 
-Dashboard.args = {
+SEO.args = {
   locale: {
     t: (e) => {
       return e;

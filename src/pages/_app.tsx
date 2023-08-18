@@ -1,6 +1,5 @@
 import { I18nextProvider, useTranslation } from "react-i18next";
 import { UIStates, Provider as UIStatesProvider } from "@/context/UI";
-import { useScrollProgress } from "@/hooks/scrollY";
 import { useIsElectron } from "@/hooks/isElectron";
 import { SessionProvider, useSession } from "next-auth/react";
 import { ThemeProvider } from "next-themes";
@@ -20,7 +19,6 @@ function MyApp({
   const isPWA = useIsPWA();
   const isElectron = useIsElectron();
   const { t } = useTranslation();
-  const { scrollY, progress } = useScrollProgress();
   const { auth } = useContext(UIStates);
 
   return (
@@ -35,7 +33,6 @@ function MyApp({
                 isElectron,
                 isPWA,
                 auth,
-                scroll: { y: scrollY, progress },
                 locale: { t, manager: localeManager },
               }}
             />

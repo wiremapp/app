@@ -3,11 +3,11 @@ import Link from "next/link";
 import { UrlObject } from "url";
 import { useIsPWA } from "@/hooks/isPWA";
 import { signOut } from "next-auth/react";
-import { ModalWrapperComponent } from "@/stories/units/modalWrapper";
+import { ModalWrapperComponent } from "@/stories/components/units/modalWrapper";
 import { Button } from "@/stories/components/button";
 import AuthModalComponent from "@/stories/components/authModal";
-import { LogoComponent } from "@/stories/units/logo";
-import { MobileMenuComponent } from "@/stories/units/mobileMenu";
+import { LogoComponent } from "@/stories/components/units/logo";
+import { MobileMenuComponent } from "@/stories/components/units/mobileMenu";
 import styles from "./style.module.css";
 
 export const NavbarComponent = (props) => {

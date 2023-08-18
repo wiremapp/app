@@ -1,4 +1,4 @@
-import { GoogleAnalyticsComponent } from "@/stories/units/gtag";
+import { GoogleAnalyticsComponent } from "@/stories/components/units/gtag";
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import React from "react";
 

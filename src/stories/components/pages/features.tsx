@@ -1,5 +1,5 @@
-import { LayoutComponent } from "@/stories/units/layout";
-import { FeaturesComponent } from "@/stories/units/features";
+import { LayoutComponent } from "@/stories/components/units/layout";
+import { FeaturesComponent } from "@/stories/components/units/features";
 import React from "react";
 
 export const FeatPage = (props) => {

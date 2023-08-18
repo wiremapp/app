@@ -2,9 +2,9 @@ import Link from "next/link";
 import React from "react";
 
 import { useTranslation } from "react-i18next";
-import { CopyrightTextComponent } from "@/stories/units/copyrightText";
-import { NewsLetterFormComponent } from "@/stories/units/newsletterForm";
-import { LogoComponent } from "@/stories/units/logo";
+import { CopyrightTextComponent } from "@/stories/components/units/copyrightText";
+import { NewsLetterFormComponent } from "@/stories/components/units/newsletterForm";
+import { LogoComponent } from "@/stories/components/units/logo";
 
 type Props = {
   children?: any;

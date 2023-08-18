@@ -1,8 +1,8 @@
-import { FeaturesComponent } from "@/stories/units/features";
-import { LayoutComponent } from "@/stories/units/layout";
-import { PricingComponent } from "@/stories/units/pricing";
+import { FeaturesComponent } from "@/stories/components/units/features";
+import { LayoutComponent } from "@/stories/components/units/layout";
+import { PricingComponent } from "@/stories/components/units/pricing";
 import { HeroComponent } from "@/stories/components/hero";
-import { FAQComponent } from "@/stories/units/faq";
+import { FAQComponent } from "@/stories/components/units/faq";
 import React from "react";
 
 export const LandingPage = (props) => {

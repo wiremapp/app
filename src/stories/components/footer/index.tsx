@@ -1,10 +1,10 @@
-import { LogoComponent } from "@/stories/units/logo";
+import { LogoComponent } from "@/stories/components/units/logo";
 
 import React from "react";
 import Link from "next/link";
 import styles from "./style.module.css";
-import NewsLetterFormComponent from "@/stories/units/newsletterForm";
-import CopyrightTextComponent from "@/stories/units/copyrightText";
+import NewsLetterFormComponent from "@/stories/components/units/newsletterForm";
+import CopyrightTextComponent from "@/stories/components/units/copyrightText";
 
 export const FooterComponent = () => {
   return (

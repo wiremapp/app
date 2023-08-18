@@ -1,5 +1,5 @@
-import { PricingComponent } from "@/stories/units/pricing";
-import { LayoutComponent } from "@/stories/units/layout";
+import { PricingComponent } from "@/stories/components/units/pricing";
+import { LayoutComponent } from "@/stories/components/units/layout";
 import { useTranslation } from "react-i18next";
 import { NextRouter } from "next/router";
 import Image from "next/image";

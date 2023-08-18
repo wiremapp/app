@@ -1,7 +1,7 @@
 import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 import { useRouter } from "next/router";
 import React, { useContext } from "react";
-import { StaticPage } from "@/stories/pages/static";
+import { StaticPage } from "@/stories/components/pages/static";
 import { getFiles, getStaticEntryBySlug } from "@/utils/md";
 import { UIStates } from "@/context/UI";
 
@@ -16,7 +16,9 @@ function Content({ locale, frontMatter, markdownBody, auth }) {
     ...UI,
   };
 
-  return <StaticPage {...{...props, source: { frontMatter, markdownBody }} } />;
+  return (
+    <StaticPage {...{ ...props, source: { frontMatter, markdownBody } }} />
+  );
 }
 
 export default Content;

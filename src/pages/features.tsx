@@ -1,5 +1,5 @@
 import { getAllStaticEntriesWithFrontMatter } from "@/utils/md";
-import FeatPage from "@/stories/pages/features";
+import FeatPage from "@/stories/components/pages/features";
 import React, { useContext } from "react";
 import { UIStates } from "@/context/UI";
 import { useRouter } from "next/router";

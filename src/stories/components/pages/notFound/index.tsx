@@ -1,5 +1,5 @@
-import { LayoutComponent } from "@/stories/units/layout";
-import { ErrorComponent } from "@/stories/units/error";
+import { LayoutComponent } from "@/stories/components/units/layout";
+import { ErrorComponent } from "@/stories/components/units/error";
 import { useTranslation } from "react-i18next";
 import React from "react";
 

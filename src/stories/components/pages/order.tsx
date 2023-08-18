@@ -1,5 +1,5 @@
-import { LayoutComponent } from "@/stories/units/layout";
-import {OrderComponent} from "@/stories/units/order";
+import { LayoutComponent } from "@/stories/components/units/layout";
+import {OrderComponent} from "@/stories/components/units/order";
 import React, { useState } from "react";
 
 export const OrderPage = ({ source, router }) => {

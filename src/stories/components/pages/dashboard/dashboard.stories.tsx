@@ -1,17 +1,19 @@
-import { DashPage } from "@/stories/pages/dashboard";
+import DashPage from "@/stories/components/pages/dashboard";
 
 export default {
-  title: "Pages/Editor",
+  title: "Pages/Dashboard",
   component: DashPage,
 };
 
-export const Editor = (props) => (
+export const Dashboard = (props) => (
   <div className="overflow-hidden rounded bg-[#FF6838] p-4">
-    <DashPage {...props} />
+    <DashPage
+      {...props}
+    />
   </div>
 );
 
-Editor.args = {
+Dashboard.args = {
   locale: {
     t: (e) => {
       return e;

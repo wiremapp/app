@@ -1,5 +1,5 @@
-import { LayoutComponent } from "@/stories/units/layout";
-import { FAQComponent } from "@/stories/units/faq";
+import { LayoutComponent } from "@/stories/components/units/layout";
+import { FAQComponent } from "@/stories/components/units/faq";
 import React from "react";
 
 export const FAQPage = (props) => {
