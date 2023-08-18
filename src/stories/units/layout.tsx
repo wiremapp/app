@@ -4,8 +4,7 @@ import { FooterComponent } from "@/stories/components/footer";
 import React, { useState } from "react";
 import useIsElectron from "@/hooks/isElectron";
 import Head from "next/head";
-
-import LogoComponent from "./logo";
+import LoadingPage from "../pages/loading";
 
 const navData = [
   {
@@ -130,16 +129,7 @@ export const LayoutComponent = (props) => {
     return (
       <div>
         <HTMLHeadComponent />
-        <div className="flex h-screen w-screen items-center justify-center">
-          <div className="flex flex-col justify-center">
-            <div className="flex justify-center">
-              <LogoComponent text={false} />
-            </div>
-            <div className="flex justify-center">
-              <p>Loading...</p>
-            </div>
-          </div>
-        </div>
+        <LoadingPage />
       </div>
     );
   }

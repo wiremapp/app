@@ -1,7 +1,7 @@
 import React from 'react';
 import useFetchSitemap from '@/hooks/scanner';
 
-const SitemapViewer = (props) => {
+export const SitemapScanner = (props) => {
 
   if (props.loading) {
     return <p>Loading...</p>;
@@ -21,4 +21,4 @@ const SitemapViewer = (props) => {
   );
 };
 
-export default SitemapViewer;
+export default SitemapScanner;
