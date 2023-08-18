@@ -1,6 +1,6 @@
 import { LayoutComponent } from "@/stories/units/layout";
+import {OrderComponent} from "@/stories/units/order";
 import React, { useState } from "react";
-import {OrderComponent} from "@/components/order";
 
 export const OrderPage = ({ source, router }) => {
   const [title] = useState(source.frontMatter.title);
