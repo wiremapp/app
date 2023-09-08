@@ -1,9 +1,9 @@
 .button {
-    @apply uppercase inline-flex select-none items-center rounded-sm py-3 text-sm cursor-pointer focus:outline-none transition-all
+    @apply uppercase px-4 inline-flex select-none items-center rounded-sm py-3 text-sm cursor-pointer focus:outline-none transition-all
 }
 
 .button-primary {
-    @apply font-bold text-opacity-70 hover:text-opacity-95 text-white bg-[#FF6838] hover:bg-[#FF602E] transition-all focus:ring-blue-300 !important;
+    @apply font-bold text-opacity-70 hover:text-opacity-95 text-white bg-[#FF6838] hover:bg-[#FF602E] transition-all focus:ring-blue-300;
 }
 
 .button-secondary {
