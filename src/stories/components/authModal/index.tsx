@@ -9,8 +9,7 @@ import Link from "next/link";
 import React from "react";
 import Image from "next/image";
 
-export const AuthModalComponent = ({ state, router }) => {
-  const { t } = useTranslation();
+export const AuthModalComponent = ({ state, router, locale }) => {
   const isElectron = useIsElectron();
 
   return (
@@ -36,12 +35,14 @@ export const AuthModalComponent = ({ state, router }) => {
           </Button>
         </div>
       </div>
-      <div className="flex items-center justify-center">
+
+      <div className="flex flex-col items-center justify-center">
         <div className="flex h-[500px] w-[450px] flex-col items-center justify-center space-y-5">
           <h1 className="text-3xl font-semibold normal-case tracking-wider">
             Sign In
           </h1>
-          <div className="w-3/4 space-y-4">
+
+          <div className="flex w-3/4 flex-col space-y-4">
             <input
               className="mr-2 h-[45px] w-full rounded-xl bg-white px-4 text-base tracking-wide text-black/70 opacity-70 "
               placeholder="Email"
@@ -59,16 +60,19 @@ export const AuthModalComponent = ({ state, router }) => {
               Sign In
             </Button>
           </div>
-          <div className="flex w-3/4 items-center">
+
+          <div className="flex w-3/4 items-center ">
             <hr className=" w-3/4 rounded-3xl border-white/25" />
             <p className="mx-2 select-none uppercase text-white/50"> Or </p>
             <hr className=" w-3/4 rounded-3xl border-white/25" />
           </div>
-          <div className="flex w-3/4 space-x-4 tracking-wide">
+
+          <div className="flex w-3/4 flex-col space-y-4">
             <Button
               href="/signin"
-              aria-label={"Google Sign In"}
-              className="flex h-[45px] w-1/2 rounded-xl"
+              variant="secondary"
+              aria-label={"Sign In"}
+              className="flex h-[45px] justify-center rounded-xl tracking-wide"
               onClick={(e) => {
                 e.preventDefault();
                 signIn("google");
@@ -83,10 +87,12 @@ export const AuthModalComponent = ({ state, router }) => {
               ></Image>
               Google
             </Button>
+
             <Button
               href="/signin"
-              aria-label={"GitHub Sign In"}
-              className="flex h-[45px] w-1/2 rounded-xl"
+              variant="secondary"
+              aria-label={"Sign In"}
+              className="flex h-[45px] justify-center rounded-xl tracking-wide"
               onClick={(e) => {
                 e.preventDefault();
                 signIn("github");
@@ -101,9 +107,12 @@ export const AuthModalComponent = ({ state, router }) => {
               ></Image>
               GitHub
             </Button>
+
           </div>
 
-          <p className="pb-20 text-xs text-white text-opacity-30">
+
+
+          <p className="pb-20 text-xs text-white text-opacity-30 ">
             By signing in to Wiremap, you agree to our{" "}
             <Link
               className="font-bold text-white text-opacity-40 hover:text-opacity-70"
@@ -115,7 +124,6 @@ export const AuthModalComponent = ({ state, router }) => {
           </p>
         </div>
       </div>
-      <div></div>
     </div>
   );
 };
