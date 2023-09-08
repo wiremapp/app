@@ -4,8 +4,11 @@ import styles from "./style.module.css";
 export const Button = (props) => {
   return (
     <a
+      {...props}
       className={` ${props.className} ${styles["button"]} ${
-        styles[`button-${props.variant !== "primary" ? "secondary" : "primary"}`]
+        styles[
+          `button-${props.variant !== "primary" ? "secondary" : "primary"}`
+        ]
       } `}
     >
       {props.children || (props.icon ? null : "Dolor Sit")}
