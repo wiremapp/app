@@ -1,7 +1,7 @@
 import { CookieConsentComponent } from "@/stories/components/cookieConsent";
 import { NavbarComponent } from "@/stories/components/navbar";
 import { FooterComponent } from "@/stories/components/footer";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import useIsElectron from "@/hooks/isElectron";
 import Head from "next/head";
 import LoadingPage from "../pages/loading";
@@ -23,6 +23,17 @@ const navData = [
 ];
 
 export const LayoutComponent = (props) => {
+
+  useEffect(() => {
+    setTimeout(() => props.loading?.setIntLoading(false), 500);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    setTimeout(() => props.loading?.setLayoutLoading(false), 500);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   const {
     children,
     title,
@@ -35,7 +46,7 @@ export const LayoutComponent = (props) => {
     footer = true,
     navbar = true,
     variant = null,
-    intLoad,
+    loading,
   } = props;
 
   const isElectron = useIsElectron();
@@ -108,24 +119,7 @@ export const LayoutComponent = (props) => {
     );
   };
 
-  const Navigation = ({ src }: { src?: string }) => {
-    const Top = () => {
-      return navbar ? (
-        <>
-          <div
-            className={`bg-${!isElectron ? "transparent" : "[#0E0E0E]"}`}
-          ></div>
-          <header>
-            <NavbarComponent menuData={navData} {...props} />
-          </header>
-        </>
-      ) : null;
-    };
-
-    return src !== "bot" ? <Top /> : footer ? <FooterComponent /> : null;
-  };
-
-  if (intLoad) {
+  if (loading?.intLoading) {
     return (
       <div>
         <HTMLHeadComponent />
@@ -137,14 +131,23 @@ export const LayoutComponent = (props) => {
   return (
     <div id={"layout-container"}>
       <HTMLHeadComponent {...props} />
-      <Navigation />
+      {navbar ? (
+        <>
+          <div
+            className={`bg-${!isElectron ? "transparent" : "[#0E0E0E]"}`}
+          ></div>
+          <header>
+            <NavbarComponent menuData={navData} {...props} />
+          </header>
+        </>
+      ) : null}
       <main>
         <div>
           <div className={` ${navbar ? "mt-[95.99px]" : "mt-0"} `}>
             {children}
           </div>
         </div>
-        <Navigation src="bot" />
+        {footer ? <FooterComponent {...props}/> : null}
       </main>
       {cookieConsent ? <CookieConsentComponent {...props} /> : null}
     </div>

@@ -7,7 +7,7 @@ import { ModalWrapperComponent } from "@/stories/components/units/modalWrapper";
 import { Button } from "@/stories/components/button";
 import AuthModalComponent from "@/stories/components/authModal";
 import { LogoComponent } from "@/stories/components/units/logo";
-import { MobileMenuComponent } from "@/stories/components/units/mobileMenu";
+import { MobileMenuComponent } from "@/stories/components/mobileMenu";
 import styles from "./style.module.css";
 
 export const NavbarComponent = (props) => {
@@ -47,9 +47,9 @@ export const NavbarComponent = (props) => {
       className={styles["navbar-default"]}
       style={{ paddingTop: isPWA ? "5rem" : "0" }}
     >
-      <div>
+      <div className={`${styles["row"]} ${props.variant === "editor" ? "" : "max-w-[84rem]"}`}>
         <LogoComponent text={props.variant === "editor" ? false : true} />
-        <div>
+        <div className={styles["cta-buttons"]}>
           <div>
             <nav>
               {props.variant !== "editor" &&

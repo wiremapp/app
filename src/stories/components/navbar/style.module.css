@@ -4,26 +4,21 @@
 }
 
 /* Navbar  */
-.navbar-default > div  {
-    @apply mx-auto flex h-full w-full max-w-[84rem] items-center justify-between text-sm
+.navbar-default .row  {
+    @apply mx-auto flex h-full w-full items-center justify-between text-sm
 }
 
 /* CTA Buttons Container */
-.navbar-default > div > div:last-of-type {
-    @apply flex w-full items-center justify-end space-x-2 
-}
-
-/* CTA Last Item (for margin) */
-.navbar-default > div > div:last-of-type > div:first-of-type {
-    @apply mr-0 lg:mr-4 
+.navbar-default .cta-buttons {
+    @apply flex w-full items-center justify-end space-x-2
 }
 
 /* NavMenu Container */
-.navbar-default > div > div:last-of-type > div:first-of-type nav{
-    @apply hidden items-center space-x-6 px-2 uppercase drop-shadow-md md:flex transition-all
+.navbar-default nav{
+    @apply mr-0 lg:mr-4  hidden items-center space-x-6 px-2 uppercase drop-shadow-md md:flex transition-all
 }
 
 /* Navmenu Items */
-.navbar-default > div > div:last-of-type > div:first-of-type nav a{
+.navbar-default nav a{
     @apply cursor-pointer font-semibold hover:opacity-100 text-white
 }

@@ -30,7 +30,7 @@ export const NewsLetterFormComponent = () => {
        
       <input
         onChange={(e) => setEmail(e.target.value)}
-        className="mr-2 rounded bg-white px-4 text-black text-opacity-70 opacity-70 md:block"
+        className="mr-2 rounded-sm bg-white px-4 text-black text-opacity-70 opacity-70 md:block"
         placeholder="Enter your email..."
         disabled={isLoading}
       />

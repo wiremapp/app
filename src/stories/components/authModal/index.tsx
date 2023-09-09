@@ -44,7 +44,7 @@ export const AuthModalComponent = ({ state, router, locale }) => {
 
           <div className="flex w-3/4 flex-col space-y-4">
             <input
-              className="mr-2 h-[45px] w-full rounded-xl bg-white px-4 text-base tracking-wide text-black/70 opacity-70 "
+              className="mr-2 h-[45px] w-full rounded-sm bg-white px-4 text-base tracking-wide text-black/70 opacity-70 "
               placeholder="Email"
             />
             <Button
@@ -109,8 +109,6 @@ export const AuthModalComponent = ({ state, router, locale }) => {
             </Button>
 
           </div>
-
-
 
           <p className="pb-20 text-xs text-white text-opacity-30 ">
             By signing in to Wiremap, you agree to our{" "}

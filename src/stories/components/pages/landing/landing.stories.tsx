@@ -6,7 +6,7 @@ export default {
 };
 
 export const Home = (props) => (
- <div className="p-4 bg-[#FF6838] rounded overflow-hidden">
+ <div className="p-4 bg-[#FF6838] rounded">
 
    <LandingPage
     {...{...props, auth: {state: props.authenticated}}}  />

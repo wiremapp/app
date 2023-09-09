@@ -3,6 +3,7 @@ import { setCookie, hasCookie } from "cookies-next";
 import React, { useEffect, useState } from "react";
 import { useEntryEffect } from "@/hooks/entryEffect";
 import styles from "./style.module.css";
+import Image from "next/image";
 
 export const CookieConsentComponent = (props) => {
   const [consent, setConsent] = useState(true);
@@ -43,7 +44,18 @@ export const CookieConsentComponent = (props) => {
       }}
       className={styles["cookie-consent"]}
     >
-      <p className="mb-4">{cookieTextContent}</p>
+      <div className="flex mb-4">
+        <div className="relative  h-[32px] min-w-[26px] mr-4">
+          <Image
+            src="/images/cookies.svg"
+            alt="Cookie Icon"
+            layout="fill"
+            objectFit="contain"
+          />
+        </div>
+
+        <p className="mb-4">{cookieTextContent}</p>
+      </div>
       <div className="flex space-x-2">
         <div className="w-full">
           <Button href="/privacy/" className="px-6 text-start">

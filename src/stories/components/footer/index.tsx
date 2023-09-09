@@ -6,7 +6,7 @@ import styles from "./style.module.css";
 import NewsLetterFormComponent from "@/stories/components/units/newsletterForm";
 import CopyrightTextComponent from "@/stories/components/units/copyrightText";
 
-export const FooterComponent = () => {
+export const FooterComponent = (props) => {
   return (
     <footer className={styles.container} aria-label="Site Footer">
       <div>
@@ -22,16 +22,19 @@ export const FooterComponent = () => {
       </div>
       <div>
         <div>
-          <div className="my-1 flex justify-start space-x-8 uppercase sm:my-0">
-            <Link href="/privacy" className="text-xs font-medium text-white/70 transition-all hover:text-white hover:text-opacity-100">
+          <div className="my-1 flex justify-start space-x-8 uppercase sm:my-0 text-xs">
+
+            <Link href="/privacy" className="text-xs text-white/70 transition-all hover:text-white hover:text-opacity-100">
                 Privacy Policy
             </Link>
-            <Link href="/terms" className="text-xs font-medium text-white/70 transition-all hover:text-white hover:text-opacity-100">
+
+            <Link href="/terms" className="font-bold text-xs text-white/70 transition-all hover:text-white hover:text-opacity-100">
                 Terms of Service
             </Link>
+
           </div>
           <div>
-            <CopyrightTextComponent />
+            <CopyrightTextComponent {...props} />
           </div>
         </div>
       </div>

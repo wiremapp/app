@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import { useRemark } from "react-remark";
 
-export const StaticContentComponent = ({ source }) => {
+export const StaticContentComponent = (props) => {
   const [content, setSource] = useRemark();
   useEffect(() => {
-    setSource(source);
-  }, [setSource, source]);
+    setSource(props.source);
+  }, [setSource, props.source]);
 
   return (
     // <article className="lg:prose-md prose prose-slate flex flex-col border-b prose-img:rounded-sm prose-headings:text-gray-200 prose-p:text-slate-400">
