@@ -1,6 +1,7 @@
 import { Button } from "@/stories/components/button";
 import React from "react";
 import styles from "./style.module.css";
+import Image from "next/image";
 
 type Props = {
   children?: any;
@@ -67,10 +68,15 @@ export const HeroComponent = (props) => {
           )}
         </div>
 
-        <div className="z-[-1] items-center justify-center lg:w-full">
-          <div className="flex h-1 w-1 items-center justify-center">
-            <div className="decoration-1"></div>
-          </div>
+        <div className="relative z-[-1] items-center justify-center lg:w-full">
+        <div style={{  background: "linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%)"}} className="absolute mt-[96px] lg:flex h-[684px] w-[684px] ml-20 content-center items-center justify-center rounded-[900px] transition"></div>
+          <Image
+            src="/images/desktop.png"
+            alt="Wiremap Logo"
+            layout="fill"
+            objectFit="contain"
+          />
+   
         </div>
       </div>
     </section>

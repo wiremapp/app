@@ -14,8 +14,3 @@
 .hero > div > div:first-of-type {
     @apply z-[1]
 }
-
-.hero .decoration-1 {
-    background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
-    @apply hidden absolute mt-[96px] lg:flex h-[684px] w-[684px] ml-20 content-center items-center justify-center rounded-[900px] transition
-}
