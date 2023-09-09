@@ -1,7 +1,7 @@
 import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 import { useRouter } from "next/router";
 import React, { useContext } from "react";
-import OrderPage from "@/components/pages/order";
+import OrderPage from "@/stories/components/pages/order";
 import { getFiles, getStaticEntryBySlug } from "@/utils/md";
 import { UIStates } from "@/context/UI";
 

@@ -2,18 +2,18 @@ import { LayoutComponent } from "@/stories/components/units/layout";
 import {OrderComponent} from "@/stories/components/units/order";
 import React, { useState } from "react";
 
-export const OrderPage = ({ source, router }) => {
-  const [title] = useState(source.frontMatter.title);
-  const [desc] = useState(source.frontMatter.description);
-  const [content] = useState(source.markdownBody);
-  const [price] = useState(source.frontMatter.monthly_price_usd);
+export const OrderPage = (props) => {
+  const [title] = useState(props.source.frontMatter.title);
+  const [desc] = useState(props.source.frontMatter.description);
+  const [content] = useState(props.source.markdownBody);
+  const [price] = useState(props.source.frontMatter.monthly_price_usd);
 
   return (
     <LayoutComponent
       title={title}
       pageDesc={desc}
       type={"article"}
-      router={router}
+      {...props}
     >
       <OrderComponent source={content} price={price} />
     </LayoutComponent>
