@@ -4,26 +4,22 @@ import React, { createContext, useEffect, useState } from "react";
 export const UIStates = createContext<any>({});
 
 export function Provider({ children }: { children: React.ReactNode }) {
-  const [newSpace, setNewSpace] = useState({ name: "" });
+  const [newProject, setNewProject] = useState({ name: "" });
   const [rtl, setRTL] = useState(false);
-  const [intLoad, setIntLoad] = useState(true);
   const { data: session, status } = useSession();
   const [userProjects, setUserProjects] = useState([]);
-  
-  useEffect(() => {
-    setTimeout(() => setIntLoad(false), 3000);
-  }, []);
-  
+  const [projectModal, setProjectModal] = useState(true);
+
   return (
     <UIStates.Provider
       value={{
-        setNewSpace,
-        newSpace,
+        setNewProject,
+        newProject,
         rtl,
         setRTL,
-        intLoad,
-        setIntLoad,
-        auth : {session, status}
+        userProjects,
+        setUserProjects,
+        auth: { session, status },
       }}
     >
       {children}
