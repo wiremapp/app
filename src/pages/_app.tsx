@@ -8,7 +8,7 @@ import { useIsPWA } from "@/hooks/isPWA";
 import { Session } from "next-auth";
 import localeManager from "@/i18n";
 import "@/styles/globals.css";
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 function MyApp({
   Component,
@@ -16,10 +16,13 @@ function MyApp({
 }: AppProps<{
   session: Session;
 }>) {
+
   const isPWA = useIsPWA();
   const isElectron = useIsElectron();
   const { t } = useTranslation();
   const { auth } = useContext(UIStates);
+  const [intLoading, setIntLoading] = useState(true);
+  const [layoutLoading, setLayoutLoading] = useState(true);
 
   return (
     <SessionProvider session={pageProps.session} refetchInterval={0}>
@@ -33,6 +36,12 @@ function MyApp({
                 isElectron,
                 isPWA,
                 auth,
+                loading: {
+                  intLoading,
+                  setIntLoading,
+                  layoutLoading,
+                  setLayoutLoading,
+                },
                 locale: { t, manager: localeManager },
               }}
             />
