@@ -8,7 +8,7 @@ export const StaticPage = (props) => {
   const [content] = useState(props.source.markdownBody);
   return (
     <LayoutComponent title={title} pageDesc={desc} type={"article"} {...props}>
-      <StaticContentComponent source={content} />
+      <StaticContentComponent {...{...props, source:content}} />
     </LayoutComponent>
   );
 };
