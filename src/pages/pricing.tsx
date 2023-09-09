@@ -4,7 +4,7 @@ import React, { useContext } from "react";
 import { UIStates } from "@/context/UI";
 import { useRouter } from "next/router";
 
-export default function Page({ locale, pricingData,auth }) {
+export default function Page({ locale,    loading, pricingData,auth }) {
   const router = useRouter();
   const UI = useContext(UIStates);
 
@@ -12,6 +12,7 @@ export default function Page({ locale, pricingData,auth }) {
     router,
     auth,
     locale,
+    loading,
     pricingData,
     ...UI,
   };

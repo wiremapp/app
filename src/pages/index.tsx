@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 
 export default function Page({
   locale,
+  loading,
   featuresData,
   pricingData,
   faqData,
@@ -18,6 +19,7 @@ export default function Page({
     router,
     auth,
     locale,
+    loading,
     featuresData,
     pricingData,
     faqData,

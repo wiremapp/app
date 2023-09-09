@@ -1,4 +1,4 @@
-import { MaintPage } from "@/components/pages/maintenance";
+import { MaintPage } from "@/stories/components/pages/maintenance";
 import React, { useContext } from "react";
 import { UIStates } from "@/context/UI";
 import { useRouter } from "next/router";
