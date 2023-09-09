@@ -32,7 +32,7 @@
     "buildResources": "public"
   },
   "scripts": {
-    "dev": "next",
+    "dev": "next -p 3000",
     "build": "next build && npm run generate-sitemap",
     "electron": "electron main.ts",
     "electron:build": "electron-packager . my-electron-app --platform=darwin --arch=x64 --out=dist",
@@ -72,6 +72,7 @@
     "react-icons": "^4.8.0",
     "react-remark": "^2.1.0",
     "react-responsive": "^9.0.2",
+    "seo-analyzer": "^2.1.0",
     "uuid": "^9.0.0",
     "xml2js": "^0.6.2"
   },
