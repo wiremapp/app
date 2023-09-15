@@ -31,13 +31,13 @@ export const NotFoundErrorComponent = (props) => {
             Return to Wiremap.
           </Link>
         </p>
-        <CopyrightTextComponent />
+        <CopyrightTextComponent {...props}/>
       </div>
     </div>
   );
 };
 
-const MaintErrorComponent = () => {
+const MaintErrorComponent = (props) => {
   const { t } = useTranslation();
   return (
     <div className="my-20 flex flex-col space-y-4">
@@ -57,7 +57,7 @@ const MaintErrorComponent = () => {
           </div>
           <NewsLetterFormComponent />
         </div>
-        <CopyrightTextComponent />
+        <CopyrightTextComponent {...props} />
       </div>
     </div>
   );
@@ -69,9 +69,9 @@ export const ErrorComponent = (props) => {
       <div className="flex flex-col justify-center">
         <LogoComponent />
         {props.variant === "mt" ? (
-          <MaintErrorComponent />
+          <MaintErrorComponent {...props}/>
         ) : props.variant === "404" ? (
-          <NotFoundErrorComponent />
+          <NotFoundErrorComponent {...props}/>
         ) : (
           <div className="my-20 flex flex-col">
             <div>
@@ -91,7 +91,7 @@ export const ErrorComponent = (props) => {
                 Be the first to know when we&apos;re ready
               </p>
               <NewsLetterFormComponent />
-              <CopyrightTextComponent />
+              <CopyrightTextComponent {...props} />
             </div>
           </div>
         )}

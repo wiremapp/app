@@ -4,17 +4,20 @@ import { useTranslation } from "react-i18next";
 import React from "react";
 
 export const NotFoundPage = (props) => {
-  const { t } = useTranslation();
   return (
     <LayoutComponent
-      title={t("notFound_label")}
+      title={props.locale.t("notFound_label")}
       router={props.router}
       navbar={false}
       footer={false}
       cookieConsent={false}
       locale={props.locale}
     >
-      <ErrorComponent contentTitle={t("notFound_label")} variant={"404"} />
+      <ErrorComponent
+        {...props}
+        contentTitle={props.locale.t("notFound_label")}
+        variant={"404"}
+      />
     </LayoutComponent>
   );
 };
