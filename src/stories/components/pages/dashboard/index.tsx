@@ -1,46 +1,53 @@
-import useLocalProjects from "@/hooks/useLocalProjects";
 import { LayoutComponent } from "@/stories/components/units/layout";
 import React from "react";
+import { LogoComponent } from "@/stories/components/units/logo";
 
 export const DashPage = (props) => {
-  const {
-    name,
-    isLoading: isLoadingLocal,
-    error: errorLocal,
-    success: successLocal,
-    projects: localProjects,
-    setName: setNameLocal,
-    add: addLocal,
-    remove: removeLocal,
-    edit: editLocal,
-  } = useLocalProjects();
-
-  const handleAddLocal = () => {
-    if (name.trim() !== "") {
-      addLocal();
-    }
-  };
-
-  const handleRemoveLocal = (projectId) => {
-    removeLocal(projectId);
-  };
-
-  const handleEditLocal = (projectId, newName) => {
-    editLocal(projectId, newName);
-  };
   return (
     <LayoutComponent
       {...props}
       title={props.locale.t("dash_label")}
+      navbar={false}
       footer={false}
-      cookieConsent={false}
-      variant="editor"
     >
-      <div className="flex flex-grow bg-red-200"> 
-      <div className="w-[309px] bg-green-200">
+      <div className="flex flex-grow p-3">
+        <div className="w-[64px] bg-yellow-200 flex flex-col items-center py-4">
+          <LogoComponent text={false} link={false}/>
+        </div>
 
-      </div>
-      <div className="flex-grow bg-red-200"></div>
+        <div
+          style={{
+            borderRadius: "4px",
+            background: "linear-gradient(180deg, #030303 0%, #020202 100%)",
+            boxShadow:
+              "0px 2px 4px -2px rgba(0, 0, 0, 0.10), 0px 4px 6px -1px rgba(0, 0, 0, 0.10)",
+          }}
+          className="w-[309px]"
+        >
+          <button
+            onClick={() => {
+              alert("add proj loc");
+            }}
+          >
+            Add
+          </button>
+          {JSON.stringify("Proj")}
+        </div>
+
+        <div className="flex-grow">
+          <div className="flex h-[48px] justify-end">
+            <div className="w-[64px] bg-yellow-200">
+              <button
+                onClick={() => {
+                  alert("add proj loc");
+                }}
+              >
+                Add
+              </button>
+              {JSON.stringify("Proj")}
+            </div>
+          </div>
+        </div>
       </div>
     </LayoutComponent>
   );

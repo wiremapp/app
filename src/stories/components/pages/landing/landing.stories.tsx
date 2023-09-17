@@ -6,20 +6,28 @@ export default {
 };
 
 export const Home = (props) => (
- <div className="p-4 bg-[#FF6838] rounded">
-
-   <LandingPage
-    {...{...props, auth: {state: props.authenticated}}}  />
- </div>
+  <div className="rounded bg-[#FF6838] p-4">
+    <LandingPage
+      {...{
+        ...props,
+        auth: !props.authenticated
+          ? false
+          : { session: { user: { email: props.userEmail } } },
+      }}
+    />
+  </div>
 );
 
 Home.args = {
   authenticated: false,
-  locale : { t: (e)=>{
-    return e
-  }},
-  router: {pathname : "/"},
-  auth: { session :{ user : "User123"} },
+  userEmail: "user@example",
+  locale: {
+    t: (e) => {
+      return e;
+    },
+  },
+  router: { pathname: "/" },
+  auth: { session: { user: "User123" } },
   faqData: [
     { frontMatter: { title: "Faq1", description: "Faq1 Description" } },
   ],
@@ -45,13 +53,46 @@ Home.args = {
       },
     },
   ],
-  featuresData: [{
-    frontMatter:  {
-      oder: 0,
-      title: "Easy-to-use",
-      description:
-        "Duis laoreet feugiat convallis. Proin semper lobortis interdum. In nec nunc mollis, suscipit arcu vitae.",
-    },}
+  featuresData: [
+    {
+      frontMatter: {
+        oder: 0,
+        title: "Easy-to-use",
+        description:
+          "Duis laoreet feugiat convallis. Proin semper lobortis interdum. In nec nunc mollis, suscipit arcu vitae.",
+      },
+    },
+    {
+      frontMatter: {
+        oder: 1,
+        title: "Easy-to-use",
+        description:
+          "Duis laoreet feugiat convallis. Proin semper lobortis interdum. In nec nunc mollis, suscipit arcu vitae.",
+      },
+    },
+    {
+      frontMatter: {
+        oder: 2,
+        title: "Easy-to-use",
+        description:
+          "Duis laoreet feugiat convallis. Proin semper lobortis interdum. In nec nunc mollis, suscipit arcu vitae.",
+      },
+    },
+    {
+      frontMatter: {
+        oder: 3,
+        title: "Easy-to-use",
+        description:
+          "Duis laoreet feugiat convallis. Proin semper lobortis interdum. In nec nunc mollis, suscipit arcu vitae.",
+      },
+    },
+    {
+      frontMatter: {
+        oder: 4,
+        title: "Easy-to-use",
+        description:
+          "Duis laoreet feugiat convallis. Proin semper lobortis interdum. In nec nunc mollis, suscipit arcu vitae.",
+      },
+    },
   ],
-
 };
