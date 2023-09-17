@@ -76,13 +76,24 @@ Quickly and easily visualise your application sitemap structure with a comprehen
 
     ```js
     NODE_ENV=
-    NEXT_PUBLIC_STATIC_TITLE="An Open-Source Sitemap Visualiser"
-    NEXT_PUBLIC_APP_TITLE="Wiremap"
+    NEXT_PUBLIC_STATIC_TITLE="An open-source sitemap visualiser"
+    NEXT_PUBLIC_APP_TITLE="wiremap"
     NEXT_PUBLIC_SITE_URL="https://wirem.app/"
+    NEXT_PUBLIC_GA_MEASUREMENT_ID=
     NEXTAUTH_URL="http://localhost:3000/"
-    GOOGLE_OAUTH_CLIENT_ID=
-    GOOGLE_OAUTH_CLIENT_SECRET=
+    GOOGLE_ID=
+    GOOGLE_SECRET=
     NEXTAUTH_SECRET=
+    MONGODB_URI="mongodb://localhost:27017/db_name"
+    EMAIL_SERVER_USER="noreply@wirem.app"
+    EMAIL_SERVER_PASSWORD=
+    EMAIL_SERVER_HOST=
+    EMAIL_SERVER_PORT=465
+    EMAIL_FROM=
+    GITHUB_ID=
+    GITHUB_SECRET=
+    NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=
+    STRIPE_SECRET_KEY=
     ```
 
 4. Run the development server:
