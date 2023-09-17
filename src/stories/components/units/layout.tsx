@@ -23,7 +23,6 @@ const navData = [
 ];
 
 export const LayoutComponent = (props) => {
-
   useEffect(() => {
     setTimeout(() => props.loading?.setIntLoading(false), 500);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -129,28 +128,33 @@ export const LayoutComponent = (props) => {
   }
 
   return (
-    <div id={"layout-container"}>
-      <HTMLHeadComponent {...props} />
-      {navbar ? (
-        <>
-          <div
-            className={`bg-${!isElectron ? "transparent" : "[#0E0E0E]"}`}
-          ></div>
-          <header>
-            <NavbarComponent menuData={navData} {...props} />
-          </header>
-        </>
-      ) : null}
-      <main>
-        <div>
-          <div className={` ${navbar ? "mt-[95.99px]" : "mt-0"} `}>
-            {children}
+    <>
+      <div id={"layout-container"}>
+        <HTMLHeadComponent {...props} />
+        {navbar ? (
+          <>
+            <div
+              className={`bg-${!isElectron ? "transparent" : "[#0E0E0E]"}`}
+            ></div>
+
+            {navbar ? (
+              <header>
+                <NavbarComponent menuData={navData} {...props} />
+              </header>
+            ) : null}
+          </>
+        ) : null}
+        <main>
+          <div>
+            <div className={` ${navbar ? "mt-[95.99px]" : "mt-0"} `}>
+              {children}
+            </div>
           </div>
-        </div>
-        {footer ? <FooterComponent {...props}/> : null}
-      </main>
+          {footer ? <FooterComponent {...props} /> : null}
+        </main>
+      </div>
       {cookieConsent ? <CookieConsentComponent {...props} /> : null}
-    </div>
+    </>
   );
 };
 

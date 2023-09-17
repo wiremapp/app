@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
-
-import { fetchPostJSON } from "@/utils/api-helpers";
+import { fetchPostJSON } from "@/utils/funcs";
 import { formatAmountForDisplay } from "@/utils/stripe-helpers";
 
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";

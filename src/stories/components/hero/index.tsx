@@ -72,11 +72,11 @@ export const HeroComponent = (props) => {
         <div style={{  background: "linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%)"}} className="absolute mt-[96px] lg:flex h-[684px] w-[684px] ml-20 content-center items-center justify-center rounded-[900px] transition"></div>
           <Image
             src="/images/desktop.png"
-            alt="Wiremap Logo"
+            alt="Hero Image"
             layout="fill"
             objectFit="contain"
           />
-   
+
         </div>
       </div>
     </section>

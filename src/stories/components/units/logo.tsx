@@ -2,9 +2,20 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-export const LogoComponent = ({ text = true }: {text?: boolean}) => {
+export const LogoComponent = ({
+  text = true,
+  link = true,
+}: {
+  text?: boolean;
+  link?: boolean;
+}) => {
   return (
-    <Link href="/">
+    <Link
+      href="/"
+      onClick={(e) => {
+          e.preventDefault();
+      }}
+    >
       <div className="logo-area">
         <div className="relative h-[32px] w-[26px]">
           <Image

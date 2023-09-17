@@ -1,5 +1,5 @@
 import { Elements } from "@stripe/react-stripe-js";
-import getStripe from "@/utils/get-stripe";
+import getStripe from "@/utils/stripe-helpers";
 
 import React, { useEffect } from "react";
 import { useRemark } from "react-remark";
