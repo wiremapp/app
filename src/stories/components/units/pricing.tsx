@@ -20,7 +20,7 @@ export const PricingComponent = (props) => {
   const isLg = useMediaQuery({ query: '(min-width: 1024px)' })
   return (
     <section
-      className={props.variant == "secondary" ? "section-secondary-bg" : ""}
+      className={props.variant == "secondary" ? "section-secondary-bg mb-0" : "mb-0"}
     >
       <div>
         <div className="row">
