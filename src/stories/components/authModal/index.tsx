@@ -36,7 +36,7 @@ export const AuthModalComponent = ({ state, router, locale }) => {
         </div>
       </div>
 
-      <div className="flex flex-col items-center justify-center">
+      <div className="flex flex-col items-center justify-center h-screen pb-16">
         <div className="flex h-[500px] w-[450px] flex-col items-center justify-center space-y-5">
           <h1 className="text-3xl font-semibold normal-case tracking-wider">
             Sign In
