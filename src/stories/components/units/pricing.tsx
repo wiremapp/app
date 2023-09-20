@@ -79,7 +79,7 @@ export const PricingComponent = (props) => {
                             : props.locale.t("forever_label").toLowerCase()}
                         </span>
                       </div>
-                      <ul role="list" className="mb-8 flex justify-center flex-col lg:justify-normal space-y-4 h-80">
+                      <ul role="list" className="mb-8 flex justify-center flex-col lg:justify-normal space-y-4 h-80 w-full">
                         {tierFeatures.map((feature, index) => {
                           return (
                             <li
