@@ -12,4 +12,7 @@ export const AuthModal = (props) => (
 
 AuthModal.args = {
   state: false,
+  locale : { t: (e)=>{
+    return e
+  }},
 };

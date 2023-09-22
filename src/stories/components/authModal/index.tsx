@@ -9,9 +9,7 @@ import Link from "next/link";
 import React from "react";
 import Image from "next/image";
 
-export const AuthModalComponent = ({ state, router, locale }) => {
-  const isElectron = useIsElectron();
-
+export const AuthModalComponent = (props) => {
   return (
     <div className={styles.authModal}>
       <div className="flex items-center justify-between px-10 pt-8">
@@ -19,7 +17,7 @@ export const AuthModalComponent = ({ state, router, locale }) => {
           <HiXMark
             size={40}
             className="opacity-70 transition-all hover:scale-110 hover:opacity-100"
-            onClick={() => state.setModal(!state.modal)}
+            onClick={() => props.state.setModal(!props.state.modal)}
           />
         </div>
         <div className="flex w-1/3 justify-center">
@@ -29,17 +27,17 @@ export const AuthModalComponent = ({ state, router, locale }) => {
           <Button
             href="/signin"
             aria-label={"Sign In"}
-            className="flex h-[45px] w-[100px] justify-center rounded-xl tracking-wide"
+            className="flex h-[45px] justify-center rounded-xl tracking-wide"
           >
-            Sign Up
+            {props.locale.t("signup_label")}
           </Button>
         </div>
       </div>
 
-      <div className="flex flex-col items-center justify-center h-screen pb-16">
+      <div className="flex h-screen flex-col items-center justify-center pb-16">
         <div className="flex h-[500px] w-[450px] flex-col items-center justify-center space-y-5">
           <h1 className="text-3xl font-semibold normal-case tracking-wider">
-            Sign In
+            {props.locale.t("signIn_label")}
           </h1>
 
           <div className="flex w-3/4 flex-col space-y-4">
@@ -57,7 +55,7 @@ export const AuthModalComponent = ({ state, router, locale }) => {
                 signIn("email");
               }}
             >
-              Sign In
+              {props.locale.t("signIn_label")}
             </Button>
           </div>
 
@@ -107,16 +105,15 @@ export const AuthModalComponent = ({ state, router, locale }) => {
               ></Image>
               GitHub
             </Button>
-
           </div>
 
           <p className="pb-20 text-xs text-white text-opacity-30 ">
-            By signing in to Wiremap, you agree to our{" "}
+            {props.locale.t("signIn_agreement_label")}{" "}
             <Link
               className="font-bold text-white text-opacity-40 hover:text-opacity-70"
               href="/terms"
             >
-              Terms of Service
+              {props.locale.t("terms_label")}
             </Link>
             .
           </p>

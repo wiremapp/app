@@ -6,7 +6,7 @@ export default {
 };
 
 export const Home = (props) => (
-  <div className="rounded bg-[#FF6838] p-4">
+  <div className="rounded bg-[#FF6838]">
     <LandingPage
       {...{
         ...props,

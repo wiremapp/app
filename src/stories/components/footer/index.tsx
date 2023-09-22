@@ -17,7 +17,7 @@ export const FooterComponent = (props) => {
               {props.locale.t("get_latest_news_label")}
             </p>
           </div>
-          <NewsLetterFormComponent />
+          <NewsLetterFormComponent {...props}/>
         </div>
       </div>
       <div>

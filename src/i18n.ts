@@ -28,6 +28,8 @@ const resources = {
       scan_label: "Scan",
       sitemapScanner_label: "Sitemap Scanner",
       signIn_label: "Sign in",
+      signup_label: "Sign Up",
+      signingup_label: "Signing Up...",
       openApp_label: "Open App",
       notFound_label: "Page not found",
       genericError_title: "Something went wrong...",
@@ -55,7 +57,17 @@ const resources = {
       year_label: "Year",
       free_label: "Free",
       forever_label: "Forever",
-      get_latest_news_label: "Get the latest news!"
+      get_latest_news_label: "Get the latest news!",
+      notFound_desc0_label: "Whoops! Looks like the link you followed may be broken or this page does not exist.",
+      notFound_desc1_label:"Try going back to the previous page",
+      or_label:"or",
+      returnHome_label:"Return to Wiremap.",
+      signIn_agreement_label:"By signing in to Wiremap, you agree to our",
+      enterEmail_placeholder_label:"Enter your email...",
+      maint_newsletter_label:"Be the first to know when we're ready.",
+      billed_annually_label:"Billed Annually",
+      getStarted_label:"Get started"
+
     },
   },
 };
