@@ -40,6 +40,7 @@ const resources = {
       hero_subtitle0: "Create visual sitemaps within minutes.",
       cookies_label: "Cookies",
       privacy_label: "Privacy Policy",
+      terms_label: "Terms of Services",
       cookie_textContent:
         "We use cookies to enhance your browsing experience. By continuing to use our website, you agree to our use of cookies. Our cookies are safe and don't contain any personal or sensitive information.",
       accept_label: "Accept",
@@ -53,7 +54,8 @@ const resources = {
       month_label: "Month",
       year_label: "Year",
       free_label: "Free",
-      forever_label: "Forever"
+      forever_label: "Forever",
+      get_latest_news_label: "Get the latest news!"
     },
   },
 };
