@@ -24,12 +24,12 @@ const navData = [
 
 export const LayoutComponent = (props) => {
   useEffect(() => {
-    setTimeout(() => props.loading?.setIntLoading(false), 500);
+    setTimeout(() => props.loading?.setIntLoading(false), 2400);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
-    setTimeout(() => props.loading?.setLayoutLoading(false), 500);
+    setTimeout(() => props.loading?.setLayoutLoading(false), 1200);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
