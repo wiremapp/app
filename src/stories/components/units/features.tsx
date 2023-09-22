@@ -1,27 +1,18 @@
-import { useTranslation } from "react-i18next";
 import React from "react";
 
-type Props = {
-  children?: any;
-  featuresData?: any;
-  className?: string;
-  variant?: string;
-  src?: string;
-};
-
-export const FeaturesComponent = (props: Props) => {
-  const { t } = useTranslation();
+export const FeaturesComponent = (props) => {
   const sortedData = props.featuresData.sort((a, b) => a.frontMatter.oder - b.frontMatter.oder).slice(
     0,
     props.src === "landing" ? 4 : props.featuresData.length
   );
+
   return (
     <section
       className={props.variant == "secondary" ? "section-secondary-bg" : ""}
     >
       <div>
         <div className="row">
-          <h3>{t("features_label")}</h3>
+          <h3>{props.locale.t("features_label")}</h3>
           <div className="mb-6 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
             {sortedData.map((feature) => {
               const featureTitle = feature.frontMatter.title;

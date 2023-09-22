@@ -10,11 +10,11 @@ export const FooterComponent = (props) => {
   return (
     <footer className={styles.container} aria-label="Site Footer">
       <div>
-        <div className="pt-4 sm:pt-0 justify-center sm:justify-between">
+        <div className="justify-center pt-4 sm:justify-between sm:pt-0">
           <div className="flex items-center">
             <LogoComponent />
             <p className="ml-5 mr-1 shrink-0 text-center sm:ml-10 md:mr-10">
-              Get the latest news!
+              {props.locale.t("get_latest_news_label")}
             </p>
           </div>
           <NewsLetterFormComponent />
@@ -22,16 +22,20 @@ export const FooterComponent = (props) => {
       </div>
       <div>
         <div>
-          <div className="my-1 flex justify-start space-x-8 uppercase sm:my-0 text-xs">
-
-            <Link href="/privacy" className="text-xs text-white/70 transition-all hover:text-white hover:text-opacity-100">
-                Privacy Policy
+          <div className="my-1 flex justify-start space-x-8 text-xs font-bold uppercase sm:my-0">
+            <Link
+              href="/privacy"
+              className="text-xs text-white/70 transition-all"
+            >
+              {props.locale.t("privacy_label")}
             </Link>
 
-            <Link href="/terms" className="font-bold text-xs text-white/70 transition-all hover:text-white hover:text-opacity-100">
-                Terms of Service
+            <Link
+              href="/terms"
+              className="text-xs font-bold text-white/70 transition-all"
+            >
+               {props.locale.t("terms_label")}
             </Link>
-
           </div>
           <div>
             <CopyrightTextComponent {...props} />

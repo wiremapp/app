@@ -11,8 +11,8 @@ export const DashPage = (props) => {
       footer={false}
     >
       <div className="flex flex-grow p-3">
-        <div className="w-[64px] bg-yellow-200 flex flex-col items-center py-4">
-          <LogoComponent text={false} link={false}/>
+        <div className="flex w-[64px] flex-col items-center py-4">
+          <LogoComponent text={false} link={false} />
         </div>
 
         <div
@@ -35,18 +35,22 @@ export const DashPage = (props) => {
         </div>
 
         <div className="flex-grow">
-          <div className="flex h-[48px] justify-end">
-            <div className="w-[64px] bg-yellow-200">
-              <button
-                onClick={() => {
-                  alert("add proj loc");
-                }}
-              >
-                Add
-              </button>
-              {JSON.stringify("Proj")}
+          <div className="flex h-[48px]">
+            <div className="flex items-center p-6">
+              <h2>Recent</h2>
             </div>
+
+            <div className="flex flex-grow items-center"></div>
+
+            <div className="flex items-center">SearchInput</div>
           </div>
+          <div className="grid grid-cols-4 gap-4 p-6">
+  <div>01</div>
+  <div>09</div>
+  <div>09</div>
+  <div>09</div>
+  <div>09</div>
+</div>
         </div>
       </div>
     </LayoutComponent>
