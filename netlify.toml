@@ -3,6 +3,19 @@
   to = "https://wirem.app/:splat"
   status = 301
   force = true 
+
+[[redirects]]
+  from = "https://github.wirem.app/*"
+  to = "https://wirem.app/repo/:splat"
+  status = 200
+  force = true # COMMENT: ensure that we always redirect
+
+[[redirects]]
+  from = "https://wirem.app/repo/*"
+  to = "https://github.com/wiremapp/app/:splat"
+  status = 200
+  force = true # COMMENT: ensure that we always redirect
+
 [[headers]]
   for = "*.js" 
   [headers.values]
