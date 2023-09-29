@@ -10,6 +10,14 @@ export function Provider({ children }: { children: React.ReactNode }) {
   const [userProjects, setUserProjects] = useState([]);
   const [projectModal, setProjectModal] = useState(true);
 
+  const [intLoad, setIntLoad] = useState(true);
+
+  useEffect(()=>{
+    setTimeout(()=>{
+      setIntLoad(false)
+    },500)
+  },[intLoad]);
+
   return (
     <UIStates.Provider
       value={{
@@ -20,6 +28,7 @@ export function Provider({ children }: { children: React.ReactNode }) {
         userProjects,
         setUserProjects,
         auth: { session, status },
+        loading: {intLoad, setIntLoad}
       }}
     >
       {children}

@@ -23,15 +23,6 @@ const navData = [
 ];
 
 export const LayoutComponent = (props) => {
-  useEffect(() => {
-    setTimeout(() => props.loading?.setIntLoading(false), 2400);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  useEffect(() => {
-    setTimeout(() => props.loading?.setLayoutLoading(false), 1200);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   const {
     children,
@@ -118,7 +109,7 @@ export const LayoutComponent = (props) => {
     );
   };
 
-  if (loading?.intLoading) {
+  if (loading?.intLoad) {
     return (
       <div>
         <HTMLHeadComponent />

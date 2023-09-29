@@ -20,13 +20,12 @@ function MyApp({
   const isPWA = useIsPWA();
   const isElectron = useIsElectron();
   const { t } = useTranslation();
-  const { auth } = useContext(UIStates);
-  const [intLoading, setIntLoading] = useState(true);
-  const [layoutLoading, setLayoutLoading] = useState(true);
+  const { auth, loading } = useContext(UIStates);
 
   return (
     <SessionProvider session={pageProps.session} refetchInterval={0}>
       <UIStatesProvider>
+        {JSON.stringify(loading)}
         <I18nextProvider i18n={localeManager}>
           <ThemeProvider attribute="class">
             <div className={isPWA || isElectron ? "select-none" : ""}></div>
@@ -37,10 +36,7 @@ function MyApp({
                 isPWA,
                 auth,
                 loading: {
-                  intLoading,
-                  setIntLoading,
-                  layoutLoading,
-                  setLayoutLoading,
+
                 },
                 locale: { t, manager: localeManager },
               }}
