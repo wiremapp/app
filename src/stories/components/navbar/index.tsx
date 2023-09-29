@@ -1,45 +1,17 @@
 import React, { useState } from "react";
-import Link from "next/link";
-import { UrlObject } from "url";
 import { useIsPWA } from "@/hooks/isPWA";
 import { signOut } from "next-auth/react";
-import { ModalWrapperComponent } from "@/stories/components/units/modalWrapper";
 import { Button } from "@/stories/components/button";
-import AuthModalComponent from "@/stories/components/authModal";
 import { LogoComponent } from "@/stories/components/units/logo";
 import { MobileMenuComponent } from "@/stories/components/mobileMenu";
 import styles from "./style.module.css";
+import { SignInModalButton } from "../authButton";
+
 
 export const NavbarComponent = (props) => {
   const [visible, setMobileMenu] = useState(false);
-  const [signInModal, setSignInModal] = useState(false);
 
   const isPWA = useIsPWA();
-
-  const SignInModalButton = () => {
-    return (
-      <ModalWrapperComponent
-        state={{ modal: signInModal, setModal: setSignInModal }}
-        component={
-          <Button
-            href="/signin"
-            aria-label={"Sign In"}
-            onClick={(e) => {
-              e.preventDefault();
-              setSignInModal(!signInModal);
-            }}
-          >
-            {props.locale.t("signIn_label")}
-          </Button>
-        }
-      >
-        <AuthModalComponent
-          state={{ modal: signInModal, setModal: setSignInModal }}
-          {...props}
-        />
-      </ModalWrapperComponent>
-    );
-  };
 
   return (
     <nav
@@ -47,29 +19,31 @@ export const NavbarComponent = (props) => {
       className={styles["navbar-default"]}
       style={{ paddingTop: isPWA ? "5rem" : "0" }}
     >
-      <div className={`${styles["row"]} ${props.variant === "editor" ? "" : "max-w-[84rem]"}`}>
+      <div
+        className={`${styles["row"]} ${
+          props.variant === "editor" ? "" : "max-w-[84rem]"
+        }`}
+      >
         <LogoComponent text={props.variant === "editor" ? false : true} />
         <div className={styles["cta-buttons"]}>
           <div>
             <nav>
               {props.variant !== "editor" &&
                 props.menuData.map(
-                  (e: {
-                    id: string;
-                    name: string;
-                    href: string ;
-                  }) => {
+                  (e: { id: string; name: string; href: string }) => {
                     return (
-                      <a key={`${e.id}_nav`} href={e.href}
-                          className={`${
-                            e.id === "about" ? "hidden lg:inline-block" : ""
-                          } ${
-                            props.router.pathname === e.href
-                              ? "opacity-100"
-                              : "opacity-70"
-                          }`}
-                        >
-                          {props.locale.t(`${e.id}_label`)}
+                      <a
+                        key={`${e.id}_nav`}
+                        href={e.href}
+                        className={`${
+                          e.id === "about" ? "hidden lg:inline-block" : ""
+                        } ${
+                          props.router.pathname === e.href
+                            ? "opacity-100"
+                            : "opacity-70"
+                        }`}
+                      >
+                        {props.locale.t(`${e.id}_label`)}
                       </a>
                     );
                   }
@@ -77,7 +51,7 @@ export const NavbarComponent = (props) => {
             </nav>
           </div>
           {!props.auth.session ? (
-            <SignInModalButton />
+            <SignInModalButton {...props} />
           ) : (
             <div className="hidden sm:block">
               <Button
