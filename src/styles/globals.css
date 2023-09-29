@@ -13,7 +13,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: 'DM Sans', 'DM Sans Regular', 'DM Sans Medium', 'DM Sans Bold', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-@apply scroll-smooth;
+  @apply scroll-smooth;
 }
 
 a {
@@ -31,6 +31,7 @@ a {
     color-scheme: dark;
   }
 }
+
 .logo-area {
   @apply text-white text-opacity-90 hover:text-opacity-100 flex items-center space-x-6 select-none cursor-pointer
 }
@@ -47,4 +48,33 @@ a {
   padding: 5px;
   border-radius: 4px;
   font-size: 90%;
+}
+
+
+article pre {
+  @apply overflow-hidden w-full flex
+}
+
+article {
+  @apply mb-0
+}
+
+article p {
+  @apply mb-6
+}
+
+article ul {
+  @apply mb-6 text-gray-500 list-disc list-inside dark:text-gray-400
+}
+
+article ol {
+  @apply mb-6 
+}
+
+article ul li{
+  @apply mb-2 text-gray-500 list-disc list-inside dark:text-gray-400
+}
+
+article pre code {
+  @apply flex-grow text-sm my-6 sm:text-base inline-flex text-left items-center space-x-4 bg-gray-800 text-white rounded-lg p-4 pl-6
 }

@@ -17,8 +17,8 @@ export const StaticContentComponent = (props) => {
       <div>
         <div className="row">
         <h3>{props.title}</h3>
-          <article className="mb-12 flex items-center justify-center">
-            <div className="flex flex-col border-b prose-headings:text-gray-200 prose-p:text-gray-400 prose-img:rounded-sm">
+          <article className="flex items-center justify-center">
+            <div className="flex flex-col prose-headings:text-gray-200 prose-p:text-gray-400 prose-strong:text-gray-200 prose-li:text-gray-400 prose-img:rounded-sm">
               {content}
             </div>
           </article>

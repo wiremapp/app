@@ -7,7 +7,6 @@ LastEdit: "Mar 23, 2023"
 ---
 
 Throughout this Privacy Policy, the pronouns "we," "us," and "our" refer to the operators of the wirem.app website and services.
-
 In this Privacy Policy, we outline how we collect, use, and protect the personal information of the users of our website and services.
 
 ## Personal Data
@@ -32,13 +31,9 @@ We collect this information to analyze trends, administer the website, track use
 We use the personal information we collect for various purposes, including but not limited to:
 
 1. **Providing and Improving Our Services**: We use your personal information to provide and maintain our website and services, personalize your user experience, and improve the functionality and performance of our platform.
-
 2. **Communication and Support**: We may use your personal information to communicate with you, respond to your inquiries, provide customer support, and send you important updates and notifications related to our services.
-
 3. **Marketing and Advertising**: With your consent, we may use your personal information to send you promotional materials, newsletters, special offers, and other marketing communications. You can opt out of receiving these communications at any time by following the instructions provided in the communication or contacting us directly.
-
 4. **Security and Fraud Prevention**: We may use your personal information to monitor and prevent fraudulent activities, unauthorized access, and other illegal activities on our platform.
-
 5. **Compliance with Legal Obligations**: We may process your personal information to comply with applicable laws, regulations, and legal obligations, such as responding to lawful requests and court orders.
 
 ## Data Retention
@@ -62,9 +57,8 @@ We may update this Privacy Policy from time to time to reflect changes in our pr
 ## Contact Us
 
 If you have any questions, concerns, or comments about this Privacy Policy or our data practices, please contact us at:
-
 Wiremap
-London, United Kingdom
+United Kingdom
 <administrator@wirem.app>
 
 Please provide sufficient information to allow us to identify you and respond to your request appropriately.

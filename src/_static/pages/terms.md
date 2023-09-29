@@ -84,9 +84,7 @@ These Terms, together with our Privacy Policy, constitute the entire agreement b
 ## Contact Us
 
 If you have any questions, concerns, or comments about these Terms or the Platform, please contact us at:
-
 Wiremap
-London, United Kingdom
+United Kingdom
 <administrator@wirem.app>
-
 Please provide sufficient information to allow us to identify you and respond to your request appropriately.
