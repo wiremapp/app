@@ -1,28 +1,15 @@
 import mongoose from "mongoose";
 
-export interface IPage {
-  name?: string;
-  content?: string;
-}
-
-export interface IElement {
-  name?: string;
-  content?: string;
-}
-
 export interface IType {
   name?: string;
-  initiationId: string;
-  type: "individual" | "organisation";
-  pages: IPage[];
-  elements: IElement[];
+  associationId?: string;
+  prettyUrl?: string;
 }
 
 const ISchema = new mongoose.Schema({
   name: String,
-  initiationId: { type: String, required: true },
-  pages: Array,
-  elements: Array,
+  associationId: String,
+  prettyUrl: String,
 });
 
 export const defaultSchema =
