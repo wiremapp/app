@@ -6,6 +6,8 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { getToken } from "next-auth/jwt";
 import { v4 as uuidv4 } from "uuid";
 
+import JWT from "jsonwebtoken";
+
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
@@ -26,8 +28,37 @@ export default async function handler(
     return { success: { data: project, message: `project_created` } };
   }
 
+  const payload = JWT.sign(
+    { sub: "123", unregistered: true },
+    process.env.NEXTAUTH_SECRET
+  );
+
+  const decodedToken = JWT.verify(payload, process.env.NEXTAUTH_SECRET);
+
+  async function getProjects(userId) {
+    try {
+      dbConnect();
+      const projects = await Project.find({});
+
+      return { success: { message: "projects_found", projects, userId } };
+    } catch (error) {
+      return { error: { message: "get_projects_failed" } };
+    }
+  }
+
+  async function getAssociations(token) {
+    try {
+      dbConnect();
+      const association = await Association.find({});
+
+      return { success: { message: "associations_found" } };
+    } catch (error) {
+      return { error: { message: "get_associations_failed" } };
+    }
+  }
+
   async function createAssociation(data) {
-    const project = new Association({
+    const association = new Association({
       name: atob(name),
       associationType: !data.token.sub ? "0" : "1",
       associationId: uuidv4(),
@@ -35,8 +66,8 @@ export default async function handler(
 
     dbConnect();
 
-    await project.save();
-    return { success: { data: project, message: `project_created` } };
+    await association.save();
+    return { success: { data: association, message: `association_created` } };
   }
 
   async function editProject(id, data) {
@@ -59,6 +90,10 @@ export default async function handler(
   }
 
   switch (method) {
+    case "GET":
+      const getProjectsStatus = await getProjects(token || decodedToken.sub);
+      res.status(200).json(getProjectsStatus);
+      break;
     case "POST":
       const createdProjectStatus = await createProject(name, token);
       res.status(200).json(createdProjectStatus);
