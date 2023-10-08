@@ -3,73 +3,38 @@ import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
 import LocalStorageBackend from "i18next-localstorage-backend";
 
-const supportedLanguages = ["en"];
+import en_jsonData from "@/locales/en.json";
+import fr_jsonData from "@/locales/fr.json";
+import zh_jsonData from "@/locales/zh.json";
+import es_jsonData from "@/locales/es.json";
+import eo_jsonData from "@/locales/eo.json";
+import ro_jsonData from "@/locales/ro.json";
+import ar_jsonData from "@/locales/ar.json";
+
+export const supportedLanguages = ["en", "fr", "ar","eo","fr"];
 
 const resources = {
   en: {
-    translation: {
-      site_desc:
-        "Visualise your application structures with a range of useful features, to help facilitate a streamlined development process.",
-      pricing_desc:
-        "Compare our free and paid tiers & learn more about additional plans and features. View the Pricing Page for more details.",
-      features_desc:
-        "Our tool covers a range of useful features, to help streamline development. View the Features Page for more details.",
-      userSettings_desc:
-        "Manage your account settings, projects or organisations. View the User settings Page for more details.",
-      about_desc:
-        "Our aim at wiremap is to facilitate a user-friendly & streamlined development process. View the About Page for more details.",
-      home_label: "Home",
-      dash_label: "Dashboard",
-      features_label: "Features",
-      pricing_label: "Pricing",
-      faq_label: "FAQ",
-      faqFull_label: "Frequently Asked Questions",
-      more_label: "More",
-      scan_label: "Scan",
-      sitemapScanner_label: "Sitemap Scanner",
-      signIn_label: "Sign in",
-      signup_label: "Sign Up",
-      signingup_label: "Signing Up...",
-      openApp_label: "Open App",
-      notFound_label: "Page not found",
-      genericError_title: "Something went wrong...",
-      genericError_desc: "Whoops, something went wrong. please try again later.",
-      checkSoon_label: "Check back soon...",
-      maint_desc: "Unfortunately, Wiremap is currently down and undergoing some maintenance. We apologize for any inconvenience caused. We'll be back up and running shortly!",
-      hero_title0: "Visualise your application sitemap structure",
-      hero_desc0:
-        "With a comprehensive & user-friendly interface, combined with a range of useful features, to help facilitate a rapid streamlined development process.",
-      hero_subtitle0: "Create visual sitemaps within minutes.",
-      cookies_label: "Cookies",
-      privacy_label: "Privacy Policy",
-      terms_label: "Terms of Services",
-      cookie_textContent:
-        "We use cookies to enhance your browsing experience. By continuing to use our website, you agree to our use of cookies. Our cookies are safe and don't contain any personal or sensitive information.",
-      accept_label: "Accept",
-      reject_label: "Reject",
-      learnMore_label: "Learn More",
-      start4Free_label: "Start for free",
-      copyRight_label: "Copyrights",
-      rightsRes_label: "All rights reserved.",
-      jurisdiction:"United Kingdom",
-      jurisdiction_code:"UK",
-      month_label: "Month",
-      year_label: "Year",
-      free_label: "Free",
-      forever_label: "Forever",
-      get_latest_news_label: "Get the latest news!",
-      notFound_desc0_label: "Whoops! Looks like the link you followed may be broken or this page does not exist.",
-      notFound_desc1_label:"Try going back to the previous page",
-      or_label:"or",
-      returnHome_label:"Return to Wiremap.",
-      signIn_agreement_label:"By signing in to Wiremap, you agree to our",
-      enterEmail_placeholder_label:"Enter your email...",
-      maint_newsletter_label:"Be the first to know when we're ready.",
-      billed_annually_label:"Billed Annually",
-      getStarted_label:"Get started"
-
-    },
+    translation: en_jsonData,
   },
+  fr: {
+    translation: fr_jsonData,
+  },
+  ar: {
+    translation: ar_jsonData,
+  },
+  ro: {
+    translation: ro_jsonData,
+  },
+  es: {
+    translation: es_jsonData,
+  },
+  zh: {
+    translation: zh_jsonData,
+  },
+  eo: {
+    translation: eo_jsonData,
+  }
 };
 
 i18n
