@@ -1,7 +1,7 @@
 import { validateEmail } from '@/utils/funcs';
 import { Dispatch, SetStateAction, useState } from 'react';
 
-interface EmailSubscriptionState {
+interface Props {
   email: string;
   isLoading: boolean;
   error: string | null;
@@ -10,7 +10,7 @@ interface EmailSubscriptionState {
   subscribe: () => Promise<void>;
 }
 
-export const useEmailSubscription = (): EmailSubscriptionState => {
+export const useEmailSubscription = (): Props => {
   const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
