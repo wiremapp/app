@@ -9,6 +9,7 @@ export interface IType {
 const ISchema = new mongoose.Schema({
   name: String,
   associationId: String,
+  createdAt: Date,
   prettyUrl: String,
 });
 
