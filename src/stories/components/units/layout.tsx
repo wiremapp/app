@@ -2,7 +2,6 @@ import { CookieConsentComponent } from "@/stories/components/cookieConsent";
 import { NavbarComponent } from "@/stories/components/navbar";
 import { FooterComponent } from "@/stories/components/footer";
 import React, { useEffect, useState } from "react";
-import useIsElectron from "@/hooks/isElectron";
 import Head from "next/head";
 import LoadingPage from "../pages/loading";
 
@@ -37,9 +36,9 @@ export const LayoutComponent = (props) => {
     navbar = true,
     variant = null,
     loading,
+    isElectron
   } = props;
 
-  const isElectron = useIsElectron();
 
   const HTMLHeadComponent = () => {
     const [desc, setDesc] = useState(pageDesc || props.locale.t("site_desc"));
@@ -48,11 +47,13 @@ export const LayoutComponent = (props) => {
       (router?.query?.static
         ? router.query.static
         : router?.pathname?.substring(1));
-    const pageTitle = title
+    const pageTitle = String(title
       ? title + " — " + process.env.NEXT_PUBLIC_APP_TITLE
       : process.env.NEXT_PUBLIC_APP_TITLE +
         " — " +
-        process.env.NEXT_PUBLIC_STATIC_TITLE;
+        process.env.NEXT_PUBLIC_STATIC_TITLE);
+
+        
     const pageType = type || "website";
     const pageAuthor = process.env.NEXT_PUBLIC_APP_TITLE || author;
     const pageThumb =
