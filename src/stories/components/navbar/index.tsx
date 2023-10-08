@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useIsPWA } from "@/hooks/isPWA";
 import { signOut } from "next-auth/react";
 import { Button } from "@/stories/components/button";
 import { LogoComponent } from "@/stories/components/units/logo";
@@ -11,13 +10,11 @@ import { SignInModalButton } from "../authButton";
 export const NavbarComponent = (props) => {
   const [visible, setMobileMenu] = useState(false);
 
-  const isPWA = useIsPWA();
-
   return (
     <nav
       aria-label="Site Navigation"
       className={styles["navbar-default"]}
-      style={{ paddingTop: isPWA ? "5rem" : "0" }}
+      style={{ paddingTop: props.isPWA ? "5rem" : "0" }}
     >
       <div
         className={`${styles["row"]} ${

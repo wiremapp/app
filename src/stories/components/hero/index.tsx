@@ -12,7 +12,7 @@ export const HeroComponent = (props) => {
   return (
     <section className={styles.hero}>
       <div>
-        <div className="z-1 flex-col justify-center text-center lg:mr-14 lg:text-left">
+        <div className={`z-1 flex-col ${props.locale.t("rtl") ? "flex-row-reverse" : ""} justify-center text-center lg:mr-14 lg:text-left`}>
           <div>
             <h1 className="mb-8 text-2xl font-black uppercase sm:text-3xl lg:mr-8 lg:text-4xl">
               {props.locale.t("hero_title0")}

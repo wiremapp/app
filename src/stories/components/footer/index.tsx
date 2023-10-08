@@ -5,6 +5,7 @@ import Link from "next/link";
 import styles from "./style.module.css";
 import NewsLetterFormComponent from "@/stories/components/units/newsletterForm";
 import CopyrightTextComponent from "@/stories/components/units/copyrightText";
+import { LanguageSwitchComponent } from "@/stories/components/languageSwitch";
 
 export const FooterComponent = (props) => {
   return (
@@ -39,6 +40,7 @@ export const FooterComponent = (props) => {
           </div>
           <div>
             <CopyrightTextComponent {...props} />
+            <LanguageSwitchComponent {...props} />
           </div>
         </div>
       </div>
