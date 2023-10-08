@@ -7,18 +7,20 @@ import { getToken } from "next-auth/jwt";
 import { v4 as uuidv4 } from "uuid";
 
 import JWT from "jsonwebtoken";
+import { formatProjects } from "@/utils/funcs";
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
+
   const { method, body } = req;
   const { name, id } = body;
   const token = await getToken({ req });
 
   async function createProject(name, token) {
     const project = new Project({
-      name: atob(name),
+      name: btoa(name),
       associationId: uuidv4(),
     });
 
@@ -39,8 +41,13 @@ export default async function handler(
     try {
       dbConnect();
       const projects = await Project.find({});
+      const formattedProjects =  await formatProjects(projects);
 
-      return { success: { message: "projects_found", projects, userId } };
+      return {
+        success: { message: "projects_found" },
+        projects : formattedProjects,
+        userId,
+      };
     } catch (error) {
       return { error: { message: "get_projects_failed" } };
     }
