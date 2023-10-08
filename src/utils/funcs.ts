@@ -1,4 +1,5 @@
 
+import axios from "axios";
 
 export async function fetchPostJSON(url: string, data?: {}) {
   try {
@@ -118,4 +119,26 @@ export const handleAddSubElement = ({
   );
   cb(newFlowChart);
 };
+
+export const fetchProjects = async () => {
+  const { data: results } = await axios.get(
+    `${process.env.NEXT_PUBLIC_API_URL}/project`
+  );
+
+  return {
+    ...results
+  };
+};
+
+export const formatProjects = async (projects) => {
+  return projects.map((project) => {
+    const result = {
+      
+      name: atob(project.name),
+    };
+    return result;
+  });
+};
+
+
 
