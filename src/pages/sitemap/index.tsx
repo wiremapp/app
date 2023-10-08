@@ -1,9 +1,7 @@
-import { getAllStaticEntriesWithFrontMatter } from "@/utils/md";
-import { LandingPage } from "@/components/pages/landing";
 import React, { useContext } from "react";
 import { UIStates } from "@/context/UI";
 import { useRouter } from "next/router";
-import ScanPage from "@/components/pages/SEOScan"
+import { SEOScanPage } from "@/stories/components/pages/seo";
 
 export default function Page({
   locale,
@@ -25,5 +23,5 @@ export default function Page({
     ...UI,
   };
 
-  return <ScanPage {...{...props}} />;
+  return <SEOScanPage {...{ ...props }} />;
 }
