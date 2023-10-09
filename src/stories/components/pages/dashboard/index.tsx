@@ -1,11 +1,16 @@
 import { LayoutComponent } from "@/stories/components/units/layout";
-import React from "react";
+import React, { useState } from "react";
 import { LogoComponent } from "@/stories/components/units/logo";
 import { Button } from "../../button";
 import { signOut } from "next-auth/react";
 import { SignInModalButton } from "../../authButton";
+import TextInputComponent from "../../units/textInput";
+import ProjectModalComponent from "../../projectModal";
+import ModalWrapperComponent from "../../units/modalWrapper";
 
 export const DashPage = (props) => {
+  const [addProjectModal, setAddProjectModal] = useState(false);
+
   return (
     <LayoutComponent
       {...props}
@@ -27,13 +32,26 @@ export const DashPage = (props) => {
           }}
           className="w-[309px]"
         >
-          <button
-            onClick={() => {
-              alert("add proj loc");
-            }}
+          <ModalWrapperComponent
+            state={{ modal: addProjectModal, setModal: setAddProjectModal }}
+            component={
+              <Button
+                href="/signin"
+                aria-label={"Sign In"}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setAddProjectModal(!addProjectModal);
+                }}
+              >
+                {props.locale.t("add_new_project_label")}
+              </Button>
+            }
           >
-            Add
-          </button>
+            <ProjectModalComponent
+              state={{ modal: addProjectModal, setModal: setAddProjectModal }}
+              {...props}
+            />
+          </ModalWrapperComponent>
           {JSON.stringify("Proj")}
         </div>
 
@@ -45,29 +63,32 @@ export const DashPage = (props) => {
 
             <div className="flex flex-grow items-center"></div>
 
-            <div className="flex items-center">SearchInput</div>
+            <div className="space-x-1 flex">
+              <TextInputComponent
+                placeholder={props.locale.t("search_label")}
+              />
 
-            {!props.auth.session ? (
-              <SignInModalButton {...props} />
-            ) : (
-              <div className="hidden sm:block">
-                <Button
-                  href="/"
-                  variant="secondary"
-                  aria-label={"Sign In"}
-                  space={"medium"}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    signOut();
-                  }}
-                >
-                  {props.auth.session?.user.email}
-                </Button>
-              </div>
-            )}
+              {!props.auth.session ? (
+                <SignInModalButton {...props} />
+              ) : (
+                <div className="hidden sm:block">
+                  <Button
+                    href="/"
+                    variant="secondary"
+                    aria-label={"Sign In"}
+                    space={"medium"}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      signOut();
+                    }}
+                  >
+                    {props.auth.session?.user.email}
+                  </Button>
+                </div>
+              )}
+            </div>
           </div>
           <div className="grid flex-grow gap-4 p-6 md:grid-cols-2 lg:grid-cols-3">
-            {JSON.stringify(props.userProjects)}
             {props.userProjects.map((item, index) => {
               return (
                 <div
@@ -82,12 +103,12 @@ export const DashPage = (props) => {
 
                   <Button
                     onClick={() => {
-                      props.router.push(`/s/${props.id}`);
+                      props.router.push(`/e?id=${item.id}`);
                     }}
                     variant="primary"
                   >
                     {" "}
-                    Manage{" "}
+                    Open{" "}
                   </Button>
                 </div>
               );

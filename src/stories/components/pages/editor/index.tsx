@@ -130,7 +130,7 @@ export const EditorPage = (props) => {
   };
 
   return (
-    <LayoutComponent {...props} title={"{projectName}"} variant={"editor"}>
+    <LayoutComponent {...props} title={props.project.name} variant={"editor"} footer={false}>
       <div className={"flex h-full w-full"}>
         <LeftSidebarComponent />
         <div className={"flex-1"}>
