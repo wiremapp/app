@@ -51,5 +51,8 @@
   "enterEmail_placeholder_label": "Enter your email...",
   "maint_newsletter_label": "Be the first to know when we're ready.",
   "billed_annually_label": "Billed Annually",
-  "getStarted_label": "Get started"
+  "getStarted_label": "Get started",
+  "add_new_project_label": "New Project",
+  "create_label": "Create",
+  "cancel_label": "Cancel"
 }
