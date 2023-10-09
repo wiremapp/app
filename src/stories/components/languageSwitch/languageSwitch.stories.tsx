@@ -1,34 +1,18 @@
-import { FooterComponent } from "@/stories/components/footer";
+import { LanguageSwitchComponent } from "@/stories/components/languageSwitch";
 import React from "react";
 
 export default {
-  title: "Components/Footer",
-  component: FooterComponent,
+  title: "Components/LanguageSwitch",
+  component: LanguageSwitchComponent,
 };
 
-export const Footer = (props) => (
-  <FooterComponent {...props} />
+export const LanguageSwitch = (props) => (
+  <LanguageSwitchComponent {...props} />
 );
 
-Footer.args = {
+LanguageSwitch.args = {
   locale : { t: (e)=>{
     return e
   }},
-  menuData: [
-    {
-      id: "home",
-      href: "/",
-    },
-    {
-      id: "features",
-      href: "/features",
-    },
-    { id: "pricing", href: "/pricing" },
-    {
-      id: "faq",
-      href: "/faq",
-    },
-  ],
-  auth: { session: null, state: "authenticated" },
   router: { pathname : "/"}
 };

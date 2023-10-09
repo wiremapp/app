@@ -1,47 +1,77 @@
 import React, { useState } from "react";
 import { supportedLanguages } from "@/i18n";
 import { v4 as uuidv4 } from "uuid";
+import styles from "./style.module.css";
+import DropdownInputComponent from "../units/dropdownInput";
 
 export const LanguageSwitchComponent = (props) => {
-  const [dropdownVisible, setDropdownVisible] = useState(true);
+  const [dropdownVisible, setDropdownVisible] = useState(false);
   return (
-    <div>
-      <button
-        onClick={() => setDropdownVisible(!dropdownVisible)}
-        className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-        type="button"
-      >
-        {props.locale.manager.language}
-      </button>
+    // <div>
+    //   <button
+    //     onClick={() => setDropdownVisible(!dropdownVisible)}
+    //     className={styles.switch}
+    //     type="button"
+    //   >
+    //     {props.locale.manager.language}
+    //   </button>
 
+    //   <div
+    //     className={`absolute z-10 ${
+    //       dropdownVisible ? "" : "hidden"
+    //     } bg-white divide-y divide-gray-100  rounded-lg shadow w-44 dark:bg-gray-700`}
+    //   >
+    //     <ul
+    //       className=" py-2 text-sm text-gray-700 dark:text-gray-200"
+    //     >
+    //       {supportedLanguages.map((lng) => {
+    //         return (
+    //           <li key={uuidv4()}>
+    //             <a
+    //               href="#"
+    //               onClick={(e) => {
+    //                 e.preventDefault();
+    //                 props.locale.manager.changeLanguage(lng);
+    //               }}
+    //               className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+    //             >
+    //               {lng}
+    //             </a>
+    //           </li>
+    //         );
+    //       })}
+    //     </ul>
+    //   </div>
+    // </div>
+    <div className="dropdown inline-block relative">
+    <DropdownInputComponent
+      icon={null}
+      placeholder={props.rtl ? "true": "false"}
+      theme={props.theme}
+    />
+    <div
+      className={`dropdown-menu leftDrop shadow-md z-20 rounded-[4px] text-gray-700 pt-2`}
+    >
       <div
-        id="dropdownHover"
-        className={`z-10 ${
-          dropdownVisible ? "" : "hidden"
-        } bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700`}
+        className={`flex flex-col border h-48 w-96 p-2   ${
+          props.theme == "dark"
+            ? "bg-gray-700  border-gray-600 text-gray-200"
+            : "bg-white"
+        }`}
       >
-        <ul
-          className="py-2 text-sm text-gray-700 dark:text-gray-200"
-          aria-labelledby="dropdownHoverButton"
-        >
-          {supportedLanguages.map((lng) => {
-            return (
-              <li key={uuidv4()}>
-                <a
-                  href="#"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    props.locale.manager.changeLanguage(lng);
-                  }}
-                  className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                >
-                  {lng}
-                </a>
-              </li>
-            );
-          })}
-        </ul>
+        {[true, false].map((state) => {
+          return (
+            <div
+              className=""
+              onClick={() => props.setRTL(state)}
+              key={uuidv4()}
+            >
+              {state ? "true" : "false"}
+            </div>
+          );
+        })}
       </div>
     </div>
+  </div>
   );
 };
