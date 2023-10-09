@@ -1,4 +1,3 @@
-
 import axios from "axios";
 
 export async function fetchPostJSON(url: string, data?: {}) {
@@ -71,10 +70,10 @@ export const handleAddElement = ({
                     ? [...element.elements, newElement]
                     : [newElement],
                 }
-              : element
+              : element,
           ),
         }
-      : cell
+      : cell,
   );
   cb(newFlowChart);
 };
@@ -112,33 +111,49 @@ export const handleAddSubElement = ({
                     ? [...element.elements, newElement]
                     : [newElement],
                 }
-              : element
+              : element,
           ),
         }
-      : cell
+      : cell,
   );
   cb(newFlowChart);
 };
 
 export const fetchProjects = async () => {
   const { data: results } = await axios.get(
-    `${process.env.NEXT_PUBLIC_API_URL}/project`
+    `${process.env.NEXT_PUBLIC_API_URL}/project`,
   );
 
   return {
-    ...results
+    ...results,
   };
 };
 
 export const formatProjects = async (projects) => {
   return projects.map((project) => {
     const result = {
-      
+      id: project.associationId,
       name: atob(project.name),
     };
     return result;
   });
 };
 
+export const validateProject = async (id) => {
+  const { data: project } = await axios.post(
+    `${process.env.NEXT_PUBLIC_API_URL}/project`,
+    { id },
+  );
 
+  if (!project.length) return false;
+  return project[0];
+};
 
+export const handleCreateProj = async (name) => {
+  const { data } = await axios.post(
+    `${process.env.NEXT_PUBLIC_API_URL}/project`,
+    {name}
+  );
+
+  return data;
+};
