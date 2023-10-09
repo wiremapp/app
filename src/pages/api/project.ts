@@ -11,11 +11,10 @@ import { formatProjects } from "@/utils/funcs";
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse,
 ) {
-
   const { method, body } = req;
-  const { name, id } = body;
+  const { name, id: projectId } = body;
   const token = await getToken({ req });
 
   async function createProject(name, token) {
@@ -32,7 +31,7 @@ export default async function handler(
 
   const payload = JWT.sign(
     { sub: "123", unregistered: true },
-    process.env.NEXTAUTH_SECRET
+    process.env.NEXTAUTH_SECRET,
   );
 
   const decodedToken = JWT.verify(payload, process.env.NEXTAUTH_SECRET);
@@ -41,11 +40,11 @@ export default async function handler(
     try {
       dbConnect();
       const projects = await Project.find({});
-      const formattedProjects =  await formatProjects(projects);
+      const formattedProjects = await formatProjects(projects);
 
       return {
         success: { message: "projects_found" },
-        projects : formattedProjects,
+        projects: formattedProjects,
         userId,
       };
     } catch (error) {
@@ -102,11 +101,18 @@ export default async function handler(
       res.status(200).json(getProjectsStatus);
       break;
     case "POST":
-      const createdProjectStatus = await createProject(name, token);
-      res.status(200).json(createdProjectStatus);
+
+      if(!projectId){
+        const createdProjectStatus = await createProject(name, token);
+        res.status(200).json(createdProjectStatus);
+      }else{
+        const getProjectsStatus = await getProjects(token || decodedToken.sub);
+        res.status(200).json(getProjectsStatus.projects.filter(p => p.id === projectId ));
+      }
+
       break;
     case "PUT":
-      const updateProjectStatus = await editProject(id, { name });
+      const updateProjectStatus = await editProject(projectId, { name });
       res.status(200).json(updateProjectStatus);
       break;
     default:
