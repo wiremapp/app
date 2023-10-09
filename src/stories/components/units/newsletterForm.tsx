@@ -1,6 +1,7 @@
 import { useEmailSubscription } from "@/hooks/newsletter";
 import React, { useState } from "react";
 import { Button } from "@/stories/components/button";
+import TextInputComponent from "./textInput";
 
 export const NewsLetterFormComponent = (props) => {
   const { email, setEmail, isLoading, error, success, subscribe } =
@@ -27,10 +28,10 @@ export const NewsLetterFormComponent = (props) => {
             </span>
           )
         : null}
-       
-      <input
+      <div className="space-x-1 flex">
+
+      <TextInputComponent
         onChange={(e) => setEmail(e.target.value)}
-        className="mr-2 rounded-sm bg-white px-4 text-black text-opacity-70 opacity-70 md:block"
         placeholder={props.locale.t("enterEmail_placeholder_label")}
         disabled={isLoading}
       />
@@ -44,8 +45,11 @@ export const NewsLetterFormComponent = (props) => {
         disabled={isLoading}
         type="submit"
       >
-        {isLoading ? props.locale.t("signingup_label") : props.locale.t("signup_label")}
+        {isLoading
+          ? props.locale.t("signingup_label")
+          : props.locale.t("signup_label")}
       </Button>
+      </div>
     </div>
   );
 };
