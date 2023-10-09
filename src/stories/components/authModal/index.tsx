@@ -58,7 +58,7 @@ export const AuthModalComponent = (props) => {
 
         <div className="flex w-3/4 items-center">
           <hr className="w-3/4 rounded-3xl border-white/25" />
-          <p className="mx-2 select-none uppercase text-white/50"> Or </p>
+          <p className="mx-2 select-none uppercase text-white/50">{props.locale.t("or_label")}</p>
           <hr className="w-3/4 rounded-3xl border-white/25" />
         </div>
 

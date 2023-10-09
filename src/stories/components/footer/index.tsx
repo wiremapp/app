@@ -38,7 +38,7 @@ export const FooterComponent = (props) => {
                {props.locale.t("terms_label")}
             </Link>
           </div>
-          <div>
+          <div className="flex">
             <CopyrightTextComponent {...props} />
             <LanguageSwitchComponent {...props} />
           </div>
