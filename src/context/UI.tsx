@@ -8,12 +8,13 @@ export function Provider({ children }: { children: React.ReactNode }) {
   const [newProject, setNewProject] = useState({ name: "" });
   const [rtl, setRTL] = useState(false);
   const { data: session, status } = useSession();
-  const [userProjects, setUserProjects] = useState(["Demo"]);
+  const [userProjects, setUserProjects] = useState([]);
   const [userProjectsLoading, setUserProjectsLoading] = useState(true);
   const [projectModal, setProjectModal] = useState(false);
   const [isElectron, setIsElectron] = useState(false);
-  const [intLoad, setIntLoad] = useState(true);
+  const [intLoad, setIntLoad] = useState(false);
   const [isPWA, setIsPWA] = useState(false);
+  const [consent, setConsent] = useState(true);
 
   useEffect(() => {
     window.matchMedia("(display-mode: standalone)").addListener((e) => {
@@ -35,16 +36,25 @@ export function Provider({ children }: { children: React.ReactNode }) {
     setTimeout(() => {
       setIntLoad(false);
     }, 500);
-  }, [intLoad]);
+  }, []);
 
   useEffect(() => {
+    let isMounted = true;
+
     (async () => {
       const projectsResponse = await fetchProjects();
-      console.log("Deeeeee",projectsResponse);
-      setUserProjects(projectsResponse.projects);
-    })().then(() => setUserProjectsLoading(false));
-    return () => {};
-  }, [userProjects]);
+      if (isMounted) {
+        console.log("Deeeeee", projectsResponse);
+        setUserProjects(projectsResponse.projects);
+        setUserProjectsLoading(false);
+      }
+    })();
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
 
   return (
     <UIStates.Provider
@@ -59,6 +69,7 @@ export function Provider({ children }: { children: React.ReactNode }) {
         setUserProjects,
         auth: { session, status },
         loading: { intLoad, setIntLoad },
+        cookies : { consent, setConsent }
       }}
     >
       {children}

@@ -7,7 +7,6 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head />
-        <GoogleAnalyticsComponent />
         <body>
           <NextScript />
           <Main />

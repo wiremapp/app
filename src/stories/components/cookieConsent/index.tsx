@@ -6,9 +6,11 @@ import styles from "./style.module.css";
 import Image from "next/image";
 
 export const CookieConsentComponent = (props) => {
-  const [consent, setConsent] = useState(true);
+  const [tempShow,setTempShow] = useState(true);
+
   useEffect(() => {
-    setConsent(hasCookie("localConsent"));
+    props.cookies.setConsent(hasCookie("localConsent"));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const { position: intPos } = useEntryEffect({
@@ -18,20 +20,23 @@ export const CookieConsentComponent = (props) => {
   });
 
   const acceptCookie = () => {
-    setConsent(true);
+    props.cookies.setConsent(true);
     setCookie("localConsent", "true", { maxAge: 60 * 60 * 24 * 365 });
     console.log("Accepted cookies");
   };
+
   const closePopup = () => {
-    setConsent(true);
+    setTempShow(false);
     console.log("Closed cookie consent");
   };
+
   const denyCookie = () => {
-    setConsent(true);
+    props.cookies.setConsent(true);
     setCookie("localConsent", "false", { maxAge: 60 * 60 * 24 * 365 });
     console.log("Denied cookie consent");
   };
-  if (consent === true) {
+
+  if (props.cookies.consent == true || tempShow == false) {
     return null;
   }
 
