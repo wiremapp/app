@@ -129,11 +129,31 @@ export const fetchProjects = async () => {
   };
 };
 
+export const fetchOrgs = async () => {
+  const { data: results } = await axios.get(
+    `${process.env.NEXT_PUBLIC_API_URL}/org`,
+  );
+
+  return {
+    ...results,
+  };
+};
+
 export const formatProjects = async (projects) => {
   return projects.map((project) => {
     const result = {
       id: project.associationId,
       name: atob(project.name),
+    };
+    return result;
+  });
+};
+
+export const formatOrgs = async (orgs) => {
+  return orgs.map((org) => {
+    const result = {
+      id: org.associationId,
+      name: atob(org.name),
     };
     return result;
   });
@@ -149,9 +169,28 @@ export const validateProject = async (id) => {
   return project[0];
 };
 
+export const validateOrg = async (name) => {
+  const { data: org } = await axios.post(
+    `${process.env.NEXT_PUBLIC_API_URL}/org`,
+    { name },
+  );
+
+  if (!org.length) return false;
+  return org[0];
+};
+
 export const handleCreateProj = async (name) => {
   const { data } = await axios.post(
     `${process.env.NEXT_PUBLIC_API_URL}/project`,
+    {name}
+  );
+
+  return data;
+};
+
+export const handleCreateOrg = async (name) => {
+  const { data } = await axios.post(
+    `${process.env.NEXT_PUBLIC_API_URL}/org`,
     {name}
   );
 
