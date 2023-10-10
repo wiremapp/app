@@ -11,11 +11,8 @@ export async function getFiles(dataType?: string) {
   );
 }
 
-export async function getStaticEntryBySlug(slug: string, dataType?: string) {
-  const source = fs.readFileSync(
-    dataType
-      ? path.join(root, dataType, `${slug}.md`)
-      : path.join(root, `${slug}.md`),
+export async function getStaticEntryBySlug(slug: string, subdirectory?: string) {
+  const source = fs.readFileSync( path.join(root, subdirectory, `${slug}.md`),
     "utf8"
   );
 
