@@ -6,6 +6,11 @@ import DropdownInputComponent from "../units/dropdownInput";
 
 export const LanguageSwitchComponent = (props) => {
   const [dropdownVisible, setDropdownVisible] = useState(false);
+
+  const changeLanguageHandler = (lng) => {
+    props.locale.manager.changeLanguage(lng);
+  };
+
   return (
     // <div>
     //   <button
@@ -44,34 +49,34 @@ export const LanguageSwitchComponent = (props) => {
     //   </div>
     // </div>
     <div className="dropdown inline-block relative">
-    <DropdownInputComponent
-      icon={null}
-      placeholder={props.rtl ? "true": "false"}
-      theme={props.theme}
-    />
-    <div
-      className={`dropdown-menu leftDrop shadow-md z-20 rounded-[4px] text-gray-700 pt-2`}
-    >
+      <DropdownInputComponent
+        icon={null}
+        placeholder={props.locale.manager.language}
+        theme={props.theme}
+      />
       <div
-        className={`flex flex-col border h-48 w-96 p-2   ${
-          props.theme == "dark"
-            ? "bg-gray-700  border-gray-600 text-gray-200"
-            : "bg-white"
-        }`}
+        className={`dropdown-menu leftDrop shadow-md z-20 rounded-[4px] text-gray-700 pt-2`}
       >
-        {[true, false].map((state) => {
-          return (
-            <div
-              className=""
-              onClick={() => props.setRTL(state)}
-              key={uuidv4()}
-            >
-              {state ? "true" : "false"}
-            </div>
-          );
-        })}
+        <div
+          className={`flex flex-col border h-48 w-96 p-2   ${
+            props.theme == "dark"
+              ? "bg-gray-700 border-gray-600 text-gray-200"
+              : "bg-white"
+          }`}
+        >
+          {supportedLanguages.map((lng) => {
+            return (
+              <div
+                className={""}
+                onClick={() => changeLanguageHandler(lng)}
+                key={uuidv4()}
+              >
+                {lng}
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
-  </div>
   );
 };
