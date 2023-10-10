@@ -15,12 +15,11 @@ export default function Page({ project, locale, auth }) {
     project,
     ...UI,
   };
-  
+
   return <EditorPage {...props} />;
 }
 
 export const getServerSideProps = async (context: any) => {
-
   const validProject = await validateProject(context.query.id);
 
   if (!validProject) {
@@ -30,6 +29,6 @@ export const getServerSideProps = async (context: any) => {
   }
 
   return {
-    props: { project : validProject },
+    props: { project: validProject },
   };
 };
