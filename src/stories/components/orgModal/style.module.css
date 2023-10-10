@@ -1,0 +1,3 @@
+.orgModal {
+    @apply flex backdrop-blur-md justify-between flex-col h-screen items-center
+}
