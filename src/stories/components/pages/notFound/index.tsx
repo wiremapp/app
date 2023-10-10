@@ -12,6 +12,7 @@ export const NotFoundPage = (props) => {
       footer={false}
       cookieConsent={false}
       locale={props.locale}
+      {...props}
     >
       <ErrorComponent
         {...props}

@@ -7,6 +7,8 @@ import { SignInModalButton } from "../../authButton";
 import TextInputComponent from "../../units/textInput";
 import ProjectModalComponent from "../../projectModal";
 import ModalWrapperComponent from "../../units/modalWrapper";
+import OrgModalComponent from "../../orgModal";
+import { v4 as uuidv4 } from "uuid";
 
 export const DashPage = (props) => {
   const [addProjectModal, setAddProjectModal] = useState(false);
@@ -18,7 +20,7 @@ export const DashPage = (props) => {
       navbar={false}
       footer={false}
     >
-      <div className="flex flex-grow p-3">
+      <div className="flex flex-grow pt-3 pr-3 pb-3">
         <div className="flex w-[64px] flex-col items-center py-4">
           <LogoComponent text={false} link={false} />
         </div>
@@ -36,8 +38,8 @@ export const DashPage = (props) => {
             state={{ modal: addProjectModal, setModal: setAddProjectModal }}
             component={
               <Button
-                href="/signin"
-                aria-label={"Sign In"}
+                href="/"
+                aria-label={"Create Project"}
                 onClick={(e) => {
                   e.preventDefault();
                   setAddProjectModal(!addProjectModal);
@@ -52,7 +54,34 @@ export const DashPage = (props) => {
               {...props}
             />
           </ModalWrapperComponent>
-          {JSON.stringify("Proj")}
+          <ModalWrapperComponent
+            state={{ modal: addProjectModal, setModal: setAddProjectModal }}
+            component={
+              <Button
+                href="/"
+                aria-label={"Create Organisation"}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setAddProjectModal(!addProjectModal);
+                }}
+              >
+                {props.locale.t("add_new_org_label")}
+              </Button>
+            }
+          >
+            <OrgModalComponent
+              state={{ modal: addProjectModal, setModal: setAddProjectModal }}
+              {...props}
+            />
+          </ModalWrapperComponent>
+
+          {props.userOrgs.map((org) => {
+            return (
+              <div key={uuidv4()} className="">
+                {org.name}
+              </div>
+            );
+          })}
         </div>
 
         <div className="flex-grow">
@@ -92,7 +121,7 @@ export const DashPage = (props) => {
             {props.userProjects.map((item, index) => {
               return (
                 <div
-                  key={item._id}
+                  key={item.id}
                   className="section-secondary-bg rounded-lg p-6 shadow"
                 >
                   <a href="#">
