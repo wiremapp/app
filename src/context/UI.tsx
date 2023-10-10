@@ -1,4 +1,4 @@
-import { fetchProjects } from "@/utils/funcs";
+import { fetchOrgs, fetchProjects } from "@/utils/funcs";
 import { useSession } from "next-auth/react";
 import React, { createContext, useEffect, useState } from "react";
 
@@ -10,7 +10,8 @@ export function Provider({ children }: { children: React.ReactNode }) {
   const { data: session, status } = useSession();
   const [userProjects, setUserProjects] = useState([]);
   const [userProjectsLoading, setUserProjectsLoading] = useState(true);
-  const [projectModal, setProjectModal] = useState(false);
+  const [userOrgs, setUserOrgs] = useState([]);
+  const [userOrgsLoading, setUserOrgsLoading] = useState(true);
   const [isElectron, setIsElectron] = useState(false);
   const [intLoad, setIntLoad] = useState(false);
   const [isPWA, setIsPWA] = useState(false);
@@ -39,19 +40,35 @@ export function Provider({ children }: { children: React.ReactNode }) {
   }, []);
 
   useEffect(() => {
-    let isMounted = true;
+    let mounted = true;
 
     (async () => {
       const projectsResponse = await fetchProjects();
-      if (isMounted) {
-        console.log("Deeeeee", projectsResponse);
+      if (mounted) {
+        console.log("Projs Fetched", projectsResponse);
         setUserProjects(projectsResponse.projects);
         setUserProjectsLoading(false);
       }
     })();
 
     return () => {
-      isMounted = false;
+      mounted = false;
+    };
+  }, []);
+
+  useEffect(() => {
+    let mounted = true;
+
+    (async () => {
+      const OrgsResponse = await fetchOrgs();
+      if (mounted) {
+        console.log("Orgs Fetched", OrgsResponse);
+        setUserOrgs(OrgsResponse.orgs);
+        setUserOrgsLoading(false);
+      }
+    })();
+    return () => {
+      mounted = false;
     };
   }, []);
 
@@ -66,7 +83,7 @@ export function Provider({ children }: { children: React.ReactNode }) {
         rtl,
         setRTL,
         userProjects,
-        setUserProjects,
+        userOrgs,
         auth: { session, status },
         loading: { intLoad, setIntLoad },
         cookies : { consent, setConsent }
