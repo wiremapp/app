@@ -6,11 +6,12 @@ import styles from "./style.module.css";
 import Link from "next/link";
 import React from "react";
 import Image from "next/image";
+import TextInputComponent from "../units/textInput";
 
 export const AuthModalComponent = (props) => {
   return (
     <div className={styles.authModal}>
-      <div className="flex w-screen items-center justify-between px-10 py-8">
+      <div className={styles.container}>
         <div className="flex w-1/3 justify-start">
           <HiXMark
             size={40}
@@ -42,6 +43,10 @@ export const AuthModalComponent = (props) => {
             className="h-[45px] rounded-sm bg-white px-4 text-base tracking-wide text-black/70 opacity-70"
             placeholder="Email"
           />
+          <TextInputComponent
+            onChange={() => {}}
+            placeholder={props.locale.t("email_label")}
+          />
           <Button
             href="/signin"
             aria-label={"Sign In"}
@@ -58,7 +63,9 @@ export const AuthModalComponent = (props) => {
 
         <div className="flex w-3/4 items-center">
           <hr className="w-3/4 rounded-3xl border-white/25" />
-          <p className="mx-2 select-none uppercase text-white/50">{props.locale.t("or_label")}</p>
+          <p className="mx-2 select-none uppercase text-white/50">
+            {props.locale.t("or_label")}
+          </p>
           <hr className="w-3/4 rounded-3xl border-white/25" />
         </div>
 
@@ -112,7 +119,7 @@ export const AuthModalComponent = (props) => {
           .
         </p>
       </div>
-      <div className="mb-16 h-[45px]"></div> 
+      <div className="mb-16 h-[45px]"></div>
     </div>
   );
 };

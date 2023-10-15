@@ -37,7 +37,16 @@ export const LayoutComponent = (props) => {
     variant = null,
     loading,
     isElectron,
+    authModal,
   } = props;
+
+  useEffect(() => {
+    if (authModal) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [authModal]);
 
   const HTMLHeadComponent = () => {
     const [desc, setDesc] = useState(pageDesc || props.locale.t("site_desc"));

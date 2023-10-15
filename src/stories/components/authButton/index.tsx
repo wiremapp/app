@@ -5,18 +5,17 @@ import { Button } from "@/stories/components/button";
 import AuthModalComponent from "@/stories/components/authModal";
 
 export const SignInModalButton = (props) => {
-  const [signInModal, setSignInModal] = useState(false);
 
   return (
     <ModalWrapperComponent
-      state={{ modal: signInModal, setModal: setSignInModal }}
+      state={{ modal: props.authModal, setModal: props.setAuthModal }}
       component={
         <Button
           href="/signin"
           aria-label={"Sign In"}
           onClick={(e) => {
             e.preventDefault();
-            setSignInModal(!signInModal);
+            props.setAuthModal(!props.authModal);
           }}
         >
           {props.locale.t("signIn_label")}
@@ -24,7 +23,7 @@ export const SignInModalButton = (props) => {
       }
     >
       <AuthModalComponent
-        state={{ modal: signInModal, setModal: setSignInModal }}
+        state={{ modal: props.authModal, setModal: props.setAuthModal }}
         {...props}
       />
     </ModalWrapperComponent>

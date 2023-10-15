@@ -1,4 +1,4 @@
-import { fetchOrgs, fetchProjects } from "@/utils/funcs";
+import { fetchOrgs, fetchProjects, fetchSignature } from "@/utils/funcs";
 import { useSession } from "next-auth/react";
 import React, { createContext, useEffect, useState } from "react";
 
@@ -12,10 +12,12 @@ export function Provider({ children }: { children: React.ReactNode }) {
   const [userProjectsLoading, setUserProjectsLoading] = useState(true);
   const [userOrgs, setUserOrgs] = useState([]);
   const [userOrgsLoading, setUserOrgsLoading] = useState(true);
+  const [userSig, setUserSig] = useState("");
   const [isElectron, setIsElectron] = useState(false);
   const [intLoad, setIntLoad] = useState(false);
   const [isPWA, setIsPWA] = useState(false);
   const [consent, setConsent] = useState(true);
+  const [authModal, setAuthModal] = useState(false);
 
   useEffect(() => {
     window.matchMedia("(display-mode: standalone)").addListener((e) => {
@@ -43,7 +45,7 @@ export function Provider({ children }: { children: React.ReactNode }) {
     let mounted = true;
 
     (async () => {
-      const projectsResponse = await fetchProjects();
+      const projectsResponse = await fetchProjects(userSig);
       if (mounted) {
         console.log("Projs Fetched", projectsResponse);
         setUserProjects(projectsResponse.projects);
@@ -72,7 +74,29 @@ export function Provider({ children }: { children: React.ReactNode }) {
     };
   }, []);
 
+  useEffect(() => {
+    let mounted = true;
 
+    (async () => {
+      if (mounted) {
+        const sig = localStorage.getItem("signature");
+        if (!sig) {
+          const sigResponse = await fetchSignature();
+          console.log("Sig Fetched", sigResponse);
+          setUserSig(sigResponse.payload);
+          localStorage.setItem("signature", sigResponse.payload);
+        }else{
+          setUserSig(sig);
+          console.log("Sig Found", sig);
+        }
+      }
+    })();
+
+    return () => {
+      mounted = false;
+    };
+  }, []);
+  
   return (
     <UIStates.Provider
       value={{
@@ -84,9 +108,12 @@ export function Provider({ children }: { children: React.ReactNode }) {
         setRTL,
         userProjects,
         userOrgs,
+        userSig,
+        authModal,
+        setAuthModal,
         auth: { session, status },
         loading: { intLoad, setIntLoad },
-        cookies : { consent, setConsent }
+        cookies: { consent, setConsent },
       }}
     >
       {children}
