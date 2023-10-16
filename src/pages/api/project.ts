@@ -14,19 +14,26 @@ export default async function handler(
   res: NextApiResponse,
 ) {
   const { method, body } = req;
-  const { name, id: projectId } = body;
+  const { name, id: projectId, sig, task } = body;
   const token = await getToken({ req });
 
-  async function createProject(name, token) {
+  async function createProject(name, userIdentifier) {
+    const assocUUID = uuidv4();
     const project = new Project({
       name: btoa(name),
-      associationId: uuidv4(),
+      associationId: assocUUID,
     });
+
+    const assoc = await createAssociation(userIdentifier, assocUUID);
 
     dbConnect();
 
     await project.save();
-    return { success: { data: project, message: `project_created` } };
+    return {
+      success: { message: `project_created` },
+      data: project,
+      association: assoc.data,
+    };
   }
 
   const payload = JWT.sign(
@@ -34,9 +41,7 @@ export default async function handler(
     process.env.NEXTAUTH_SECRET,
   );
 
-  const decodedToken = JWT.verify(payload, process.env.NEXTAUTH_SECRET);
-
-  async function getProjects(userId) {
+  async function getProjects(sig) {
     try {
       dbConnect();
       const projects = await Project.find({});
@@ -45,35 +50,36 @@ export default async function handler(
       return {
         success: { message: "projects_found" },
         projects: formattedProjects,
-        userId,
+        sig,
       };
     } catch (error) {
       return { error: { message: "get_projects_failed" } };
     }
   }
 
-  async function getAssociations(token) {
+  async function getAssociations(identifier) {
     try {
       dbConnect();
       const association = await Association.find({});
 
-      return { success: { message: "associations_found" } };
+      return { success: { message: "associations_found" }, data: association };
     } catch (error) {
       return { error: { message: "get_associations_failed" } };
     }
   }
 
-  async function createAssociation(data) {
+  async function createAssociation(identifier, uuid) {
     const association = new Association({
-      name: atob(name),
-      associationType: !data.token.sub ? "0" : "1",
-      associationId: uuidv4(),
+      role: 1,
+      type: 0,
+      uuid,
+      userId: identifier,
     });
 
     dbConnect();
 
     await association.save();
-    return { success: { data: association, message: `association_created` } };
+    return { success: { message: `association_created` }, data: association };
   }
 
   async function editProject(id, data) {
@@ -97,17 +103,45 @@ export default async function handler(
 
   switch (method) {
     case "GET":
-      const getProjectsStatus = await getProjects(token || decodedToken.sub);
-      res.status(200).json(getProjectsStatus);
+      const getProjectsStatus = await getProjects(sig);
+
+      if (projectId) {
+        const project = getProjectsStatus.projects.filter(
+          (p) => p.id === projectId,
+        )[0];
+
+        let projectStatus;
+
+        if (project) {
+          projectStatus = {
+            success: { message: "project_found" },
+            project,
+          };
+          res.status(200).json(projectStatus);
+        } else {
+          projectStatus = {
+            error: { message: "project_not_found" },
+          };
+          res.status(404).json(projectStatus);
+        }
+      } else {
+        res.status(200).json(getProjectsStatus);
+      }
       break;
     case "POST":
-
-      if(!projectId){
-        const createdProjectStatus = await createProject(name, token);
+      const decodedToken = JWT.verify(sig, process.env.NEXTAUTH_SECRET);
+      // Get All Projects
+      if (!projectId) {
+        const createdProjectStatus = await createProject(
+          name,
+          decodedToken.sub,
+        );
         res.status(200).json(createdProjectStatus);
-      }else{
-        const getProjectsStatus = await getProjects(token || decodedToken.sub);
-        res.status(200).json(getProjectsStatus.projects.filter(p => p.id === projectId ));
+      } else {
+        const getProjectsStatus = await getProjects(sig);
+        res
+          .status(200)
+          .json(getProjectsStatus.projects.filter((p) => p.id === projectId));
       }
 
       break;

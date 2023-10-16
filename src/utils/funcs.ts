@@ -119,9 +119,13 @@ export const handleAddSubElement = ({
   cb(newFlowChart);
 };
 
-export const fetchProjects = async () => {
+export const fetchProjects = async (sig) => {
   const { data: results } = await axios.get(
-    `${process.env.NEXT_PUBLIC_API_URL}/project`,
+    `${process.env.NEXT_PUBLIC_API_URL}/project`,{
+      params: {
+        sig
+      }
+    }
   );
 
   return {
@@ -139,12 +143,23 @@ export const fetchOrgs = async () => {
   };
 };
 
+export const fetchSignature = async () => {
+  const { data: results } = await axios.get(
+    `${process.env.NEXT_PUBLIC_API_URL}/sig`,
+  );
+
+  return {
+    ...results,
+  };
+};
+
 export const formatProjects = async (projects) => {
   return projects.map((project) => {
     const result = {
       id: project.associationId,
       name: atob(project.name),
     };
+
     return result;
   });
 };
@@ -179,10 +194,10 @@ export const validateOrg = async (name) => {
   return org[0];
 };
 
-export const handleCreateProj = async (name) => {
+export const handleCreateProj = async (name, sig) => {
   const { data } = await axios.post(
     `${process.env.NEXT_PUBLIC_API_URL}/project`,
-    {name}
+    { name, sig },
   );
 
   return data;

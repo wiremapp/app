@@ -5,7 +5,7 @@ import { LogoComponent } from "@/stories/components/units/logo";
 import { MobileMenuComponent } from "@/stories/components/mobileMenu";
 import styles from "./style.module.css";
 import { SignInModalButton } from "../authButton";
-
+import { BsThreeDots } from "react-icons/bs";
 
 export const NavbarComponent = (props) => {
   const [visible, setMobileMenu] = useState(false);
@@ -34,7 +34,14 @@ export const NavbarComponent = (props) => {
                         href={e.href}
                         className={`${
                           e.id === "about" ? "hidden lg:inline-block" : ""
-                        } ${
+                        } 
+                        ${
+                          e.id === "faq" ? "hidden lg:inline-block" : ""
+                        }
+                        ${
+                          e.id === "pricing" ? "hidden lg:inline-block" : ""
+                        }
+                        ${
                           props.router.pathname === e.href
                             ? "opacity-100"
                             : "opacity-70"
@@ -43,8 +50,26 @@ export const NavbarComponent = (props) => {
                         {props.locale.t(`${e.id}_label`)}
                       </a>
                     );
-                  }
+                  },
                 )}
+              <div className="dropdown">
+                <div
+                  className={` rounded-[4px] relative flex items-center`}
+                >
+                  <a href={"/"} className={`opacity-70`}>
+                    <BsThreeDots/>
+                  </a>
+                </div>
+                <div
+                  className={`dropdown-menu shadow-md z-20 rounded-[4px] text-gray-700 pt-2`}
+                >
+                  <div
+                    className={`flex flex-col border h-48 w-16 p-2 bg-gray-700 border-gray-600 text-gray-200"`}
+                  >
+                    TT
+                  </div>
+                </div>
+              </div>
             </nav>
           </div>
           {!props.auth.session ? (

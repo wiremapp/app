@@ -1,5 +1,5 @@
 import { LayoutComponent } from "@/stories/components/units/layout";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { LogoComponent } from "@/stories/components/units/logo";
 import { Button } from "../../button";
 import { signOut } from "next-auth/react";
@@ -9,9 +9,11 @@ import ProjectModalComponent from "../../projectModal";
 import ModalWrapperComponent from "../../units/modalWrapper";
 import OrgModalComponent from "../../orgModal";
 import { v4 as uuidv4 } from "uuid";
+import { fetchSignature } from "@/utils/funcs";
 
 export const DashPage = (props) => {
   const [addProjectModal, setAddProjectModal] = useState(false);
+
 
   return (
     <LayoutComponent
