@@ -1,4 +1,6 @@
 import axios from "axios";
+import fs from "fs";
+import path from "path";
 
 export async function fetchPostJSON(url: string, data?: {}) {
   try {
@@ -78,6 +80,33 @@ export const handleAddElement = ({
   cb(newFlowChart);
 };
 
+export const excludedSafePages = [
+  "_app",
+  "api",
+  "404",
+  "_document",
+  "mt",
+  "admin",
+];
+
+export const getPageStatus = async (pageId) => {
+  const jsonFilePath = path.join(process.cwd(), "src/data/pageStatus.json");
+
+  try {
+    const existingJSON = fs.readFileSync(jsonFilePath, "utf-8");
+    const formattedPages = JSON.parse(existingJSON);
+
+    if (excludedSafePages.includes(pageId)) {
+      return "safe";
+    }
+
+    const page = formattedPages.find((page) => page.id === pageId);
+    return page ? page.status : "unknown";
+  } catch (error) {
+    return "unknown";
+  }
+};
+
 export function validateEmail(email: string): boolean {
   const expression: RegExp = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
   return expression.test(email);
@@ -119,13 +148,18 @@ export const handleAddSubElement = ({
   cb(newFlowChart);
 };
 
+export const getCurFileName = () => {
+  return path.basename(__filename, path.extname(__filename));
+};
+
 export const fetchProjects = async (sig) => {
   const { data: results } = await axios.get(
-    `${process.env.NEXT_PUBLIC_API_URL}/project`,{
+    `${process.env.NEXT_PUBLIC_API_URL}/project`,
+    {
       params: {
-        sig
-      }
-    }
+        sig,
+      },
+    },
   );
 
   return {
@@ -141,6 +175,14 @@ export const fetchOrgs = async () => {
   return {
     ...results,
   };
+};
+
+export const fetchOrgPaths = async () => {
+  const { data: results } = await axios.get(
+    `${process.env.NEXT_PUBLIC_API_URL}/org`,
+  );
+
+  return results
 };
 
 export const fetchSignature = async () => {
@@ -168,31 +210,55 @@ export const formatOrgs = async (orgs) => {
   return orgs.map((org) => {
     const result = {
       id: org.associationId,
-      name: atob(org.name),
+      encodedName: org.name,
+      decodedName: atob(org.name),
     };
     return result;
   });
 };
 
 export const validateProject = async (id) => {
-  const { data: project } = await axios.post(
+  const response = await axios.get(
     `${process.env.NEXT_PUBLIC_API_URL}/project`,
-    { id },
+    {
+      params: {
+        id,
+      },
+      validateStatus: (status) => status === 200 || status === 404,
+    },
   );
 
-  if (!project.length) return false;
-  return project[0];
+  if (response.status === 200) {
+    console.log(response);
+    return response.data.project;
+  } else if (response.status === 404) {
+    return false;
+  } else {
+    return false;
+  }
 };
 
 export const validateOrg = async (name) => {
-  const { data: org } = await axios.post(
+  const response = await axios.get(
     `${process.env.NEXT_PUBLIC_API_URL}/org`,
-    { name },
+    {
+      params: {
+        name,
+      },
+      validateStatus: (status) => status === 200 || status === 404,
+    },
   );
 
-  if (!org.length) return false;
-  return org[0];
+  if (response.status === 200) {
+    console.log(response);
+    return response.data.project;
+  } else if (response.status === 404) {
+    return false;
+  } else {
+    return false;
+  }
 };
+
 
 export const handleCreateProj = async (name, sig) => {
   const { data } = await axios.post(
@@ -204,10 +270,9 @@ export const handleCreateProj = async (name, sig) => {
 };
 
 export const handleCreateOrg = async (name) => {
-  const { data } = await axios.post(
-    `${process.env.NEXT_PUBLIC_API_URL}/org`,
-    {name}
-  );
+  const { data } = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/org`, {
+    name,
+  });
 
   return data;
 };

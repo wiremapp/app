@@ -7,13 +7,17 @@ const root = process.cwd() + "/src/_static";
 export async function getFiles(dataType?: string) {
   return fs.readdirSync(
     dataType ? path.join(root, dataType) : path.join(root),
-    "utf-8"
+    "utf-8",
   );
 }
 
-export async function getStaticEntryBySlug(slug: string, subdirectory?: string) {
-  const source = fs.readFileSync( path.join(root, subdirectory, `${slug}.md`),
-    "utf8"
+export async function getStaticEntryBySlug(
+  slug: string,
+  subdirectory?: string,
+) {
+  const source = fs.readFileSync(
+    path.join(root, subdirectory, `${slug}.md`),
+    "utf8",
   );
 
   const { data, content } = matter(source);
@@ -24,8 +28,12 @@ export async function getStaticEntryBySlug(slug: string, subdirectory?: string) 
   };
 }
 
-export async function getAllStaticEntriesWithFrontMatter(subdirectory?: string) {
-  const files = await getMdFiles(subdirectory ? path.join(root, subdirectory) : root);
+export async function getAllStaticEntriesWithFrontMatter(
+  subdirectory?: string,
+) {
+  const files = await getMdFiles(
+    subdirectory ? path.join(root, subdirectory) : root,
+  );
 
   // @ts-ignore
   return files.map((file) => {
@@ -39,8 +47,16 @@ export async function getAllStaticEntriesWithFrontMatter(subdirectory?: string) 
   });
 }
 
+export const getMultiStaticEntriesFrontMatter = async (arr) => {
+  let entries = {};
+  for (const e of arr) {
+    entries[e] = await getAllStaticEntriesWithFrontMatter(e);
+  }
+  return entries;
+};
+
 async function getMdFiles(
-  directory: string
+  directory: string,
 ): Promise<{ path: string; slug: string }[]> {
   const entries = await fs.promises.readdir(directory, { withFileTypes: true });
   const files = await Promise.all(
@@ -56,7 +72,7 @@ async function getMdFiles(
         };
       }
       return null;
-    })
+    }),
   );
   const flattenedFiles = files.filter((file) => file !== null).flat();
   if (flattenedFiles.length === 0) {
