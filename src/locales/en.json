@@ -54,5 +54,7 @@
   "getStarted_label": "Get started",
   "add_new_project_label": "New Project",
   "create_label": "Create",
-  "cancel_label": "Cancel"
+  "cancel_label": "Cancel",
+  "admin_label": "Administrator",
+  "add_new_org_label": "New Organisation"
 }
