@@ -13,6 +13,7 @@ import { fetchSignature } from "@/utils/funcs";
 
 export const DashPage = (props) => {
   const [addProjectModal, setAddProjectModal] = useState(false);
+  const [addOrgModal, setAddOrgModal] = useState(false);
 
 
   return (
@@ -56,15 +57,16 @@ export const DashPage = (props) => {
               {...props}
             />
           </ModalWrapperComponent>
+          
           <ModalWrapperComponent
-            state={{ modal: addProjectModal, setModal: setAddProjectModal }}
+            state={{ modal: addOrgModal, setModal: setAddOrgModal }}
             component={
               <Button
                 href="/"
                 aria-label={"Create Organisation"}
                 onClick={(e) => {
                   e.preventDefault();
-                  setAddProjectModal(!addProjectModal);
+                  setAddOrgModal(!addOrgModal);
                 }}
               >
                 {props.locale.t("add_new_org_label")}
@@ -72,7 +74,7 @@ export const DashPage = (props) => {
             }
           >
             <OrgModalComponent
-              state={{ modal: addProjectModal, setModal: setAddProjectModal }}
+              state={{ modal: addOrgModal, setModal: setAddOrgModal }}
               {...props}
             />
           </ModalWrapperComponent>
