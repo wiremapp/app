@@ -18,8 +18,15 @@ export function Provider({ children }: { children: React.ReactNode }) {
   const [isPWA, setIsPWA] = useState(false);
   const [consent, setConsent] = useState(true);
   const [authModal, setAuthModal] = useState(false);
+  const [addProjectModal, setAddProjectModal] = useState(false);
+  const [addOrgModal, setAddOrgModal] = useState(false);
+
 
   useEffect(() => {
+    /**
+   * Detect if the user is using a PWA.
+   * @effect
+   */
     window.matchMedia("(display-mode: standalone)").addListener((e) => {
       setIsPWA(e.matches);
     });
@@ -29,19 +36,35 @@ export function Provider({ children }: { children: React.ReactNode }) {
     }
   }, []);
 
+
+
   useEffect(() => {
+    /**
+   * Detect if the user is using a Electron and set context state.
+   * @effect
+   */
     const userAgent = navigator.userAgent.toLowerCase();
     setIsElectron(userAgent.indexOf(" electron/") > -1);
   }, []);
 
 
   useEffect(() => {
+      /**
+   * Set loading context state to false after 500ms.
+   * @effect
+   */
     setTimeout(() => {
       setIntLoad(false);
     }, 500);
   }, []);
 
+  
   useEffect(() => {
+    /**
+   * Fetch user projects and set projects context state
+   * @effect
+   */
+
     let mounted = true;
 
     (async () => {
@@ -58,7 +81,13 @@ export function Provider({ children }: { children: React.ReactNode }) {
     };
   }, []);
 
+
   useEffect(() => {
+    /**
+   * Fetch user orgs and set projects context state
+   * @effect
+   */
+
     let mounted = true;
 
     (async () => {
@@ -75,6 +104,10 @@ export function Provider({ children }: { children: React.ReactNode }) {
   }, []);
 
   useEffect(() => {
+    /**
+   * Check if user has a local signature if not create one and set signature state
+   * @effect
+   */
     let mounted = true;
 
     (async () => {
@@ -85,7 +118,7 @@ export function Provider({ children }: { children: React.ReactNode }) {
           console.log("Sig Fetched", sigResponse);
           setUserSig(sigResponse.payload);
           localStorage.setItem("signature", sigResponse.payload);
-        }else{
+        } else {
           setUserSig(sig);
           console.log("Sig Found", sig);
         }
@@ -96,7 +129,7 @@ export function Provider({ children }: { children: React.ReactNode }) {
       mounted = false;
     };
   }, []);
-  
+
   return (
     <UIStates.Provider
       value={{
@@ -111,6 +144,8 @@ export function Provider({ children }: { children: React.ReactNode }) {
         userSig,
         authModal,
         setAuthModal,
+        addProjectModal, setAddProjectModal,
+        addOrgModal, setAddOrgModal,
         auth: { session, status },
         loading: { intLoad, setIntLoad },
         cookies: { consent, setConsent },
