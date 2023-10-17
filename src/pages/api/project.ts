@@ -13,8 +13,9 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse,
 ) {
-  const { method, body } = req;
-  const { name, id: projectId, sig, task } = body;
+  const { method, body, query } = req;
+  const { name, sig, task } = body;
+  const projectId = query.id || body.id;
   const token = await getToken({ req });
 
   async function createProject(name, userIdentifier) {
