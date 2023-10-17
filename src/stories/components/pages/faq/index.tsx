@@ -9,6 +9,7 @@ export const FAQPage = (props) => {
       title={props.locale.t("faqFull_label")}
       pageDesc={props.locale.t("about_desc")}
     >
+      {JSON.stringify(props.pageStatus)}
       <FAQComponent {...props} />
     </LayoutComponent>
   );

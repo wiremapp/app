@@ -12,8 +12,6 @@ import { v4 as uuidv4 } from "uuid";
 import { fetchSignature } from "@/utils/funcs";
 
 export const DashPage = (props) => {
-  const [addProjectModal, setAddProjectModal] = useState(false);
-  const [addOrgModal, setAddOrgModal] = useState(false);
 
 
   return (
@@ -38,14 +36,14 @@ export const DashPage = (props) => {
           className="w-[309px]"
         >
           <ModalWrapperComponent
-            state={{ modal: addProjectModal, setModal: setAddProjectModal }}
+            state={{ modal: props.addProjectModal, setModal: props.setAddProjectModal }}
             component={
               <Button
                 href="/"
                 aria-label={"Create Project"}
                 onClick={(e) => {
                   e.preventDefault();
-                  setAddProjectModal(!addProjectModal);
+                  props.setAddProjectModal(!props.addProjectModal);
                 }}
               >
                 {props.locale.t("add_new_project_label")}
@@ -53,20 +51,20 @@ export const DashPage = (props) => {
             }
           >
             <ProjectModalComponent
-              state={{ modal: addProjectModal, setModal: setAddProjectModal }}
+              state={{ modal: props.addProjectModal, setModal: props.setAddProjectModal }}
               {...props}
             />
           </ModalWrapperComponent>
           
           <ModalWrapperComponent
-            state={{ modal: addOrgModal, setModal: setAddOrgModal }}
+            state={{ modal: props.addOrgModal, setModal: props.setAddOrgModal }}
             component={
               <Button
                 href="/"
                 aria-label={"Create Organisation"}
                 onClick={(e) => {
                   e.preventDefault();
-                  setAddOrgModal(!addOrgModal);
+                  props.setAddOrgModal(!props.addOrgModal);
                 }}
               >
                 {props.locale.t("add_new_org_label")}
@@ -74,7 +72,7 @@ export const DashPage = (props) => {
             }
           >
             <OrgModalComponent
-              state={{ modal: addOrgModal, setModal: setAddOrgModal }}
+              state={{ modal: props.addOrgModal, setModal: props.setAddOrgModal }}
               {...props}
             />
           </ModalWrapperComponent>
@@ -82,7 +80,7 @@ export const DashPage = (props) => {
           {props.userOrgs.map((org) => {
             return (
               <div key={uuidv4()} className="">
-                {org.name}
+                {org.decodedName}
               </div>
             );
           })}
@@ -125,7 +123,7 @@ export const DashPage = (props) => {
             {props.userProjects.map((item, index) => {
               return (
                 <div
-                  key={item.id}
+                  key={uuidv4()}
                   className="section-secondary-bg rounded-lg p-6 shadow"
                 >
                   <a href="#">
