@@ -10,7 +10,7 @@ import TextInputComponent from "../units/textInput";
 import { handleCreateOrg } from "@/utils/funcs";
 
 export const OrgModalComponent = (props) => {
-  const [orgNameInput, setOrgNameInput] = useState(false);
+  const [orgNameInput, setOrgNameInput] = useState(true);
   const [orgName, setOrgName] = useState("");
 
   return (
@@ -30,7 +30,6 @@ export const OrgModalComponent = (props) => {
           {props.locale.t("add_new_org_label")}
         </h1>
 
-        {orgNameInput && (
           <div className="space-x-1 flex">
             <TextInputComponent
               placeholder={props.locale.t("Enter Name")}
@@ -48,7 +47,7 @@ export const OrgModalComponent = (props) => {
               onClick={async (e) =>  {
                 e.preventDefault();
                 const newProj = await handleCreateOrg(orgName);
-                props.router.push(`/o/${newProj.success.data.name}`)
+                props.router.push(`/o/${newProj.data.name}`)
               }}
               type="submit"
             >
@@ -68,26 +67,7 @@ export const OrgModalComponent = (props) => {
               {props.locale.t("cancel_label")}
             </Button>
           </div>
-        )}
 
-        {!orgNameInput && (
-          <div className="flex w-[512px] h-[256px] justify-between space-x-4">
-            <div
-              onClick={() => setOrgNameInput(true)}
-              className="bg-[#000000db] flex flex-grow rounded-sm items-center justify-center cursor-pointer"
-            >
-              + Blank Project
-            </div>
-            <div
-              onClick={() => {
-                props.router.push("/sitemap/scanner");
-              }}
-              className="bg-[#000000f4] flex flex-grow rounded-sm items-center justify-center cursor-pointer"
-            >
-              Import Project
-            </div>
-          </div>
-        )}
       </div>
       <div className="mb-16 h-[45px]"></div>
     </div>

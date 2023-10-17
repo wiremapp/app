@@ -39,13 +39,13 @@ export const AuthModalComponent = (props) => {
         </h1>
 
         <div className="flex w-3/4 flex-col space-y-4">
-          <input
-            className="h-[45px] rounded-sm bg-white px-4 text-base tracking-wide text-black/70 opacity-70"
-            placeholder="Email"
-          />
           <TextInputComponent
             onChange={() => {}}
             placeholder={props.locale.t("email_label")}
+          />
+          <TextInputComponent
+            onChange={() => {}}
+            placeholder={props.locale.t("password_label")}
           />
           <Button
             href="/signin"
@@ -113,7 +113,7 @@ export const AuthModalComponent = (props) => {
 
         <p className="text-xs text-white/30">
           {props.locale.t("signIn_agreement_label")}{" "}
-          <Link className="hover:text-opacity-70" href="/terms">
+          <Link className="hover:text-opacity-70" href="/terms" onClick={()=>{ props.setAuthModal(false)}}>
             {props.locale.t("terms_label")}
           </Link>
           .
