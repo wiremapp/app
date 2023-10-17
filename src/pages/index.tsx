@@ -1,28 +1,20 @@
-import { getAllStaticEntriesWithFrontMatter } from "@/utils/md";
+import {
+  getAllStaticEntriesWithFrontMatter,
+  getMultiStaticEntriesFrontMatter,
+} from "@/utils/md";
 import { LandingPage } from "@/stories/components/pages/landing";
 import React, { useContext } from "react";
 import { UIStates } from "@/context/UI";
 import { useRouter } from "next/router";
+import { getPageStatus } from "@/utils/funcs";
 
-export default function Page({
-  locale,
-  loading,
-  featuresData,
-  pricingData,
-  faqData,
-  auth,
-}) {
+export default function Page(pageProps) {
   const router = useRouter();
   const UI = useContext(UIStates);
 
   const props = {
     router,
-    auth,
-    locale,
-    loading,
-    featuresData,
-    pricingData,
-    faqData,
+    ...pageProps,
     ...UI,
   };
 
@@ -30,17 +22,20 @@ export default function Page({
 }
 
 export async function getStaticProps() {
-  // TODO: Merge into const {featuresData, pricingData, faqData} = await getAllPostsWithFrontMatter(["features","pricing","faq"]);
-
-  const featuresData = await getAllStaticEntriesWithFrontMatter("features");
-  const pricingData = await getAllStaticEntriesWithFrontMatter("pricing");
-  const faqData = await getAllStaticEntriesWithFrontMatter("faq");
+  const page = "index";
+  const pageStatus = await getPageStatus(page);
+  const staticEntries = await getMultiStaticEntriesFrontMatter([
+    "features",
+    "pricing",
+    "faq",
+  ]);
 
   return {
     props: {
-      featuresData,
-      pricingData,
-      faqData,
+      featuresData: staticEntries["features"],
+      pricingData: staticEntries["pricing"],
+      faqData: staticEntries["faq"],
+      pageStatus,
     },
   };
 }

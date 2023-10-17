@@ -3,14 +3,13 @@ import React, { useContext } from "react";
 import { useRouter } from "next/router";
 import { UIStates } from "@/context/UI";
 
-export default function Page({ locale, auth }) {
+export default function Page(pageProps) {
   const router = useRouter();
   const UI = useContext(UIStates);
 
   const props = {
     router,
-    auth,
-    locale,
+    ...pageProps,
     ...UI,
   };
 

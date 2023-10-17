@@ -5,18 +5,27 @@ import OrderPage from "@/stories/components/pages/order";
 import { getFiles, getStaticEntryBySlug } from "@/utils/md";
 import { UIStates } from "@/context/UI";
 
-function Content({ locale, frontMatter, markdownBody, auth }) {
+function Content(pageProps) {
   const router = useRouter();
   const UI = useContext(UIStates);
 
   const props = {
     router,
-    auth,
-    locale,
+    ...pageProps,
     ...UI,
   };
 
-  return <OrderPage {...{ ...props, source: { frontMatter, markdownBody } }} />;
+  return (
+    <OrderPage
+      {...{
+        ...props,
+        source: {
+          frontMatter: pageProps.frontMatter,
+          markdownBody: pageProps.frontMatter,
+        },
+      }}
+    />
+  );
 }
 
 export default Content;
@@ -29,7 +38,7 @@ export async function getStaticProps({ params }: Params) {
   }
   const { frontMatter, markdownBody } = await getStaticEntryBySlug(
     params.static,
-    "pricing"
+    "pricing",
   );
 
   return {

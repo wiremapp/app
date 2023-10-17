@@ -3,16 +3,15 @@ import { FAQPage } from "@/stories/components/pages/faq";
 import React, { useContext } from "react";
 import { UIStates } from "@/context/UI";
 import { useRouter } from "next/router";
+import { getPageStatus } from "@/utils/funcs";
 
-export default function Page({ locale, faqData, auth }) {
+export default function Page(pageProps) {
   const router = useRouter();
   const UI = useContext(UIStates);
 
   const props = {
     router,
-    auth,
-    locale,
-    faqData,
+    ...pageProps,
     ...UI,
   };
 
@@ -20,10 +19,14 @@ export default function Page({ locale, faqData, auth }) {
 }
 
 export async function getStaticProps() {
-  const faqData = await getAllStaticEntriesWithFrontMatter("faq");
+  const page = "faq";
+  const pageStatus = await getPageStatus(page);
+  const faqData = await getAllStaticEntriesWithFrontMatter(page);
+
   return {
     props: {
       faqData,
+      pageStatus,
     },
   };
 }

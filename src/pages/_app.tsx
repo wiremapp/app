@@ -14,7 +14,6 @@ function App({
 }: AppProps<{
   session: Session;
 }>) {
-
   const { t } = useTranslation();
   const { auth, isElectron, isPWA } = useContext(UIStates);
 

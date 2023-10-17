@@ -5,19 +5,26 @@ import { StaticPage } from "@/stories/components/pages/static";
 import { getFiles, getStaticEntryBySlug } from "@/utils/md";
 import { UIStates } from "@/context/UI";
 
-function Content({ locale, frontMatter, markdownBody, auth }) {
+function Content(pageProps) {
   const router = useRouter();
   const UI = useContext(UIStates);
 
   const props = {
     router,
-    auth,
-    locale,
+    ...pageProps,
     ...UI,
   };
 
   return (
-    <StaticPage {...{ ...props, source: { frontMatter, markdownBody } }} />
+    <StaticPage
+      {...{
+        ...props,
+        source: {
+          frontMatter: pageProps.frontMatter,
+          markdownBody: pageProps.markdownBody,
+        },
+      }}
+    />
   );
 }
 
@@ -26,7 +33,7 @@ export default Content;
 export async function getStaticProps({ params }: Params) {
   const { frontMatter, markdownBody } = await getStaticEntryBySlug(
     params.static,
-    "pages"
+    "pages",
   );
 
   return {

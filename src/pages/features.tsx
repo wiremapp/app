@@ -3,16 +3,15 @@ import FeatPage from "@/stories/components/pages/features";
 import React, { useContext } from "react";
 import { UIStates } from "@/context/UI";
 import { useRouter } from "next/router";
+import { getPageStatus } from "@/utils/funcs";
 
-export default function Page({ locale, featuresData, auth }) {
+export default function Page(pageProps) {
   const router = useRouter();
   const UI = useContext(UIStates);
 
   const props = {
     router,
-    auth,
-    locale,
-    featuresData,
+    ...pageProps,
     ...UI,
   };
 
@@ -20,10 +19,14 @@ export default function Page({ locale, featuresData, auth }) {
 }
 
 export async function getStaticProps() {
-  const featuresData = await getAllStaticEntriesWithFrontMatter("features");
+  const page = "features";
+  const pageStatus = await getPageStatus(page);
+  const featuresData = await getAllStaticEntriesWithFrontMatter(page);
+
   return {
     props: {
       featuresData,
+      pageStatus,
     },
   };
 }

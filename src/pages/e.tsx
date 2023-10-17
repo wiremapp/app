@@ -4,15 +4,13 @@ import { UIStates } from "@/context/UI";
 import { useRouter } from "next/router";
 import { validateProject } from "@/utils/funcs";
 
-export default function Page({ project, locale, auth }) {
+export default function Page(pageProps) {
   const router = useRouter();
   const UI = useContext(UIStates);
 
   const props = {
     router,
-    auth,
-    locale,
-    project,
+    ...pageProps,
     ...UI,
   };
 
