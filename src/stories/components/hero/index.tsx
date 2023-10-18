@@ -33,7 +33,7 @@ export const HeroComponent = (props) => {
           {!props.variant && (
             <div className="flex flex-col justify-center space-x-0 space-y-2 xs:flex-row xs:space-x-2 xs:space-y-0 lg:justify-start">
               <Button
-                href="/dashboard"
+                href="/projects"
                 variant="primary"
                 aria-label={"Open App"}
                 space={"medium"}

@@ -48,7 +48,7 @@ export const ProjectModalComponent = (props) => {
               onClick={async (e) =>  {
                 e.preventDefault();
                 const newProj = await handleCreateProj(projName, props.userSig);
-                props.router.push(`/e?id=${newProj.data.associationId}`)
+                props.router.push(`/p?id=${newProj.data.associationId}`)
               }}
               type="submit"
             >

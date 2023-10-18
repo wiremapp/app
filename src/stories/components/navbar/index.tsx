@@ -91,7 +91,7 @@ export const NavbarComponent = (props) => {
             </div>
           )}
           <Button
-            href="/dashboard"
+            href="/projects"
             variant="primary"
             aria-label={"Open App"}
             space={"medium"}

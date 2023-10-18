@@ -1,4 +1,4 @@
-import { DashPage } from "@/stories/components/pages/dashboard";
+import { ProjectsPage } from "@/stories/components/pages/dashboard/projects";
 import React, { useContext } from "react";
 import { useRouter } from "next/router";
 import { UIStates } from "@/context/UI";
@@ -13,5 +13,5 @@ export default function Page(pageProps) {
     ...UI,
   };
 
-  return <DashPage {...props} />;
+  return <ProjectsPage {...props} />;
 }
