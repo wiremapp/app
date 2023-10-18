@@ -12,6 +12,8 @@ const ISchema = new mongoose.Schema({
   userId: String,
   role: Number,
   type: Number,
+  fav: Boolean,
+  lastUpdate: Date,
 });
 
 export const defaultSchema =
