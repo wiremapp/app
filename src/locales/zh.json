@@ -55,5 +55,9 @@
   "add_new_project_label": "New Project",
   "create_label": "Create",
   "cancel_label": "Cancel",
-  "admin_label": "Administrator"
+  "admin_label": "Administrator",
+  "email_label": "Email",
+  "password_label": "Password",
+  "projects_label": "Projects",
+  "orgs_label": "Organisations"
 }
