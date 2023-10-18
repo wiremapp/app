@@ -4,7 +4,7 @@ import { UIStates } from "@/context/UI";
 import { useRouter } from "next/router";
 import { ScanPage } from "@/stories/components/pages/scan";
 import { fetchOrgPaths, validateOrg } from "@/utils/funcs";
-import DashPage from "@/stories/components/pages/dashboard";
+import DashPage from "@/stories/components/pages/dashboard/projects";
 
 export default function Page(pageProps) {
   const router = useRouter();
@@ -23,7 +23,7 @@ export async function getStaticPaths() {
   const orgPaths = await fetchOrgPaths();
 
   const paths = orgPaths.orgs.map((org) => ({
-    params: { name: org.name },
+    params: { name: org.decodedName },
   }));
 
   return {
