@@ -1,43 +1,58 @@
 import { LayoutComponent } from "@/stories/components/units/layout";
 import { HeroComponent } from "@/stories/components/hero";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 export const ScanPage = (props) => {
   const [websiteUrl, setWebsiteUrl] = useState("");
-  const [seoAnalysis, setSEOAnalysis] = useState(null);
+  const [pages, setPages] = useState<string[]>([]);
+  const [scannedPages, setScannedPages] = useState<string[]>([]);
   const [loading, setLoading] = useState(null);
 
-  const handleUrlChange = (event) => {
-    setWebsiteUrl(event.target.value);
-  };
+  const handleScan = (url) => {
+    // Check if already scanned
+    if (scannedPages.includes(url) || !url.startsWith(websiteUrl)) {
+      return;
+    }
+  
+    setScannedPages((prevVisited) => [...prevVisited, url]);
+  
+    fetch(url)
+      .then((response) => response.text())
+      .then((html) => {
+        const doc = new DOMParser().parseFromString(html, "text/html");
+        const pageUrls = Array.from(doc.querySelectorAll("a"))
+          .map((link) => link.getAttribute("href"))
+          .filter(
+            (link) =>
+              link && (link.startsWith("/") || link.startsWith(websiteUrl)),
+          );
 
-  const fetchSEO = async () => {
-  setLoading(true);
-   setTimeout(() => {
-    const res = "SEO Results"
-    setLoading(false);
-    return res
-   }, 3000);
+        setPages((prevPages) => [...prevPages, ...pageUrls]);
+      })
   };
-
-  const handleScan = async () => {
-    const res = await fetchSEO();
-    setSEOAnalysis(res);
-  };
-
+  
   return (
     <LayoutComponent
       {...props}
       title={props.locale.t("sitemapScanner_label")}
       locale={props.locale}
     >
-      <HeroComponent
+      {/* <HeroComponent
         {...{ ...props, handleUrlChange, handleScan }}
         variant={"scan"}
+      /> */}
+      
+      <input
+        onChange={(e) => {
+          setWebsiteUrl(e.target.value);
+        }}
       />
-      {websiteUrl}
-      {loading && "Loading..."}
-      {seoAnalysis && JSON.stringify(seoAnalysis)}
+      <button onClick={() => handleScan(websiteUrl)}>Scan Pages</button>
+      <ul>
+        {pages.map((page, index) => (
+          <li key={index}>{page}</li>
+        ))}
+      </ul>
     </LayoutComponent>
   );
 };

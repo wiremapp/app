@@ -1,19 +1,19 @@
-import DashPage from "@/stories/components/pages/dashboard";
+import OrgsPage from "@/stories/components/pages/dashboard/orgs";
 
 export default {
-  title: "Pages/Dashboard",
-  component: DashPage,
+  title: "Pages/Organisations",
+  component: OrgsPage,
 };
 
-export const Dashboard = (props) => (
+export const Organisations = (props) => (
   <div className="overflow-hidden rounded bg-[#FF6838] p-4">
-    <DashPage
+    <OrgsPage
       {...props}
     />
   </div>
 );
 
-Dashboard.args = {
+Organisations.args = {
   locale: {
     t: (e) => {
       return e;
