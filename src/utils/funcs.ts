@@ -1,6 +1,7 @@
 import axios from "axios";
 import fs from "fs";
 import path from "path";
+import { v4 as uuidv4 } from "uuid";
 
 export async function fetchPostJSON(url: string, data?: {}) {
   try {
@@ -148,9 +149,66 @@ export const handleAddSubElement = ({
   cb(newFlowChart);
 };
 
-export const getCurFileName = () => {
-  return path.basename(__filename, path.extname(__filename));
-};
+export async function createProject(
+  db,
+  projectModel,
+  assocModel,
+  name,
+  userIdentifier,
+) {
+  const assocUUID = uuidv4();
+  const project = new projectModel({
+    name: btoa(name),
+    associationId: assocUUID,
+    createdAt: new Date(),
+  });
+
+  const assoc = await createAssociation(
+    db,
+    assocModel,
+    userIdentifier,
+    assocUUID,
+  );
+
+  db();
+
+  await project.save();
+  return {
+    success: { message: `project_created` },
+    data: project,
+    association: assoc.data,
+  };
+}
+
+export async function createAssociation(db, assocModel, identifier, uuid) {
+  const association = new assocModel({
+    role: 1,
+    type: 0,
+    uuid,
+    userId: identifier,
+  });
+
+  db();
+
+  await association.save();
+  return { success: { message: `association_created` }, data: association };
+}
+
+export async function getProjects(db, projectModel, sig) {
+  try {
+    db();
+    const projects = await projectModel.find({});
+    const formattedProjects = await formatProjects(projects);
+
+    return {
+      success: { message: "projects_found" },
+      projects: formattedProjects,
+      sig,
+    };
+  } catch (error) {
+    return { error: { message: "get_projects_failed" } };
+  }
+}
 
 export const fetchProjects = async (sig) => {
   const { data: results } = await axios.get(
@@ -182,7 +240,7 @@ export const fetchOrgPaths = async () => {
     `${process.env.NEXT_PUBLIC_API_URL}/org`,
   );
 
-  return results
+  return results;
 };
 
 export const fetchSignature = async () => {
@@ -200,6 +258,7 @@ export const formatProjects = async (projects) => {
     const result = {
       id: project.associationId,
       name: atob(project.name),
+      createdAt: project.createdAt
     };
 
     return result;
@@ -239,18 +298,15 @@ export const validateProject = async (id) => {
 };
 
 export const validateOrg = async (name) => {
-  const response = await axios.get(
-    `${process.env.NEXT_PUBLIC_API_URL}/org`,
-    {
-      params: {
-        name,
-      },
-      validateStatus: (status) => status === 200 || status === 404,
+  const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/org`, {
+    params: {
+      name,
     },
-  );
+    validateStatus: (status) => status === 200 || status === 404,
+  });
 
   if (response.status === 200) {
-    console.log(response);
+    console.log(response.data);
     return response.data.project;
   } else if (response.status === 404) {
     return false;
@@ -258,7 +314,6 @@ export const validateOrg = async (name) => {
     return false;
   }
 };
-
 
 export const handleCreateProj = async (name, sig) => {
   const { data } = await axios.post(
