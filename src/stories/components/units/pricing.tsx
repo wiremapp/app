@@ -139,7 +139,7 @@ export const PricingComponent = (props) => {
                       <Button
                         href={
                           tier.slug == "basic"
-                            ? "/dashboard"
+                            ? "/projects"
                             : "/order/" + tier.slug
                         }
                         variant="primary"
