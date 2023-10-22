@@ -180,6 +180,7 @@ export async function createProject(
   };
 }
 
+
 export async function createAssociation(db, assocModel, identifier, uuid) {
   const association = new assocModel({
     role: 1,
@@ -194,16 +195,41 @@ export async function createAssociation(db, assocModel, identifier, uuid) {
   return { success: { message: `association_created` }, data: association };
 }
 
-export async function getProjects(db, projectModel, sig) {
+export async function getUserProjects(db, projectModel, assocModel, sig) {
+  try {
+    db();
+    const projects = await projectModel.find({});
+    const assoc = await assocModel.find({});
+    const formattedProjects = await formatProjects(projects);
+
+    return {
+      success: { message: "projects_found" },
+      projects: formattedProjects.filter((p) =>
+        assoc
+          .filter((a) => a.userId === sig.sub)
+          .map((a) => a.uuid)
+          .includes(p.id),
+      ),
+      sig,
+    };
+  } catch (error) {
+    return { error: { message: "get_projects_failed" } };
+  }
+}
+
+export async function getProject(db, projectModel, id) {
   try {
     db();
     const projects = await projectModel.find({});
     const formattedProjects = await formatProjects(projects);
 
+    const project = formattedProjects.find(
+      (p) => p.id === id,
+    );
+
     return {
       success: { message: "projects_found" },
-      projects: formattedProjects,
-      sig,
+      project
     };
   } catch (error) {
     return { error: { message: "get_projects_failed" } };
@@ -258,7 +284,7 @@ export const formatProjects = async (projects) => {
     const result = {
       id: project.associationId,
       name: atob(project.name),
-      createdAt: project.createdAt
+      createdAt: project.createdAt,
     };
 
     return result;
@@ -319,6 +345,15 @@ export const handleCreateProj = async (name, sig) => {
   const { data } = await axios.post(
     `${process.env.NEXT_PUBLIC_API_URL}/project`,
     { name, sig },
+  );
+
+  return data;
+};
+
+export const handleCreateElement = async (d, sig) => {
+  const { data } = await axios.post(
+    `${process.env.NEXT_PUBLIC_API_URL}/element`,
+    { data : d, sig },
   );
 
   return data;

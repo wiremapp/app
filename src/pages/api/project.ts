@@ -3,7 +3,7 @@ import Project from "@/models/projects";
 import Association from "@/models/associations";
 import { NextApiRequest, NextApiResponse } from "next";
 import { getToken } from "next-auth/jwt";
-import { createProject, getProjects } from "@/utils/funcs";
+import { createProject, getProject, getUserProjects } from "@/utils/funcs";
 import JWT from "jsonwebtoken";
 
 export default async function handler(
@@ -11,7 +11,8 @@ export default async function handler(
   res: NextApiResponse,
 ) {
   const { method, body, query } = req;
-  const { name, sig } = body;
+  const { name } = body;
+  const userSig = query.sig || body.sig;
   const projectId = query.id || body.id;
   const token = await getToken({ req });
 
@@ -45,24 +46,28 @@ export default async function handler(
     }
   }
 
+
   switch (method) {
     case "GET":
-      const getProjectsStatus = await getProjects(dbConnect, Project, sig);
+      
+      if (!projectId){
+        const decodedSignature = token || JWT.verify(userSig, process.env.NEXTAUTH_SECRET);
 
-      if (!projectId) return res.status(200).json(getProjectsStatus);
+        const getProjectsStatus = await getUserProjects(dbConnect, Project, Association, decodedSignature);
+        return res.status(200).json(getProjectsStatus);
 
-      const project = getProjectsStatus.projects.find(
-        (p) => p.id === projectId,
-      );
+      }
+      const project = await getProject(dbConnect, Project,projectId);
+      console.log(project);
 
-      if (!project)
+      if (!project.success)
         return res.status(404).json({ error: { message: "project_notFound" } });
 
-      res.status(200).json({ success: { message: "project_found" }, project });
+      res.status(200).json(project);
 
       break;
     case "POST":
-      const decodedSignature = JWT.verify(sig, process.env.NEXTAUTH_SECRET);
+      const decodedSignature = token || JWT.verify(userSig, process.env.NEXTAUTH_SECRET);
       const createdProjectStatus = await createProject(
         dbConnect,
         Project,

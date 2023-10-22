@@ -27,7 +27,7 @@ export const ProjectsPage = (props) => {
   return (
     <LayoutComponent
       {...props}
-      title={props.locale.t("orgs_label")}
+      title={props.locale.t("projects_label")}
       navbar={false}
       footer={false}
     >

@@ -68,18 +68,20 @@ export function Provider({ children }: { children: React.ReactNode }) {
     let mounted = true;
 
     (async () => {
-      const projectsResponse = await fetchProjects(userSig);
+      if (!userSig) return;
       if (mounted) {
-        console.log("Projs Fetched", projectsResponse);
-        setUserProjects(projectsResponse.projects);
-        setUserProjectsLoading(false);
+        await fetchProjects(userSig).then((res) => {
+          console.log("Projs Fetched", res);
+          setUserProjects(res.projects);
+          setUserProjectsLoading(false);
+        });
       }
     })();
 
     return () => {
       mounted = false;
     };
-  }, []);
+  }, [userSig]);
 
 
   useEffect(() => {
