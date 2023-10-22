@@ -1,9 +1,9 @@
 .authModal {
     background: linear-gradient(180deg, #1B1B1B 0%, #141414 100%), #1E1E1E;
-    @apply flex justify-between flex-col h-screen items-center
+    @apply flex justify-between flex-col h-screen items-center duration-[50ms] relative py-6 px-4 md:px-6
 }
 
-.container{
-    @apply flex w-screen items-center justify-between py-6 px-4 md:px-6 transition-all duration-[50ms]
+.header{
+    @apply flex w-full justify-between transition-all relative
 }
 

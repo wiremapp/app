@@ -11,18 +11,18 @@ import TextInputComponent from "../units/textInput";
 export const AuthModalComponent = (props) => {
   return (
     <div className={styles.authModal}>
-      <div className={styles.container}>
-        <div className="flex w-1/3 justify-start">
+      <div className={styles.header}>
+        <div className="flex  justify-start z-10">
           <HiXMark
             size={40}
             className="opacity-70 hover:opacity-100 hover:scale-110 transition-all duration-300"
             onClick={() => props.state.setModal(!props.state.modal)}
           />
         </div>
-        <div className="flex w-1/3 justify-center">
+        <div className="flex absolute w-full justify-center z-1">
           <LogoComponent />
         </div>
-        <div className="flex w-1/3 justify-end">
+        <div className="flex justify-end z-10">
           <Button
             href="/signin"
             aria-label={"Sign In"}
