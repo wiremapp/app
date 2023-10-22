@@ -15,14 +15,16 @@ function App({
   session: Session;
 }>) {
   const { t } = useTranslation();
-  const { auth, isElectron, isPWA } = useContext(UIStates);
+  const { auth, isElectron, isPWA,jsEnabled } = useContext(UIStates);
+
+
 
   return (
     <SessionProvider session={pageProps.session} refetchInterval={0}>
       <UIStatesProvider>
         <I18nextProvider i18n={localeManager}>
           <ThemeProvider attribute="class">
-            <div className={isPWA || isElectron ? "select-none" : ""}></div>
+            <div className={isPWA || isElectron ? "select-none" : ""}>
             <Component
               {...{
                 ...pageProps,
@@ -31,6 +33,7 @@ function App({
                 locale: { t, manager: localeManager },
               }}
             />
+            </div>
           </ThemeProvider>
         </I18nextProvider>
       </UIStatesProvider>
