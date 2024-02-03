@@ -1,9 +1,9 @@
+import React from "react";
 import type { Preview } from "@storybook/react";
-import "@/styles/globals.css";
+import * as NextImage from "next/image";
 import i18n from '../src/i18n';
 import { I18nextProvider } from "react-i18next";
-import React from "react";
-import * as NextImage from "next/image";
+import "@/styles/globals.css";
 
 const OriginalNextImage = NextImage.default;
 
