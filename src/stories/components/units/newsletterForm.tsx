@@ -28,7 +28,7 @@ export const NewsLetterFormComponent = (props) => {
             </span>
           )
         : null}
-      <div className="space-x-1 flex">
+      <div className="space-x-2 flex">
 
       <TextInputComponent
         onChange={(e) => setEmail(e.target.value)}
